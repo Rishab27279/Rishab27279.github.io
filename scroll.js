@@ -1,43 +1,68 @@
-// Function to show the popup with dynamic content
-function showPopup(heading, subheading, body) {
+document.addEventListener("DOMContentLoaded", function() {
+    // ======================
+    // Scroll Animations
+    // ======================
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        rootMargin: '-100px 0px',
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.scroll-animation').forEach(element => {
+        observer.observe(element);
+    });
+
+    // ======================
+    // Popup Functionality
+    // ======================
     const popup = document.getElementById('popup-1');
+    
+    // Handle Show Details buttons
+    document.querySelectorAll('[data-popup-trigger]').forEach(button => {
+        button.addEventListener('click', () => {
+            const title = button.dataset.popupTitle;
+            const content = button.dataset.popupContent;
+            showPopup(title, content);
+        });
+    });
 
-    // Populate the popup with dynamic content
-    document.getElementById('popupHeading').textContent = heading || 'Default Heading';
-    document.getElementById('popupSubheading').textContent = subheading || 'Default Subheading';
-    document.getElementById('popupBody').textContent = body || 'Default body text goes here.';
+    // Handle Close button
+    const closeButton = document.getElementById('popupClose');
+    if (closeButton) {
+        closeButton.addEventListener('click', togglePopup);
+    }
 
-    // Show the popup
-    popup.classList.add('active');
-}
-
-// Function to close the popup
-function closePopup() {
-    const popup = document.getElementById('popup-1');
-
-    // Hide the popup
-    popup.classList.remove('active');
-}
-
-// Attach event listeners to buttons
-document.querySelectorAll('.show-details-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        // Get data attributes from the clicked button
-        const heading = button.getAttribute('data-heading');
-        const subheading = button.getAttribute('data-subheading');
-        const body = button.getAttribute('data-body');
-
-        // Show the popup with the retrieved data
-        showPopup(heading, subheading, body);
+    // Handle Background Click
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) togglePopup();
     });
 });
 
-// Attach event listener to close button
-document.getElementById('popupClose').addEventListener('click', closePopup);
-
-// Close popup when clicking outside of it
-document.getElementById('popup-1').addEventListener('click', (e) => {
-    if (e.target.id === 'popup-1') {
-        closePopup();
+// ======================
+// Popup Functions
+// ======================
+function showPopup(title, subtitle, content) {
+    const popup = document.getElementById('popup-1');
+    if (popup) {
+        // Dynamically set content
+        document.getElementById('popupHeading').textContent = title || 'Default Heading';
+        document.getElementById('popupSubheading').textContent = subtitle || 'Default Subheading';
+        document.getElementById('popupBody').textContent = content || 'Default body text goes here.';
+        
+        // Show the popup
+        popup.classList.add('active');
     }
-});
+}
+
+function togglePopup() {
+    const popup = document.getElementById('popup-1');
+    if (popup) {
+        popup.classList.toggle('active');
+        document.body.style.overflow = popup.classList.contains('active') ? 'hidden' : 'auto';
+    }
+}
