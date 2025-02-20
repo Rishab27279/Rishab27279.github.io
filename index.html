@@ -652,49 +652,57 @@
     <section id="project" class="research-section scroll-animation">
         <h2 class="section-title">Projects</h2>  <!-- Change main heading here -->
         <div class="research-container">
-                       <!-- Project 1 -->
+            <!-- Project 1 -->
             <div class="research-box scroll-animation">
-                <h3>AI-Driven Document Processing</h3>
-                <p style="color: white;">Brief description...</p>
+                <h3>AI-Driven Document Processing</h3>  <!-- Project Title -->
+                <p style="color: white;
+                    font-size: 0.4
+                    overflow-wrap: break-word;
+                    word-break: break-word;
+                    white-space: normal;
+                    overflow: hidden;
+                    line-height: 1.5;
+                    padding: 8px;
+                    box-sizing: border-box;">
+            The Agentic AI combines DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization, using PDF Plumber and Langchain. It achieves 92% accuracy in entity extraction and 88% ROUGE-L score in summarization, reducing technical reports by 60-70% while maintaining key insights.
+                </p>
                 <button class="show-details-btn" 
-                        data-heading="AI-Driven Document Processing" 
-                        data-subheading="Document AI and Summarization" 
-                        data-body="The Agentic AI combines DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization, using PDF Plumber and Langchain. It achieves 92% accuracy in entity extraction and 88% ROUGE-L score in summarization, reducing technical reports by 60-70% while maintaining key insights.">
-                    Show Details
-                </button>
+                        data-popup-trigger 
+                        data-title="AI Chat System" 
+                        data-content="Implemented real-time response generation with 95% accuracy...">Show Details</button>
             </div>
 
             <!-- Project 2 -->
             <div class="research-box scroll-animation">
-                <h3>E-Commerce Analytics Dashboard</h3>
-                <p style="color: white;">Brief description...</p>
-                <button class="show-details-btn" 
-                        data-heading="E-Commerce Analytics Dashboard" 
-                        data-subheading="Data Visualization Platform" 
-                        data-body="Integrated with major e-commerce APIs to create a dashboard that visualizes sales trends, customer behavior, and product performance.">
-                    Show Details
-                </button>
+                <h3>E-Commerce Analytics Dashboard</h3>  <!-- Project Title -->
+                <p style="color: white;">Data Visualization</p>  <!-- Subheading -->
+                <p style="color: white;">Developed a context-aware chatbot using transformer architectures...<!-- Body --></p>
+                <button class="show-details-btn"
+                        data-popup-trigger
+                        data-title="Analytics Platform"
+                        data-content="Integrated with major e-commerce APIs...">Show Details</button>
             </div>
 
             <!-- Project 3 -->
             <div class="research-box scroll-animation">
-                <h3>Mobile Health Tracker</h3>
-                <p style="color: white;">Brief description...</p>
-                <button class="show-details-btn" 
-                        data-heading="Mobile Health Tracker" 
-                        data-subheading="IoT & Wearable Devices" 
-                        data-body="Implemented real-time biometric tracking using IoT devices, providing users with personalized health insights and fitness recommendations.">
-                    Show Details
-                </button>
+                <h3>Mobile Health Tracker</h3>  <!-- Project Title -->
+                <p style="color: white;">IoT & Wearables</p>  <!-- Subheading -->
+                <p style="color: white;">Designed a fitness monitoring system...<!-- Body --></p>
+                <button class="show-details-btn"
+                        data-popup-trigger
+                        data-title="Health Tracker"
+                        data-content="Implemented real-time biometric tracking...">Show Details</button>
             </div>
 
-            <!-- Popup Structure -->
+            <!-- Pop-up Structure (Keep unchanged) -->
             <div id="popup-1" class="popup">
                 <div class="popup-content">
+                    <h2 id="popupTitle"></h2>
+                    <p id="popupContent"></p>
                     <button id="popupClose">Close</button>
-                    <h2 id="popupHeading"></h2> <!-- Heading -->
-                    <h3 id="popupSubheading"></h3> <!-- Subheading -->
-                    <p id="popupBody"></p> <!-- Body -->
+                    <h2 id="popupHeading">Heading</h2>
+                    <h3 id="popupSubheading">Subheading</h3>
+                    <p id="popupBody">This is the body text of the popup. You can add detailed information here about your research project or any other content.</p>
                 </div>
             </div>
         </div>
