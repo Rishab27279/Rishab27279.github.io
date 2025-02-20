@@ -32,7 +32,8 @@
     max-width: 1200px;
     width: 93.6%;
     max-height: 460px;
-    height: 93.6%
+    height: auto; /* Allow height to adjust automatically */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 /* Heading */
