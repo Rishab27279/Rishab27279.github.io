@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishab Kumar Pattnaik|Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="styles/pop_animation.css">
+    <style>
+    :root {
+        --neon-blue: #00f3ff;
+        --dark-bg: #0a192f;
+        --text-secondary: #c0c0c0;
+        --box-bg: #001f3f;
+        --text-color: #ffffff;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+    }
+
+    body {
+        background: var(--dark-bg);
+        margin: 0;
+        font-family: 'Balsamiq Sans', cursive;
+        overflow-x: hidden;
+        display: block;
+    }
+
+    .scroll-animation {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .scroll-animation.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Neon Glow Animation */
+    @keyframes neonReveal {
+        0% {
+            opacity: 0;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        100% {
+            opacity: 1;
+            text-shadow: 0 0 20px var(--neon-blue),
+                         0 0 30px var(--neon-blue);
+        }
+    }
+
+    .neon-reveal {
+        animation: neonReveal 1s ease-out forwards;
+    }
+
+    /* Navigation */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--dark-bg);
+        z-index: 1000;
+        padding: 1rem 0;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: var(--neon-blue);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        text-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    /* Header Section */
+    .header-section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        scroll-snap-align: start;
+        position: relative;
+    }
+
+    .profile-photo {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 10px solid var(--neon-blue);
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+
+    .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .main-heading {
+        font-family: "Belluccia", cursive;
+        color: var(--neon-blue);
+        font-size: 2.8rem;
+        margin: 0 0 0.5rem 0;
+        text-align: center;
+    }
+
+    .sub-heading {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        max-width: 600px;
+        text-align: center;
+        line-height: 1.5;
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    /* Button Container */
+    .button-container {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .neon-btn {
+        padding: 15px 30px;
+        border: 3px solid var(--neon-blue);
+        background: transparent;
+        color: var(--neon-blue);
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .neon-btn i {
+        margin-right: 10px;
+    }
+
+
+        @keyframes iconBounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .neon-btn:hover {
+        background: var(--neon-blue);
+        color: var(--dark-bg);
+        animation: iconBounce 0.5s ease infinite;
+    }
+
+    /* Experience Section */
+    .experience-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+    }
+
+    .section-title {
+        font-size: 4rem;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .experience-container {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .experience-box {
+        min-width: 300px;
+        height: 400px;
+        background: var(--box-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .experience-box h3 {
+        color: var(--neon-blue);
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .research-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+    }
+
+    .research-container {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .research-box {
+        min-width: 300px;
+        height: 400px;
+        background: var(--box-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .research-box h3 {
+        color: var(--neon-blue);
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .project-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+    }
+
+    .project-container {
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .project-box {
+        min-width: 300px;
+        height: 400px;
+        background: var(--box-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project-box h3 {
+        color: var(--neon-blue);
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+<style>
+   .skills-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .skill-category {
+        width: 100%;
+    }
+
+    .skill-category h3 {
+        color: var(--neon-blue);
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        padding-left: 1rem;
+        border-left: 4px solid var(--neon-blue);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .skill-box {
+        border: 2px solid var(--neon-blue);
+        border-radius: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .skill-box:hover {
+        background: var(--neon-blue);
+        border-color: var(--neon-blue);
+        box-shadow: 0 0 15px var(--neon-blue);
+        animation: iconBounce 0.5s ease infinite;
+        color: var(--dark-bg);
+   }
+
+    .skill-box:hover * {
+        color: var(--dark-bg) !important;
+        animation: none; /* Remove individual animations */
+  }
+
+    .skill-box:hover {
+        transform: none;
+  }
+
+
+    .skill-icon {
+        font-size: 2rem;
+        color: var(--neon-blue);
+    }
+
+    .skill-name {
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--white); 
+}
+
+        .education-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+    }
+
+    .education-box {
+        background: var(--dark-bg);
+        border: 3px solid var(--neon-blue);
+        border-radius: 15px;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2.5rem;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+    }
+
+    .education-heading {
+        color: var(--neon-blue);
+        font-size: 2.2rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+    }
+
+    .degree-subheading {
+        color: #ffffff;
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .location-text {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .coursework-heading {
+        color: var(--neon-blue);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .coursework-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .coursework-item {
+        color: #ffffff;
+        font-size: 1rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .coursework-item::before {
+        content: "▹";
+        color: var(--neon-blue);
+        position: absolute;
+        left: 0;
+    }
+
+    .certificates-section {
+        min-height: 100vh;
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+    }
+
+    .certificates-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 1rem;
+    }
+
+    .certificate-box {
+        background: var(--dark-bg);
+        border: 2px solid var(--neon-blue);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .certificate-box:hover {
+        background: var(--neon-blue);
+        border-color: var(--neon-blue);
+        box-shadow: 0 0 15px var(--neon-blue);
+        animation: iconBounce 0.5s ease infinite;
+        color: var(--dark-bg);
+   }
+
+    .certificate-box:hover * {
+        color: var(--dark-bg) !important;
+        animation: none; /* Remove individual animations */
+  }
+
+    .certificate-box:hover {
+        transform: none;
+  }
+
+    .certificate-heading {
+        color: var(--neon-blue);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .certificate-link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    .certificate-link:hover {
+        color: var(--neon-blue);
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .main-heading {
+            font-size: 2rem;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+        }
+
+        .sub-heading {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .experience-box {
+            min-width: 250px;
+            height: 350px;
+        }
+
+        .research-box {
+            min-width: 250px;
+            height: 350px;
+        }
+
+        .project-box {
+            min-width: 250px;
+            height: 350px;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .skill-box {
+            background: var(--dark-bg);
+            border: 2px solid var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        skill-box:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            transform: translateY(-5px);
+        }
+
+        .education-box {
+            padding: 1.5rem;
+        }
+        
+        .coursework-list {
+            grid-template-columns: 1fr;
+        }
+
+        .certificates-container {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#experience">Experience</a>
+            <a href="#research">Research & Publications</a>
+            <a href="#project">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#certificates">Certificates</a>
+        </div>
+    </nav>
+
+    <section id="home" class="header-section scroll-animation">
+        <div class="profile-photo">
+            <img src="your-photo.jpg" alt="Profile Photo" class="scroll-animation">
+        </div>
+        <h1 class="main-heading">Hi, Myself Rishab Kumar Pattnaik</h1>
+        <p class="sub-heading scroll-animation">
+            Machine Learning Engineer specializing in Computer Vision, developing and implementing advanced deep learning architectures including CNNs and Transformers, with a current focus on Generative AI applications.
+        </p>
+        <div class="button-container scroll-animation">
+            <button class="neon-btn" onclick="window.open('your-resume-link', '_blank')">
+                <i class="fas fa-file-alt"></i>View Resume
+            </button>
+            <button class="neon-btn" onclick="window.open('https://github.com/Riiishaab', '_blank')">
+                <i class="fab fa-github"></i>GitHub
+            </button>
+            <button class="neon-btn" onclick="window.open('https://www.linkedin.com/in/rishab-kumar-pattnaik-6a9939249/', '_blank')">
+                <i class="fab fa-linkedin"></i>LinkedIn
+            </button>
+            <button class="neon-btn" onclick="window.location.href='mailto:f20220491@hyderabad.bits-pilani.ac.in'">
+                <i class="fas fa-envelope"></i>Email
+            </button>
+        </div>
+    </section>
+
+
+    <section id="experience" class="experience-section scroll-animation">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-container">
+            <div class="experience-box scroll-animation">
+                <h3>Job Title 1</h3>
+                <p>Company Name</p>
+                <p>Brief description of your role and achievements in this position.</p>
+            </div>
+            <div class="experience-box scroll-animation">
+                <h3>Job Title 2</h3>
+                <p>Company Name</p>
+                <p>Brief description of your role and achievements in this position.</p>
+            </div>
+            <div class="experience-box scroll-animation">
+                <h3>Job Title 3</h3>
+                <p>Company Name</p>
+                <p>Brief description of your role and achievements in this position.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="research" class="research-section scroll-animation">
+        <h2 class="section-title">Research & Publications</h2>
+        <div class="research-container">
+            <div class="research-box scroll-animation">
+                <h3>Research Project 1</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+            </div>
+            <div class="research-box scroll-animation">
+                <h3>Research Project 2</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+            </div>
+            <div class="research-box scroll-animation">
+                <h3>Research Project 3</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="project" class="research-section scroll-animation">
+        <h2 class="section-title">Projects</h2>
+        <div class="research-container">
+            <!-- Research Box 1 -->
+            <div class="research-box scroll-animation">
+                <h3>Research Project 1</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+                <button class="neon-btn" onclick="showPopup('Research Project 1', 'Details about Research Project 1')">
+                    Show Details
+                </button>
+            </div>
+
+            <!-- Research Box 2 -->
+            <div class="research-box scroll-animation">
+                <h3>Research Project 2</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+                <button class="neon-btn" onclick="showPopup('Research Project 2', 'Details about Research Project 2')">
+                    Show Details
+                </button>
+            </div>
+
+            <!-- Research Box 3 -->
+            <div class="research-box scroll-animation">
+                <h3>Research Project 3</h3>
+                <p>Domain/Field</p>
+                <p>Brief description of your research work, findings, and contributions.</p>
+                <button class="neon-btn" onclick="showPopup('Research Project 3', 'Details about Research Project 3')">
+                    Show Details
+                </button>
+            </div>
+
+                <!-- Pop-up Structure -->
+            <div class="popup" id="popup-1">
+                <div class="overlay" onclick="togglePopup()"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <h1 id="popupTitle"></h1>
+                    <p id="popupContent"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="skills-section">
+        <h2 class="section-title scroll-animation">Skills</h2>
+        <div class="skills-container">
+            <!-- Programming Category -->
+            <div class="skill-category scroll-animation">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-box scroll-animation">
+                        <i class="fab fa-python" style="color: #3776ab; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: white">Python</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <span style="color: #004482; font-weight: bold; font-size: 2rem;">C</span>
+                        <span class="skill-name" style="color: white">C Programming</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-database" style="color: #f29111; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: white">SQL</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fab fa-git-alt" style="color: #f34f29; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: white">Git</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-microchip" style="color: #1a237e; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: white">Verilog</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frameworks & Libraries Category -->
+            <div class="skill-category scroll-animation">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-grid">
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-fire" style="color: #EE4C2C; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #EE4C2C">PyTorch</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-project-diagram" style="color: #FF6F00; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FF6F00">TensorFlow</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-eye" style="color: #007BFF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #007BFF">Computer Vision</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-robot" style="color: #F7931E; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #F7931E">Scikit-learn</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-feather" style="color: #D00000; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #D00000">Keras</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-cube" style="color: #4D77CF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #4D77CF">NumPy</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-cube" style="color: #47A141; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #47A141">MatPlotLib</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-paw" style="color: #150458; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #150458">Pandas</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-water" style="color: #1E90FF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #1E90FF">PyWavelets</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-book" style="color: #F37626; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #F37626">JupyterLab</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fab fa-linux" style="color: white; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: white">Ollama</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-robot" style="color: #FFD21E; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FFD21E">Hugging Face</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-leaf" style="color: #47A141; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #47A141">Overleaf</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category scroll-animation">
+                <h3>Domain Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-brain" style="color: #FFD700; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FFD700">Machine Learning</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-network-wired" style="color: #00FF00; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #00FF00">Deep Learning</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-magic" style="color: #FF4500; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FF4500">Generative AI</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-comments" style="color: #1E90FF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #1E90FF">LLM</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                    <i class="fas fa-sliders-h" style="color: #FF1493; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FF1493">Fine-Tuning</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-keyboard" style="color: #FFFFFF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FFFFFF">Prompt Tuning</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-wave-square" style="color: #00FFFF; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #00FFFF">Digital Signal Processing</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-microchip" style="color: #FFD700; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FFD700">Computer Architecture</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-project-diagram" style="color: #00FA9A; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #00FA9A">VLSI</span>
+                    </div>
+                    <div class="skill-box scroll-animation">
+                        <i class="fas fa-cogs" style="color: #FF6347; font-size: 2rem;"></i>
+                        <span class="skill-name" style="color: #FF6347">Digital Design</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="education" class="education-section scroll-animation">
+        <h2 class="section-title">Education</h2>
+        <div class="education-box scroll-animation">
+            <h2 class="education-heading">Birla Institute of Technology and Science, Pilani</h2>
+            <h3 class="degree-subheading">Bachelor of Engineering in Electronics and Communication Engineering</h3>
+            <p class="location-text">Hyderabad, India • Currently Studying</p>
+            
+            <h4 class="coursework-heading">Relevant Coursework</h4>
+            <ul class="coursework-list">
+                <li class="coursework-item scroll-animation">Machine Learning for Electronics Engineer</li>
+                <li class="coursework-item scroll-animation">Neural Network and Fuzzy Logic</li>
+                <li class="coursework-item scroll-animation">Deep Learning</li>
+                <li class="coursework-item scroll-animation">Digital Signal Processing</li>
+                <li class="coursework-item scroll-animation">Signals and Systems</li>
+                <li class="coursework-item scroll-animation">Computer Architecture</li>
+                <li class="coursework-item scroll-animation">Microprocessor and Interfacing</li>
+                <li class="coursework-item scroll-animation">Digital Design</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="certificates" class="certificates-section scroll-animation">
+        <h2 class="section-title">Certificates</h2>
+        <div class="certificates-container">
+            <div class="certificate-box scroll-animation">
+                <h3 class="certificate-heading">Deep Learning Specialization</h3>
+                <a href="#" class="certificate-link">https://coursera.org/verify/XYZ123</a>
+            </div>
+            
+            <div class="certificate-box scroll-animation">
+                <h3 class="certificate-heading">Generative AI Using LLM</h3>
+                <a href="#" class="certificate-link">https://coursera.org/verify/ABC456</a>
+            </div>
+
+            <div class="certificate-box scroll-animation">
+                <h3 class="certificate-heading">Coming soon</h3>
+                <a href="#" class="certificate-link">...</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="scroll.js?v=2"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
