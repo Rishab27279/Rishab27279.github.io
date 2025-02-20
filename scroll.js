@@ -34,3 +34,13 @@ function togglePopup() {
 // Add to your JS:
 document.getElementById('popupClose').addEventListener('click', togglePopup);
 
+// Add to your scroll.js
+document.querySelectorAll('.show-details-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const title = button.dataset.title;
+    const content = button.dataset.content;
+    showPopup(title, content);
+  });
+});
+
+
