@@ -46,13 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
 // ======================
 // Popup Functions
 // ======================
-function showPopup(title, content) {
+function showPopup(title, subtitle, content) {
     const popup = document.getElementById('popup-1');
     if (popup) {
-        document.getElementById('popupTitle').textContent = title;
-        document.getElementById('popupContent').textContent = content;
+        // Set the content dynamically
+        document.getElementById('popupHeading').textContent = title;
+        document.getElementById('popupSubheading').textContent = subtitle;
+        document.getElementById('popupBody').textContent = content;
+
+        // Show the popup
         popup.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
     }
 }
 
