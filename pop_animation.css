@@ -38,3 +38,42 @@ button {
 button:hover {
     background: #0088cc;
 }
+
+.show-details-btn {
+  /* Basic styling */
+  padding: 12px 24px;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+  /* Box styling */
+  border-radius: 8px; /* Rounded corners [1][7] */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Depth effect [1][4] */
+  position: relative;
+  transition: all 0.3s ease; /* Smooth transitions [1][8] */
+  
+  /* Optional decorative elements */
+  border: 2px solid #3498db; /* Border accent [1][2] */
+}
+
+/* Hover effects */
+.show-details-btn:hover {
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* Enhanced shadow [4] */
+  background: #34495e;
+  border-color: #2980b9;
+}
+
+/* Optional gradient version */
+.show-details-btn.gradient {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border: none;
+}
+
+/* Modern glassmorphism effect */
+.show-details-btn.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
