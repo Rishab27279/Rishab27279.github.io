@@ -83,3 +83,26 @@
   background: rgba(0,0,0,0.6);
   z-index: 999;
 }
+
+/* Popup Styles */
+#popup-1 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+#popup-1.active {
+  display: block !important; /* Force visibility */
+}
+
+#popupClose {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
