@@ -29,8 +29,10 @@
     border-radius: 8px;
     border: 2px solid #0ff; /* Cyan border */
     box-shadow: 0px 10px 20px rgba(0, 255, 255, 0.5); /* Neon glow effect */
-    max-width: 600px;
-    width: 90%;
+    max-width: 1200px;
+    width: 93.6%;
+    max-height: 460px;
+    height: 93.6%
 }
 
 /* Heading */
