@@ -6,7 +6,7 @@
     transform: translate(-50%, -50%);  /* Perfect centering */
     width: 63%;
     height: 63%;
-    background-color: #07e8e8;
+    background-color: #001f3f !important;
     z-index: 1000;
     
     /* Additional styling for better appearance */
