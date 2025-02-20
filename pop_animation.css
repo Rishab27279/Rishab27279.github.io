@@ -1,28 +1,37 @@
 .popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Perfect centering */
+    width: 70%;
+    height: 70%;
     background-color: #07e8e8;
-
     z-index: 1000;
+    
+    /* Additional styling for better appearance */
+    border-radius: 10px;
+    padding: 3px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
+/* Optional: Animation when popup appears */
 .popup.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    animation: fadeIn 0.3s;
 }
 
 .popup-content {
-    background: #07e8e8;
+    background: #001f3f;
     padding: 2rem;
     border: 2px solid #0ff;
     border-radius: 8px;
     color: #fff;
-    max-width: 600px;
+    width: 800px;          /* Fixed width */
+    max-width: 90%;        /* Responsive limit */
+    height: 500px;         /* Fixed height */
+    min-height: 400px;     /* Minimum height */
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
@@ -86,3 +95,4 @@ button:hover {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
