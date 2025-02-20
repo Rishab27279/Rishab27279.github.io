@@ -47,8 +47,8 @@
 }
 
 button {
-    background: #00f;  /* Neon Blue */
-    color: #fff;
+    background: transparent;
+    color: var(--neon-blue);
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
@@ -56,7 +56,11 @@ button {
 }
 
 button:hover {
-    background: #0088cc;
+    background: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    animation: iconBounce 0.5s ease infinite;
+    color: var(--dark-bg);
 }
 
 .show-details-btn {
