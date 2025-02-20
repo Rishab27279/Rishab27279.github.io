@@ -11,7 +11,7 @@
     
     /* Additional styling for better appearance */
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
 }
@@ -29,14 +29,16 @@
     border-radius: 8px;
     color: #fff;
     width: 1600px;          /* Fixed width */
-    max-width: 93%;        /* Responsive limit */
+    max-width: 93.5%;        /* Responsive limit */
     height: 470px;         /* Fixed height */
     min-height: 400px;     /* Minimum height */
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
 #popupClose {
-    margin-top: 1rem;
+    position: absolute;
+    top: rem;
+    right: 3rem;
     padding: 8px 16px;
     background: transparent;
     border: 1px solid #0ff;
