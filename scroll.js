@@ -66,3 +66,30 @@ function togglePopup() {
         document.body.style.overflow = popup.classList.contains('active') ? 'hidden' : 'auto';
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    // Handle Show Details buttons
+    document.querySelectorAll('[data-popup-trigger]').forEach(button => {
+        button.addEventListener('click', () => {
+            const popupId = button.dataset.popupTrigger;
+            const popup = document.getElementById(popupId);
+            
+            if(popup) {
+                popup.querySelector('.popup-heading').textContent = button.dataset.heading;
+                popup.querySelector('.popup-subheading').textContent = button.dataset.subheading;
+                popup.querySelector('.popup-body').textContent = button.dataset.body;
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Handle close buttons and background click
+    document.addEventListener('click', (e) => {
+        if(e.target.classList.contains('popup-close') || e.target.classList.contains('popup')) {
+            document.querySelectorAll('.popup').forEach(popup => {
+                popup.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
