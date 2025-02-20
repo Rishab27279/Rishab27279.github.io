@@ -635,9 +635,7 @@
                 <h3>Research Project 1</h3>
                 <p>Domain/Field</p>
                 <p>Brief description of your research work, findings, and contributions.</p>
-                <button class="neon-btn" onclick="showPopup('Research Project 1', 'Details about Research Project 1')">
-                    Show Details
-                </button>
+                <button class="show-details-btn" data-title="Research Project 1" data-content="Description">Show Details</button>
             </div>
 
             <!-- Research Box 2 -->
@@ -645,9 +643,7 @@
                 <h3>Research Project 2</h3>
                 <p>Domain/Field</p>
                 <p>Brief description of your research work, findings, and contributions.</p>
-                <button class="neon-btn" onclick="showPopup('Research Project 2', 'Details about Research Project 2')">
-                    Show Details
-                </button>
+                <button class="show-details-btn" data-title="Research Project 2" data-content="Description">Show Details</button>
             </div>
 
             <!-- Research Box 3 -->
@@ -655,18 +651,15 @@
                 <h3>Research Project 3</h3>
                 <p>Domain/Field</p>
                 <p>Brief description of your research work, findings, and contributions.</p>
-                <button class="neon-btn" onclick="showPopup('Research Project 3', 'Details about Research Project 3')">
-                    Show Details
-                </button>
+                <button class="show-details-btn" data-title="Research Project 3" data-content="Description">Show Details</button>
             </div>
 
                 <!-- Pop-up Structure -->
-            <div class="popup" id="popup-1">
-                <div class="overlay" onclick="togglePopup()"></div>
-                <div class="content">
-                    <button id="popupClose">Close</button>
-                    <h1 id="popupTitle"></h1>
+            <div id="popup-1" class="scroll-animation">
+                <div class="popup-content">
+                    <h2 id="popupTitle"></h2>
                     <p id="popupContent"></p>
+                    <button id="popupClose">Close</button>
                 </div>
             </div>
         </div>
