@@ -30,3 +30,7 @@ function togglePopup() {
         popup.classList.toggle('active');
     }
 }
+
+// Add to your JS:
+document.getElementById('popupClose').addEventListener('click', togglePopup);
+
