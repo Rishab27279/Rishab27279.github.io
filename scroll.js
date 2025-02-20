@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
 function showPopup(title, subtitle, content) {
     const popup = document.getElementById('popup-1');
     if (popup) {
-        // Set the content dynamically
-        document.getElementById('popupHeading').textContent = title;
-        document.getElementById('popupSubheading').textContent = subtitle;
-        document.getElementById('popupBody').textContent = content;
-
+        // Dynamically set content
+        document.getElementById('popupHeading').textContent = title || 'Default Heading';
+        document.getElementById('popupSubheading').textContent = subtitle || 'Default Subheading';
+        document.getElementById('popupBody').textContent = content || 'Default body text goes here.';
+        
         // Show the popup
         popup.classList.add('active');
     }
