@@ -276,7 +276,24 @@
 .project-box h3 {
     color: #000080 !important; /* Dark blue color */
     font-size: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.project-box p:first-of-type {
+    font-size: 1.1rem; /* Subheading size */
+    color: #ffffff; 
+    margin: 0 0 1rem 0; /* Top | Right/Left | Bottom */
+    justify-content: flex-start; /* Change from center */
+    align-items: flex-start; /* Align left */
+    text-align: left; /* Text alignment */
+    padding: 2rem 1.5rem; /* Inner spacing */
+}
+
+.project-box p:last-of-type {
+  font-size: 0.9rem; /* Body text size */
+  line-height: 1.4;
+  padding: 0 1rem;
+  margin: 0 0 2rem 0;
 }
 <style>
    .skills-section {
@@ -513,6 +530,12 @@
             min-width: 250px;
             height: 350px;
         }
+        .project-box h3 {
+            font-size: 1.2rem;
+        }
+        project-box p:first-of-type {
+            font-size: 1rem;
+        }
 
         .skills-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -632,8 +655,8 @@
             <!-- Research Box 1 -->
             <div class="research-box scroll-animation">
                 <h3>Research Project 1</h3>
-                <p style="color: white;">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
-                <p style="color: white;">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq.</p>
+                <p style="color: white;">Domain/Field</p>
+                <p style="color: white;">Brief description of your research work, findings, and contributions.</p>
                 <button class="show-details-btn" data-popup-trigger data-title="Research Project 1" data-content="Brief description of your research work, findings, and contributions.">Show Details</button>
 
             </div>
