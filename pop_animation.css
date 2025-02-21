@@ -126,21 +126,21 @@ button:hover {
 /* Popup Heading */
 .popup-heading {
     color: #07e8e8;    /* Neon blue color */
-    font-size: 2.2rem; /* Increased size */
+    font-size: 1.8rem; /* Increased size */
     margin-bottom: 1rem;
 }
 
 /* Popup Subheading */
 .popup-subheading {
     color: #ffcc00;    /* Bright yellow color */
-    font-size: 1.2rem; /* Medium size */
+    font-size: 1rem; /* Medium size */
     margin-bottom: 0.8rem;
 }
 
 /* Popup Body Text */
 .popup-body {
     color: #ffffff;    /* Pure white */
-    font-size: 0.7rem;   /* Standard readable size */
+    font-size: 0.9rem;   /* Standard readable size */
     line-height: 1.6;  /* Better readability */
     margin-bottom: 1.5rem;
 }
