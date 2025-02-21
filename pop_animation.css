@@ -140,7 +140,7 @@ button:hover {
 /* Popup Body Text */
 .popup-body {
     color: #ffffff;    /* Pure white */
-    font-size: 1rem;   /* Standard readable size */
+    font-size: 0.7rem;   /* Standard readable size */
     line-height: 1.6;  /* Better readability */
     margin-bottom: 1.5rem;
 }
