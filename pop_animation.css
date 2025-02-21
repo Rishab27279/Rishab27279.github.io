@@ -122,3 +122,25 @@ button:hover {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Popup Heading */
+.popup-heading {
+    color: #07e8e8;    /* Neon blue color */
+    font-size: 2.2rem; /* Increased size */
+    margin-bottom: 1rem;
+}
+
+/* Popup Subheading */
+.popup-subheading {
+    color: #ffcc00;    /* Bright yellow color */
+    font-size: 1.2rem; /* Medium size */
+    margin-bottom: 0.8rem;
+}
+
+/* Popup Body Text */
+.popup-body {
+    color: #ffffff;    /* Pure white */
+    font-size: 1rem;   /* Standard readable size */
+    line-height: 1.6;  /* Better readability */
+    margin-bottom: 1.5rem;
+}
