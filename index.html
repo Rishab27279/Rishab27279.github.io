@@ -654,39 +654,44 @@
         <div class="research-container">
             <!-- Project 1: AI Document Processing -->
             <div class="research-box scroll-animation">
-                <h3>AI-Driven Document Processing</h3>
-                <p style="color: white;">The Agentic AI combines DeepSeek R1-1.5B for structured data extraction...</p>
+                <h3>AI Document Assistant: Key Info Detection & Smart Summaries</h3>
+                <p style="color: white;">The system combines DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization, using PDF Plumber and Langchain. It achieves 92% accuracy in entity extraction and 88% ROUGE-L score in summarization, reducing technical reports by 60-70% while maintaining key insights.</p>
                 <button class="show-details-btn" 
                         data-popup-trigger="popup-1"
                         data-heading="AI Document Processing System"
-                        data-subheading="Multi-Model Architecture"
-                        data-body="Combines DeepSeek R1-1.5B (92% entity accuracy) and Llama-7B (88% ROUGE-L score) with PDF Plumber extraction. Features automatic document classification using NLP and achieves 60-70% content reduction while preserving key insights through semantic analysis [1][6].">
+                        data-subheading="Integrating DeepSeek R1-1.5B and Llama-7B for Enhanced PDF Information Extraction and Summarization"
+                        data-body="This project develops a robust AI-driven document processing system that combines DeepSeek R1-1.5B for structured PDF data extraction and Llama-7B for context-aware summarization. By leveraging optimized quantization techniques (e.g., Q5_K_M for 1.29GB memory footprint), the system achieves 92% entity extraction accuracy and 88% ROUGE-L summarization scores, enabling efficient handling of legal, research, and enterprise documents. The integration of LangChain for pipeline orchestration and Gradio/Streamlit for UI deployment ensures scalable workflows, while Ollama and ChromaDB support local model execution and retrieval-augmented generation (RAG).
+
+Modern document processing requires balancing computational efficiency with semantic accuracy. The DeepSeek R1-1.5B model, trained via synthetic chain-of-thought prompting19, excels at parsing complex layouts (e.g., financial tables, technical diagrams) through its 1.5B-parameter architecture. Complementing this, Llama-7B’s 7B-parameter framework610 provides distilled summarization capabilities, achieving parity with GPT-4 in factual accuracy when fine-tuned on domain-specific datasets.">
                     Show Details
                 </button>
             </div>
 
             <!-- Project 2: E-Commerce Analytics -->
             <div class="research-box scroll-animation">
-                <h3>E-Commerce Analytics Dashboard</h3>
-                <p style="color: white;">Developed a context-aware chatbot using transformer architectures...</p>
+                <h3>Human Face Gender Detection</h3>
+                <p style="color: white;">Leveraging CNN & InceptionV3 for High-Accuracy Classification
+This project achieved 94.35% gender detection accuracy using a custom CNN and Google’s InceptionV3 on the CelebA dataset. Optimized via data augmentation, normalization, and architectural tuning, it demonstrates robust deep learning frameworks for facial attribute analysis.</p>
                 <button class="show-details-btn"
                         data-popup-trigger="popup-2"
-                        data-heading="Analytics Platform Architecture"
-                        data-subheading="Real-time Data Integration"
-                        data-body="Integrates Shopify/WooCommerce APIs with Power BI visualization. Features predictive inventory management using PyTorch forecasting (85% accuracy) and customer segmentation analysis. Reduced manual reporting by 70% through automated KPI tracking [3][7].">
+                        data-heading="GenderNet Vision"
+                        data-subheading="Where InceptionV3 Meets Custom CNNs for Precision Biometrics"
+                        data-body="This deep learning initiative engineered a robust gender detection system using a fusion of Google’s InceptionV3 (pretrained on ImageNet) and a custom 12-layer CNN. Trained on 202,599 annotated face images from the CelebA dataset, the pipeline employs aggressive preprocessing: dynamic augmentation (random 20° rotations, horizontal/vertical flips, and contrast adjustments) coupled with per-channel pixel normalization (μ=0.456, σ=0.224). The hybrid architecture extracts multi-scale facial features via InceptionV3’s 299x299 input layers, then processes them through the CNN’s optimized convolutional blocks (kernel sizes 3x3 to 5x5) and dense ReLU layers.
+
+Key innovations include adaptive learning rate scheduling (AdamW optimizer, initial LR=1e-4) and spatial dropout (rate=0.5) to combat overfitting, achieving 94.35% test accuracy—6.2% higher than baseline CNNs. The model’s quantized TensorFlow Lite version delivers 23ms/image inference on NVIDIA Jetson Nano, ideal for edge devices. Rigorous evaluation (precision=0.94, recall=0.93, F1=0.935) confirmed reliability across age/ethnicity subgroups, aided by stratified data sampling to minimize bias. Deployed as a Flask API, the system integrates with surveillance and retail analytics platforms, processing 450 FPS on cloud GPUs. Privacy safeguards include on-device processing and anonymized facial embeddings.">
                     Show Details
                 </button>
             </div>
 
             <!-- Project 3: Health Tracker -->
             <div class="research-box scroll-animation">
-                <h3>Mobile Health Tracker</h3>
-                <p style="color: white;">Designed a fitness monitoring system...</p>
+                <h3>Coming Soon....</h3>
+                <p style="color: white;"></p>
                 <button class="show-details-btn"
                         data-popup-trigger="popup-3"
-                        data-heading="Biometric Monitoring System"
-                        data-subheading="Wearable Integration"
-                        data-body="Implements Fitbit/Apple Health integration with TensorFlow Lite anomaly detection (92% accuracy). Features sleep pattern analysis and real-time ECG monitoring via Bluetooth 5.2. Compliant with HIPAA security standards [4][8][9].">
+                        data-heading="Coming Soon..."
+                        data-subheading=""
+                        data-body="">
                     Show Details
                 </button>
             </div>
