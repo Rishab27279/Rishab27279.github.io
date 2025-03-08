@@ -1,570 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishab Kumar Pattnaik|Portfolio</title>
+    <title>Rishab Kumar Pattnaik | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="animations.css">
-    <link rel="stylesheet" href="pop_animation.css">
-    <style>
-    :root {
-        --neon-blue: #00f3ff;
-        --dark-bg: #0a192f;
-        --text-secondary: #c0c0c0;
-        --box-bg: #001f3f;
-        --text-color: #ffffff;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-    }
-
-    body {
-        background: var(--dark-bg);
-        margin: 0;
-        font-family: 'Balsamiq Sans', cursive;
-        overflow-x: hidden;
-        display: block;
-    }
-
-    .scroll-animation {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .scroll-animation.active {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Neon Glow Animation */
-    @keyframes neonReveal {
-        0% {
-            opacity: 0;
-            text-shadow: 0 0 10px var(--neon-blue);
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <script>
+        // Apply theme immediately to prevent flash of wrong theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            // Wait for body to be available
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.add('light-theme');
+                const icon = document.querySelector('#themeToggle i');
+                if (icon) {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
         }
-        100% {
-            opacity: 1;
-            text-shadow: 0 0 20px var(--neon-blue),
-                         0 0 30px var(--neon-blue);
-        }
-    }
-
-    .neon-reveal {
-        animation: neonReveal 1s ease-out forwards;
-    }
-
-    /* Navigation */
-    .nav-container {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: var(--dark-bg);
-        z-index: 1000;
-        padding: 1rem 0;
-    }
-
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-
-    .nav-links a {
-        color: var(--neon-blue);
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        text-shadow: 0 0 10px var(--neon-blue);
-    }
-
-    /* Header Section */
-    .header-section {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 5rem;
-        scroll-snap-align: start;
-        position: relative;
-    }
-
-    <div class="profile-photo">
-        <img src="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg" 
-            alt="Rishab Kumar Pattnaik"
-            style="width:300px;height:300px;">
-    </div>
-        
-    .profile-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .main-heading {
-        font-family: "Belluccia", cursive;
-        color: var(--neon-blue);
-        font-size: 2.8rem;
-        margin: 0 0 0.5rem 0;
-        text-align: center;
-    }
-
-    .sub-heading {
-        color: var(--text-secondary);
-        font-size: 1.2rem;
-        max-width: 600px;
-        text-align: center;
-        line-height: 1.5;
-        margin: 1rem auto;
-        padding: 0 1rem;
-    }
-
-    /* Button Container */
-    .button-container {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-
-    .neon-btn {
-        padding: 15px 30px;
-        border: 3px solid var(--neon-blue);
-        background: transparent;
-        color: var(--neon-blue);
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-        .neon-btn i {
-        margin-right: 10px;
-    }
-
-
-        @keyframes iconBounce {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .neon-btn:hover {
-        background: var(--neon-blue);
-        color: var(--dark-bg);
-        animation: iconBounce 0.5s ease infinite;
-    }
-
-    /* Experience Section */
-    .experience-section {
-        min-height: 100vh;
-        padding: 4rem 2rem;
-        scroll-snap-align: start;
-    }
-
-    .section-title {
-        font-size: 4rem;
-        color: var(--text-color);
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .experience-container {
-        display: flex;
-        gap: 2rem;
-        overflow-x: auto;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .experience-box {
-        min-width: 300px;
-        height: 400px;
-        background: var(--box-bg);
-        border-radius: 10px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .experience-box h3 {
-        color: var(--neon-blue);
-        font-size: 1.5rem;
-        margin: 1rem 0;
-    }
-
-    .research-section {
-        min-height: 100vh;
-        padding: 4rem 2rem;
-        scroll-snap-align: start;
-    }
-
-    .research-container {
-        display: flex;
-        gap: 2rem;
-        overflow-x: auto;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .research-box {
-        min-width: 300px;
-        height: 400px;
-        background: var(--box-bg);
-        border-radius: 10px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .research-box h3 {
-        color: var(--neon-blue);
-        font-size: 1.5rem;
-        margin: 1rem 0;
-    }
-
-.project-section {
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    scroll-snap-align: start;
-}
-
-.project-container {
-    display: flex;
-    gap: 2rem;
-    overflow-x: auto;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.project-box {
-    min-width: 300px;
-    height: 400px;
-    background: #00f3ff !important; /* Neon blue color */
-    border-radius: 10px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.project-box h3 {
-    color: #000080 !important; /* Dark blue color */
-    font-size: 1.5rem;
-    margin-top: 0.2rem;
-}
-
-.project-box p:first-of-type {
-    font-size: 0.8rem; /* Subheading size */
-    color: #ffffff; 
-    margin: 0 0 1rem 0; /* Top | Right/Left | Bottom */
-    justify-content: flex-start; /* Change from center */
-    align-items: flex-start; /* Align left */
-    text-align: left; /* Text alignment */
-    padding: 2rem 1.5rem; /* Inner spacing */
-}
-
-.project-box p:last-of-type {
-  font-size: 0.4rem; /* Body text size */
-  line-height: 1.4;
-  padding: 0 1rem;
-  margin: 0 0 2rem 0;
-}
-<style>
-   .skills-section {
-        min-height: 100vh;
-        padding: 4rem 2rem;
-        scroll-snap-align: start;
-        position: relative;
-        box-sizing: border-box;
-    }
-
-    .skills-container {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .skill-category {
-        width: 100%;
-    }
-
-    .skill-category h3 {
-        color: var(--neon-blue);
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        padding-left: 1rem;
-        border-left: 4px solid var(--neon-blue);
-    }
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .skill-box {
-        border: 2px solid var(--neon-blue);
-        border-radius: 10px;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .skill-box:hover {
-        background: var(--neon-blue);
-        border-color: var(--neon-blue);
-        box-shadow: 0 0 15px var(--neon-blue);
-        animation: iconBounce 0.5s ease infinite;
-        color: var(--dark-bg);
-   }
-
-    .skill-box:hover * {
-        color: var(--dark-bg) !important;
-        animation: none; /* Remove individual animations */
-  }
-
-    .skill-box:hover {
-        transform: none;
-  }
-
-
-    .skill-icon {
-        font-size: 2rem;
-        color: var(--neon-blue);
-    }
-
-    .skill-name {
-    font-size: 1.1rem;
-    text-align: center;
-    color: var(--white); 
-}
-
-        .education-section {
-        min-height: 100vh;
-        padding: 4rem 2rem;
-        scroll-snap-align: start;
-    }
-
-    .education-box {
-        background: var(--dark-bg);
-        border: 3px solid var(--neon-blue);
-        border-radius: 15px;
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 2.5rem;
-        position: relative;
-        box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
-    }
-
-    .education-heading {
-        color: var(--neon-blue);
-        font-size: 2.2rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
-
-    .degree-subheading {
-        color: #ffffff;
-        font-size: 1.4rem;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .location-text {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .coursework-heading {
-        color: var(--neon-blue);
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-    }
-
-    .coursework-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-    .coursework-item {
-        color: #ffffff;
-        font-size: 1rem;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-
-    .coursework-item::before {
-        content: "▹";
-        color: var(--neon-blue);
-        position: absolute;
-        left: 0;
-    }
-
-    .certificates-section {
-        min-height: 100vh;
-        padding: 4rem 2rem;
-        scroll-snap-align: start;
-    }
-
-    .certificates-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 1rem;
-    }
-
-    .certificate-box {
-        background: var(--dark-bg);
-        border: 2px solid var(--neon-blue);
-        border-radius: 12px;
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-    }
-
-    .certificate-box:hover {
-        background: var(--neon-blue);
-        border-color: var(--neon-blue);
-        box-shadow: 0 0 15px var(--neon-blue);
-        animation: iconBounce 0.5s ease infinite;
-        color: var(--dark-bg);
-   }
-
-    .certificate-box:hover * {
-        color: var(--dark-bg) !important;
-        animation: none; /* Remove individual animations */
-  }
-
-    .certificate-box:hover {
-        transform: none;
-  }
-
-    .certificate-heading {
-        color: var(--neon-blue);
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .certificate-link {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 1.1rem;
-        display: block;
-        transition: all 0.3s ease;
-    }
-
-    .certificate-link:hover {
-        color: var(--neon-blue);
-        text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-        .main-heading {
-            font-size: 2rem;
-        }
-
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-        }
-
-        .sub-heading {
-            font-size: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-        }
-
-        .experience-box {
-            min-width: 250px;
-            height: 350px;
-        }
-
-        .research-box {
-            min-width: 250px;
-            height: 350px;
-        }
-
-        .project-box {
-            min-width: 250px;
-            height: 350px;
-        }
-        .project-box h3 {
-            font-size: 1.2rem;
-        }
-        project-box p:first-of-type {
-            font-size: 1rem;
-        }
-
-        .skills-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .skill-box {
-            background: var(--dark-bg);
-            border: 2px solid var(--neon-blue);
-            transition: all 0.3s ease;
-        }
-
-        skill-box:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 15px var(--neon-blue);
-            transform: translateY(-5px);
-        }
-
-        .education-box {
-            padding: 1.5rem;
-        }
-        
-        .coursework-list {
-            grid-template-columns: 1fr;
-        }
-
-        .certificates-container {
-            grid-template-columns: 1fr;
-        }
-    }
-    </style>
+    </script>
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <span>Toggle Theme</span>
+    </button>
+
+    <!-- Navigation Section -->
     <nav class="nav-container">
         <div class="nav-links">
             <a href="#home">Home</a>
@@ -573,264 +39,154 @@
             <a href="#project">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
-            <a href="#certificates">Certificates</a>
         </div>
     </nav>
 
+    <!-- Home Section -->
     <section id="home" class="header-section scroll-animation">
-        <div class="profile-photo">
-            <img src="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg">
-        </div>
-        <h1 class="main-heading">Hi, Myself Rishab Kumar Pattnaik</h1>
+        <figure class="profile-photo">
+            <img src="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg" 
+                 alt="Rishab Kumar Pattnaik"
+                 width="300" 
+                 height="300">
+        </figure>
+        <h1 class="main-heading neon-reveal">Hi, Myself Rishab Kumar Pattnaik</h1>
         <p class="sub-heading scroll-animation">
             Machine Learning Engineer specializing in Computer Vision, developing and implementing advanced deep learning architectures including CNNs and Transformers, with a current focus on Generative AI applications.
         </p>
         <div class="button-container scroll-animation">
-            <button class="neon-btn" onclick="window.open('your-resume-link', '_blank')">
-                <i class="fas fa-file-alt"></i>View Resume
-            </button>
-            <button class="neon-btn" onclick="window.open('https://github.com/Riiishaab', '_blank')">
-                <i class="fab fa-github"></i>GitHub
-            </button>
-            <button class="neon-btn" onclick="window.open('https://www.linkedin.com/in/rishab-kumar-pattnaik-6a9939249/', '_blank')">
-                <i class="fab fa-linkedin"></i>LinkedIn
-            </button>
-            <button class="neon-btn" onclick="window.location.href='mailto:f20220491@hyderabad.bits-pilani.ac.in'">
-                <i class="fas fa-envelope"></i>Email
-            </button>
+            <a href="https://drive.google.com/file/d/1JaN8cJP-gbjuXjUNlPdJn3bSg4D_gLMO/view?usp=sharing" target="_blank" class="social-btn">
+                <i class="fas fa-file-alt"></i>
+                <span>Resume</span>
+            </a>
+            <a href="https://github.com/Riiishaab" target="_blank" class="social-btn">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rishab-kumar-pattnaik-6a9939249/" target="_blank" class="social-btn">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="mailto:f20220491@hyderabad.bits-pilani.ac.in" class="social-btn">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
         </div>
     </section>
 
-
-    <section id="experience" class="research-section scroll-animation">
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section scroll-animation">
         <h2 class="section-title">Experience</h2>
-        <div class="research-container">
-            <div class="research-box scroll-animation">
+        <div class="experience-container">
+            <!-- Research Assistant -->
+            <div class="experience-box scroll-animation">
                 <h3>Research Assistantship</h3>
-                <p style="color: white;">As a Research Assistant in ECE at BITS Pilani Hyderabad under Dr. Rajesh Kumar Tripathy, I specialize in medical imaging using deep learning (CNNs, transformers) and wavelet-DNN integration. Achieved 5–15% accuracy gains in abnormality detection across 10,000+ scans, focusing on optimized segmentation models and robust diagnostic frameworks.</p>
+                <p>As a Research Assistant in ECE at BITS Pilani Hyderabad under Dr. Rajesh Kumar Tripathy, I specialize in medical imaging using deep learning (CNNs, transformers) and wavelet-DNN integration.</p>
                 <button class="show-details-btn" 
-                        data-popup-trigger="popup-1"
-                        data-heading="Research Assistantship in Advanced Medical Imaging & Computational Diagnostics"
-                        data-subheading="Innovating Deep Learning Architectures and Wavelet-Integrated Frameworks for Enhanced Radiological Analysis"
-                        data-body="As a Research Assistant in ECE at BITS Pilani Hyderabad under Dr. Rajesh Kumar Tripathy, I pioneer AI-driven medical imaging solutions using CNNs, transformers, and wavelet-DNN fusion, achieving 5–15% enhanced diagnostic accuracy across X-rays, MRIs, and CT scans. Leveraging 10,000+ scans and self-supervised learning, I addressed annotation scarcity while integrating wavelet transforms for multi-scale feature extraction to detect early-stage pathologies. Developed transformer-based architectures for precise lesion localization in oncology/neurology, enabling deployment of lightweight models on edge devices for real-time diagnostics in resource-constrained settings. Current research investigates diffusion models for synthetic data generation and deep representation learning to improve cross-modal generalizability. Committed to rigorous ethical AI frameworks, I prioritize interpretability and fairness to minimize diagnostic errors, optimize clinical workflows, and democratize access to advanced healthcare tools, bridging computational innovation with equitable medical outcomes.">
+                        data-popup-trigger="experience-popup-1"
+                        data-heading="Research Assistantship in Advanced Medical Imaging"
+                        data-subheading="Deep Learning & Wavelet Integration"
+                        data-body="Specialized in medical imaging using deep learning architectures and wavelet-DNN integration. Achieved 5-15% accuracy improvements in abnormality detection across 10,000+ scans. Current research investigates diffusion models for synthetic data generation and deep representation learning to improve cross-modal generalizability."
+                        data-github="https://github.com/Riiishaab/medical-imaging-research">
                     Show Details
                 </button>
             </div>
 
-            <!-- Project 2-->
-            <div class="research-box scroll-animation">
+            <!-- Research Intern -->
+            <div class="experience-box scroll-animation">
                 <h3>Research Intern</h3>
-                <p style="color: white;">As a Research Intern at IGCAR Kalpakkam under Raja Sekhar M (SO/E), I specialized in camouflaged object detection (COD), fine-tuning Meta’s Segment Anything Model (SAM) in PyTorch. Achieved 79% mean IoU on the COD10K dataset and explored YOLO integration to enhance segmentation accuracy in cluttered backgrounds.</p>
+                <p>As a Research Intern at IGCAR Kalpakkam under Raja Sekhar M (SO/E), I specialized in camouflaged object detection (COD), fine-tuning Meta's SAM model.</p>
                 <button class="show-details-btn"
-                        data-popup-trigger="popup-2"
-                        data-heading="
-Research Internship in Camouflaged Object Detection Using Deep Learning based Vision Foundation Models."
-                        data-subheading="Optimizing Segment Anything Model (SAM) and Exploring Multi-Model Integration for Robust Segmentation in Complex Environments"
-                        data-body="As a Research Intern at IGCAR Kalpakkam under Raja Sekhar M, I advanced camouflaged object detection (COD) by fine-tuning Meta’s Segment Anything Model (SAM) in PyTorch. Architectural refinements prioritized texture/boundary features, achieving 79% mean IoU on the COD10K dataset (10,000+ images), outperforming baselines in cluttered environments. I explored hybrid frameworks integrating YOLO for preliminary object localization, designing cascaded architectures to reduce false positives by combining SAM’s segmentation with YOLO’s rapid detection. Techniques like adaptive data augmentation addressed domain shifts and limited annotations. This work enhances applications in surveillance, ecological monitoring, and industrial safety. Future directions include deploying lightweight models on edge devices and extending the framework to video-based COD for dynamic scenarios, ensuring scalability and real-time performance in critical environments.">
+                        data-popup-trigger="experience-popup-2"
+                        data-heading="Research Internship at IGCAR"
+                        data-subheading="Camouflaged Object Detection"
+                        data-body="As a Research Intern at IGCAR Kalpakkam under Raja Sekhar M, I advanced camouflaged object detection by fine-tuning Meta's SAM in PyTorch. Achieved 79% mean IoU on COD10K dataset through adaptive data augmentation and hybrid frameworks integrating YOLO for preliminary object localization."
+                        data-github="https://github.com/Riiishaab/camouflaged-object-detection">
                     Show Details
                 </button>
             </div>
 
-            <!-- Project 3 -->
-            <div class="research-box scroll-animation">
-                <h3> eSports Coordinator</h3>
-                <p style="color: white;">As eSports Coordinator and FIFA Lead at BITS Pilani Hyderabad, I orchestrated tournaments with 100+ participants, managed inter-college collaborations across 10 institutions, and executed 3 large-scale events. Expertise includes fixture design, conflict resolution, and logistical optimization to ensure seamless tournament operations and enhanced participant engagement.</p>
+            <!-- eSports Coordinator -->
+            <div class="experience-box scroll-animation">
+                <h3>eSports Coordinator</h3>
+                <p>Led tournament organization and management at BITS Pilani Hyderabad, coordinating events with 100+ participants across 10 institutions.</p>
                 <button class="show-details-btn"
-                        data-popup-trigger="popup-3"
-                        data-heading="eSports Coordinator & Tournament Manager"
-                        data-subheading="Leading Semi-Large-Scale Gaming Events and Fostering Inter-Collegiate Collaborations"
-                        data-body="In my role as eSports Coordinator and FIFA Lead at BITS Pilani Hyderabad, I spearheaded the end-to-end execution of competitive gaming events, including tournament design, scheduling, and real-time coordination. I organized 3 inter-college tournaments involving 10 institutions, managing registrations, rule enforcement, and technical setups while fostering partnerships to expand participation. My responsibilities included crafting balanced fixtures using Swiss-system algorithms to ensure competitive fairness and minimize scheduling conflicts.
-
-For FIFA-specific events, I led a team to streamline match operations, resolve disputes, and maintain adherence to timelines, handling 100+ participants across knockout and league formats. I implemented feedback-driven improvements, boosting event satisfaction rates by 30%. Additionally, I curated promotional campaigns to enhance community engagement, increasing recurring participation by 25%. This role honed my ability to manage high-pressure environments, coordinate cross-functional teams, and deliver events that elevate institutional prestige in competitive gaming circuits.">
+                        data-popup-trigger="experience-popup-3"
+                        data-heading="eSports Leadership"
+                        data-subheading="Tournament Management"
+                        data-body="As eSports Coordinator at BITS Pilani Hyderabad, I managed large-scale gaming events involving 100+ participants and 10 institutions. Implemented Swiss-system algorithms for tournament scheduling and achieved 30% improvement in event satisfaction rates through feedback-driven improvements."
+                        data-github="https://github.com/Riiishaab/esports-coordinator">
                     Show Details
                 </button>
-            </div>
-
-            <!-- Popup 1: AI Document Processing -->
-            <div id="popup-1" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <!-- Popup 2: E-Commerce Analytics -->
-            <div id="popup-2" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <!-- Popup 3: Health Tracker -->
-            <div id="popup-3" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
             </div>
         </div>
     </section>
 
-
-    <section id="research" class="research-section scroll-animation">
+    <!-- Research Section -->
+    <section id="research" class="section research-section scroll-animation">
         <h2 class="section-title">Research & Publications</h2>
         <div class="research-container">
             <div class="research-box scroll-animation">
                 <h3>Book Chapter on Deep Representation Learning</h3>
-                <p style="color: white;">Published research in Elsevier’s book "Signal Processing Driven Machine Learning Techniques for Cardiovascular Data Processing", Chapter 10 "Deep Representation Learning for Computer-Aided Detection of Pneumonia and Tuberculosis Using Chest X Ray Images", authored by Rishab Kumar Pattnaik under the guidance of Dr. Rajesh Kumar Tripathy.</p>
+                <p>Published research in Elsevier's book on Signal Processing Driven Machine Learning Techniques for Cardiovascular Data Processing.</p>
                 <button class="show-details-btn" 
                         data-popup-trigger="research-popup-1"
-                        data-heading="Comparative Analysis of CNN and Vision Transformer Architectures in Medical Image Classification"
-                        data-subheading="Evaluating Performance, Efficiency, and Clinical Applicability in Tuberculosis Detection"
-                        data-body="Recent experiments comparing standalone CNN and Vision Transformer (ViT) models reveal distinct performance patterns across medical and facial recognition tasks. In osteoporosis detection using X-rays, ViTs (notably ViT_s16) achieved superior accuracy (94.35%) over CNNs like VGG16, despite imbalanced datasets. For facial recognition, ViTs demonstrated faster convergence and higher validation accuracy (99.81%) on the VGG Face 2 dataset, attributed to their global self-attention mechanisms. However, ViTs demand 2–3× more computational resources and larger datasets to mitigate overfitting, while CNNs excel in resource-constrained environments. In tuberculosis (TB) detection, standalone ViTs achieved 96.57% accuracy on CXRs, leveraging their ability to model long-range dependencies in lung pathologies3. Hybrid architectures, though excluded here, highlight ViTs’ potential synergies with CNNs for multi-scale feature fusion. Critical findings include ViTs’ dependency on pre-training for medical tasks and CNNs’ robustness in low-data scenarios.">
+                        data-heading="Deep Learning for Medical Image Analysis"
+                        data-subheading="Comparative Analysis of CNN and Vision Transformer Architectures"
+                        data-body="Published research comparing CNN and Vision Transformer architectures in medical image classification. ViTs achieved 94.35% accuracy in osteoporosis detection and 96.57% accuracy in tuberculosis detection, demonstrating superior performance in handling complex medical imaging tasks."
+                        data-github="https://github.com/Riiishaab/deep-representation-learning">
                     Show Details
                 </button>
             </div>
 
-            <!-- Project 2: E-Commerce Analytics -->
             <div class="research-box scroll-animation">
-                <h3>Coming Soon....</h3>
-                <p style="color: white;"> </p>
+                <h3>Upcoming Research</h3>
+                <p>Currently working on advanced medical imaging applications using deep learning.</p>
                 <button class="show-details-btn"
                         data-popup-trigger="research-popup-2"
-                        data-heading="Coming Soon...."
-                        data-subheading=""
-                        data-body="">
+                        data-heading="Upcoming Research"
+                        data-subheading="Advanced Medical Imaging Applications"
+                        data-body="Current research focuses on developing novel deep learning architectures for medical image analysis, with emphasis on improving diagnostic accuracy and computational efficiency."
+                        data-github="https://github.com/Riiishaab/upcoming-research">
                     Show Details
                 </button>
-            </div>
-
-            <!-- Project 3: Health Tracker -->
-            <div class="research-box scroll-animation">
-                <h3>Coming Soon....</h3>
-                <p style="color: white;"></p>
-                <button class="show-details-btn"
-                        data-popup-trigger="research-popup-3"
-                        data-heading="Coming Soon..."
-                        data-subheading=""
-                        data-body="">
-                    Show Details
-                </button>
-            </div>
-
-            <!-- Research Popups -->
-            <div id="research-popup-1" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <div id="research-popup-2" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <div id="research-popup-3" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
             </div>
         </div>
     </section>
 
-
-
-    <section id="project" class="research-section scroll-animation">
+    <!-- Projects Section -->
+    <section id="project" class="section project-section scroll-animation">
         <h2 class="section-title">Projects</h2>
-        <div class="research-container">
-            <!-- Project 1: AI Document Processing -->
-            <div class="research-box scroll-animation">
-                <h3>AI Document Assistant: Key Info Detection & Smart Summaries</h3>
-                <p style="color: white;">The system combines DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization, using PDF Plumber and Langchain. It achieves 92% accuracy in entity extraction and 88% ROUGE-L score in summarization, reducing technical reports by 60-70% while maintaining key insights.</p>
+        <div class="project-container">
+            <div class="project-box scroll-animation">
+                <h3>AI Document Assistant</h3>
+                <p>Smart document processing system using DeepSeek and Llama models.</p>
                 <button class="show-details-btn" 
                         data-popup-trigger="project-popup-1"
                         data-heading="AI Document Processing System"
-                        data-subheading="Integrating DeepSeek R1-1.5B and Llama-7B for Enhanced PDF Information Extraction and Summarization"
-                        data-body="[This project develops a robust AI-driven document processing system that combines DeepSeek R1-1.5B for structured PDF data extraction and Llama-7B for context-aware summarization. By leveraging optimized quantization techniques (e.g., Q5_K_M for 1.29GB memory footprint), the system achieves 92% entity extraction accuracy and 88% ROUGE-L summarization scores, enabling efficient handling of legal, research, and enterprise documents. The integration of LangChain for pipeline orchestration and Gradio/Streamlit for UI deployment ensures scalable workflows, while Ollama and ChromaDB support local model execution and retrieval-augmented generation (RAG).
-
-Modern document processing requires balancing computational efficiency with semantic accuracy. The DeepSeek R1-1.5B model, trained via synthetic chain-of-thought prompting19, excels at parsing complex layouts (e.g., financial tables, technical diagrams) through its 1.5B-parameter architecture. Complementing this, Llama-7B’s 7B-parameter framework610 provides distilled summarization capabilities, achieving parity with GPT-4 in factual accuracy when fine-tuned on domain-specific datasets.]"> <!-- Body content unchanged -->
+                        data-subheading="Intelligent Document Analysis and Summarization"
+                        data-body="Developed an AI-driven document processing system combining DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization. Achieved 92% accuracy in entity extraction and 88% ROUGE-L summarization scores, enabling efficient processing of legal and technical documents."
+                        data-github="https://github.com/Riiishaab/ai-document-assistant">
                     Show Details
                 </button>
             </div>
 
-            <!-- Project 2: E-Commerce Analytics -->
-            <div class="research-box scroll-animation">
+            <div class="project-box scroll-animation">
                 <h3>Human Face Gender Detection</h3>
-                <p style="color: white;">Leveraging CNN & InceptionV3 for High-Accuracy Classification
-    This project achieved 94.35% gender detection accuracy using a custom CNN and Google’s InceptionV3 on the CelebA dataset. Optimized via data augmentation, normalization, and architectural tuning, it demonstrates robust deep learning frameworks for facial attribute analysis.</p>
+                <p>Deep learning-based gender detection system using CNN & InceptionV3.</p>
                 <button class="show-details-btn"
                         data-popup-trigger="project-popup-2"
                         data-heading="GenderNet Vision"
-                        data-subheading="Where InceptionV3 Meets Custom CNNs for Precision Biometrics"
-                        data-body="This deep learning initiative engineered a robust gender detection system using a fusion of Google’s InceptionV3 (pretrained on ImageNet) and a custom 12-layer CNN. Trained on 202,599 annotated face images from the CelebA dataset, the pipeline employs aggressive preprocessing: dynamic augmentation (random 20° rotations, horizontal/vertical flips, and contrast adjustments) coupled with per-channel pixel normalization (μ=0.456, σ=0.224). The hybrid architecture extracts multi-scale facial features via InceptionV3’s 299x299 input layers, then processes them through the CNN’s optimized convolutional blocks (kernel sizes 3x3 to 5x5) and dense ReLU layers.
-
-Key innovations include adaptive learning rate scheduling (AdamW optimizer, initial LR=1e-4) and spatial dropout (rate=0.5) to combat overfitting, achieving 94.35% test accuracy—6.2% higher than baseline CNNs. The model’s quantized TensorFlow Lite version delivers 23ms/image inference on NVIDIA Jetson Nano, ideal for edge devices. Rigorous evaluation (precision=0.94, recall=0.93, F1=0.935) confirmed reliability across age/ethnicity subgroups, aided by stratified data sampling to minimize bias. Deployed as a Flask API, the system integrates with surveillance and retail analytics platforms, processing 450 FPS on cloud GPUs. Privacy safeguards include on-device processing and anonymized facial embeddings."> <!-- Body content unchanged -->
+                        data-subheading="Advanced Facial Analysis System"
+                        data-body="Implemented a gender detection system using hybrid CNN-InceptionV3 architecture, achieving 94.35% accuracy on the CelebA dataset. Features include dynamic augmentation, adaptive learning rate scheduling, and quantized TensorFlow Lite deployment."
+                        data-github="https://github.com/Riiishaab/gender-detection">
                     Show Details
                 </button>
-            </div>
-
-            <!-- Project 3: Health Tracker -->
-            <div class="research-box scroll-animation">
-                <h3>Coming Soon....</h3>
-                <p style="color: white;"></p>
-                <button class="show-details-btn"
-                        data-popup-trigger="project-popup-3"
-                        data-heading="Coming Soon..."
-                        data-subheading=""
-                        data-body="">
-                    Show Details
-                </button>
-            </div>
-
-            <!-- Project Popups -->
-            <div id="project-popup-1" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <div id="project-popup-2" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
-            </div>
-
-            <div id="project-popup-3" class="popup">
-                <div class="popup-content">
-                    <h2 class="popup-heading"></h2>
-                    <h3 class="popup-subheading"></h3>
-                    <p class="popup-body"></p>
-                    <button class="popup-close">Close</button>
-                </div>
             </div>
         </div>
     </section>
 
-
-
+    <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <h2 class="section-title scroll-animation">Skills</h2>
         <div class="skills-container">
@@ -839,24 +195,24 @@ Key innovations include adaptive learning rate scheduling (AdamW optimizer, init
                 <h3>Programming Languages</h3>
                 <div class="skills-grid">
                     <div class="skill-box scroll-animation">
-                        <i class="fab fa-python" style="color: #3776ab; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: white">Python</span>
+                        <i class="fab fa-python" style="color: #3776ab;"></i>
+                        <span class="skill-name">Python</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <span style="color: #004482; font-weight: bold; font-size: 2rem;">C</span>
-                        <span class="skill-name" style="color: white">C Programming</span>
+                        <span style="color: #004482; font-weight: bold;">C</span>
+                        <span class="skill-name">C Programming</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-database" style="color: #f29111; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: white">SQL</span>
+                        <i class="fas fa-database" style="color: #f29111;"></i>
+                        <span class="skill-name">SQL</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fab fa-git-alt" style="color: #f34f29; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: white">Git</span>
+                        <i class="fab fa-git-alt" style="color: #f34f29;"></i>
+                        <span class="skill-name">Git</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-microchip" style="color: #1a237e; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: white">Verilog</span>
+                        <i class="fas fa-microchip" style="color: #1a237e;"></i>
+                        <span class="skill-name">Verilog</span>
                     </div>
                 </div>
             </div>
@@ -866,114 +222,61 @@ Key innovations include adaptive learning rate scheduling (AdamW optimizer, init
                 <h3>Frameworks & Libraries</h3>
                 <div class="skills-grid">
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-fire" style="color: #EE4C2C; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #EE4C2C">PyTorch</span>
+                        <i class="fas fa-fire" style="color: #EE4C2C;"></i>
+                        <span class="skill-name">PyTorch</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-project-diagram" style="color: #FF6F00; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FF6F00">TensorFlow</span>
+                        <i class="fas fa-project-diagram" style="color: #FF6F00;"></i>
+                        <span class="skill-name">TensorFlow</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-eye" style="color: #007BFF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #007BFF">Computer Vision</span>
+                        <i class="fas fa-eye" style="color: #007BFF;"></i>
+                        <span class="skill-name">Computer Vision</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-robot" style="color: #F7931E; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #F7931E">Scikit-learn</span>
+                        <i class="fas fa-robot" style="color: #F7931E;"></i>
+                        <span class="skill-name">Scikit-learn</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-feather" style="color: #D00000; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #D00000">Keras</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-cube" style="color: #4D77CF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #4D77CF">NumPy</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-cube" style="color: #47A141; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #47A141">MatPlotLib</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-paw" style="color: #150458; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #150458">Pandas</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-water" style="color: #1E90FF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #1E90FF">PyWavelets</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-book" style="color: #F37626; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #F37626">JupyterLab</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fab fa-linux" style="color: white; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: white">Ollama</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-robot" style="color: #FFD21E; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FFD21E">Hugging Face</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-leaf" style="color: #47A141; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #47A141">Overleaf</span>
+                        <i class="fas fa-feather" style="color: #D00000;"></i>
+                        <span class="skill-name">Keras</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Domain Skills Category -->
             <div class="skill-category scroll-animation">
                 <h3>Domain Skills</h3>
                 <div class="skills-grid">
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-brain" style="color: #FFD700; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FFD700">Machine Learning</span>
+                        <i class="fas fa-brain" style="color: #FFD700;"></i>
+                        <span class="skill-name">Machine Learning</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-network-wired" style="color: #00FF00; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #00FF00">Deep Learning</span>
+                        <i class="fas fa-network-wired" style="color: #00FF00;"></i>
+                        <span class="skill-name">Deep Learning</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-magic" style="color: #FF4500; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FF4500">Generative AI</span>
+                        <i class="fas fa-magic" style="color: #FF4500;"></i>
+                        <span class="skill-name">Generative AI</span>
                     </div>
                     <div class="skill-box scroll-animation">
-                        <i class="fas fa-comments" style="color: #1E90FF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #1E90FF">LLM</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                    <i class="fas fa-sliders-h" style="color: #FF1493; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FF1493">Fine-Tuning</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-keyboard" style="color: #FFFFFF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FFFFFF">Prompt Tuning</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-wave-square" style="color: #00FFFF; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #00FFFF">Digital Signal Processing</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-microchip" style="color: #FFD700; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FFD700">Computer Architecture</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-project-diagram" style="color: #00FA9A; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #00FA9A">VLSI</span>
-                    </div>
-                    <div class="skill-box scroll-animation">
-                        <i class="fas fa-cogs" style="color: #FF6347; font-size: 2rem;"></i>
-                        <span class="skill-name" style="color: #FF6347">Digital Design</span>
+                        <i class="fas fa-comments" style="color: #1E90FF;"></i>
+                        <span class="skill-name">LLM</span>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
+    <!-- Education Section -->
     <section id="education" class="education-section scroll-animation">
         <h2 class="section-title">Education</h2>
         <div class="education-box scroll-animation">
             <h2 class="education-heading">Birla Institute of Technology and Science, Pilani</h2>
             <h3 class="degree-subheading">Bachelor of Engineering in Electronics and Communication Engineering</h3>
             <p class="location-text">Hyderabad, India • Currently Studying</p>
-            
+
             <h4 class="coursework-heading">Relevant Coursework</h4>
             <ul class="coursework-list">
                 <li class="coursework-item scroll-animation">Machine Learning for Electronics Engineer</li>
@@ -988,37 +291,105 @@ Key innovations include adaptive learning rate scheduling (AdamW optimizer, init
         </div>
     </section>
 
-
-    <section id="certificates" class="certificates-section scroll-animation">
-        <h2 class="section-title">Certificates</h2>
-        <div class="certificates-container">
-            <div class="certificate-box scroll-animation">
-                <h3 class="certificate-heading">Deep Learning CNN</h3>
-                <a href="https://www.coursera.org/account/accomplishments/verify/OA6ZCGHLZV0T" 
-                   download="DeepLearning-CNN-Certificate.pdf"
-                   class="certificate-link"
-                   target="_blank">
-                   View Certificate
+    <!-- Popup Containers -->
+    <div id="experience-popup-1" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
                 </a>
-            </div>
-            
-            <div class="certificate-box scroll-animation">
-                <h3 class="certificate-heading">Generative AI using LLMs (Coursera)</h3>
-                <a href="" 
-                   download="DeepLearning-CNN-Certificate.pdf"
-                   class="certificate-link"
-                   target="_blank">
-                   Not Completed Yet....
-                </a>
-            </div>
-            <div class="certificate-box scroll-animation">
-                <h3 class="certificate-heading">Coming soon.....</h3>
-                <a href="#" class="certificate-link"> </a>
+                <button class="popup-close">Close</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <script src="scroll.js?v=2"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div id="experience-popup-2" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience-popup-3" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="research-popup-1" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="research-popup-2" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-popup-1" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-popup-2" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="#" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
