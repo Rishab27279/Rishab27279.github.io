@@ -175,3 +175,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+//--------------------------------------- Type Animation-------------------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    const typingElement = document.querySelector('.typing');
+    const phrases = ["AI/ML Engineer", "Computer Vision", "Generative AI"];
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100; // milliseconds per character
+    let pauseEnd = 1500; // pause at the end of phrase
+    let pauseStart = 500; // pause before typing new phrase
+
+    function typeEffect() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        
+        if (isDeleting) {
+            // Deleting text
+            typingElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+            typingSpeed = 50; // Faster when deleting
+        } else {
+            // Typing text
+            typingElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+            currentCharIndex++;
+            typingSpeed = 100; // Normal speed when typing
+        }
+        
+        // If completed typing the current phrase
+        if (!isDeleting && currentCharIndex === currentPhrase.length) {
+            isDeleting = true;
+            typingSpeed = pauseEnd; // Pause at the end
+        } 
+        // If completed deleting the current phrase
+        else if (isDeleting && currentCharIndex === 0) {
+            isDeleting = false;
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            typingSpeed = pauseStart; // Pause before typing new phrase
+        }
+        
+        setTimeout(typeEffect, typingSpeed);
+    }
+    
+    // Start the typing animation
+    typeEffect();
+});
+
+
+//-------------------------------------------------------------------------
