@@ -1,4 +1,3 @@
-
 :root {
     /* Dark theme colors */
     --dark-bg: #0a0a0a;
@@ -92,7 +91,7 @@ body.light-theme {
     font-weight: 600;
 }
 
-/* Navigation */
+/*---------------------------------------------------Navigation----------------------------------------------------------------------------------------------------*/
 .nav-container {
     position: fixed;
     top: 20px;
@@ -105,12 +104,22 @@ body.light-theme {
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother transition with bounce effect */
+}
+
+.nav-container:hover {
+    transform: translateX(-50%) translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .light-theme .nav-container {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-color: var(--light-border);
+}
+
+.light-theme .nav-container:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .nav-links {
@@ -124,13 +133,42 @@ body.light-theme {
     font-weight: 600;
     font-size: 0.95rem;
     position: relative;
-    padding: 5px 0;
+    padding: 5px 8px; /* Increased horizontal padding */
+    transition: all 0.3s ease;
+    border-radius: 6px; /* Rounded corners for hover effect */
+    overflow: hidden; /* Contains the pseudo-elements */
 }
 
 .light-theme .nav-links a {
     color: var(--med-text);
 }
 
+/* Background fill effect */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--neon-color-rgb), 0.1); /* Use RGB version of your neon color */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    z-index: -1;
+    border-radius: 6px;
+}
+
+.light-theme .nav-links a::before {
+    background-color: rgba(var(--light-neon-rgb), 0.1);
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Underline effect */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -139,7 +177,8 @@ body.light-theme {
     width: 0;
     height: 2px;
     background-color: var(--neon-color);
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1); /* Custom easing for smoother animation */
+    border-radius: 2px; /* Rounded underline */
 }
 
 .light-theme .nav-links a::after {
@@ -148,6 +187,7 @@ body.light-theme {
 
 .nav-links a:hover {
     color: var(--neon-color);
+    transform: translateY(-2px); /* Slight lift on hover */
 }
 
 .light-theme .nav-links a:hover {
@@ -158,7 +198,32 @@ body.light-theme {
     width: 100%;
 }
 
-/* Section Styling */
+/* Active link state */
+.nav-links a.active {
+    color: var(--neon-color);
+}
+
+.light-theme .nav-links a.active {
+    color: var(--light-neon);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Add a subtle pulse animation to the active link */
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.nav-links a.active::before {
+    transform: scaleX(1);
+    animation: pulse 2s infinite;
+}
+/*-------------------------------------Section Styling-----------------------------------------------*/
 section {
     min-height: 100vh;
     padding: 100px 0;
@@ -291,7 +356,16 @@ section {
     color: var(--light-neon);
 }
 
-/* Experience Section */
+/*----------------------------------------------About Section------------------------------------------------------*/
+h1 {
+    font-size: 30rem; /* 3 times the body text */
+}
+p {
+    text-align: justify;
+    line-height: 2.8; /* Increases the line spacing */
+}
+
+/*-----------------------------------Experience Section--------------------------------------------*/
 .experience-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -860,5 +934,56 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     padding: 0 20px;
+}
+
+/*-----------------------------------Typing Animation---------------------------------------- */
+
+.sub-heading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    min-height: 1.5em; /* Adjust based on your font size */
+    font-size: 27px
+}
+
+.typing {
+    position: relative;
+}
+
+.typing::after {
+    content: "|";
+    position: absolute;
+    right: -8px;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+
+
+
+/* Styling for the about description paragraph */
+.about-description {
+    text-align: center;
+    font-size: 1.25rem; /* Increased font size - adjust as needed */
+    line-height: 1.6; /* Improved readability with increased line height */
+    max-width: 1200px; /* Optional: limits width for better readability on large screens */
+    margin: 0 auto; /* Centers the block element itself */
+    padding: 0 20px; /* Optional: adds some padding on smaller screens */
+}
+
+/* Maintain the existing hover effect */
+.hover-blue {
+    color: inherit;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-blue:hover {
+    color: #00bfff; /* Bright blue color on hover */
 }
 
