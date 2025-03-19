@@ -105,11 +105,14 @@ function initializePopups() {
                 
                 popup.querySelector('.popup-heading').textContent = heading;
                 popup.querySelector('.popup-subheading').textContent = subheading;
-                popup.querySelector('.popup-body').textContent = body;
+                
+                // Use innerHTML instead of textContent to render HTML
+                popup.querySelector('.popup-body').innerHTML = body;
                 
                 const githubLink = popup.querySelector('.popup-github');
                 if (githubLink && github) {
                     githubLink.href = github;
+                    githubLink.style.display = github && github !== '#' ? 'inline-flex' : 'none';
                 }
                 
                 // Show popup
@@ -158,6 +161,9 @@ function initializePopups() {
         }
     });
 }
+
+// Initialize popups when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializePopups);
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -225,3 +231,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //-------------------------------------------------------------------------
+
+
