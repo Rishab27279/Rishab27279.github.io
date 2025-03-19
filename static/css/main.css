@@ -969,7 +969,7 @@ body {
 /* Styling for the about description paragraph */
 .about-description {
     text-align: center;
-    font-size: 1.25rem; /* Increased font size - adjust as needed */
+    font-size: 1.45rem; /* Increased font size - adjust as needed */
     line-height: 1.6; /* Improved readability with increased line height */
     max-width: 1200px; /* Optional: limits width for better readability on large screens */
     margin: 0 auto; /* Centers the block element itself */
