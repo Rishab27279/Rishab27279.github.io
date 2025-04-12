@@ -1,5 +1,6 @@
-
-
+/* ---------------------------------------
+   THEME COLOR DEFINITIONS
+   --------------------------------------- */
 :root {
     /* Dark theme colors */
     --dark-bg: #0a0a0a;
@@ -19,7 +20,8 @@
     --dark-text: #121212;
     --med-text: #444444;
     --light-accent: #6547bd;
-    --light-neon: #0077cc;
+    /* Updated to Orange */
+    --light-neon: #ffa500;  /* <--- Changed from #0077cc to #ffa500 */
     --light-border: #dddddd;
     --light-shadow: rgba(0, 0, 0, 0.1);
 }
@@ -93,7 +95,7 @@ body.light-theme {
     font-weight: 600;
 }
 
-/*---------------------------------------------------Navigation----------------------------------------------------------------------------------------------------*/
+/* Navigation */
 .nav-container {
     position: fixed;
     top: 20px;
@@ -106,11 +108,11 @@ body.light-theme {
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smoother transition with bounce effect */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-container:hover {
-    transform: translateX(-50%) translateY(-3px); /* Slight lift effect on hover */
+    transform: translateX(-50%) translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -135,10 +137,10 @@ body.light-theme {
     font-weight: 600;
     font-size: 0.95rem;
     position: relative;
-    padding: 5px 8px; /* Increased horizontal padding */
+    padding: 5px 8px;
     transition: all 0.3s ease;
-    border-radius: 6px; /* Rounded corners for hover effect */
-    overflow: hidden; /* Contains the pseudo-elements */
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .light-theme .nav-links a {
@@ -153,7 +155,7 @@ body.light-theme {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(var(--neon-color-rgb), 0.1); /* Use RGB version of your neon color */
+    background-color: rgba(var(--neon-color-rgb), 0.1);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s ease;
@@ -162,6 +164,8 @@ body.light-theme {
 }
 
 .light-theme .nav-links a::before {
+    /* Also references var(--light-neon) indirectly via RGBA if needed,
+       but this is less direct. Keep as is or override if you want custom. */
     background-color: rgba(var(--light-neon-rgb), 0.1);
 }
 
@@ -179,8 +183,8 @@ body.light-theme {
     width: 0;
     height: 2px;
     background-color: var(--neon-color);
-    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1); /* Custom easing for smoother animation */
-    border-radius: 2px; /* Rounded underline */
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 2px;
 }
 
 .light-theme .nav-links a::after {
@@ -189,7 +193,7 @@ body.light-theme {
 
 .nav-links a:hover {
     color: var(--neon-color);
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-2px);
 }
 
 .light-theme .nav-links a:hover {
@@ -214,18 +218,18 @@ body.light-theme {
     opacity: 1;
 }
 
-/* Add a subtle pulse animation to the active link */
+/* Subtle pulse on the active link */
 @keyframes pulse {
     0% { opacity: 0.8; }
     50% { opacity: 1; }
     100% { opacity: 0.8; }
 }
-
 .nav-links a.active::before {
     transform: scaleX(1);
     animation: pulse 2s infinite;
 }
-/*-------------------------------------Section Styling-----------------------------------------------*/
+
+/* Section Styling */
 section {
     min-height: 100vh;
     padding: 100px 0;
@@ -235,7 +239,6 @@ section {
     flex-direction: column;
     justify-content: center;
 }
-
 .section-title {
     font-size: 2.5rem;
     margin-bottom: 3rem;
@@ -243,11 +246,9 @@ section {
     text-align: center;
     position: relative;
 }
-
 .light-theme .section-title {
     color: var(--light-neon);
 }
-
 .section-title::after {
     content: '';
     position: absolute;
@@ -259,7 +260,6 @@ section {
     background: var(--neon-color);
     border-radius: 5px;
 }
-
 .light-theme .section-title::after {
     background: var(--light-neon);
 }
@@ -269,13 +269,11 @@ section {
     text-align: center;
     padding-top: 150px;
 }
-
 .profile-photo {
     position: relative;
     display: inline-block;
     margin-bottom: 2rem;
 }
-
 .profile-photo img {
     width: 200px;
     height: 200px;
@@ -284,12 +282,10 @@ section {
     border: 4px solid var(--neon-color);
     box-shadow: 0 0 25px rgba(0, 195, 255, 0.5);
 }
-
 .light-theme .profile-photo img {
     border-color: var(--light-neon);
-    box-shadow: 0 0 25px rgba(0, 119, 204, 0.3);
+    box-shadow: 0 0 25px rgba(255, 165, 0, 0.3); /* or keep as is if you prefer */
 }
-
 .main-heading {
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -299,13 +295,11 @@ section {
     background-clip: text;
     color: transparent;
 }
-
 .light-theme .main-heading {
     background: linear-gradient(to right, var(--light-neon), var(--light-accent));
     -webkit-background-clip: text;
     background-clip: text;
 }
-
 .sub-heading {
     font-size: 1.1rem;
     max-width: 800px;
@@ -313,18 +307,15 @@ section {
     color: var(--light-text);
     line-height: 1.8;
 }
-
 .light-theme .sub-heading {
     color: var(--med-text);
 }
-
 .button-container {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
-
 .social-btn {
     display: flex;
     align-items: center;
@@ -338,43 +329,39 @@ section {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .social-btn {
     background-color: var(--light-box-bg);
     color: var(--dark-text);
     border-color: var(--light-border);
 }
-
 .social-btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px var(--shadow-color);
     border-color: var(--neon-color);
     color: var(--neon-color);
 }
-
 .light-theme .social-btn:hover {
     box-shadow: 0 10px 20px var(--light-shadow);
     border-color: var(--light-neon);
     color: var(--light-neon);
 }
 
-/*----------------------------------------------About Section------------------------------------------------------*/
+/* About Section */
 h1 {
     font-size: 30rem; /* 3 times the body text */
 }
 p {
     text-align: justify;
-    line-height: 2.8; /* Increases the line spacing */
+    line-height: 2.8;
 }
 
-/*-----------------------------------Experience Section--------------------------------------------*/
+/* Experience Section */
 .experience-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 2rem;
 }
-
 .experience-box {
     background-color: var(--box-bg);
     border-radius: 15px;
@@ -383,34 +370,28 @@ p {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .experience-box {
     background-color: var(--light-box-bg);
     box-shadow: 0 10px 30px var(--light-shadow);
     border-color: var(--light-border);
 }
-
 .experience-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px var(--shadow-color);
     border-color: var(--neon-color);
 }
-
 .light-theme .experience-box:hover {
     box-shadow: 0 15px 35px var(--light-shadow);
     border-color: var(--light-neon);
 }
-
 .experience-box h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--neon-color);
 }
-
 .light-theme .experience-box h3 {
     color: var(--light-neon);
 }
-
 .experience-box p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
@@ -427,26 +408,19 @@ p {
     transition: all 0.3s ease;
     width: 100%;
 }
-
 .light-theme .show-details-btn {
     color: var(--light-neon);
     border-color: var(--light-neon);
 }
-
 .show-details-btn {
-    background-color: transparent;
-    color: var(--neon-color);
-    border: 2px solid var(--neon-color);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    width: 100%;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
-
 .show-details-btn::before {
     content: '';
     position: absolute;
@@ -458,32 +432,27 @@ p {
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: -1;
 }
-
 .show-details-btn:hover::before {
     left: 0;
 }
-
 .show-details-btn:hover {
     color: var(--dark-bg);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(var(--neon-color-rgb), 0.4);
 }
-
 .light-theme .show-details-btn:hover {
-    box-shadow: 0 5px 15px rgba(var(--light-neon-rgb), 0.4);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4); /* adapt if you want a different shadow color for orange */
 }
-
 .show-details-btn:active {
     transform: translateY(0);
 }
 
-/*----------------------------------------------------------Research Section------------------------------------------------------------*/
+/* Research Section */
 .research-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
 .research-box {
     background-color: var(--box-bg);
     border-radius: 15px;
@@ -492,34 +461,28 @@ p {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .research-box {
     background-color: var(--light-box-bg);
     box-shadow: 0 10px 30px var(--light-shadow);
     border-color: var(--light-border);
 }
-
 .research-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px var(--shadow-color);
     border-color: var(--neon-color);
 }
-
 .light-theme .research-box:hover {
     box-shadow: 0 15px 35px var(--light-shadow);
     border-color: var(--light-neon);
 }
-
 .research-box h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--neon-color);
 }
-
 .light-theme .research-box h3 {
     color: var(--light-neon);
 }
-
 .research-box p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
@@ -531,7 +494,6 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
 .project-box {
     background-color: var(--box-bg);
     border-radius: 15px;
@@ -540,34 +502,28 @@ p {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .project-box {
     background-color: var(--light-box-bg);
     box-shadow: 0 10px 30px var(--light-shadow);
     border-color: var(--light-border);
 }
-
 .project-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px var(--shadow-color);
     border-color: var(--neon-color);
 }
-
 .light-theme .project-box:hover {
     box-shadow: 0 15px 35px var(--light-shadow);
     border-color: var(--light-neon);
 }
-
 .project-box h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--neon-color);
 }
-
 .light-theme .project-box h3 {
     color: var(--light-neon);
 }
-
 .project-box p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
@@ -579,28 +535,23 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
 }
-
 .skill-category {
     margin-bottom: 3rem;
 }
-
 .skill-category h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     color: var(--neon-color);
     text-align: center;
 }
-
 .light-theme .skill-category h3 {
     color: var(--light-neon);
 }
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 20px;
 }
-
 .skill-box {
     background-color: var(--box-bg);
     border-radius: 12px;
@@ -612,28 +563,23 @@ p {
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
 }
-
 .light-theme .skill-box {
     background-color: var(--light-box-bg);
     border-color: var(--light-border);
 }
-
 .skill-box i, .skill-box span {
     font-size: 2rem;
 }
-
 .skill-name {
     font-size: 1rem !important;
     font-weight: 600;
     text-align: center;
 }
-
 .skill-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px var(--shadow-color);
     border-color: var(--neon-color);
 }
-
 .light-theme .skill-box:hover {
     box-shadow: 0 10px 20px var(--light-shadow);
     border-color: var(--light-neon);
@@ -643,7 +589,6 @@ p {
 .education-section {
     padding: 100px 20px;
 }
-
 .education-box {
     background-color: var(--box-bg);
     border-radius: 15px;
@@ -654,20 +599,17 @@ p {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .light-theme .education-box {
     background-color: var(--light-box-bg);
     box-shadow: 0 10px 30px var(--light-shadow);
     border-color: var(--light-border);
 }
-
 .coursework-list {
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
 }
-
 .coursework-item {
     background-color: var(--darker-bg);
     border-radius: 8px;
@@ -676,12 +618,10 @@ p {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .coursework-item {
     background-color: var(--lighter-bg);
     border-color: var(--light-border);
 }
-
 .coursework-item:hover {
     background: var(--neon-color);
     color: var(--dark-bg);
@@ -689,14 +629,14 @@ p {
     box-shadow: 0 0 20px rgba(0, 195, 255, 0.4),
                 inset 0 0 15px rgba(0, 195, 255, 0.2);
 }
-
 .light-theme .coursework-item:hover {
     background: var(--light-neon);
     color: white;
-    box-shadow: 0 0 20px rgba(0, 119, 204, 0.3),
-                inset 0 0 15px rgba(0, 119, 204, 0.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.3),
+                inset 0 0 15px rgba(255, 165, 0, 0.1);
 }
 
+/* Popup */
 .popup {
     display: none;
     position: fixed;
@@ -709,14 +649,12 @@ p {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .popup.active {
     display: flex;
     opacity: 1;
     justify-content: center;
     align-items: center;
 }
-
 .popup-content {
     background-color: var(--box-bg);
     border-radius: 15px;
@@ -729,39 +667,32 @@ p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
 }
-
 .light-theme .popup-content {
     background: var(--lighter-bg);
     border-color: var(--light-neon);
 }
-
 .popup-heading {
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
-
 .popup-subheading {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: var(--neon-color);
 }
-
 .light-theme .popup-subheading {
     color: var(--light-neon);
 }
-
 .popup-body {
     margin-bottom: 2rem;
     line-height: 1.8;
     font-size: 18px;
 }
-
 .popup-buttons {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
 }
-
 .popup-github {
     display: flex;
     align-items: center;
@@ -775,25 +706,21 @@ p {
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
-
 .light-theme .popup-github {
     background-color: var(--light-box-bg);
     color: var(--dark-text);
     border-color: var(--light-border);
 }
-
 .popup-github:hover {
     background-color: var(--neon-color);
     color: var(--dark-bg);
     border-color: var(--neon-color);
 }
-
 .light-theme .popup-github:hover {
     background-color: var(--light-neon);
     color: white;
     border-color: var(--light-neon);
 }
-
 .popup-close {
     padding: 10px 20px;
     background-color: transparent;
@@ -804,12 +731,10 @@ p {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
 .light-theme .popup-close {
     color: var(--dark-text);
     border-color: var(--light-border);
 }
-
 .popup-close:hover {
     background-color: #ff3366;
     color: white;
@@ -821,28 +746,23 @@ p {
     margin-bottom: 1.5rem;
     color: var(--neon-color);
 }
-
 .light-theme .education-heading {
     color: var(--light-neon);
 }
-
 .degree-subheading {
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
-
 .location-text {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.9;
 }
-
 .coursework-heading {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     color: var(--neon-color);
 }
-
 .light-theme .coursework-heading {
     color: var(--light-neon);
 }
@@ -852,30 +772,24 @@ p {
     html {
         font-size: 14px;
     }
-    
     .nav-container {
         padding: 12px 20px;
     }
-    
     .nav-links {
         gap: 15px;
     }
-    
     .profile-photo img {
         width: 150px;
         height: 150px;
     }
-    
     .main-heading {
         font-size: 2.5rem;
     }
 }
-
 @media (max-width: 768px) {
     html {
         font-size: 13px;
     }
-    
     .nav-container {
         display: flex;
         justify-content: center;
@@ -883,78 +797,62 @@ p {
         overflow-x: auto;
         padding: 10px 15px;
     }
-    
     .nav-links {
         gap: 12px;
     }
-    
     .nav-links a {
         font-size: 0.85rem;
         white-space: nowrap;
     }
-    
     .profile-photo img {
         width: 120px;
         height: 120px;
     }
-    
     .main-heading {
         font-size: 2rem;
     }
-    
     .section-title {
         font-size: 2rem;
     }
-    
     .experience-container, 
     .research-container, 
     .project-container, 
     .skills-container {
         grid-template-columns: 1fr;
     }
-    
     .skill-category {
         margin-bottom: 2rem;
     }
-    
     .coursework-list {
         grid-template-columns: 1fr;
     }
-    
     .popup-content {
         width: 90%;
         padding: 1.5rem;
     }
 }
-
 @media (max-width: 576px) {
     body {
         padding: 0 15px;
     }
-    
     .theme-toggle span {
         display: none;
     }
-    
     .theme-toggle {
         padding: 8px;
     }
-    
     .button-container {
         flex-direction: column;
         align-items: center;
     }
-    
     .social-btn {
         width: 100%;
         max-width: 250px;
         justify-content: center;
     }
-    
     .popup-buttons {
         flex-direction: column;
     }
-    
     .popup-github, .popup-close {
         width: 100%;
         text-align: center;
@@ -962,74 +860,60 @@ p {
     }
 }
 
-/* Background  */
+/* Background */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #0a0a20; /* Dark navy blue background color */
+    background-color: #0a0a20; 
     background-image: linear-gradient(to right, rgba(101, 101, 255, 0.1) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(101, 101, 255, 0.1) 1px, transparent 1px);
-    background-size: 240px 240px; /* Increased grid size to 240px by 240px */
+    background-size: 240px 240px;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
     padding: 0 20px;
 }
 
-/*-----------------------------------Typing Animation---------------------------------------- */
-
+/* Typing Animation for sub-heading */
 .sub-heading {
     text-align: center;
     display: flex;
     justify-content: center;
-    min-height: 1.5em; /* Adjust based on your font size */
-    font-size: 27px
+    min-height: 1.5em;
+    font-size: 27px;
 }
-
 .typing {
     position: relative;
 }
-
 .typing::after {
     content: "|";
     position: absolute;
     right: -8px;
     animation: blink-caret 0.75s step-end infinite;
 }
-
 @keyframes blink-caret {
     from, to { opacity: 1; }
     50% { opacity: 0; }
 }
 
-
-
-
-
-/* Styling for the about description paragraph */
+/* About Description Paragraph */
 .about-description {
     text-align: center;
-    font-size: 1.55rem; /* Increased font size - adjust as needed */
-    line-height: 1.6; /* Improved readability with increased line height */
-    max-width: 1200px; /* Optional: limits width for better readability on large screens */
-    margin: 0 auto; /* Centers the block element itself */
-    padding: 0 20px; /* Optional: adds some padding on smaller screens */
+    font-size: 1.55rem;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-
-/* Maintain the existing hover effect */
 .hover-blue {
     color: inherit;
     transition: color 0.3s ease;
     cursor: pointer;
 }
-
 .hover-blue:hover {
-    color: #00bfff; /* Bright blue color on hover */
+    color: #00bfff;
 }
 
-
-/*------------------------------------------------------------------------------------------------------------------------------*/
-
-/* Button layout with rocket icon */
+/* Button with rocket icon */
 .show-details-btn {
     background-color: transparent;
     color: var(--neon-color);
@@ -1047,7 +931,6 @@ body {
     justify-content: center;
     gap: 10px;
 }
-
 /* Rocket icon styling */
 .rocket-icon {
     width: 18px;
@@ -1056,13 +939,11 @@ body {
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
 /* Rocket animation on hover */
 .show-details-btn:hover .rocket-icon {
     transform: translate(3px, -3px) rotate(45deg);
     animation: bounce 0.5s infinite;
 }
-
 /* Rocket exhaust styling */
 .rocket-exhaust {
     position: absolute;
@@ -1074,7 +955,6 @@ body {
     opacity: 0;
     transition: opacity 0.2s ease;
 }
-
 .exhaust-flame {
     position: absolute;
     width: 8px;
@@ -1085,17 +965,14 @@ body {
     bottom: 0;
     left: 0;
 }
-
 /* Show exhaust on hover */
 .show-details-btn:hover .rocket-exhaust {
     opacity: 1;
 }
-
 .show-details-btn:hover .exhaust-flame {
     height: 15px;
     animation: exhaust 0.2s infinite;
 }
-
 /* Exhaust animation */
 @keyframes exhaust {
     0% {
@@ -1108,7 +985,6 @@ body {
         background: linear-gradient(to bottom, transparent 12%, var(--neon-color) 100%);
     }
 }
-
 /* Rocket bounce animation */
 @keyframes bounce {
     0% {
@@ -1123,4 +999,20 @@ body {
 }
 
 
+.site-footer {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--light-text);
+    background-color: transparent;
+    margin-top: 50px;
 
+    /* Add these two lines */
+    display: flex;
+    justify-content: center;
+}
+
+.light-theme .site-footer {
+    color: var(--med-text);
+}
