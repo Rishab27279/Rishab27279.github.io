@@ -305,6 +305,74 @@ Weekend Game struct: Organizes matches into weekend slots
                 </button>
             </div>
 
+            <div class="project-box scroll-animation">
+                <h3>Hand Gesture Identifier</h3>
+                <p>Vision Foundation model using FastViT by Apple for Hand Gesture Recognition.</p>
+                <button class="show-details-btn" 
+                        data-popup-trigger="project-popup-5"
+                        data-heading="AI Hand Gesture Recognition System 🖐️"
+                        data-subheading="🤟🏼 Real-time gesture recognition through FastViT Model ✌️"
+                        data-body="<p>This project implements real-time hand gesture recognition using Apple’s FastViT architecture, leveraging transfer learning on the HaGRID dataset to achieve 97.5% accuracy while maintaining efficiency for real-time applications.</p>
+
+<h3>🔑 Key Features</h3>
+<ul>
+  <li><strong>Real-time gesture recognition</strong> through webcam integration</li>
+  <li><strong>19 different hand gestures</strong> recognized with high accuracy</li>
+  <li><strong>Efficient model architecture</strong> using FastViT for low-latency predictions</li>
+  <li><strong>Simple deployment</strong> through Google Colab (no local setup required)</li>
+</ul>
+
+<h3>🧠 Model &amp; Architecture</h3>
+<p>The core intelligence is provided by a hybrid vision transformer:</p>
+<ul>
+  <li><strong>Backbone</strong>: <code>fastvit_t8.apple_in1k</code> pretrained model</li>
+  <li><strong>Training approach</strong>: Transfer learning with a frozen backbone</li>
+  <li><strong>Input size</strong>: 256×256 px</li>
+  <li><strong>Classes</strong>: 19 hand gestures</li>
+</ul>
+<p>FastViT was chosen for its efficiency advantages over ConvNeXT, offering high accuracy in resource-constrained environments.</p>
+
+<h3>📊 Dataset</h3>
+<p>Trained on the Hand Gesture Recognition Image Dataset (<strong>HaGRID</strong>) 150k subset:</p>
+<ul>
+  <li><strong>19 gesture classes</strong> including “thumbs up”, “peace sign”, and “stop”</li>
+  <li>Used the manageable <strong>150k version</strong> for Colab training</li>
+  <li>Properly split between <strong>training</strong> and <strong>validation</strong> sets</li>
+</ul>
+
+<h3>🚀 Usage</h3>
+<p><strong>Option 1: Google Colab</strong></p>
+<ul>
+  <li>Open the training notebook</li>
+  <li>Run all cells to train or load pretrained weights</li>
+  <li>Follow webcam integration instructions</li>
+</ul>
+<p><strong>Option 2: Inference with Pretrained Model</strong></p>
+<ul>
+  <li>Open the inference notebook</li>
+  <li>Upload the pretrained model file (<code>sign_lang_model.pkl</code>)</li>
+  <li>Run the webcam inference cell</li>
+</ul>
+
+<h3>📈 Results</h3>
+<ul>
+  <li><strong>97.5% accuracy</strong> on the validation set</li>
+  <li>Robust across different lighting conditions</li>
+  <li><strong>Real-time inference</strong> (>30 FPS on modern hardware)</li>
+</ul>
+
+<h3>🔮 Future Work</h3>
+<ul>
+  <li><strong>Expanded gesture vocabulary</strong>: Full sign language alphabet and phrases</li>
+  <li><strong>Standalone deployment</strong>: Integration with video conferencing</li>
+  <li><strong>Sequence modeling</strong>: Temporal information for dynamic gestures</li>
+  <li><strong>Model optimization</strong>: Quantization and pruning for edge devices</li>
+</ul>"
+                        data-github="https://github.com/Riiishaab/Sign_Language_Detector">
+                    Show Details
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -527,6 +595,20 @@ Weekend Game struct: Organizes matches into weekend slots
     </div>
       
     <div id="project-popup-4" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-popup-5" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
             <h3 class="popup-subheading"></h3>
