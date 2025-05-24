@@ -187,7 +187,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.querySelector('.typing');
-    const phrases = ["Data Science", "AI/ML Engineering", "Computer Vision", "Generative AI"];
+    const phrases = ["Data Science", "Deep Learning", "Computer Vision", "Generative AI", "AI/ML"];
     let currentPhraseIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
