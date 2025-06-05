@@ -1,5 +1,5 @@
 Personal Portfolio Website 🌟
-Welcome to my personal portfolio website built using HTML, CSS, and JavaScript! This site showcases my projects, skills,research and experiences with a clean, modern design and interactive elements.
+Welcome to my personal Netflix inspired portfolio website built using HTML, CSS, and JavaScript! This site showcases my projects, skills,research and experiences with a clean, modern design and interactive elements.
 
 ✨ Cool Features
 Smooth Animations:
@@ -18,7 +18,7 @@ JavaScript
 
 ⚠️ Customization Instructions
 Currently, personal details are directly hardcoded into the HTML and JavaScript files. To customize this template for your own use:
-1. Clone this repository: git clone https://github.com/Riiishaab/Riiishaab.github.io.git
+1. Clone this repository: git clone https://github.com/Rishab27279/Rishab27279.github.io.git
 2. Open the project in your favorite code editor.
 3. Manually replace my details with your own:
   -> Update your name, bio, contact info in index.html.  
