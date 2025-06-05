@@ -4,458 +4,443 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rishab K Pattnaik | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="static/css/main.css">
-    <link rel="stylesheet" href="static/css/animations.css">
-    <script>
-        // Apply theme immediately to prevent flash of wrong theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            // Wait for body to be available
-            document.addEventListener('DOMContentLoaded', () => {
-                document.body.classList.add('light-theme');
-                const icon = document.querySelector('#themeToggle i');
-                if (icon) {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            });
-        }
-    </script>
+    
+    <!-- Enhanced SEO -->
+    <meta name="description" content="AI Research Engineer specializing in Deep Learning, Medical Imaging, and Computer Vision">
+    <meta name="keywords" content="AI research, deep learning, medical imaging, computer vision, machine learning portfolio">
+    <meta name="author" content="Rishab K Pattnaik">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rishab K Pattnaik | AI Research Portfolio">
+    <meta property="og:description" content="Innovative AI solutions with Netflix-quality research and development">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-sun"></i>
-        <span>Toggle Theme</span>
-    </button>
-
-    <!--------------------------------------Navigation Section-------------------------------------------->
-<nav class="nav-container">
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#experience">Experience</a>
-        <a href="#research">Research & Publications</a>
-        <a href="#project">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
     </div>
-</nav>
 
-    <!------------------------------------------Home Section-------------------------------->
-    <section id="home" class="header-section scroll-animation">
-        <figure class="profile-photo">
-            <img src="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg" 
-                 alt="Rishab K Pattnaik"
-                 width="300" 
-                 height="300">
-        </figure>
-        <h1 class="main-heading neon-reveal">Hi, Myself Rishab K Pattnaik</h1>
-        <p class="sub-heading scroll-animation typing-animation">
-          <span class="typing"></span>
-        </p>
+    <!-- Enhanced Netflix Header -->
+    <header class="netflix-header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Rishab</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+            
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+                <span>Toggle Theme</span>
+            </button>
+        </nav>
+    </header>
 
-        <div class="button-container scroll-animation">
-            <a href="https://drive.google.com/file/d/1PVvcHcjE1QbCi-X06o158qoTs9ZngGLZ/view?usp=sharing" target="_blank" class="social-btn">
-                <i class="fas fa-file-alt"></i>
-                <span>Resume</span>
-            </a>
-            <a href="https://github.com/Rishab27279" target="_blank" class="social-btn">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" class="social-btn">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://medium.com/@rishab27279" target="_blank" class="social-btn">
-                <i class="fab fa-medium"></i>
-                <span>Blog</span>
-            </a>
-            <a href="mailto:f20220491@hyderabad.bits-pilani.ac.in" class="social-btn">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-            </a>
+    <!-- Enhanced Hero Section with Fixed Profile Photo and Animated Subtitle -->
+    <section id="home" class="hero-section">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="hero-content">
+            <!-- Left side: Photo and Badge -->
+            <div class="hero-left">
+                <figure class="profile-photo">
+                    <img src="https://storage.googleapis.com/kaggle-avatars/images/21226742-kg.jpg" 
+                         alt="Rishab K Pattnaik"
+                         width="250" 
+                         height="250">
+                </figure>
+
+                <div class="hero-badge">
+                    <i class="fas fa-brain"></i>
+                    <span>Data Science Intern</span>
+                </div>
+            </div>
+
+            <!-- Right side: Title and Subtitle -->
+            <div class="hero-right">
+                <h1 class="hero-title">Rishab K Pattnaik</h1>
+                <!-- Animated subtitle with typing effect -->
+                <p class="hero-subtitle">
+                    <span class="typing-text" id="typingText"></span>
+                </p>
+
+                <div class="social-buttons">
+                    <a href="https://drive.google.com/file/d/1Xyy_8oioOhYW-OzaAevTrmitYBp56Y3b/view?usp=sharing" target="_blank" class="social-btn">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Resume</span>
+                    </a>
+                    <a href="https://github.com/Rishab27279" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" class="social-btn">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://medium.com/@rishab27279" target="_blank" class="social-btn">
+                        <i class="fab fa-medium"></i>
+                        <span>Blog</span>
+                    </a>
+                    <a href="mailto:f20220491@hyderabad.bits-pilani.ac.in" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
-  
-  
-  <!----------------------------------------------About Section------------------------------------------->
-<section id="about" class="section about-section scroll-animation">
-    <h2 class="section-title">Who I Am</h2>
-    
-    <p class="about-description">
-        <span class="hover-blue">Driven</span> <span class="hover-blue">BE</span> <span class="hover-blue">Electronics</span> <span class="hover-blue">and</span> <span class="hover-blue">Communication</span> <span class="hover-blue">Engineer</span> <span class="hover-blue">with</span> <span class="hover-blue">a</span> <span class="hover-blue">passion</span> <span class="hover-blue">for</span> <span class="hover-blue">Machine</span> <span class="hover-blue">Learning</span> <span class="hover-blue">and</span> <span class="hover-blue">Artificial</span> <span class="hover-blue">Intelligence,</span> <span class="hover-blue">specializing</span> <span class="hover-blue">in</span> <span class="hover-blue">developing</span> <span class="hover-blue">innovative</span> <span class="hover-blue">AI</span> <span class="hover-blue">solutions</span> <span class="hover-blue">for</span> <span class="hover-blue">real-world</span> <span class="hover-blue">challenges.</span> <span class="hover-blue">I</span> <span class="hover-blue">bridge</span> <span class="hover-blue">the</span> <span class="hover-blue">gap</span> <span class="hover-blue">between</span> <span class="hover-blue">cutting-edge</span> <span class="hover-blue">research</span> <span class="hover-blue">and</span> <span class="hover-blue">practical</span> <span class="hover-blue">applications</span> <span class="hover-blue">with</span> <span class="hover-blue">a</span> <span class="hover-blue">robust</span> <span class="hover-blue">foundation</span> <span class="hover-blue">in</span> <span class="hover-blue">both</span> <span class="hover-blue">theory</span> <span class="hover-blue">and</span> <span class="hover-blue">implementation.</span> <span class="hover-blue">My</span> <span class="hover-blue">expertise</span> <span class="hover-blue">spans</span> <span class="hover-blue">computer</span> <span class="hover-blue">vision,</span> <span class="hover-blue">natural</span> <span class="hover-blue">language</span> <span class="hover-blue">processing,</span> <span class="hover-blue">and</span> <span class="hover-blue">generative</span> <span class="hover-blue">AI</span> <span class="hover-blue">technologies.</span> <span class="hover-blue">In</span> <span class="hover-blue">the</span> <span class="hover-blue">medical</span> <span class="hover-blue">domain,</span> <span class="hover-blue">I've</span> <span class="hover-blue">contributed</span> <span class="hover-blue">to</span> <span class="hover-blue">detection</span> <span class="hover-blue">and</span> <span class="hover-blue">classification</span> <span class="hover-blue">tasks,</span> <span class="hover-blue">implementing</span> <span class="hover-blue">various</span> <span class="hover-blue">deep</span> <span class="hover-blue">learning</span> <span class="hover-blue">architectures.</span> <span class="hover-blue">I</span> <span class="hover-blue">excel</span> <span class="hover-blue">in</span> <span class="hover-blue">experimenting</span> <span class="hover-blue">with</span> <span class="hover-blue">CNNs</span> <span class="hover-blue">and</span> <span class="hover-blue">Transformer</span> <span class="hover-blue">models,</span> <span class="hover-blue">incorporating</span> <span class="hover-blue">advanced</span> <span class="hover-blue">signal</span> <span class="hover-blue">processing</span> <span class="hover-blue">techniques</span> <span class="hover-blue">to</span> <span class="hover-blue">enhance</span> <span class="hover-blue">classification</span> <span class="hover-blue">accuracy.</span> <span class="hover-blue">This</span> <span class="hover-blue">approach</span> <span class="hover-blue">has</span> <span class="hover-blue">enabled</span> <span class="hover-blue">me</span> <span class="hover-blue">to</span> <span class="hover-blue">design</span> <span class="hover-blue">custom</span> <span class="hover-blue">neural</span> <span class="hover-blue">network</span> <span class="hover-blue">architectures</span> <span class="hover-blue">for</span> <span class="hover-blue">specific</span> <span class="hover-blue">challenges.</span> <span class="hover-blue">Committed</span> <span class="hover-blue">to</span> <span class="hover-blue">advancing</span> <span class="hover-blue">AI</span> <span class="hover-blue">applications</span> <span class="hover-blue">that</span> <span class="hover-blue">deliver</span> <span class="hover-blue">tangible</span> <span class="hover-blue">value,</span> <span class="hover-blue">I</span> <span class="hover-blue">combine</span> <span class="hover-blue">technical</span> <span class="hover-blue">excellence</span> <span class="hover-blue">with</span> <span class="hover-blue">practical</span> <span class="hover-blue">problem-solving</span> <span class="hover-blue">to</span> <span class="hover-blue">create</span> <span class="hover-blue">impactful</span> <span class="hover-blue">solutions</span>
-    </p>
+
+    <!-- About Section -->
+    <section id="about" class="section scroll-animation">
+        <h2 class="section-title">Who I Am</h2>
+        
+        <p class="about-description" style="font-size: 1.3em; line-height: 1.6;"> <span class="hover-blue">A</span> <span class="hover-blue">Machine</span> <span class="hover-blue">Learning</span> <span class="hover-blue">Engineer</span> <span class="hover-blue">and</span> <span class="hover-blue">Electronics</span> <span class="hover-blue">&</span> <span class="hover-blue">Communication</span> <span class="hover-blue">Engineering</span> <span class="hover-blue">student</span> <span class="hover-blue">at</span> <span class="hover-blue">BITS</span> <span class="hover-blue">Pilani</span> <span class="hover-blue">Hyderabad</span> <span class="hover-blue">Campus,</span> <span class="hover-blue">passionate</span> <span class="hover-blue">about</span> <span class="hover-blue">developing</span> <span class="hover-blue">AI</span> <span class="hover-blue">solutions</span> <span class="hover-blue">for</span> <span class="hover-blue">real-world</span> <span class="hover-blue">challenges.</span> <span class="hover-blue">I</span> <span class="hover-blue">focus</span> <span class="hover-blue">on</span> <span class="hover-blue">medical</span> <span class="hover-blue">imaging</span> <span class="hover-blue">through</span> <span class="hover-blue">deep</span> <span class="hover-blue">learning</span> <span class="hover-blue">architectures</span> <span class="hover-blue">and</span> <span class="hover-blue">wavelet-CNN</span> <span class="hover-blue">integration,</span> <span class="hover-blue">contributing</span> <span class="hover-blue">to</span> <span class="hover-blue">published</span> <span class="hover-blue">research</span> <span class="hover-blue">with</span> <span class="hover-blue">measurable</span> <span class="hover-blue">diagnostic</span> <span class="hover-blue">improvements.</span> <span class="hover-blue">My</span> <span class="hover-blue">work</span> <span class="hover-blue">spans</span> <span class="hover-blue">medical</span> <span class="hover-blue">AI</span> <span class="hover-blue">applications</span> <span class="hover-blue">to</span> <span class="hover-blue">intelligent</span> <span class="hover-blue">document</span> <span class="hover-blue">processing</span> <span class="hover-blue">systems.</span> <span class="hover-blue">I</span> <span class="hover-blue">explore</span> <span class="hover-blue">cutting-edge</span> <span class="hover-blue">architectures</span> <span class="hover-blue">like</span> <span class="hover-blue">Vision</span> <span class="hover-blue">Transformers</span> <span class="hover-blue">and</span> <span class="hover-blue">Mamba,</span> <span class="hover-blue">building</span> <span class="hover-blue">practical</span> <span class="hover-blue">solutions</span> <span class="hover-blue">using</span> <span class="hover-blue">PyTorch</span> <span class="hover-blue">and</span> <span class="hover-blue">TensorFlow.</span> <span class="hover-blue">Through</span> <span class="hover-blue">technical</span> <span class="hover-blue">blogs,</span> <span class="hover-blue">I</span> <span class="hover-blue">share</span> <span class="hover-blue">knowledge</span> <span class="hover-blue">bridging</span> <span class="hover-blue">theory</span> <span class="hover-blue">with</span> <span class="hover-blue">practice.</span> </p>
+
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section scroll-animation">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-container">
+              <!----------------------------------------------- Hamad ---------------------------------------------------->
+            <div class="experience-box scroll-animation"
+                 data-popup-trigger="experience-popup-3"
+                 data-heading="Ongoing Research....."
+                 data-subheading="Can't disclose anything during research and before publication..."
+                 data-body="---------Sorry--------------"
+                 data-github="  ">
+                
+                <div class="project-image">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E1BAQHDEOfmMYyesQ/company-background_10000/company-background_10000/0/1584506822052?e=2147483647&v=beta&t=ZDxV2JaqSq9g8mYw_b0EFzy_-zJZnbd50KstBUsAoVo" alt="Tournament Management">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">Hamad Medical Corporation, Qatar</div>
+                    <h3><i class="fa fa-medkit"></i>Research Data Sc Intern</h3>
+                    <p>Currently working in Emergency Research Department under the supervision of Dr. Sarada Prasad Dakua, Principal Data Scientist at Hamad. Ongoing Research ...</p>
+                   <div class="experience-date-box">05/2025 - Present</div>
+                </div>
+            </div>
+          
+            <!---------------------------- Research Assistant ------------------------------->
+            <div class="experience-box scroll-animation" 
+                 data-popup-trigger="experience-popup-1"
+                 data-heading="Research Assistantship in Advanced Medical Imaging 🩺"
+                 data-subheading="🤖 Deep Learning & Wavelet Integration 📡"
+                 data-body="<h2>Publications</h2> <h3>Journals</h3> - Rishab K Pattnaik and RK Tripathy, 'Multi-Frequency Aware Deep Representation Learning for Automated Detection of Bone Fractures using muscle X-ray Images'. (Submitted for Review) <h3>Book Chapters</h3> - Rishab K Pattnaik, RK Tripathy, 'Deep Representation Learning for Computer-Aided Detection of Pneumonia and Tuberculosis Using Chest X-Ray Images', Non-stationary and nonlinear data processing for automated computer-aided medical diagnosis, Elsevier book, 2025 (ISBN: 9780443314261) <h2>Technical Contributions</h2>
+Advanced medical imaging through deep learning architectures and wavelet-DNN integration techniques. Achieved 5-15% accuracy improvements in abnormality detection across a diverse dataset exceeding 10,000 medical scans.
+
+<h3>Transfer Learning Implementation</h3> - Leveraged state-of-the-art architectures including EfficientNetV2B2 and ResNet50 as foundation models - Enabled rapid knowledge transfer from general image recognition to specialized medical applications <h3>Custom Architecture Development</h3> - Designed bespoke CNN architectures with strategically configured multi-layer networks - Addressed unique characteristics of medical imaging data through specialized frameworks <h3>Deep Representation Learning</h3> - Enhanced diagnostic accuracy by implementing deep representation learning techniques - Created robust feature representations for complex medical abnormality detection <h3>Wavelet Transform Integration</h3> - Incorporated wavelet transform methodologies into neural network frameworks - Enhanced model sensitivity to subtle pathological indicators <h3>Transformer Architecture Application</h3> - Applied transformer-based architectures with attention mechanisms - Maintained contextual awareness across entire medical images <h3>Current Research Focus</h3> - Exploring diffusion models for generating synthetic medical imaging data - Investigating advanced deep representation learning techniques - Improving cross-modal generalizability across varying imaging modalities"
+                 data-github="https://github.com/Riiishaab/OS-Detection-">
+                
+                <div class="project-image">
+                    <img src="https://www.vidyavision.com/CollegeUploads/Photos/2019-21-8-12-08-53_brila.jpg" alt="Medical AI Research">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">BITS Pilani Hyderabad</div>
+                    <h3><i class="fa fa-graduation-cap"></i>Research Assistant</h3>
+                    <p>As a Research Assistant in ECE at BITS Pilani Hyderabad under Dr. Rajesh Kumar Tripathy, I specialize in medical imaging using deep learning (CNNs, transformers) and wavelet-DNN integration.</p>
+                  <div class="experience-date-box">08/2024 - Present</div>
+                </div>
+            </div>
+
+            <!--------------------------------------------------------- Research Intern --------------------------------------------------------->
+            <div class="experience-box scroll-animation"
+                 data-popup-trigger="experience-popup-2"
+                 data-heading="Research Internship at IGCAR 🔬"
+                 data-subheading="🦎 Camouflaged Object Detection 🕵️‍♂️"
+                 data-body="During this internship, I specialized in addressing the challenging problem of camouflaged object detection (COD) by leveraging and fine-tuning Meta AI's Segment Anything Model (SAM). The project focused on developing robust methods to detect objects that blend seamlessly with their surroundings - a task where traditional computer vision approaches often fail.
+
+<h2>Project Implementation</h2> <h3>Dataset and Environment Setup</h3> - Utilized the COD10K dataset from Kaggle, which contains diverse images of camouflaged objects in natural settings - Implemented a custom dataset class and dataloader specifically designed for integration with SAM - Created a comprehensive data pipeline for preprocessing, including normalization and consistent resizing across the dataset <h3>Baseline Evaluation</h3> - Established performance benchmarks using the pre-trained SAM model without modifications - Employed SAM's Predictor and Automatic Mask Generator components to evaluate zero-shot performance - Identified specific limitations of SAM in the camouflaged object domain, confirming findings from recent research that SAM's performance on COD tasks is limited compared to its general segmentation capabilities <h3>Fine-Tuning Methodology</h3> - Developed a bounding box prompt-based approach to guide SAM's attention to regions containing camouflaged objects - Implemented a training engine to manage the fine-tuning process across multiple epochs - Optimized hyperparameters and loss functions specifically for the camouflaged object detection task - Monitored performance metrics throughout the training process to ensure continuous improvement <h3>Technical Innovations</h3> - Adapted SAM's promptable segmentation capabilities to the specific challenges of camouflaged objects - Implemented a box-prompt guided fine-tuning strategy that significantly improved detection accuracy - Designed a specialized training configuration that preserved SAM's general segmentation capabilities while enhancing its performance on camouflaged objects <h3>Quantified Results</h3> - Achieved a **14% improvement** in mean Intersection over Union (mIoU) scores compared to the baseline pre-trained SAM model - Reduced false negative rates by approximately **22%**, significantly improving the detection of highly camouflaged objects - Enhanced edge precision by **18%**, allowing for more accurate delineation of camouflaged object boundaries - Maintained inference speed within 1.2x of the original model despite the additional fine-tuning - Demonstrated consistent performance improvements across various camouflage types (disruptive, coincident, and mimetic) in the COD10K dataset
+This work contributes to the growing field of adapting foundation models like SAM to specialized domains, demonstrating that with appropriate fine-tuning strategies, these models can overcome their initial limitations in challenging visual tasks like camouflaged object detection."
+                 data-github="https://github.com/Riiishaab/Camouflaged_Object_Detection/tree/main">
+                
+                <div class="project-image">
+                    <img src="https://www.aeea.org.in/assets/images/home-slider-0.jpg" alt="Computer Vision Research">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">IGCAR Kalpakkam (On-Site)</div>
+                    <h3><i class="fa fa-laptop"></i>Research Intern</h3>
+                    <p>As a Research Intern at Indira Gandhi Center of Atomic Research Kalpakkam under Raja Sekhar M (SO/E), I experimented with camouflaged object detection (COD), fine-tuning Meta's Segment Anything Model (SAM).</p>
+                  <div class="experience-date-box">05/2024 - 08/2024</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--------------------------------------------- Research Section -------------------------------------------------------------------------------------------------------->
+    <section id="research" class="section scroll-animation">
+        <h2 class="section-title">Research & Publications</h2>
+        <div class="research-container">
+            <div class="research-box scroll-animation"
+                 data-popup-trigger="research-popup-1"
+                 data-heading="Deep Learning for Medical Image Analysis"
+                 data-subheading="Comparative Analysis of CNN and Vision Transformer Architectures"
+                 data-body="Published research comparing CNN and Vision Transformer architectures in medical image classification."
+                 data-github="https://github.com/Riiishaab/deep-representation-learning">
+                
+                <div class="project-image">
+                    <img src="https://newchennaipublications.com/sites/newchennaipub/files/books.jpg" alt="Research Publication">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">Elsevier Book Chapter</div>
+                    <h3><i class="fas fa-book"></i>Deep Representation Learning for Computer-Aided Detection of Pneumonia and Tuberculosis Using Chest X-Ray Images</h3>
+                    <p>Published research in Elsevier's book "Non-stationary and nonlinear data processing for automated computer-aided medical diagnosis" authored by RK Tripathy, RB Pachori, Sibashankar Padhy, Maarten De Vos (ISBN:9780443314261).</p>
+                </div>
+            </div>
+
+            <div class="research-box scroll-animation"
+                 data-popup-trigger="research-popup-2"
+                 data-heading="Ongoing Research"
+                 data-subheading="Advanced Medical Imaging Applications"
+                 data-body="Current research focuses on developing novel deep learning architectures for bone fracture detection."
+                 data-github="">
+                
+                <div class="project-image">
+                    <img src="data:image/jpeg;base64,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" alt="Ongoing Research">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">Journal Paper</div>
+                    <h3><i class="fas fa-microscope"></i>Ongoing Research</h3>
+                    <p>Currently working on advanced medical imaging applications using deep learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-----------------------------------Projects Section --------------------------------------------------------------->
+<section id="project" class="section scroll-animation">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-container">
+        
+        <div class="project-box scroll-animation"
+             data-popup-trigger="project-popup-1"
+             data-heading="Expression.AI — Decode Emotions in Real-Time"
+             data-subheading="🎭 Feel the Mood. Frame by Frame. Powered by Deep Learning. 🎭"
+             data-body="<p><strong>Expression.AI</strong> is a real-time facial expression recognition Android application that uses deep learning to detect and classify human emotions. Powered by a custom made TensorFlow Lite model named <strong>ResInceptionCNN</strong>, the app is designed for fast, on-device inference and intuitive user experience. It combines the power of computer vision with emotion AI for mobile devices.</p> <p>App APK -> https://github.com/Riiishaab/Expression.AI/releases/download/v1.0/ExpressionAI.apk</p> <h3>Application Features</h3> <ul> <li>Real-time facial emotion detection using the device's camera</li> <li>Supports classification from uploaded images via gallery</li> <li>Runs fully offline with no internet required for inference</li> <li>Emotion results displayed with matching emojis and labels</li> <li>Fast and efficient performance optimized for mobile usage</li> </ul> <h3>Model and Dataset</h3> <p>Expression.AI is built on a custom deep learning model trained for facial expression recognition:</p> <ul> <li><strong>Model Name</strong>: ResInceptionCNN — a hybrid architecture combining strengths of Residual and Inception networks</li> <li><strong>Dataset</strong>: Trained on the FER2013 dataset containing 48x48 grayscale facial images labeled with 7 emotion classes</li> <li><strong>Conversion</strong>: Exported to TensorFlow Lite format for mobile deployment</li> </ul> <h3>ResInceptionCNN Architecture</h3> <p>The core of the project is the ResInceptionCNN model:</p> <ul> <li><strong>Inception Blocks</strong>: Capture multi-scale spatial features for rich local and global context</li> <li><strong>Residual Connections</strong>: Enable deeper networks by addressing vanishing gradients and improving feature flow</li> <li><strong>Batch Normalization</strong>: Applied after each convolution to stabilize and speed up training</li> <li><strong>Dropout Layers</strong>: Reduce overfitting and improve generalization</li> <li><strong>Final Dense Layer</strong>: Outputs emotion class probabilities through a softmax activation</li> </ul> <h3>Technical Stack</h3> <ul> <li><strong>Android Studio</strong>: Used for developing the UI and app logic</li> <li><strong>TensorFlow Lite</strong>: Facilitates fast, on-device model inference</li> <li><strong>OpenCV</strong>: Handles face detection from camera and gallery inputs</li> <li><strong>CameraX</strong>: Provides real-time camera feed with face capture</li> </ul> <h3>Emotion Categories Detected</h3> <ul> <li>Angry 😠</li> <li>Disgust 😖</li> <li>Fear 😨</li> <li>Happy 😄</li> <li>Sad 😢</li> <li>Surprise 😲</li> <li>Neutral 😐</li> </ul> <h3>User Interface</h3> <ul> <li><strong>Live Camera View</strong>: Real-time emotion recognition with facial overlay</li> <li><strong>Image Upload</strong>: Choose from gallery for static image analysis</li> <li><strong>Emoji and Label Output</strong>: Emotion results shown with emojis and text</li> <li><strong>Minimal UI</strong>: Clean design with clear interaction flow and responsive layout</li> </ul> <p>This project demonstrates the potential of deep learning on edge devices, blending AI, mobile development, and human emotion understanding into a seamless Android experience.</p>"
+             data-github="https://github.com/Riiishaab/Expression.AI">
+            
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Expression AI Mobile App">
+            </div>
+            
+            <div class="project-content">
+                <div class="project-subtitle">Android APP POWERED BY AI</div>
+                <h3><i class="fa fa-smile"></i>Expression.AI</h3>
+                <p>Expression.AI is a real-time facial expression recognition Android app using TensorFlow Lite and OpenCV. It classifies emotions from camera or gallery images using a custom model trained on FER2013.</p>
+            </div>
+        </div>
+
+        <div class="project-box scroll-animation"
+             data-popup-trigger="project-popup-2"
+             data-heading="AI Hand Gesture Recognition System 🖐️"
+             data-subheading="🤟🏼 Real-time gesture recognition through FastViT Model ✌️"
+             data-body="<p>This project implements real-time hand gesture recognition using Apple's FastViT architecture, leveraging transfer learning on the HaGRID dataset to achieve 97.5% accuracy while maintaining efficiency for real-time applications.</p> <h3>🔑 Key Features</h3> <ul> <li><strong>Real-time gesture recognition</strong> through webcam integration</li> <li><strong>19 different hand gestures</strong> recognized with high accuracy</li> <li><strong>Efficient model architecture</strong> using FastViT for low-latency predictions</li> <li><strong>Simple deployment</strong> through Google Colab (no local setup required)</li> </ul> <h3>🧠 Model &amp; Architecture</h3> <p>The core intelligence is provided by a hybrid vision transformer:</p> <ul> <li><strong>Backbone</strong>: <code>fastvit_t8.apple_in1k</code> pretrained model</li> <li><strong>Training approach</strong>: Transfer learning with a frozen backbone</li> <li><strong>Input size</strong>: 256×256 px</li> <li><strong>Classes</strong>: 19 hand gestures</li> </ul> <p>FastViT was chosen for its efficiency advantages over ConvNeXT, offering high accuracy in resource-constrained environments.</p> <h3>📊 Dataset</h3> <p>Trained on the Hand Gesture Recognition Image Dataset (<strong>HaGRID</strong>) 150k subset:</p> <ul> <li><strong>19 gesture classes</strong> including 'thumbs up', 'peace sign', and 'stop'</li> <li>Used the manageable <strong>150k version</strong> for Colab training</li> <li>Properly split between <strong>training</strong> and <strong>validation</strong> sets</li> </ul> <h3>🚀 Usage</h3> <p><strong>Option 1: Google Colab</strong></p> <ul> <li>Open the training notebook</li> <li>Run all cells to train or load pretrained weights</li> <li>Follow webcam integration instructions</li> </ul> <p><strong>Option 2: Inference with Pretrained Model</strong></p> <ul> <li>Open the inference notebook</li> <li>Upload the pretrained model file (<code>sign_lang_model.pkl</code>)</li> <li>Run the webcam inference cell</li> </ul> <h3>📈 Results</h3> <ul> <li><strong>97.5% accuracy</strong> on the validation set</li> <li>Robust across different lighting conditions</li> <li><strong>Real-time inference</strong> (>30 FPS on modern hardware)</li> </ul> <h3>🔮 Future Work</h3> <ul> <li><strong>Expanded gesture vocabulary</strong>: Full sign language alphabet and phrases</li> <li><strong>Standalone deployment</strong>: Integration with video conferencing</li> <li><strong>Sequence modeling</strong>: Temporal information for dynamic gestures</li> <li><strong>Model optimization</strong>: Quantization and pruning for edge devices</li> </ul>"
+             data-github="https://github.com/Riiishaab/Sign_Language_Detector">
+            
+            <div class="project-image">
+                <img src="https://ai.google.dev/static/mediapipe/images/solutions/examples/hand_gesture.png" alt="Hand Gesture Recognition">
+            </div>
+            
+            <div class="project-content">
+                <div class="project-subtitle">COMPUTER VISION with DEEP LEARNING</div>
+                <h3><i class="fa fa-hand-scissors"></i>Hand Gesture Identifier</h3>
+                <p>Vision Foundation model using FastViT by Apple for Hand Gesture Recognition with 97.5% accuracy on the validation set.</p>
+            </div>
+        </div>
+
+        <div class="project-box scroll-animation"
+             data-popup-trigger="project-popup-3"
+             data-heading="AI Document Processing System 📄"
+             data-subheading="🚀 Intelligent Document Analysis and Summarization 🚀"
+             data-body="Developed an AI-driven document processing system combining DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization. Achieved 92% accuracy in entity extraction and 88% ROUGE-L summarization scores, enabling efficient processing of legal and technical documents."
+             data-github="https://github.com/Riiishaab/Projects/tree/main/AI%20Document%20Assistant">
+            
+            <div class="project-image">
+                <img src="https://writesonic.com/wp-content/uploads/AI-Agents-scaled.jpg" alt="AI Document Assistant">
+            </div>
+            
+            <div class="project-content">
+                <div class="project-subtitle">NATURAL LANGUAGE PROCESSING Integrating RAG</div>
+                <h3><i class="fa fa-file-text"></i>AI Document Assistant</h3>
+                <p>Smart document processing system using DeepSeek and Llama models for intelligent analysis, extraction, and summarization of complex documents.</p>
+            </div>
+        </div>
+
+        <div class="project-box scroll-animation"
+             data-popup-trigger="project-popup-4"
+             data-heading="THE ULTIMATE CHECKERS AI"
+             data-subheading="🎮 Where Strategic Intelligence Conquers the Classic Game 🎮"
+             data-body="This code implements a comprehensive Checkers (Draughts) game featuring two AI players with contrasting strategies: a sophisticated Smart AI using the Minimax algorithm with alpha-beta pruning and a baseline Random AI that makes random legal moves.</p> <h3>Game Structure</h3> <ul> <li>The game utilizes an 8×8 checkerboard grid with traditional alternating dark and light squares</li> <li>Two AI players compete: Red (Smart AI) and Blue (Random AI)</li> <li>Turn-based gameplay with visual representation of each move</li> <li>King promotion mechanics when pieces reach the opponent's back row</li> <li>Standard checkers rules including mandatory captures and multiple jumps</li> </ul> <h3>AI Implementation</h3> <p>The Minimax algorithm implementation represents the core intelligence of the Smart AI:</p> <ul> <li><strong>Depth-Limited Search</strong>: The Smart AI (Red player) looks ahead 3 moves using the Minimax algorithm</li> <li><strong>Alpha-Beta Pruning</strong>: Optimizes the search by eliminating branches that won't affect the final decision</li> <li><strong>Recursive Evaluation</strong>: Each potential move is evaluated by simulating future game states</li> <li><strong>Heuristic Evaluation</strong>: Board positions are scored based on piece count, king status, and positioning</li> <li><strong>Maximizing Strategy</strong>: The AI selects moves that maximize its advantage while assuming optimal opponent play</li> </ul> <p>The Random AI provides a contrasting approach:</p> <ul> <li>Identifies all pieces with legal moves</li> <li>Randomly selects one of these pieces</li> <li>Randomly selects one of the legal moves for that piece</li> <li>Executes without strategic planning</li> </ul> <h3>Game Mechanics</h3> <ul> <li><strong>Move Validation</strong>: Comprehensive checking of legal moves including diagonal movement and jumps</li> <li><strong>Capture Logic</strong>: Implementation of mandatory jump rules and multiple capture sequences</li> <li><strong>Visual Representation</strong>: Board state displayed using HTML/CSS with color-coded pieces</li> <li><strong>Game Termination</strong>: Ends after 100 moves or when a player has no remaining pieces/moves</li> <li><strong>Winner Determination</strong>: Based on remaining piece count or inability of opponent to move</li> </ul> <h3>User Interface</h3> <ul> <li><strong>Interactive Display</strong>: Color-coded pieces with clear visual distinction between regular pieces and kings</li> <li><strong>Move Animation</strong>: Step-by-step visualization with appropriate delays for user comprehension</li> <li><strong>Notifications</strong>: Popup alerts for game start, end, and important events</li> <li><strong>Status Updates</strong>: Ongoing information about game progress, turn count, and current player</li> <li><strong>Board Rendering</strong>: Clear representation of the current game state after each move</li> </ul> <p>This implementation demonstrates advanced concepts in game AI development.</p>"
+             data-github="https://github.com/Riiishaab/Projects/blob/main/my_smart_ai_checkers_bot.py">
+            
+            <div class="project-image">
+                <img src="https://www.shubhom.com/img/checkersbackground.png" alt="AI Checkers Game">
+            </div>
+            
+            <div class="project-content">
+                <div class="project-subtitle">AI Course Project</div>
+                <h3><i class="fa fa-robot"></i>Smart AI Checkers Bot</h3>
+                <p>A Checkers game featuring a Smart AI using Minimax with alpha-beta pruning against a Random AI, demonstrating strategic decision-making in game development.</p>
+            </div>
+        </div>
+
+        <div class="project-box scroll-animation"
+             data-popup-trigger="project-popup-5"
+             data-heading="GenderNet Vision"
+             data-subheading="🔍 Advanced Facial Analysis System 🔍"
+             data-body="Implemented a gender detection system using hybrid CNN-InceptionV3 architecture, achieving 94.35% accuracy on the CelebA dataset. Features include dynamic augmentation, adaptive learning rate scheduling, and quantized TensorFlow Lite deployment."
+             data-github="https://github.com/Riiishaab/Projects/blob/main/Face%20Gender%20Detection%20using%20CNNs.ipynb">
+            
+            <div class="project-image">
+                <img src="https://media.gettyimages.com/photos/facial-recognition-technology-picture-id1139859279?k=6&m=1139859279&s=612x612&w=0&h=H-i0yAM3A49I__r44424-jACD667nxiKb7bZR52ByOA=" alt="Gender Detection System">
+            </div>
+            
+            <div class="project-content">
+                <div class="project-subtitle">Course Project of Neural Network and Fuzzy Logic</div>
+                <h3><i class="fa fa-user"></i>Human Face Gender Detection</h3>
+                <p>Deep learning-based gender detection system using CNN & InceptionV3, achieving 94.35% accuracy on the CelebA dataset with advanced augmentation techniques.</p>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 
-    <!-----------------------------------Experience Section---------------------------------------------->
-    <section id="experience" class="section experience-section scroll-animation">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-container">
-            <!-- Research Assistant -->
-            <div class="experience-box scroll-animation">
-               <h3><i class="fa fa-graduation-cap" style="margin-right: 10px;"></i>Research Assistant</h3>
-                <p>As a Research Assistant in ECE at BITS Pilani Hyderabad under Dr. Rajesh Kumar Tripathy, I specialize in medical imaging using deep learning (CNNs, transformers) and wavelet-DNN integration.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="experience-popup-1"
-                        data-heading="Research Assistantship in Advanced Medical Imaging 🩺"
-                        data-subheading="🤖 Deep Learning & Wavelet Integration 📡"
-                        data-body="Advanced medical imaging through deep learning architectures and wavelet-DNN integration techniques. Achieved 5-15% accuracy improvements in abnormality detection across a diverse dataset exceeding 10,000 medical scans.
-
-<h4>Technical Contributions</h4>
-
-<h5>Transfer Learning Implementation</h5>
-• Leveraged state-of-the-art architectures including EfficientNetV2B2 and ResNet50 as foundation models
-• Adapted them specifically for medical imaging challenges through targeted fine-tuning protocols
-• Enabled rapid knowledge transfer from general image recognition to specialized medical applications
-
-<h5>Custom Architecture Development</h5>
-• Designed bespoke CNN architectures with strategically configured multi-layer networks
-• Addressed the unique characteristics of medical imaging data through specialized frameworks
-• Provided valuable insights into optimal network design for specific diagnostic tasks
-
-<h5>Deep Representation Learning</h5>
-• Enhanced diagnostic accuracy by implementing deep representation learning techniques
-• Augmented pre-trained models with custom classification layers
-• Created robust feature representations particularly suited for complex medical abnormality detection
-
-<h5>Wavelet Transform Integration</h5>
-• Incorporated various wavelet transform methodologies into neural network frameworks
-• Effectively captured multi-resolution features critical for medical image analysis
-• Enhanced model sensitivity to subtle pathological indicators
-
-<h5>Transformer Architecture Application</h5>
-• Applied transformer-based architectures to medical imaging
-• Harnessed attention mechanisms to focus on diagnostically relevant regions
-• Maintained contextual awareness across the entire image
-
-<h5>Current Research Focus</h5>
-• Exploring diffusion models for generating synthetic medical imaging data
-• Addressing dataset limitations in rare conditions
-• Investigating advanced deep representation learning techniques
-• Improving cross-modal generalizability across varying imaging modalities
-• Enabling models to maintain performance across different acquisition parameters"
-                        data-github="https://github.com/Riiishaab/OS-Detection-">
-                    <span class="btn-text">Learn More</span>
-                    <svg class="rocket-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8"/>
-                        <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.5 3.5 0 0 0-.463-.315A2 2 0 0 0 8.25.064.55.55 0 0 0 8 0a.55.55 0 0 0-.266.073 2 2 0 0 0-.142.08 4 4 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635s1.7-.207 2.4-.635q.1.044.196.083c.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562zM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935zM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199M8.009 1.073q.096.06.226.163c.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13s-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32q.136-.113.236-.18Z"/>
-                        <path d="M9.479 14.361c-.48.093-.98.139-1.479.139s-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0z"/>
-                    </svg>
-                    <div class="rocket-exhaust">
-                        <div class="exhaust-flame"></div>
-                    </div>
-                </button>
-
-            </div>
-
-            <!-- Research Intern -->
-            <div class="experience-box scroll-animation">
-               <h3><i class="fa fa-laptop" style="margin-right: 10px;"></i>Research Intern</h3>
-                <p>As a Research Intern at IGCAR Kalpakkam under Raja Sekhar M (SO/E), I experimented camouflaged object detection (COD), fine-tuning Meta's (Segment Anything Model) SAM.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="experience-popup-2"
-                        data-heading="Research Internship at IGCAR 🔬"
-                        data-subheading="🦎 Camouflaged Object Detection 🕵️‍♂️"
-                        data-body="During this internship, I specialized in addressing the challenging problem of camouflaged object detection (COD) by leveraging and fine-tuning Meta AI's Segment Anything Model (SAM). The project focused on developing robust methods to detect objects that blend seamlessly with their surroundings - a task where traditional computer vision approaches often fail. <h4>Project Implementation</h4> <h5>Dataset and Environment Setup</h5> - Utilized the COD10K dataset from Kaggle, which contains diverse images of camouflaged objects in natural settings - Implemented a custom dataset class and dataloader specifically designed for integration with SAM - Created a comprehensive data pipeline for preprocessing, including normalization and consistent resizing across the dataset <h5>Baseline Evaluation</h5> - Established performance benchmarks using the pre-trained SAM model without modifications - Employed SAM's Predictor and Automatic Mask Generator components to evaluate zero-shot performance - Identified specific limitations of SAM in the camouflaged object domain, confirming findings from recent research that SAM's performance on COD tasks is limited compared to its general segmentation capabilities <h5>Fine-Tuning Methodology</h5> - Developed a bounding box prompt-based approach to guide SAM's attention to regions containing camouflaged objects - Implemented a training engine to manage the fine-tuning process across multiple epochs - Optimized hyperparameters and loss functions specifically for the camouflaged object detection task - Monitored performance metrics throughout the training process to ensure continuous improvement <h5>Technical Innovations</h5> - Adapted SAM's promptable segmentation capabilities to the specific challenges of camouflaged objects - Implemented a box-prompt guided fine-tuning strategy that significantly improved detection accuracy - Designed a specialized training configuration that preserved SAM's general segmentation capabilities while enhancing its performance on camouflaged objects <h5>Quantified Results</h5> - Achieved a 14% improvement in mean Intersection over Union (mIoU) scores compared to the baseline pre-trained SAM model - Reduced false negative rates by approximately 22%, significantly improving the detection of highly camouflaged objects - Enhanced edge precision by 18%, allowing for more accurate delineation of camouflaged object boundaries - Maintained inference speed within 1.2x of the original model despite the additional fine-tuning - Demonstrated consistent performance improvements across various camouflage types (disruptive, coincident, and mimetic) in the COD10K dataset
-This work contributes to the growing field of adapting foundation models like SAM to specialized domains, demonstrating that with appropriate fine-tuning strategies, these models can overcome their initial limitations in challenging visual tasks like camouflaged object detection."
-                        data-github="https://github.com/Riiishaab/Camouflaged_Object_Detection/tree/main">
-                    <span class="btn-text">Learn More</span>
-                    <svg class="rocket-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8"/>
-                        <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.5 3.5 0 0 0-.463-.315A2 2 0 0 0 8.25.064.55.55 0 0 0 8 0a.55.55 0 0 0-.266.073 2 2 0 0 0-.142.08 4 4 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635s1.7-.207 2.4-.635q.1.044.196.083c.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562zM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935zM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199M8.009 1.073q.096.06.226.163c.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13s-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32q.136-.113.236-.18Z"/>
-                        <path d="M9.479 14.361c-.48.093-.98.139-1.479.139s-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0z"/>
-                    </svg>
-                    <div class="rocket-exhaust">
-                        <div class="exhaust-flame"></div>
-                    </div>
-                </button>
-
-            </div>
-
-            <!-- eSports Coordinator -->
-            <div class="experience-box scroll-animation">
-                <h3><i class="fa fa-gamepad" style="margin-right: 10px;"></i>eSports Manager</h3
-                <p>Led tournament organization and management at BITS Pilani Hyderabad, coordinating events with 100+ participants across 10 institutions. Created Python Program for fixture management dealing both even and odd participants.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="experience-popup-3"
-                        data-heading="Football Tournament Fixture Generator ⚽"
-                        data-subheading=" 🏆 Streamlining Competition Management with Elegance and Precision 🥇"
-                        data-body="<p>The Football Tournament Fixture Generator is a comprehensive tournament management system designed specifically for knockout-style football competitions. This Python-based application with a Tkinter interface offers tournament organizers a powerful yet intuitive solution for creating and managing competitive events.</p> <h4>Key Features</h4> <h5>Team Management</h5> - Easily register participating teams through a user-friendly interface with built-in validation to prevent duplicate entries - Support for various team sizes, with current implementation optimized for 5-7 teams - Comprehensive team data storage including team name, local town, and home stadium information <h5>Automated Fixture Generation</h5> - One-click random pairing of teams creates balanced tournament brackets - Implements Fisher-Yates shuffle algorithm to ensure fair and random match pairings - Handles special cases like derby matches between teams from the same town <h5>BYE Handling</h5> - Sophisticated handling of odd-numbered participant pools by automatically assigning 'BYE' slots - Ensures balanced competition regardless of participant numbers <h5>Round Progression</h5> - Seamless guidance through tournament stages from opening rounds to finals - Interactive interface for recording match results and advancing teams to subsequent rounds - Clear visualization of tournament progression using bracket-style layouts <h5>Schedule Management</h5> - Organizes matches into logical weekend groupings with only 4 teams playing per weekend - Ensures teams play home and away fixtures against each opponent - Prioritizes non-derby matches before scheduling teams from the same town <h5>Result Tracking</h5> - Interactive interface for recording match results and advancing teams - Options for both manual result entry and automated result generation for testing - Comprehensive tournament winner determination and display <h4>Technical Implementation</h4> <p>The application employs object-oriented design principles, separating tournament logic from the user interface. Core data structures include:</p>
-Team struct: Stores team name, town, and stadium information
-
-Match struct: Contains home and away teams, derby status, and leg information
-
-Weekend Game struct: Organizes matches into weekend slots
-
-<p>The system handles tournaments of various sizes through a modular architecture that ensures maintainability and extensibility. The fixture generation algorithm has O(n²) time complexity for match creation and employs sorting algorithms to ensure first legs are played before second legs.</p> <p>Output is available both through an interactive GUI and as CSV exports, making it easy to share and distribute fixture information to participants.</p> <p>This tool is particularly valuable for sports clubs, school competitions, or community events where organizing fair and transparent tournaments is essential. It simplifies the complex logistics of tournament management while providing a professional experience for both organizers and participants.</p>"
-                        data-github="https://github.com/Riiishaab/Projects/blob/main/eSports_fixtures.py">
-                    <span class="btn-text">Details</span>
-                    <svg class="rocket-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8"/>
-                        <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.5 3.5 0 0 0-.463-.315A2 2 0 0 0 8.25.064.55.55 0 0 0 8 0a.55.55 0 0 0-.266.073 2 2 0 0 0-.142.08 4 4 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635s1.7-.207 2.4-.635q.1.044.196.083c.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562zM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935zM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199M8.009 1.073q.096.06.226.163c.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13s-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32q.136-.113.236-.18Z"/>
-                        <path d="M9.479 14.361c-.48.093-.98.139-1.479.139s-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0z"/>
-                    </svg>
-                    <div class="rocket-exhaust">
-                        <div class="exhaust-flame"></div>
-                    </div>
-                </button>
-
-            </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research" class="section research-section scroll-animation">
-        <h2 class="section-title">Research & Publications</h2>
-        <div class="research-container">
-            <div class="research-box scroll-animation">
-                <h3>Book Chapter on Deep Representation Learning</h3>
-                <p>Published research in Elsevier's book on Signal Processing Driven Machine Learning Techniques for Cardiovascular Data Processing.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="research-popup-1"
-                        data-heading="Deep Learning for Medical Image Analysis"
-                        data-subheading="Comparative Analysis of CNN and Vision Transformer Architectures"
-                        data-body="Published research comparing CNN and Vision Transformer architectures in medical image classification. ViTs achieved 94.35% accuracy in osteoporosis detection and 96.57% accuracy in tuberculosis detection, demonstrating superior performance in handling complex medical imaging tasks."
-                        data-github="https://github.com/Riiishaab/deep-representation-learning">
-                    Show Details
-                </button>
-            </div>
-
-            <div class="research-box scroll-animation">
-                <h3>Ongoing Research</h3>
-                <p>Currently working on advanced medical imaging applications using deep learning.</p>
-                <button class="show-details-btn"
-                        data-popup-trigger="research-popup-2"
-                        data-heading="Upcoming Research"
-                        data-subheading="Advanced Medical Imaging Applications"
-                        data-body="Current research focuses on developing novel deep learning architectures for medical image analysis, with emphasis on improving diagnostic accuracy and computational efficiency."
-                        data-github="         ">
-                    Show Details
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="project" class="section project-section scroll-animation">
-        <h2 class="section-title">Projects</h2>
-        <div class="project-container">
-          <div class="project-box scroll-animation">
-                <h3><i class="fa fa-smile" style="margin-right: 10px;"></i>Expression.AI</h3>
-                <p>Expression.AI is a real-time facial expression recognition Android app using TensorFlow Lite and OpenCV. It classifies emotions from camera or gallery images using a custom model trained on FER2013.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="project-popup-4"
-                        data-heading=" Expression.AI — Decode Emotions in Real-Time"
-                        data-subheading="🎭  Feel the Mood. Frame by Frame. Powered by Deep Learning. 🎭 "
-                        data-body="<p><strong>Expression.AI</strong> is a real-time facial expression recognition Android application that uses deep learning to detect and classify human emotions. Powered by a custom TensorFlow Lite model named <strong>ResInceptionCNN</strong>, the app is designed for fast, on-device inference and intuitive user experience. It combines the power of computer vision with emotion AI for mobile devices.</p> <p>App APK -> https://github.com/Riiishaab/Expression.AI/releases/download/v1.0/ExpressionAI.apk</p> <h3>Application Features</h3> <ul> <li>Real-time facial emotion detection using the device’s camera</li> <li>Supports classification from uploaded images via gallery</li> <li>Runs fully offline with no internet required for inference</li> <li>Emotion results displayed with matching emojis and labels</li> <li>Fast and efficient performance optimized for mobile usage</li> </ul> <h3>Model and Dataset</h3> <p>Expression.AI is built on a custom deep learning model trained for facial expression recognition:</p> <ul> <li><strong>Model Name</strong>: ResInceptionCNN — a hybrid architecture combining strengths of Residual and Inception networks</li> <li><strong>Dataset</strong>: Trained on the FER2013 dataset containing 48x48 grayscale facial images labeled with 7 emotion classes</li> <li><strong>Conversion</strong>: Exported to TensorFlow Lite format for mobile deployment</li> </ul> <h3>ResInceptionCNN Architecture</h3> <p>The core of the project is the ResInceptionCNN model:</p> <ul> <li><strong>Inception Blocks</strong>: Capture multi-scale spatial features for rich local and global context</li> <li><strong>Residual Connections</strong>: Enable deeper networks by addressing vanishing gradients and improving feature flow</li> <li><strong>Batch Normalization</strong>: Applied after each convolution to stabilize and speed up training</li> <li><strong>Dropout Layers</strong>: Reduce overfitting and improve generalization</li> <li><strong>Final Dense Layer</strong>: Outputs emotion class probabilities through a softmax activation</li> </ul> <h3>Technical Stack</h3> <ul> <li><strong>Android Studio</strong>: Used for developing the UI and app logic</li> <li><strong>TensorFlow Lite</strong>: Facilitates fast, on-device model inference</li> <li><strong>OpenCV</strong>: Handles face detection from camera and gallery inputs</li> <li><strong>CameraX</strong>: Provides real-time camera feed with face capture</li> </ul> <h3>Emotion Categories Detected</h3> <ul> <li>Angry 😠</li> <li>Disgust 😖</li> <li>Fear 😨</li> <li>Happy 😄</li> <li>Sad 😢</li> <li>Surprise 😲</li> <li>Neutral 😐</li> </ul> <h3>User Interface</h3> <ul> <li><strong>Live Camera View</strong>: Real-time emotion recognition with facial overlay</li> <li><strong>Image Upload</strong>: Choose from gallery for static image analysis</li> <li><strong>Emoji and Label Output</strong>: Emotion results shown with emojis and text</li> <li><strong>Minimal UI</strong>: Clean design with clear interaction flow and responsive layout</li> </ul> <p>This project demonstrates the potential of deep learning on edge devices, blending AI, mobile development, and human emotion understanding into a seamless Android experience.</p>"
-                        data-github="https://github.com/Riiishaab/Expression.AI">
-                    <span class="btn-text">Learn More</span>
-                    <svg class="rocket-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8"/>
-                        <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.5 3.5 0 0 0-.463-.315A2 2 0 0 0 8.25.064.55.55 0 0 0 8 0a.55.55 0 0 0-.266.073 2 2 0 0 0-.142.08 4 4 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635s1.7-.207 2.4-.635q.1.044.196.083c.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562zM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935zM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199M8.009 1.073q.096.06.226.163c.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13s-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32q.136-.113.236-.18Z"/>
-                        <path d="M9.479 14.361c-.48.093-.98.139-1.479.139s-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0z"/>
-                    </svg>
-                    <div class="rocket-exhaust">
-                        <div class="exhaust-flame"></div>
-                    </div>
-                </button>
-            </div>
-
-            <div class="project-box scroll-animation">
-                <h3>Human Face Gender Detection</h3>
-                <p>Deep learning-based gender detection system using CNN & InceptionV3.</p>
-                <button class="show-details-btn"
-                        data-popup-trigger="project-popup-2"
-                        data-heading="GenderNet Vision"
-                        data-subheading="Advanced Facial Analysis System"
-                        data-body="Implemented a gender detection system using hybrid CNN-InceptionV3 architecture, achieving 94.35% accuracy on the CelebA dataset. Features include dynamic augmentation, adaptive learning rate scheduling, and quantized TensorFlow Lite deployment."
-                        data-github="https://github.com/Riiishaab/Projects/blob/main/Face%20Gender%20Detection%20using%20CNNs.ipynb">
-                    Show Details
-                </button>
-            </div>
-            <div class="project-box scroll-animation">
-               <h3><i class="fa fa-robot" style="margin-right: 10px;"></i>Smart AI Checkers Bot</h3>
-                <p>A Checkers game featuring a Smart AI using Minimax with alpha-beta pruning against a Random AI, demonstrating strategic decision-making in game development with visual gameplay representation.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="project-popup-3"
-                        data-heading="THE ULTIMATE CHECKERS AI"
-                        data-subheading="🎮Where Strategic Intelligence Conquers the Classic Game🎮"
-                        data-body="This code implements a comprehensive Checkers (Draughts) game featuring two AI players with contrasting strategies: a sophisticated Smart AI using the Minimax algorithm with alpha-beta pruning and a baseline Random AI that makes random legal moves.</p> <h3>Game Structure</h3> <ul> <li>The game utilizes an 8×8 checkerboard grid with traditional alternating dark and light squares</li> <li>Two AI players compete: Red (Smart AI) and Blue (Random AI)</li> <li>Turn-based gameplay with visual representation of each move</li> <li>King promotion mechanics when pieces reach the opponent's back row</li> <li>Standard checkers rules including mandatory captures and multiple jumps</li> </ul> <h3>AI Implementation</h3> <p>The Minimax algorithm implementation represents the core intelligence of the Smart AI:</p> <ul> <li><strong>Depth-Limited Search</strong>: The Smart AI (Red player) looks ahead 3 moves using the Minimax algorithm</li> <li><strong>Alpha-Beta Pruning</strong>: Optimizes the search by eliminating branches that won't affect the final decision</li> <li><strong>Recursive Evaluation</strong>: Each potential move is evaluated by simulating future game states</li> <li><strong>Heuristic Evaluation</strong>: Board positions are scored based on piece count, king status, and positioning</li> <li><strong>Maximizing Strategy</strong>: The AI selects moves that maximize its advantage while assuming optimal opponent play</li> </ul> <p>The Random AI provides a contrasting approach:</p> <ul> <li>Identifies all pieces with legal moves</li> <li>Randomly selects one of these pieces</li> <li>Randomly selects one of the legal moves for that piece</li> <li>Executes without strategic planning</li> </ul> <h3>Game Mechanics</h3> <ul> <li><strong>Move Validation</strong>: Comprehensive checking of legal moves including diagonal movement and jumps</li> <li><strong>Capture Logic</strong>: Implementation of mandatory jump rules and multiple capture sequences</li> <li><strong>Visual Representation</strong>: Board state displayed using HTML/CSS with color-coded pieces</li> <li><strong>Game Termination</strong>: Ends after 100 moves or when a player has no remaining pieces/moves</li> <li><strong>Winner Determination</strong>: Based on remaining piece count or inability of opponent to move</li> </ul> <h3>User Interface</h3> <ul> <li><strong>Interactive Display</strong>: Color-coded pieces with clear visual distinction between regular pieces and kings</li> <li><strong>Move Animation</strong>: Step-by-step visualization with appropriate delays for user comprehension</li> <li><strong>Notifications</strong>: Popup alerts for game start, end, and important events</li> <li><strong>Status Updates</strong>: Ongoing information about game progress, turn count, and current player</li> <li><strong>Board Rendering</strong>: Clear representation of the current game state after each move</li> </ul> <p>This implementation demonstrates advanced concepts in game AI development.</p>"
-                        data-github="https://github.com/Riiishaab/Projects/blob/main/my_smart_ai_checkers_bot.py">
-                    <span class="btn-text">Learn More</span>
-                    <svg class="rocket-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8"/>
-                        <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.5 3.5 0 0 0-.463-.315A2 2 0 0 0 8.25.064.55.55 0 0 0 8 0a.55.55 0 0 0-.266.073 2 2 0 0 0-.142.08 4 4 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635s1.7-.207 2.4-.635q.1.044.196.083c.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562zM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935zM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199M8.009 1.073q.096.06.226.163c.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13s-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32q.136-.113.236-.18Z"/>
-                        <path d="M9.479 14.361c-.48.093-.98.139-1.479.139s-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0z"/>
-                    </svg>
-                    <div class="rocket-exhaust">
-                        <div class="exhaust-flame"></div>
-                    </div>
-                </button>
-
-            </div>
-          
-            <div class="project-box scroll-animation">
-                <h3>AI Document Assistant</h3>
-                <p>Smart document processing system using DeepSeek and Llama models.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="project-popup-1"
-                        data-heading="AI Document Processing System 📄"
-                        data-subheading="🚀 Intelligent Document Analysis and Summarization 🚀"
-                        data-body="Developed an AI-driven document processing system combining DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization. Achieved 92% accuracy in entity extraction and 88% ROUGE-L summarization scores, enabling efficient processing of legal and technical documents."
-                        data-github="https://github.com/Riiishaab/Projects/tree/main/AI%20Document%20Assistant">
-                    Show Details
-                </button>
-            </div>
-
-            <div class="project-box scroll-animation">
-                <h3><i class="fa fa-hand-scissors" style="margin-right: 10px;"></i>Hand Gesture Identifier</h3>
-                <p>Vision Foundation model using FastViT by Apple for Hand Gesture Recognition.</p>
-                <button class="show-details-btn" 
-                        data-popup-trigger="project-popup-5"
-                        data-heading="AI Hand Gesture Recognition System 🖐️"
-                        data-subheading="🤟🏼 Real-time gesture recognition through FastViT Model ✌️"
-                        data-body="<p>This project implements real-time hand gesture recognition using Apple’s FastViT architecture, leveraging transfer learning on the HaGRID dataset to achieve 97.5% accuracy while maintaining efficiency for real-time applications.</p>
-
-<h3>🔑 Key Features</h3>
-<ul>
-  <li><strong>Real-time gesture recognition</strong> through webcam integration</li>
-  <li><strong>19 different hand gestures</strong> recognized with high accuracy</li>
-  <li><strong>Efficient model architecture</strong> using FastViT for low-latency predictions</li>
-  <li><strong>Simple deployment</strong> through Google Colab (no local setup required)</li>
-</ul>
-
-<h3>🧠 Model &amp; Architecture</h3>
-<p>The core intelligence is provided by a hybrid vision transformer:</p>
-<ul>
-  <li><strong>Backbone</strong>: <code>fastvit_t8.apple_in1k</code> pretrained model</li>
-  <li><strong>Training approach</strong>: Transfer learning with a frozen backbone</li>
-  <li><strong>Input size</strong>: 256×256 px</li>
-  <li><strong>Classes</strong>: 19 hand gestures</li>
-</ul>
-<p>FastViT was chosen for its efficiency advantages over ConvNeXT, offering high accuracy in resource-constrained environments.</p>
-
-<h3>📊 Dataset</h3>
-<p>Trained on the Hand Gesture Recognition Image Dataset (<strong>HaGRID</strong>) 150k subset:</p>
-<ul>
-  <li><strong>19 gesture classes</strong> including “thumbs up”, “peace sign”, and “stop”</li>
-  <li>Used the manageable <strong>150k version</strong> for Colab training</li>
-  <li>Properly split between <strong>training</strong> and <strong>validation</strong> sets</li>
-</ul>
-
-<h3>🚀 Usage</h3>
-<p><strong>Option 1: Google Colab</strong></p>
-<ul>
-  <li>Open the training notebook</li>
-  <li>Run all cells to train or load pretrained weights</li>
-  <li>Follow webcam integration instructions</li>
-</ul>
-<p><strong>Option 2: Inference with Pretrained Model</strong></p>
-<ul>
-  <li>Open the inference notebook</li>
-  <li>Upload the pretrained model file (<code>sign_lang_model.pkl</code>)</li>
-  <li>Run the webcam inference cell</li>
-</ul>
-
-<h3>📈 Results</h3>
-<ul>
-  <li><strong>97.5% accuracy</strong> on the validation set</li>
-  <li>Robust across different lighting conditions</li>
-  <li><strong>Real-time inference</strong> (>30 FPS on modern hardware)</li>
-</ul>
-
-<h3>🔮 Future Work</h3>
-<ul>
-  <li><strong>Expanded gesture vocabulary</strong>: Full sign language alphabet and phrases</li>
-  <li><strong>Standalone deployment</strong>: Integration with video conferencing</li>
-  <li><strong>Sequence modeling</strong>: Temporal information for dynamic gestures</li>
-  <li><strong>Model optimization</strong>: Quantization and pruning for edge devices</li>
-</ul>"
-                        data-github="https://github.com/Riiishaab/Sign_Language_Detector">
-                    Show Details
-                </button>
-            </div>
-
-        </div>
-    </section>
-
     <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <h2 class="section-title scroll-animation">Skills</h2>
+    <section id="skills" class="skills-section scroll-animation">
+        <h2 class="section-title">Technical Arsenal</h2>
         <div class="skills-container">
+            
             <!-- Programming Category -->
             <div class="skill-category scroll-animation">
                 <h3>Programming Languages</h3>
                 <div class="skills-grid">
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fab fa-python" style="color: #3776ab;"></i>
                         <span class="skill-name">Python</span>
                     </div>
-                    <div class="skill-box scroll-animation">
-                        <span style="color: #004482; font-weight: bold;">C</span>
+                    <div class="skill-box">
+                        <i class="fas fa-code" style="color: #004482;"></i>
                         <span class="skill-name">C Programming</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-database" style="color: #f29111;"></i>
                         <span class="skill-name">SQL</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fab fa-git-alt" style="color: #f34f29;"></i>
                         <span class="skill-name">Git</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-microchip" style="color: #1a237e;"></i>
                         <span class="skill-name">Verilog</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Frameworks & Libraries Category -->
+            <!-------------------------------------------------- Frameworks & Libraries Category ---------------------------------------------------------------------->
             <div class="skill-category scroll-animation">
-                <h3>Frameworks & Libraries</h3>
+                <h3>AI/ML Frameworks</h3>
                 <div class="skills-grid">
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-fire" style="color: #EE4C2C;"></i>
                         <span class="skill-name">PyTorch</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-project-diagram" style="color: #FF6F00;"></i>
                         <span class="skill-name">TensorFlow</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-eye" style="color: #007BFF;"></i>
                         <span class="skill-name">Computer Vision</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-robot" style="color: #F7931E;"></i>
                         <span class="skill-name">Scikit-learn</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-feather" style="color: #D00000;"></i>
                         <span class="skill-name">Keras</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-cube" style="color: #013243;"></i>
+                        <span class="skill-name">NumPy</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-table" style="color: #150458;"></i>
+                        <span class="skill-name">Pandas</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-chart-line" style="color: #11557C;"></i>
+                        <span class="skill-name">Matplotlib</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fab fa-docker" style="color: #2496ED;"></i>
+                        <span class="skill-name">Docker</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-link" style="color: #1C3C3C;"></i>
+                        <span class="skill-name">LangChain</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-bolt" style="color: #009688;"></i>
+                        <span class="skill-name">FastAPI</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fab fa-android" style="color: #3DDC84;"></i>
+                        <span class="skill-name">Android Studio</span>
+                    </div>
+                    <div class="skill-box">
+                        <i class="fas fa-stream" style="color: #FF4B4B;"></i>
+                        <span class="skill-name">Streamlit</span>
                     </div>
                 </div>
             </div>
 
             <!-- Domain Skills Category -->
             <div class="skill-category scroll-animation">
-                <h3>Domain Skills</h3>
+                <h3>AI Specializations</h3>
                 <div class="skills-grid">
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-brain" style="color: #FFD700;"></i>
                         <span class="skill-name">Machine Learning</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-network-wired" style="color: #00FF00;"></i>
                         <span class="skill-name">Deep Learning</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-magic" style="color: #FF4500;"></i>
                         <span class="skill-name">Generative AI</span>
                     </div>
-                    <div class="skill-box scroll-animation">
+                    <div class="skill-box">
                         <i class="fas fa-comments" style="color: #1E90FF;"></i>
                         <span class="skill-name">LLM</span>
                     </div>
@@ -464,24 +449,24 @@ Weekend Game struct: Organizes matches into weekend slots
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!--------------------------------------------- Education Section ----------------------------------------------------------->
     <section id="education" class="education-section scroll-animation">
         <h2 class="section-title">Education</h2>
         <div class="education-box scroll-animation">
             <h2 class="education-heading">Birla Institute of Technology and Science, Pilani</h2>
             <h3 class="degree-subheading">Bachelor of Engineering in Electronics and Communication Engineering</h3>
             <p class="location-text">Hyderabad, India • Currently Studying</p>
-
-            <h4 class="coursework-heading">Relevant Coursework</h4>
+            
+            <h4 class="coursework-heading" style="color: var(--netflix-red); margin: 2rem 0 1rem;">Relevant Coursework</h4>
             <ul class="coursework-list">
                 <li class="coursework-item scroll-animation">Machine Learning for Electronics Engineer</li>
                 <li class="coursework-item scroll-animation">Neural Network and Fuzzy Logic</li>
                 <li class="coursework-item scroll-animation">Deep Learning</li>
                 <li class="coursework-item scroll-animation">Digital Signal Processing</li>
                 <li class="coursework-item scroll-animation">Signals and Systems</li>
-                <li class="coursework-item scroll-animation">Computer Architecture</li>
+                <li class="coursework-item scroll-animation">Probability and Statistics</li>
                 <li class="coursework-item scroll-animation">Microprocessor and Interfacing</li>
-                <li class="coursework-item scroll-animation">Digital Design</li>
+                <li class="coursework-item scroll-animation">Linear Algebra</li>
             </ul>
         </div>
     </section>
@@ -584,8 +569,8 @@ Weekend Game struct: Organizes matches into weekend slots
             </div>
         </div>
     </div>
-  
-     <div id="project-popup-3" class="popup">
+
+    <div id="project-popup-3" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
             <h3 class="popup-subheading"></h3>
@@ -598,7 +583,7 @@ Weekend Game struct: Organizes matches into weekend slots
             </div>
         </div>
     </div>
-      
+  
     <div id="project-popup-4" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
@@ -612,7 +597,7 @@ Weekend Game struct: Organizes matches into weekend slots
             </div>
         </div>
     </div>
-
+  
     <div id="project-popup-5" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
@@ -627,10 +612,11 @@ Weekend Game struct: Organizes matches into weekend slots
         </div>
     </div>
 
-    <script src="static/js/main.js"></script>
-      
     <footer class="site-footer">
-    <p>© Made by Rishab⚡</p>
+        <p>© Made by Rishab⚡ with passion for AI</p>
     </footer>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
