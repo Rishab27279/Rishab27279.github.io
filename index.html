@@ -113,7 +113,7 @@
                 </p>
 
                 <div class="social-buttons">
-                    <a href="https://drive.google.com/file/d/1Xyy_8oioOhYW-OzaAevTrmitYBp56Y3b/view?usp=sharing" target="_blank" class="social-btn" aria-label="Download Resume">
+                    <a href="https://drive.google.com/file/d/1VWgnytIs7XbztODSluR1ywleWitUEg8W/view?usp=sharing" target="_blank" class="social-btn" aria-label="Download Resume">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
@@ -313,7 +313,7 @@ During this internship, the primary focus was on advancing solutions for the cha
                  data-github="https://github.com/Riiishaab/Camouflaged_Object_Detection/tree/main">
                 
                 <div class="project-image">
-                    <img src="https://www.aeea.org.in/assets/images/home-slider-0.jpg" alt="IGCAR Computer Vision Research">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRID3vHg_z_e9b89bCHbUV9dLIfyQA7TTFt93RGlnVuO9f5vfO4FHNzv7peicgkR0zthmM&usqp=CAU" alt="IGCAR Computer Vision Research">
                 </div>
                 
                 <div class="project-content">
@@ -486,6 +486,119 @@ using Muscle X-ray Images</h3>
                     <div class="project-subtitle">Research Paper Productionization</div>
                     <h3><i class="fa fa-user"></i>EdgeSeg-AI</h3>
                     <p>EdgeSeg-AI is a research backed image segmentation framework that democratizes advanced AI by reducing memory usage 60-70% through sequential model loading. It uses Multi-Modal Architecture, which intelligently orchestrates prompt interpretation, object detection, and mask generation for seamless user experience which enables high-quality segmentation on consumer hardware.</p>
+                </div>
+            </div>
+          
+             <!-- AI Document Processing -->
+            <div class="project-box scroll-animation"
+                 data-popup-trigger="project-popup-8"
+                 data-heading="Moody.AI"
+                 data-subheading="🎭 Multimodal Emotion Recognition Engine 🚀"
+                 data-body="<style>
+h3 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: var(--ai-blue);
+}
+</style>
+
+<p><strong>Moody.AI</strong> is a cutting-edge multimodal AI system that analyzes emotions from video content using computer vision, audio processing, and natural language processing. Powered by state-of-the-art deep learning models including <strong>DINOv2, Wav2Vec2, DistilBERT, and Whisper</strong>, the system provides comprehensive sentiment analysis with an intuitive web interface and achieves <strong>61% accuracy</strong> on the challenging MELD dataset.</p>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<p>Docker Hub: https://hub.docker.com/r/rishab27279/moody-ai | GitHub: https://github.com/Rishab27279/MoodyAI</p>
+                            
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<h3>System Features</h3>
+<ul>
+<li>Multimodal analysis with simultaneous processing of vision, audio, and text</li>
+<li>Real-time emotion classification with interactive confidence scores</li>
+<li>Production-ready containerized deployment with Docker</li>
+<li>Modern glass morphism UI with animated visualizations</li>
+<li>Supports video files (MP4, MOV, MKV) up to 200MB</li>
+<li>Fast processing: 10-30 seconds per video on GPU</li>
+</ul>
+
+<h3>Model Architecture and Performance</h3>
+<p>Moody.AI employs a sophisticated trimodal fusion architecture combining multiple AI models:</p>
+<ul>
+<li><strong>Vision Processing</strong>: DINOv2 ViT-B/14 for facial expression analysis with 768-dimensional embeddings compressed to 256 dimensions</li>
+<li><strong>Audio Processing</strong>: Fine-Tuned-Wav2Vec2-base Model for emotional audio representations achieving 32% accuracy on MELD</li>
+<li><strong>Text Processing</strong>: Fine-tuned DistilBERT-base-uncased achieving 50% accuracy on MELD dataset</li>
+<li><strong>Speech-to-Text</strong>: OpenAI Whisper for multilingual transcription with automatic language detection</li>
+</ul>
+
+<h3>Trimodal Fusion Innovation</h3>
+<p>The breakthrough architecture combines all three modalities through advanced fusion techniques:</p>
+<ul>
+<li><strong>Vision Feature Compression</strong>: Novel noise reduction technique that improved accuracy from 45-49% to 61%</li>
+<li><strong>Cross-Modal Attention</strong>: Advanced fusion mechanisms enabling interaction between text, audio, and vision features</li>
+<li><strong>Progressive Architecture</strong>: Systematic evolution from bimodal (56-57% accuracy) to trimodal fusion</li>
+<li><strong>Dropout Regularization</strong>: 0.3 and 0.2 dropout rates to prevent overfitting in fusion layers</li>
+</ul>
+
+<h3>Video Processing Pipeline</h3>
+<ul>
+<li><strong>Frame Extraction</strong>: ~1 frame per second sampling with CVLib face detection</li>
+<li><strong>Audio Extraction</strong>: MoviePy conversion to 16kHz WAV with Whisper transcription</li>
+<li><strong>Feature Extraction</strong>: Parallel processing of vision (518×518), audio (768-dim), and text (512 tokens) features</li>
+<li><strong>Multimodal Fusion</strong>: Cross-attention mechanism with concatenated feature fusion</li>
+<li><strong>Emotion Classification</strong>: Softmax output across 5 emotion classes</li>
+</ul>
+
+<h3>Technical Stack</h3>
+<ul>
+<li><strong>Deep Learning</strong>: PyTorch 1.13.0+ with Transformers 4.21.0+</li>
+<li><strong>Web Interface</strong>: Streamlit 1.24.0+ with custom CSS styling</li>
+<li><strong>Computer Vision</strong>: OpenCV for face detection and image processing</li>
+<li><strong>Audio Processing</strong>: Librosa 0.9.2+ and MoviePy 1.0.3+ for audio extraction</li>
+<li><strong>Model Optimization</strong>: TensorFlow Lite compatibility with TIMM 0.6.7+</li>
+</ul>
+
+<h3>Emotion Categories Detected</h3>
+<ul>
+<li>Happy 😄</li>
+<li>Surprise 😢</li>
+<li>Angry 😠</li>
+<li>Melancholy 😨</li>
+<li>Neutral 😐</li>
+</ul>
+
+<h3>Performance Benchmarks</h3>
+<ul>
+<li><strong>Overall Accuracy</strong>: 61% on MELD dataset (competitive with SOTA DialogueRNN at 60.25%)</li>
+<li><strong>Processing Speed</strong>: GPU (RTX 3050) processes videos in 10-20 seconds</li>
+<li><strong>Memory Usage</strong>: ~4GB model loading, 6-7GB peak usage for large videos</li>
+<li><strong>F1-Score</strong>: 0.59-0.63 macro average across emotion classes</li>
+</ul>
+
+<h3>User Interface and Deployment</h3>
+<ul>
+<li><strong>Web Application</strong>: Streamlit-based interface with glass morphism design</li>
+<li><strong>Processing Modes</strong>: Lightweight, Balanced, and High Fidelity options</li>
+<li><strong>Docker Deployment</strong>: One-command deployment with pre-built container</li>
+<li><strong>Cloud Ready</strong>: Compatible with Streamlit Cloud, AWS, Azure, and Google Cloud Run</li>
+<li><strong>Interactive Results</strong>: Real-time emotion visualization with confidence scores and probability distributions</li>
+</ul>
+
+<h3>Hardware Requirements</h3>
+<ul>
+<li><strong>Minimum</strong>: 8GB RAM, CPU-only processing (30-60 seconds per video)</li>
+<li><strong>Recommended</strong>: 16GB RAM, NVIDIA GPU with 4GB+ VRAM</li>
+<li><strong>Optimal</strong>: 32GB RAM, Modern GPU like RTX 3060+ (5-10 seconds per video)</li>
+</ul>
+
+<p>This project demonstrates the advancement of multimodal AI on edge devices, combining computer vision, natural language processing, and audio analysis into a comprehensive emotion recognition system with state-of-the-art performance.</p>"
+                 data-github="https://github.com/Rishab27279/MoodyAI">
+                
+                <div class="project-image">
+                    <img src="https://visagetechnologies.com/app/uploads/2022/07/Face-Analysis-emotion-estimation.webp" alt="AI Mood Detector">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">Multimodal Sentiment AI</div>
+                    <h3><i class="fa fa-smile"></i>Moody.AI</h3>
+                    <p>Moody.AI is a cutting-edge multimodal emotion recognition system analyzing video content using computer vision, audio processing, and natural language processing technologies. Combining DINOv2, fine-tuned Wav2Vec2, DistilBERT, and Whisper models through innovative trimodal fusion architecture, it achieves 61% accuracy on challenging MELD dataset with Docker deployment..</p>
                 </div>
             </div>
             <!-- OsteoDiagnosis.AI -->
@@ -987,6 +1100,20 @@ using Muscle X-ray Images</h3>
     </div>
   
     <div id="project-popup-6" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+  
+    <div id="project-popup-8" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
             <h3 class="popup-subheading"></h3>
