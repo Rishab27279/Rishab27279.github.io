@@ -233,23 +233,62 @@ class PortfolioChatBot {
 
     // ======================================== NEW: HTML EXTRACTION ========================================
     
-    extractPortfolioHTML() {
-        // Extract text content from all major sections
-        const sections = document.querySelectorAll('section, main, article');
-        let htmlContent = [];
+extractPortfolioHTML() {
+    let htmlContent = [];
+    
+    // 1. Extract visible section content
+    const sections = document.querySelectorAll('section, main, article');
+    sections.forEach(section => {
+        const sectionText = section.textContent
+            .replace(/\s+/g, ' ')
+            .trim();
+        if (sectionText.length > 50) {
+            htmlContent.push(sectionText);
+        }
+    });
+    
+    // 2. **NEW: Extract project data attributes (where GitHub links are stored)**
+    const projectBoxes = document.querySelectorAll('[data-popup-trigger]');
+    projectBoxes.forEach(box => {
+        const projectName = box.getAttribute('data-heading') || '';
+        const projectSubheading = box.getAttribute('data-subheading') || '';
+        const projectBody = box.getAttribute('data-body') || '';
+        const projectGithub = box.getAttribute('data-github') || '';
         
-        sections.forEach(section => {
-            const sectionText = section.textContent
-                .replace(/\s+/g, ' ')
-                .trim();
-            if (sectionText.length > 50) {  // Only add meaningful sections
-                htmlContent.push(sectionText);
+        if (projectName) {
+            // Create a structured project entry
+            let projectInfo = `\n\n=== PROJECT: ${projectName} ===\n`;
+            projectInfo += `Subheading: ${projectSubheading}\n`;
+            
+            // Extract text from HTML in data-body
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = projectBody;
+            projectInfo += `Details: ${tempDiv.textContent.replace(/\s+/g, ' ').trim()}\n`;
+            
+            if (projectGithub) {
+                projectInfo += `GitHub Repository: ${projectGithub}\n`;
             }
-        });
-        
-        this.portfolioHTML = htmlContent.join('\n\n');
-        console.log('✅ Portfolio HTML extracted:', this.portfolioHTML.length, 'characters');
-    }
+            
+            htmlContent.push(projectInfo);
+        }
+    });
+    
+    // 3. **NEW: Extract all links from the page**
+    const links = document.querySelectorAll('a[href]');
+    let linksList = '\n\n=== IMPORTANT LINKS ===\n';
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        const text = link.textContent.trim();
+        if (href && (href.includes('github') || href.includes('linkedin') || href.includes('mailto'))) {
+            linksList += `${text}: ${href}\n`;
+        }
+    });
+    htmlContent.push(linksList);
+    
+    this.portfolioHTML = htmlContent.join('\n\n');
+    console.log('✅ Portfolio HTML extracted:', this.portfolioHTML.length, 'characters');
+    console.log('📊 First 500 chars:', this.portfolioHTML.substring(0, 500)); // Debug preview
+}
 
     // ======================================== NEW: GEMINI API CALL ========================================
     
@@ -283,6 +322,13 @@ CONVERSATION STYLE:
 - Read the room - match the user's energy and tone
 - If someone says "hi", just say hi back naturally. Don't launch into a whole biography
 - Build on previous conversation naturally
+
+**IMPORTANT INSTRUCTIONS FOR FINDING INFORMATION:**
+- When asked about project code, GitHub links, or repositories, CAREFULLY search the portfolio content below
+- GitHub links are clearly marked with "GitHub Repository:" prefix
+- Project details are organized under "=== PROJECT: [name] ===" headers
+- If you find relevant information, cite it directly - don't say you don't know!
+- Links are also listed under "=== IMPORTANT LINKS ===" section
 
 WHAT YOU KNOW (Portfolio Content):
 ${this.portfolioHTML}
