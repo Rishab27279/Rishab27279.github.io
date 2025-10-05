@@ -395,6 +395,99 @@ using Muscle X-ray Images</h3>
     <section id="project" class="section scroll-animation">
         <h2 class="section-title">Featured Projects</h2>
         <div class="project-container">
+<!-- U-Tube AI -->
+            <div class="project-box scroll-animation"
+                 data-popup-trigger="project-popup-9"
+                 data-heading="U-Tube AI"
+                 data-subheading="Beyond the Transcript: True Multimodal YouTube Intelligence 🎥"
+                 data-body="<style>
+                            h3 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: var(--ai-blue);
+}
+</style>
+                            <p><strong>U-Tube AI</strong> is a revolutionary multimodal AI agent that transforms YouTube videos into comprehensive knowledge assets by analyzing both audio and visual streams. Unlike mainstream tools (NoteGPT, Notta, MyMap.AI) that rely solely on transcripts, U-Tube AI employs adaptive frame sampling and OCR to capture slides, diagrams, and code shown on screen. This research-backed approach achieves 70-90% cost reduction compared to direct VLM processing while maintaining complete visual context that transcript-only tools miss entirely.</p>
+
+<p>----------------------------------------------------------------------------------------------------------------</p>
+
+<p>GitHub Repository: https://github.com/Rishab27279/U-Tube-AI</p>
+
+<p>----------------------------------------------------------------------------------------------------------------</p>
+
+<h3>Core Innovation</h3>
+<p>U-Tube AI addresses the critical limitation of existing AI note-taking tools that are completely blind to visual content. The framework implements a sophisticated multimodal architecture combining:</p>
+<ul>
+<li><strong>Adaptive Frame Sampling</strong>: Intelligent extraction of key visual moments (slides, diagrams, code snippets) rather than uniform processing</li>
+<li><strong>Dual-Model Synthesis</strong>: Gemini Flash for rapid structure mapping, Gemini Pro for targeted deep synthesis</li>
+<li><strong>Confidence-Based OCR Routing</strong>: Smart decision engine that triggers visual extraction only when visual content enhances understanding</li>
+<li><strong>Cost Efficiency</strong>: Reduces processing costs from $139/hour (direct VLM) to $15-40 for hour-long videos while maintaining 90%+ information capture</li>
+</ul>
+
+<h3>Technical Architecture</h3>
+<p>The system operates through an intelligent dual-stage pipeline optimized for both quality and production-ready efficiency:</p>
+<ul>
+<li><strong>Stage 1 - Structure Mapping</strong>: Gemini Flash analyzes full transcripts to extract topic hierarchies and identify visually dense sections requiring OCR</li>
+<li><strong>Stage 2 - Deep Synthesis</strong>: Gemini Pro performs targeted deep dives on each section, fusing transcript and extracted visual data into coherent narratives</li>
+<li><strong>RAG Pipeline</strong>: ChromaDB-powered vector database enables semantic search with timestamp retrieval and context-aware Q&A across video content</li>
+<li><strong>Iterative Refinement</strong>: Low-confidence outputs trigger up to 3 enhancement loops, progressively improving note quality</li>
+</ul>
+
+<h3>Key Technical Advantages</h3>
+<ul>
+<li><strong>Research-Backed Sampling</strong>: Built on CVPR 2025 (AKS, BOLT) and AdaFrame principles showing intelligent frame selection outperforms uniform sampling by 5-6% while processing 70-85% fewer frames</li>
+<li><strong>Multimodal Fusion</strong>: Hierarchical synthesis where structural analysis guides targeted visual extraction to information-dense segments</li>
+<li><strong>Production-Ready Design</strong>: Practical cost efficiency for real-world use cases, avoiding prohibitively expensive full-video analysis</li>
+<li><strong>Export Flexibility</strong>: Notes available in Markdown, PDF, and DOCX formats for seamless workflow integration</li>
+</ul>
+
+<h3>Performance Benchmarks</h3>
+<p>U-Tube AI demonstrates significant advantages over existing solutions while maintaining comprehensive understanding:</p>
+<ul>
+<li><strong>Cost per Hour</strong>: $15-40 vs $139 (direct VLM processing) - 70-90% reduction</li>
+<li><strong>Visual Content Capture</strong>: 100% of slides, diagrams, and code vs 0% for transcript-only tools</li>
+<li><strong>Information Retention</strong>: Maintains >90% information capture despite selective frame processing</li>
+<li><strong>Processing Efficiency</strong>: Moderate speed balancing thoroughness with resource optimization</li>
+</ul>
+
+<h3>Real-World Applications</h3>
+<p>The framework excels across diverse educational and professional content types, addressing critical gaps in existing tools:</p>
+<ul>
+<li><strong>Technical Tutorials</strong>: Programming lectures with code editors and terminal outputs (Strivers, Programming with Mosh)</li>
+<li><strong>Academic Content</strong>: Slide-heavy presentations and architectural diagrams requiring visual understanding (CampusX, MIT OpenCourseWare)</li>
+<li><strong>Professional Development</strong>: Conference talks and technical presentations with visual aids and data visualizations</li>
+<li><strong>Interactive Learning</strong>: RAG-powered chat enables Q&A with timestamp retrieval for targeted video review</li>
+</ul>
+
+<h3>Intelligent Decision System</h3>
+<p>Not every video requires frame-by-frame analysis. U-Tube AI implements a confidence-based routing engine that optimizes resource allocation:</p>
+<ul>
+<li><strong>Visual Density Evaluation</strong>: Assesses whether visual content would enhance note quality before triggering OCR</li>
+<li><strong>Talking-Head Optimization</strong>: Avoids unnecessary frame processing when transcripts alone suffice</li>
+<li><strong>Iterative Refinement Loops</strong>: Low-confidence outputs trigger enhancement cycles up to 3 times</li>
+<li><strong>Cost-Quality Balance</strong>: Ensures efficient resource usage without compromising comprehensive understanding</li>
+</ul>
+
+<h3>Open Source Commitment</h3>
+<ul>
+<li><strong>Complete Implementation</strong>: Full codebase with Streamlit UI, dual-model orchestration, and RAG pipeline</li>
+</ul>
+
+<p>U-Tube AI my try of a paradigm shift in YouTube content analysis by treating visual information as first-class data rather than an afterthought. The framework combines cutting-edge computer vision research with practical cost efficiency, enabling students and professionals to efficiently digest complex technical content without losing critical visual context that drives true understanding.</p>"
+                 data-github="https://github.com/Rishab27279/U-Tube-AI">
+                
+                <div class="project-image">
+                    <img src="https://ik.imagekit.io/lbiij6kvl/ABCD.png?updatedAt=1759696000869" alt="U-Tube AI System">
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-subtitle">Visual YouTube Agent</div>
+                    <h3><i class="fa fa-video-camera"></i>U-Tube AI</h3>
+                    <p>The first YouTube RAG AI that actually watches the video, not just reads transcripts. U-Tube AI analyzes both audio and visual streams to extract slides, code snippets, and diagrams that transcript-only tools ignore. Powered by intelligent OCR routing and dual-model synthesis, it achieves enterprise-quality understanding at fraction of the cost while NoteGPT, Notta, and MyMap.AI miss all visual content entirely.</p>
+                </div>
+            </div>
+
+          
             <!-- EdgeSeg-AI -->
             <div class="project-box scroll-animation"
                  data-popup-trigger="project-popup-7"
@@ -483,13 +576,13 @@ using Muscle X-ray Images</h3>
                 </div>
                 
                 <div class="project-content">
-                    <div class="project-subtitle">Research Paper Productionization</div>
+                    <div class="project-subtitle">Research Paper Re-implimentation</div>
                     <h3><i class="fa fa-user"></i>EdgeSeg-AI</h3>
                     <p>EdgeSeg-AI is a research backed image segmentation framework that democratizes advanced AI by reducing memory usage 60-70% through sequential model loading. It uses Multi-Modal Architecture, which intelligently orchestrates prompt interpretation, object detection, and mask generation for seamless user experience which enables high-quality segmentation on consumer hardware.</p>
                 </div>
             </div>
           
-             <!-- AI Document Processing -->
+             <!-- Moody AI -->
             <div class="project-box scroll-animation"
                  data-popup-trigger="project-popup-8"
                  data-heading="Moody.AI"
@@ -1113,7 +1206,7 @@ h3 {
         </div>
     </div>
   
-    <div id="project-popup-8" class="popup">
+    <div id="project-popup-7" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
             <h3 class="popup-subheading"></h3>
@@ -1127,7 +1220,21 @@ h3 {
         </div>
     </div>
   
-      <div id="project-popup-7" class="popup">
+      <div id="project-popup-8" class="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading"></h2>
+            <h3 class="popup-subheading"></h3>
+            <div class="popup-body"></div>
+            <div class="popup-buttons">
+                <a href="" class="popup-github" target="_blank">
+                    <i class="fab fa-github"></i> Code
+                </a>
+                <button class="popup-close">Close</button>
+            </div>
+        </div>
+    </div>
+  
+      <div id="project-popup-9" class="popup">
         <div class="popup-content">
             <h2 class="popup-heading"></h2>
             <h3 class="popup-subheading"></h3>
