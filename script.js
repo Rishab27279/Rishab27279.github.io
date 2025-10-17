@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeChatBot();
 });
 
-// ======================================== GEMINI-POWERED CHATBOT - SIMPLIFIED ========================================
+// ======================================== GEMINI-POWERED CHATBOT - NETLIFY SECURE VERSION ========================================
 
 class PortfolioChatBot {
     constructor() {
@@ -218,79 +218,79 @@ class PortfolioChatBot {
         this.messages = [];
         this.isTyping = false;
         
-        this.geminiApiKey = ""; 
+        // REMOVED: API key no longer stored on client side
         
-        // NEW: Store conversation history for continuous chat
+        // Store conversation history for continuous chat
         this.conversationHistory = [];
         
-        // NEW: Store extracted HTML content
+        // Store extracted HTML content
         this.portfolioHTML = "";
         
         this.initializeEventListeners();
-        this.extractPortfolioHTML();  // NEW: Extract HTML on load
+        this.extractPortfolioHTML();
         this.addWelcomeMessage();
     }
 
-    // ======================================== NEW: HTML EXTRACTION ========================================
+    // ======================================== HTML EXTRACTION ========================================
     
-extractPortfolioHTML() {
-    let htmlContent = [];
-    
-    // 1. Extract visible section content
-    const sections = document.querySelectorAll('section, main, article');
-    sections.forEach(section => {
-        const sectionText = section.textContent
-            .replace(/\s+/g, ' ')
-            .trim();
-        if (sectionText.length > 50) {
-            htmlContent.push(sectionText);
-        }
-    });
-    
-    // 2. **NEW: Extract project data attributes (where GitHub links are stored)**
-    const projectBoxes = document.querySelectorAll('[data-popup-trigger]');
-    projectBoxes.forEach(box => {
-        const projectName = box.getAttribute('data-heading') || '';
-        const projectSubheading = box.getAttribute('data-subheading') || '';
-        const projectBody = box.getAttribute('data-body') || '';
-        const projectGithub = box.getAttribute('data-github') || '';
+    extractPortfolioHTML() {
+        let htmlContent = [];
         
-        if (projectName) {
-            // Create a structured project entry
-            let projectInfo = `\n\n=== PROJECT: ${projectName} ===\n`;
-            projectInfo += `Subheading: ${projectSubheading}\n`;
-            
-            // Extract text from HTML in data-body
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = projectBody;
-            projectInfo += `Details: ${tempDiv.textContent.replace(/\s+/g, ' ').trim()}\n`;
-            
-            if (projectGithub) {
-                projectInfo += `GitHub Repository: ${projectGithub}\n`;
+        // 1. Extract visible section content
+        const sections = document.querySelectorAll('section, main, article');
+        sections.forEach(section => {
+            const sectionText = section.textContent
+                .replace(/\s+/g, ' ')
+                .trim();
+            if (sectionText.length > 50) {
+                htmlContent.push(sectionText);
             }
+        });
+        
+        // 2. Extract project data attributes (where GitHub links are stored)
+        const projectBoxes = document.querySelectorAll('[data-popup-trigger]');
+        projectBoxes.forEach(box => {
+            const projectName = box.getAttribute('data-heading') || '';
+            const projectSubheading = box.getAttribute('data-subheading') || '';
+            const projectBody = box.getAttribute('data-body') || '';
+            const projectGithub = box.getAttribute('data-github') || '';
             
-            htmlContent.push(projectInfo);
-        }
-    });
-    
-    // 3. **NEW: Extract all links from the page**
-    const links = document.querySelectorAll('a[href]');
-    let linksList = '\n\n=== IMPORTANT LINKS ===\n';
-    links.forEach(link => {
-        const href = link.getAttribute('href');
-        const text = link.textContent.trim();
-        if (href && (href.includes('github') || href.includes('linkedin') || href.includes('mailto'))) {
-            linksList += `${text}: ${href}\n`;
-        }
-    });
-    htmlContent.push(linksList);
-    
-    this.portfolioHTML = htmlContent.join('\n\n');
-    console.log('✅ Portfolio HTML extracted:', this.portfolioHTML.length, 'characters');
-    console.log('📊 First 500 chars:', this.portfolioHTML.substring(0, 500)); // Debug preview
-}
+            if (projectName) {
+                // Create a structured project entry
+                let projectInfo = `\n\n=== PROJECT: ${projectName} ===\n`;
+                projectInfo += `Subheading: ${projectSubheading}\n`;
+                
+                // Extract text from HTML in data-body
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = projectBody;
+                projectInfo += `Details: ${tempDiv.textContent.replace(/\s+/g, ' ').trim()}\n`;
+                
+                if (projectGithub) {
+                    projectInfo += `GitHub Repository: ${projectGithub}\n`;
+                }
+                
+                htmlContent.push(projectInfo);
+            }
+        });
+        
+        // 3. Extract all links from the page
+        const links = document.querySelectorAll('a[href]');
+        let linksList = '\n\n=== IMPORTANT LINKS ===\n';
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            const text = link.textContent.trim();
+            if (href && (href.includes('github') || href.includes('linkedin') || href.includes('mailto'))) {
+                linksList += `${text}: ${href}\n`;
+            }
+        });
+        htmlContent.push(linksList);
+        
+        this.portfolioHTML = htmlContent.join('\n\n');
+        console.log('✅ Portfolio HTML extracted:', this.portfolioHTML.length, 'characters');
+        console.log('📊 First 500 chars:', this.portfolioHTML.substring(0, 500));
+    }
 
-    // ======================================== NEW: GEMINI API CALL ========================================
+    // ======================================== NETLIFY FUNCTION API CALL ========================================
     
     async callGeminiAPI(userMessage) {
         try {
@@ -344,33 +344,24 @@ REMEMBER:
 - Be helpful but conversational
 - Keep it real - you're Rishab's voice, not a corporate FAQ bot
 - If info isn't available, suggest what you DO know instead
-- Contact: f20220491@hyderabad.bits-pilani.ac.in | LinkedIn: linkedin.com/in/rishab-k-pattnaik-6a9939249 | GitHub: github.com/Rishab27279
+- Contact: [f20220491@hyderabad.bits-pilani.ac.in](mailto:f20220491@hyderabad.bits-pilani.ac.in) | LinkedIn: linkedin.com/in/rishab-k-pattnaik-6a9939249 | GitHub: github.com/Rishab27279
 - If someone asks a general, coding or mathematical question, first tell that you are Rishi-Bot and your work is to be my assistant, but then answer the question correctly with deep reasoning.
 
 Now respond naturally to the user's message:`;
 
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${this.geminiApiKey}`, {
+            // Call Netlify Function instead of Gemini API directly
+            const response = await fetch('/.netlify/functions/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: systemPrompt
-                        }]
-                    }],
-                    generationConfig: {
-                        temperature: 0.7,
-                        topK: 40,
-                        topP: 0.95,
-                        maxOutputTokens: 1024,
-                    }
+                    message: systemPrompt
                 })
             });
 
             if (!response.ok) {
-                throw new Error(`API Error: ${response.status}`);
+                throw new Error(`Function Error: ${response.status}`);
             }
 
             const data = await response.json();
@@ -395,12 +386,12 @@ Now respond naturally to the user's message:`;
             }
 
         } catch (error) {
-            console.error('Gemini API Error:', error);
+            console.error('ChatBot API Error:', error);
             return "I apologize, but I'm having trouble connecting right now. 😔 Please try again in a moment!";
         }
     }
 
-    // ======================================== EXISTING METHODS (KEPT SAME) ========================================
+    // ======================================== EVENT LISTENERS ========================================
 
     initializeEventListeners() {
         document.getElementById('chatbotToggle').addEventListener('click', () => {
@@ -574,12 +565,11 @@ Now respond naturally to the user's message:`;
         }
     }
 
-    // MODIFIED: Now calls Gemini API instead of knowledge base
     async generateResponse(userInput) {
         const typingIndicator = this.showTypingIndicator();
         
         try {
-            // Call Gemini API
+            // Call Netlify Function via callGeminiAPI
             const response = await this.callGeminiAPI(userInput);
             
             this.hideTypingIndicator(typingIndicator);
@@ -614,7 +604,7 @@ Now respond naturally to the user's message:`;
     }
 }
 
-// ======================================== UTILITY FUNCTIONS (KEPT SAME) ========================================
+// ======================================== UTILITY FUNCTIONS ========================================
 
 function debounce(func, wait) {
     let timeout;
