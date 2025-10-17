@@ -218,7 +218,7 @@ class PortfolioChatBot {
         this.messages = [];
         this.isTyping = false;
         
-        this.geminiApiKey = "AIzaSyD-5TpF4TgEj-4x7ZtoVuRH6fUuVPW7BFI"; 
+        this.geminiApiKey = ""; 
         
         // NEW: Store conversation history for continuous chat
         this.conversationHistory = [];
