@@ -113,7 +113,7 @@
                 </p>
 
                 <div class="social-buttons">
-                    <a href="https://drive.google.com/file/d/1VWgnytIs7XbztODSluR1ywleWitUEg8W/view?usp=sharing" target="_blank" class="social-btn" aria-label="Download Resume">
+                    <a href="https://drive.google.com/file/d/1CZSpDN5B15ZE_a1JrO69kmu7eW3K6VRx/view?usp=sharing" target="_blank" class="social-btn" aria-label="Download Resume">
                         <i class="fas fa-file-alt"></i>
                         <span>Resume</span>
                     </a>
@@ -121,6 +121,10 @@
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </a>
+                     <a href="https://scholar.google.com/citations?hl=en&user=zaAs0t0AAAAJ" target="_blank" class="social-btn" aria-label="Google Scholar Profile">
+                          <i class="fas fa-graduation-cap"></i>
+                          <span>Google Scholar</span>
+                      </a>
                     <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" class="social-btn" aria-label="LinkedIn Profile">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
@@ -247,7 +251,7 @@ h3 {
         Current Research Focus: Actively exploring diffusion models for generating synthetic medical imaging data to augment existing datasets and investigating advanced deep representation learning techniques. A key area of investigation also includes improving cross-modal generalizability across varying imaging modalities. Also focus on newer state of the art models like Mamba/Vision Mamba, xLSTM, etc.
     </li>
 </ul>"
-                 data-github="https://github.com/Riiishaab/OS-Detection-">
+                 data-github="https://scholar.google.com/citations?hl=en&user=zaAs0t0AAAAJ">
                 
                 <div class="project-image">
                     <img src="https://www.vidyavision.com/CollegeUploads/Photos/2019-21-8-12-08-53_brila.jpg" alt="BITS Pilani Medical AI Research">
@@ -349,14 +353,110 @@ h3 {
 <body>
                             
 <ul>
-    <li>Authored a research paper under Dr. Rajesh Kumar Tripathy detailing a novel approach for the automated detection of bone fractures from Muscle X-ray (MXR) images, a critical task for improving patient outcomes.</li>
-    <li>Proposed the <strong>Multi-Frequency Aware Deep Representation Learning Network (MFADRLN)</strong>, an innovative framework that integrates multi-resolution analysis using a Novel Signal Processing technique (Can't specify as its the novelty and its under Review!) with deep representation learning.</li>
-    <li>The model's architecture leverages a powerful <strong>EfficientNetV2B2-based</strong> feature extractor, applying it to different frequency sub-bands of the X-ray image to capture more comprehensive diagnostic features.</li>
-    <li>Achieved a benchmark accuracy of <strong>92.22%</strong> and an F1-score of <strong>0.841</strong> on publicly available musculoskeletal X-ray databases, demonstrating high efficacy and robustness.</li>
-    <li>The proposed MFADRLN model demonstrated superior performance against multiple state-of-the-art transfer learning models (including ResNet50, DenseNet201) and vision transformer architectures (ViT, SwiT).</li>
-    <li>The model has been successfully deployed within a web application, demonstrating its potential for IoT-enabled, real-world automated fracture detection.</li>
+    <li><strong>Published:</strong> Healthcare Technology Letters, 2025; 12:e70021</li>
+    <li><strong>DOI:</strong> <a href='https://doi.org/10.1049/htl2.70021'>10.1049/htl2.70021</a></li>
+    <li><strong>Authors:</strong> Rishab Kumar Pattnaik, Dr. Rajesh Kumar Tripathy (BITS Pilani), Dr. Haipeng Liu (Coventry University)</li>
+    <li><strong>Received:</strong> July 14, 2025 | <strong>Revised:</strong> September 12, 2025 | <strong>Accepted:</strong> October 1, 2025</li>
 </ul>
-<p><em>As this research is currently undergoing peer review, further specific details of the methodology and results cannot be provided at this time.</em></p>"
+
+<br>
+
+<h3>Abstract & Objective</h3>
+
+<ul>
+    <li>Developed an AI-driven automated approach for detecting bone fractures in muscle X-ray (MXR) images using the <strong>Multiband-Frequency Aware Deep Representation Learning Network (MFADRLN)</strong></li>
+    <li>Addresses critical challenges: subtle fracture detection, class imbalance, and limited annotated datasets</li>
+    <li>Designed to improve patient outcomes through rapid, accurate diagnostic support</li>
+</ul>
+
+<br>
+
+<h3>Novel Methodology</h3>
+
+<ul>
+    <li><strong>Multiresolution Analysis:</strong> Utilized Discrete Wavelet Transform (2DDWT) to decompose MXR images into four frequency subbands (LL, LH, HL, HH)</li>
+    <li><strong>Architecture:</strong> Applied frozen EfficientNetV2B2-based Deep Representation Learning (DRL) blocks to each subband independently</li>
+    <li><strong>Feature Fusion:</strong> Concatenated subband-specific features and processed through dense layers with batch normalization and dropout</li>
+    <li><strong>Key Innovation:</strong> Captures frequency-specific and spatial information simultaneously for detecting subtle fracture patterns</li>
+</ul>
+
+<br>
+
+<h3>Dataset & Training </h3>
+
+<ul>
+    <li><strong>Datasets:</strong> Mendeley dataset (2048 fracture, 127 non-fracture) + FracAtlas dataset (717 fracture, 3337 non-fracture)</li>
+    <li><strong>Total Images:</strong> 6,229 MXR images with 72% training, 8% validation, 20% test split</li>
+    <li><strong>Hyperparameters:</strong> Adam optimizer, binary cross-entropy loss, batch size 32, 50 epochs, learning rate 0.001</li>
+    <li><strong>Regularization:</strong> Batch normalization, dropout layers, and early stopping to prevent overfitting</li>
+</ul>
+
+<br>
+
+<h3>Results & Performance </h3>
+
+<ul>
+    <li><strong>Test Accuracy:</strong> 92.22% with precision 93.40%, recall 88.87%, F1-score 0.841</li>
+    <li><strong>Cohen's Kappa:</strong> 0.8418 (excellent agreement beyond chance)</li>
+    <li><strong>AUC Metrics:</strong> AUC-ROC 0.959, AUC-PR 0.875</li>
+    <li><strong>Cross-Validation:</strong> 90.11 ± 0.42% average accuracy across 5 folds</li>
+    <li><strong>Generalization:</strong> Only 2.5% gap between training and validation accuracy</li>
+</ul>
+
+<br>
+
+<h3>Comparative Analysis </h3>
+
+<ul>
+    <li><strong>Transfer Learning Models:</strong> Outperformed ResNet50 (85.22%), DenseNet201 (84.57%), MobileNetV2 (84.57%), InceptionV3 (88.79%), XceptionNet (84.57%), EfficientNetV2B2 (88.14%)</li>
+    <li><strong>Transformer Models:</strong> Surpassed Vision Transformer ViT B/16 (84.42%) and Swin Transformer Base (87.84%)</li>
+    <li><strong>Literature Comparison:</strong> Superior to modified InceptionV3 (81%), VGG16 (82%), DenseNet169 (84%)</li>
+    <li><strong>Ablation Studies:</strong> All four wavelet subbands yielded optimal performance vs. individual or subset combinations</li>
+</ul>
+
+<br>
+
+<h3>Model Interpretability</h3>
+
+<ul>
+    <li><strong>Grad-CAM Visualization:</strong> Implemented for each subband to reveal model decision-making process</li>
+    <li><strong>LL-Subband:</strong> Captured broader structural information around fracture regions</li>
+    <li><strong>LH, HL, HH Subbands:</strong> Highlighted directional discontinuities and fine texture details</li>
+    <li><strong>Clinical Value:</strong> Enhanced trust by revealing frequency-specific features driving fracture detection</li>
+</ul>
+
+<br>
+
+<h3>Real-World Deployment</h3>
+
+<ul>
+    <li><strong>WebApp Platform:</strong> Deployed using Streamlit cloud-based framework for IoT-enabled detection</li>
+    <li><strong>Real-Time Predictions:</strong> Provides confidence scores (achieved 0.97 for fracture detection)</li>
+    <li><strong>Performance:</strong> Average prediction time of 12.01 seconds from upload to diagnosis</li>
+    <li><strong>Accessibility:</strong> Remote access, platform independence, enabling rapid clinical decision support</li>
+</ul>
+
+<br>
+
+<h3>Technical Contributions</h3>
+
+<ul>
+    <li><strong>First Application:</strong> Multiband-frequency domain DRL for bone fracture detection in medical imaging</li>
+    <li><strong>Novel Integration:</strong> Wavelet-based signal processing with modern deep learning architectures</li>
+    <li><strong>Efficiency:</strong> Reduced trainable parameters via frozen pre-trained blocks while maintaining superior performance</li>
+    <li><strong>Proven Impact:</strong> Frequency-domain decomposition significantly improved detection vs. direct image analysis</li>
+</ul>
+
+<br>
+
+<h3>Clinical Impact & Future Directions</h3>
+
+<ul>
+    <li><strong>Diagnostic Support:</strong> Reduces human error, minimizes treatment delays, improves patient outcomes in orthopedic care</li>
+    <li><strong>Key Strength:</strong> Identifies subtle fracture regions often missed in manual visual inspection</li>
+    <li><strong>Future Development:</strong> Lightweight models for embedded devices (FPGA, microcontrollers), federated learning for multi-hospital collaboration</li>
+    <li><strong>Multimodal Extension:</strong> Integration with EHRs and BERT-based language models for comprehensive diagnostic systems</li>
+</ul>"
                  data-github="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021">
                 
                 <div class="project-image">
@@ -368,7 +468,7 @@ h3 {
                     <h3><i class="fas fa-microscope"></i>Multi-Frequency Aware Deep Representation Learning
 Framework for Automated Detection of Bone Fractures
 using Muscle X-ray Images</h3>
-                    <p>A Journal Paper authored under the supervision of Dr. Rajesh Kumar Tripathy focuses on developing advanced deep learning methodologies for medical imaging applications, specifically targeting the automated detection and diagnosis of complex medical conditions using multi-modal data. This research aims to enhance diagnostic accuracy and clinical decision support through innovative model architectures and training techniques. The paper is currently under review and has not yet been published yet.</p>
+                    <p>A peer-reviewed research paper published in <strong>Healthcare Technology Letters (2025)</strong> under the supervision of Dr. Rajesh Kumar Tripathy (BITS Pilani) and Dr. Haipeng Liu (Coventry University). This work presents a novel multiband-frequency aware deep representation learning network (MFADRLN) that integrates discrete wavelet transform-based multiresolution analysis with EfficientNetV2B2 architecture for automated bone fracture detection achieving 92.22% accuracy.</p>
                 </div>
             </div>
                                                     
@@ -1059,7 +1159,7 @@ h3 {
             <div class="popup-body"></div>
             <div class="popup-buttons">
                 <a href="" class="popup-github" target="_blank">
-                    <i class="fab fa-github"></i> Code
+                    <i class="fab fa-google"></i> Scholar
                 </a>
                 <button class="popup-close">Close</button>
             </div>
