@@ -1,8 +1,23 @@
 export default async (req, context) => {
+  // ✅ FIX #1: Handle CORS preflight (OPTIONS request)
+  if (req.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+    });
+  }
+
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
     });
   }
 
@@ -11,16 +26,16 @@ export default async (req, context) => {
     const body = await req.json();
     const userMessage = body.message;
 
-    // Get API key from environment variable
-    const apiKey = Netlify.env.get('GEMINI_API_KEY');
+    // ✅ FIX #3: Use process.env instead of Netlify.env.get
+    const apiKey = process.env.GEMINI_API_KEY || Netlify.env.get('GEMINI_API_KEY');
 
     if (!apiKey) {
       throw new Error('API key not configured');
     }
 
-    // Call Gemini API
+    // ✅ FIX #2: Use stable model instead of experimental
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-001:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,7 +54,9 @@ export default async (req, context) => {
     );
 
     if (!response.ok) {
-      throw new Error(`Gemini API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Gemini API error:', response.status, errorText);
+      throw new Error(`Gemini API error: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
@@ -53,10 +70,15 @@ export default async (req, context) => {
     });
 
   } catch (error) {
-    console.error('Function error:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    console.error('Function error:', error.message);
+    return new Response(JSON.stringify({ 
+      error: error.message || 'Internal server error'
+    }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
     });
   }
 };
