@@ -1,224 +1,250 @@
-// Enhanced JavaScript functionality with ChatBot integration
-document.addEventListener('DOMContentLoaded', function() {
-    // Hide loading overlay
-    setTimeout(() => {
-        document.getElementById('loadingOverlay').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('loadingOverlay').style.display = 'none';
-        }, 500);
-    }, 1500);
+/* ═══════════════════════════════════════════════════════════
+   SCRIPT.JS — Rishab K Pattnaik Portfolio
+   Features: Loader · Custom Cursor · Scroll Progress · Stats
+             Cube · Card Shimmer · Popups · Chatbot (Gemini) · Exp Stack
+═══════════════════════════════════════════════════════════ */
 
-    // Enhanced header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Theme toggle
-    document.getElementById('themeToggle').addEventListener('click', function() {
-        document.body.classList.toggle('light-theme');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-sun');
-        icon.classList.toggle('fa-moon');
-    });
-
-    // Popup functionality for clickable boxes
-    document.querySelectorAll('[data-popup-trigger]').forEach(box => {
-        box.addEventListener('click', function() {
-            const popupId = this.getAttribute('data-popup-trigger');
-            const popup = document.getElementById(popupId);
-            const heading = this.getAttribute('data-heading');
-            const subheading = this.getAttribute('data-subheading');
-            const body = this.getAttribute('data-body');
-            const github = this.getAttribute('data-github');
-
-            if (popup) {
-                popup.querySelector('.popup-heading').textContent = heading;
-                popup.querySelector('.popup-subheading').textContent = subheading;
-                popup.querySelector('.popup-body').innerHTML = body;
-                popup.querySelector('.popup-github').href = github;
-
-                // Add animation class and show popup
-                popup.style.display = 'flex';
-                setTimeout(() => {
-                    popup.classList.add('active');
-                }, 10);
-            }
-        });
-    });
-
-    // Close popups
-    document.querySelectorAll('.popup-close').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const popup = this.closest('.popup');
-            popup.classList.remove('active');
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 300);
-        });
-    });
-
-    // Close popup on outside click
-    document.querySelectorAll('.popup').forEach(popup => {
-        popup.addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
-    });
-
-    // Close popup with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.popup').forEach(popup => {
-                popup.style.display = 'none';
-            });
-        }
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements
-    document.querySelectorAll('.scroll-animation').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            }
-        });
-    });
-
-    // Enhanced typing animation for subtitle
-    function typeSubtitle() {
-        const typingElement = document.getElementById('typingText');
-        const text = "Deep Learning • Computer Vision • Medical AI • Generative AI • Agentic AI";
-        let i = 0;
-        
-        typingElement.textContent = '';
-        
-        function typeChar() {
-            if (i < text.length) {
-                typingElement.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeChar, 80);
-            } else {
-                // Stop cursor blinking after typing is complete
-                setTimeout(() => {
-                    typingElement.style.borderRight = 'none';
-                }, 2000);
-            }
-        }
-        
-        setTimeout(typeChar, 2000); // Start after 2 seconds
-    }
-    
-    typeSubtitle();
-
-    // Update active navigation on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 200)) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // Parallax effect for hero particles
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero-particles');
-        if (parallax) {
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
-    // Add loading class to images for better UX
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('load', function() {
-            this.classList.add('loaded');
-        });
-    });
-
-    // Error handling for failed image loads
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-            this.style.opacity = '0.5';
-            console.warn('Failed to load image:', this.src);
-        });
-    });
-
-    // Performance optimization: Lazy loading for images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.classList.add('fade-in');
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-
-    // Initialize ChatBot
-    initializeChatBot();
+/* ──────────────────────────────────────────
+   LOADER
+────────────────────────────────────────── */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('page-loader');
+  setTimeout(() => {
+    loader.classList.add('fade-out');
+    loader.addEventListener('animationend', () => { loader.style.display = 'none'; }, { once: true });
+  }, 1780);
 });
 
-// ======================================== GEMINI-POWERED CHATBOT - NETLIFY SECURE VERSION ========================================
+/* ──────────────────────────────────────────
+   CUSTOM CURSOR
+────────────────────────────────────────── */
+(function initCursor() {
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
 
+  let mouseX = 0, mouseY = 0;
+  let ringX  = 0, ringY  = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+  });
+
+  // Smooth lagging ring
+  (function lerpRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+    requestAnimationFrame(lerpRing);
+  })();
+
+  const hoverSel = 'a, button, [data-popup-trigger], .card, .skill-box, .social-btn, .terminal-card, .scene, .quick-reply-btn, .chatbot-toggle, .popup-github, .popup-close';
+  document.querySelectorAll(hoverSel).forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+  document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
+  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+})();
+
+/* ──────────────────────────────────────────
+   SCROLL PROGRESS BAR
+────────────────────────────────────────── */
+(function initProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  function update() {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ──────────────────────────────────────────
+   NAVBAR SCROLL CLASS
+────────────────────────────────────────── */
+(function initNavbar() {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+})();
+
+/* ──────────────────────────────────────────
+   TYPING ANIMATION
+────────────────────────────────────────── */
+(function initTyping() {
+  const el = document.getElementById('typingText');
+  if (!el) return;
+  const words = [
+    'AI Engineering Intern at Flam'
+  ];
+  let i = 0, j = 0, chars = [], deleting = false;
+  function loop() {
+    if (!deleting && j <= words[i].length) { chars.push(words[i][j]); j++; }
+    if ( deleting && j > 0) { chars.pop(); j--; }
+    el.innerHTML = chars.join('');
+    if (!deleting && j === words[i].length) { deleting = true; setTimeout(loop, 2000); return; }
+    if ( deleting && j === 0) { deleting = false; i = (i + 1) % words.length; }
+    setTimeout(loop, deleting ? 80 : 140);
+  }
+  loop();
+})();
+
+/* ──────────────────────────────────────────
+   STAT COUNTERS
+────────────────────────────────────────── */
+(function initStats() {
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  let done = false;
+  const obs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting || done) return;
+    done = true;
+    statNums.forEach(el => {
+      const target  = parseFloat(el.dataset.target);
+      const suffix  = el.dataset.suffix || '';
+      const isFloat = target % 1 !== 0;
+      const start   = performance.now();
+      const dur     = 1500;
+      (function step(now) {
+        const t    = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const val  = target * ease;
+        el.textContent = (isFloat ? val.toFixed(2) : Math.floor(val)) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = (isFloat ? target.toFixed(2) : target) + suffix;
+      })(start);
+    });
+  }, { threshold: 0.5 });
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) obs.observe(statsEl);
+})();
+
+/* ──────────────────────────────────────────
+   CUBE — BUILD PIECES + TOGGLE
+────────────────────────────────────────── */
+(function initCube() {
+  const box   = document.getElementById('piecesBox');
+  const scene = document.getElementById('cubeScene');
+  if (!box || !scene) return;
+
+  for (let x = -1; x <= 1; x++)
+    for (let y = -1; y <= 1; y++)
+      for (let z = -1; z <= 1; z++) {
+        const cube = document.createElement('div');
+        cube.className = 'small-cube';
+        cube.style.setProperty('--x', x);
+        cube.style.setProperty('--y', y);
+        cube.style.setProperty('--z', z);
+        ['front','back','left','right','top','bottom'].forEach(f => {
+          const face = document.createElement('div');
+          face.className = `face ${f}`;
+          cube.appendChild(face);
+        });
+        box.appendChild(cube);
+      }
+
+  scene.addEventListener('click', () => scene.classList.toggle('split'));
+})();
+
+/* ──────────────────────────────────────────
+   CARD SHIMMER (mouse-tracking radial)
+────────────────────────────────────────── */
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--mouse-y', (e.clientY - r.top)  + 'px');
+  });
+});
+
+/* ──────────────────────────────────────────
+   POPUPS — animated open / close / ESC
+────────────────────────────────────────── */
+let activePopup = null;
+
+function openPopup(popup) {
+  if (activePopup) closePopup(activePopup, false);
+  popup.classList.remove('closing');
+  popup.classList.add('active');
+  activePopup = popup;
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup(popup, animate = true) {
+  if (!popup || !popup.classList.contains('active')) return;
+  if (animate) {
+    popup.classList.add('closing');
+    const onEnd = () => {
+      popup.classList.remove('active', 'closing');
+      if (activePopup === popup) { activePopup = null; document.body.style.overflow = ''; }
+    };
+    popup.addEventListener('animationend', onEnd, { once: true });
+    setTimeout(onEnd, 300); // fallback
+  } else {
+    popup.classList.remove('active', 'closing');
+    activePopup = null;
+    document.body.style.overflow = '';
+  }
+}
+
+document.querySelectorAll('[data-popup-trigger]').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const popup = document.getElementById(trigger.getAttribute('data-popup-trigger'));
+    if (popup) openPopup(popup);
+  });
+});
+
+document.querySelectorAll('.popup-close').forEach(btn => {
+  btn.addEventListener('click', e => closePopup(e.target.closest('.popup')));
+});
+
+document.querySelectorAll('.popup').forEach(popup => {
+  popup.addEventListener('click', e => {
+    if (e.target === popup || e.target.classList.contains('popup-backdrop'))
+      closePopup(popup);
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && activePopup) closePopup(activePopup);
+});
+
+/* ──────────────────────────────────────────
+   SCROLL REVEAL
+────────────────────────────────────────── */
+(function initReveal() {
+  const els = document.querySelectorAll('.scroll-animation');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ──────────────────────────────────────────
+   NAV SMOOTH SCROLL
+────────────────────────────────────────── */
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+/* ══════════════════════════════════════════════════════════
+   GEMINI‑POWERED CHATBOT (adapted to new UI styles)
+══════════════════════════════════════════════════════════ */
 class PortfolioChatBot {
     constructor() {
         this.isOpen = false;
         this.messages = [];
         this.isTyping = false;
-        
-        // REMOVED: API key no longer stored on client side
         
         // Store conversation history for continuous chat
         this.conversationHistory = [];
@@ -256,11 +282,9 @@ class PortfolioChatBot {
             const projectGithub = box.getAttribute('data-github') || '';
             
             if (projectName) {
-                // Create a structured project entry
                 let projectInfo = `\n\n=== PROJECT: ${projectName} ===\n`;
                 projectInfo += `Subheading: ${projectSubheading}\n`;
                 
-                // Extract text from HTML in data-body
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = projectBody;
                 projectInfo += `Details: ${tempDiv.textContent.replace(/\s+/g, ' ').trim()}\n`;
@@ -287,20 +311,17 @@ class PortfolioChatBot {
         
         this.portfolioHTML = htmlContent.join('\n\n');
         console.log('✅ Portfolio HTML extracted:', this.portfolioHTML.length, 'characters');
-        console.log('📊 First 500 chars:', this.portfolioHTML.substring(0, 500));
     }
 
     // ======================================== NETLIFY FUNCTION API CALL ========================================
     
     async callGeminiAPI(userMessage) {
         try {
-            // Build conversation history context
             const historyContext = this.conversationHistory
-                .slice(-6)  // Last 3 exchanges
+                .slice(-6)
                 .map(msg => `${msg.role === 'user' ? 'User' : 'Rishi-Bot'}: ${msg.content}`)
                 .join('\n');
 
-            // Build the complete prompt
             const systemPrompt = `You are Rishi-Bot, Rishab K Pattnaik's personal AI avatar. 
 
 WHO YOU ARE:
@@ -535,33 +556,23 @@ REMEMBER:
 
 Now respond naturally to the user's message:`;
 
-            // Call Netlify Function instead of Gemini API directly
             const response = await fetch('/.netlify/functions/chat', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: systemPrompt
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: systemPrompt })
             });
 
-            if (!response.ok) {
-                throw new Error(`Function Error: ${response.status}`);
-            }
-
+            if (!response.ok) throw new Error(`Function Error: ${response.status}`);
             const data = await response.json();
             
             if (data.candidates && data.candidates[0] && data.candidates[0].content) {
                 const generatedText = data.candidates[0].content.parts[0].text;
                 
-                // Update conversation history
                 this.conversationHistory.push(
                     { role: 'user', content: userMessage },
                     { role: 'assistant', content: generatedText }
                 );
                 
-                // Keep history manageable (last 10 exchanges)
                 if (this.conversationHistory.length > 20) {
                     this.conversationHistory = this.conversationHistory.slice(-20);
                 }
@@ -580,27 +591,17 @@ Now respond naturally to the user's message:`;
     // ======================================== EVENT LISTENERS ========================================
 
     initializeEventListeners() {
-        document.getElementById('chatbotToggle').addEventListener('click', () => {
-            this.toggleChatBot();
-        });
-
-        document.getElementById('chatbotClose').addEventListener('click', () => {
-            this.closeChatBot();
-        });
-
-        document.getElementById('chatbotSend').addEventListener('click', () => {
-            this.sendMessage();
-        });
-
+        document.getElementById('chatbotToggle').addEventListener('click', () => this.toggleChatBot());
+        document.getElementById('chatbotClose').addEventListener('click', () => this.closeChatBot());
+        document.getElementById('chatbotSend').addEventListener('click', () => this.sendMessage());
         document.getElementById('chatbotInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 this.sendMessage();
             }
         });
-
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('quick-action-btn')) {
+            if (e.target.classList.contains('quick-reply-btn')) {
                 this.handleQuickAction(e.target.textContent);
             }
         });
@@ -613,11 +614,11 @@ Now respond naturally to the user's message:`;
         
         if (this.isOpen) {
             container.classList.add('active');
-            toggle.classList.add('active');
+            toggle.classList.add('open');
             toggle.innerHTML = '<i class="fas fa-times"></i>';
         } else {
             container.classList.remove('active');
-            toggle.classList.remove('active');
+            toggle.classList.remove('open');
             toggle.innerHTML = '<i class="fas fa-robot"></i>';
         }
     }
@@ -626,14 +627,14 @@ Now respond naturally to the user's message:`;
         this.isOpen = false;
         document.getElementById('chatbotContainer').classList.remove('active');
         const toggle = document.getElementById('chatbotToggle');
-        toggle.classList.remove('active');
+        toggle.classList.remove('open');
         toggle.innerHTML = '<i class="fas fa-robot"></i>';
     }
 
     addWelcomeMessage() {
         const welcomeMessage = {
             type: 'bot',
-            content: "Hi! I'm Rishi-Bot 🤖, Rishab's AI Avatar here to guide you in him journey. Feel free to ask me what you have on your mind....",
+            content: "Hi! I'm Rishi-Bot 🤖, Rishab's AI Avatar here to guide you on his journey. Feel free to ask me anything!",
             timestamp: new Date()
         };
         this.addMessage(welcomeMessage);
@@ -652,11 +653,11 @@ Now respond naturally to the user's message:`;
 
         const messagesArea = document.getElementById('chatbotMessages');
         const quickActionsDiv = document.createElement('div');
-        quickActionsDiv.className = 'chatbot-quick-actions';
+        quickActionsDiv.className = 'quick-replies'; // use new UI class
         
         quickActions.forEach(action => {
             const btn = document.createElement('button');
-            btn.className = 'quick-action-btn';
+            btn.className = 'quick-reply-btn'; // use new UI class
             btn.textContent = action;
             quickActionsDiv.appendChild(btn);
         });
@@ -666,10 +667,8 @@ Now respond naturally to the user's message:`;
     }
 
     handleQuickAction(action) {
-        const quickActions = document.querySelector('.chatbot-quick-actions');
-        if (quickActions) {
-            quickActions.remove();
-        }
+        const quickActions = document.querySelector('.quick-replies');
+        if (quickActions) quickActions.remove();
 
         const userMessage = {
             type: 'user',
@@ -678,9 +677,7 @@ Now respond naturally to the user's message:`;
         };
         this.addMessage(userMessage);
 
-        setTimeout(() => {
-            this.generateResponse(action);
-        }, 500);
+        setTimeout(() => this.generateResponse(action), 500);
     }
 
     sendMessage() {
@@ -695,12 +692,9 @@ Now respond naturally to the user's message:`;
             timestamp: new Date()
         };
         this.addMessage(userMessage);
-
         input.value = '';
 
-        setTimeout(() => {
-            this.generateResponse(content);
-        }, 500);
+        setTimeout(() => this.generateResponse(content), 500);
     }
 
     addMessage(message) {
@@ -709,13 +703,8 @@ Now respond naturally to the user's message:`;
         
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${message.type}`;
-        
-        messageDiv.innerHTML = `
-            <div class="message-bubble">
-                ${message.content}
-                <div class="message-time">${this.formatTime(message.timestamp)}</div>
-            </div>
-        `;
+        // Use only the content (no extra bubble wrapper) – new UI styles handle it
+        messageDiv.innerHTML = message.content;
         
         messagesArea.appendChild(messageDiv);
         this.scrollToBottom();
@@ -726,38 +715,25 @@ Now respond naturally to the user's message:`;
         const messagesArea = document.getElementById('chatbotMessages');
         
         const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot typing-message';
-        typingDiv.innerHTML = `
-            <div class="typing-indicator">
-                <span>Rishi-Bot is thinking</span>
-                <div class="typing-dots">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            </div>
-        `;
+        typingDiv.className = 'message bot typing-indicator';
+        // New UI uses three spans inside .typing-indicator
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
         
         messagesArea.appendChild(typingDiv);
         this.scrollToBottom();
-        
         return typingDiv;
     }
 
     hideTypingIndicator(typingDiv) {
         this.isTyping = false;
-        if (typingDiv) {
-            typingDiv.remove();
-        }
+        if (typingDiv) typingDiv.remove();
     }
 
     async generateResponse(userInput) {
         const typingIndicator = this.showTypingIndicator();
         
         try {
-            // Call Netlify Function via callGeminiAPI
             const response = await this.callGeminiAPI(userInput);
-            
             this.hideTypingIndicator(typingIndicator);
             
             const botMessage = {
@@ -766,7 +742,6 @@ Now respond naturally to the user's message:`;
                 timestamp: new Date()
             };
             this.addMessage(botMessage);
-            
         } catch (error) {
             console.error('Response generation error:', error);
             this.hideTypingIndicator(typingIndicator);
@@ -780,95 +755,121 @@ Now respond naturally to the user's message:`;
         }
     }
 
-    formatTime(timestamp) {
-        return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-
     scrollToBottom() {
         const messagesArea = document.getElementById('chatbotMessages');
         messagesArea.scrollTop = messagesArea.scrollHeight;
     }
 }
 
-// ======================================== UTILITY FUNCTIONS ========================================
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-const optimizedScrollHandler = debounce(() => {
-    const scrollTop = window.pageYOffset;
-    
-    if (scrollTop > 100) {
-        document.body.classList.add('scrolled');
-    } else {
-        document.body.classList.remove('scrolled');
-    }
-}, 10);
-
-window.addEventListener('scroll', optimizedScrollHandler);
-
-window.addEventListener('beforeprint', () => {
-    document.body.classList.add('print-mode');
-});
-
-window.addEventListener('afterprint', () => {
-    document.body.classList.remove('print-mode');
-});
-
-function initializeChatBot() {
+/* ── Initialize the Gemini chatbot ── */
+(function initChatbot() {
     window.portfolioChatBot = new PortfolioChatBot();
-}
+})();
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-                console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-                console.log('SW registration failed: ', registrationError);
-            });
+/* ══════════════════════════════════════════════════════════
+   EXPERIENCE CARD STACK — SCROLL HIJACK (unchanged)
+══════════════════════════════════════════════════════════ */
+function initExpStack() {
+  if (window.matchMedia('(max-width:700px)').matches) return;
+
+  const driver = document.getElementById('expScrollDriver');
+  const stage  = document.getElementById('expStickyStage');
+  const wrap   = document.getElementById('expCardsStack');
+  const hint   = document.getElementById('expScrollHint');
+  if (!driver || !stage || !wrap) return;
+
+  const cards = [...wrap.querySelectorAll('.terminal-card')];
+  const N = cards.length;
+  if (!N) return;
+
+  const NAV_H  = 88;
+  const DELTA  = 420;
+  const PUSH   = 16;
+  const SCALE  = 0.024;
+  const OPC    = 0.82;
+
+  cards.forEach((c, i) => c.style.zIndex = i + 1);
+
+  function setup() {
+    const sh = window.innerHeight - NAV_H;
+    const ch = cards[0].offsetHeight;
+    driver.style.height = sh + 'px';
+    stage.style.height  = sh + 'px';
+    wrap.style.height   = (ch + (N - 1) * PUSH + 4) + 'px';
+  }
+  setup();
+
+  let prog = 0;
+
+  function render() {
+    cards.forEach((card, i) => {
+      const slideIn    = i === 0 ? 1 : Math.max(0, Math.min(1, prog - (i - 1)));
+      const aboveCards = Math.max(0, Math.min(N - 1 - i, prog - i));
+
+      if (slideIn < 1) {
+        card.style.transform = `translateY(${((1 - slideIn) * 112).toFixed(1)}%)`;
+        card.style.opacity   = Math.min(1, slideIn * 2.8).toFixed(3);
+      } else {
+        const scale = Math.max(1 - (N-1)*SCALE, 1 - aboveCards*SCALE).toFixed(4);
+        const opac  = Math.max(OPC, 1 - aboveCards*(1-OPC)/(N-1)).toFixed(3);
+        card.style.transform = `translateY(${(aboveCards * PUSH).toFixed(1)}px) scale(${scale})`;
+        card.style.opacity   = opac;
+      }
     });
+    if (hint) hint.classList.toggle('visible', prog > 0.1 && prog < N - 0.95);
+  }
+
+  cards.forEach((c, i) => {
+    c.style.transition = 'transform 0.52s cubic-bezier(0.23,1,0.32,1), opacity 0.38s ease';
+    c.style.transform  = i === 0 ? 'translateY(0)' : 'translateY(112%)';
+    c.style.opacity    = i === 0 ? '1' : '0';
+  });
+
+  function isPinned() {
+    const r = driver.getBoundingClientRect();
+    return r.top <= NAV_H && r.bottom >= window.innerHeight * 0.4;
+  }
+
+  let accum = 0;
+  function syncAccum() { accum = prog * DELTA; }
+
+  let prevY = window.scrollY, wasInZone = false;
+
+  window.addEventListener('scroll', () => {
+    const inZone = isPinned();
+    const goDown = window.scrollY > prevY;
+    prevY = window.scrollY;
+    if (inZone && !wasInZone) { prog = goDown ? 0 : N - 1; syncAccum(); render(); }
+    wasInZone = inZone;
+  }, { passive: true });
+
+  window.addEventListener('wheel', e => {
+    if (!isPinned()) return;
+    if (e.deltaY > 0 && prog >= N - 1) return;
+    if (e.deltaY < 0 && prog <= 0)     return;
+    e.preventDefault();
+    accum = Math.max(0, Math.min((N-1)*DELTA, accum + e.deltaY));
+    prog  = accum / DELTA;
+    render();
+  }, { passive: false });
+
+  let ty0 = 0;
+  window.addEventListener('touchstart', e => { ty0 = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchmove', e => {
+    if (!isPinned()) return;
+    const dy = ty0 - e.touches[0].clientY;
+    ty0 = e.touches[0].clientY;
+    if (dy > 0 && prog >= N-1) return;
+    if (dy < 0 && prog <= 0)   return;
+    e.preventDefault();
+    accum = Math.max(0, Math.min((N-1)*DELTA, accum + dy * 2.5));
+    prog  = accum / DELTA;
+    render();
+  }, { passive: false });
+
+  window.addEventListener('resize', () => { setup(); render(); });
+  render();
 }
 
-window.addEventListener('error', (e) => {
-    console.error('Global error:', e.error);
-});
-
-window.addEventListener('unhandledrejection', (e) => {
-    console.error('Unhandled promise rejection:', e.reason);
-});
-
-if ('performance' in window) {
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            const perfData = performance.getEntriesByType('navigation')[0];
-            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart);
-        }, 0);
-    });
-}
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-        const popup = document.querySelector('.popup.active');
-        if (popup) {
-            popup.classList.remove('active');
-        }
-    }
-});
-
-document.addEventListener('click', function(event) {
-    const popup = document.querySelector('.popup.active');
-    if (popup && event.target === popup) {
-        popup.classList.remove('active');
-    }
-});
+if (document.readyState === 'complete') initExpStack();
+else window.addEventListener('load', initExpStack);
