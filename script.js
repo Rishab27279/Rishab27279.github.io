@@ -84,7 +84,6 @@ window.addEventListener('load', () => {
   if (!el) return;
   const words = [
     'AI Engineering Intern at Flam'
-     'Upcoming Data Scientist at CBRE'
   ];
   let i = 0, j = 0, chars = [], deleting = false;
   function loop() {
