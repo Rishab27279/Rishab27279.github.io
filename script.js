@@ -154,6 +154,35 @@ window.addEventListener('load', () => {
 })();
 
 /* ──────────────────────────────────────────
+   CUBE TILT — mouse-reactive rotation
+────────────────────────────────────────── */
+(function initCubeTilt() {
+  const tiltEl = document.getElementById('cubeTilt');
+  if (!tiltEl) return;
+
+  const BASE_X  = -22;
+  const MAX_TILT = 10;
+  const LERP     = 0.045;
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+
+  document.addEventListener('mousemove', e => {
+    const nx = (e.clientX / window.innerWidth  - 0.5) * 2;
+    const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+    tx = -ny * MAX_TILT;
+    ty =  nx * MAX_TILT;
+  });
+  document.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  (function loop() {
+    cx += (tx - cx) * LERP;
+    cy += (ty - cy) * LERP;
+    tiltEl.style.transform =
+      `rotateX(${(BASE_X + cx).toFixed(3)}deg) rotateY(${cy.toFixed(3)}deg)`;
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ──────────────────────────────────────────
    CARD SHIMMER (mouse-tracking radial)
 ────────────────────────────────────────── */
 document.querySelectorAll('.card').forEach(card => {
@@ -767,90 +796,43 @@ Now respond naturally to the user's message:`;
 })();
 
 /* ══════════════════════════════════════════════════════════
-   EXPERIENCE CARD STACK — SCROLL HIJACK (unchanged)
+   EXPERIENCE 3-COLUMN SCROLL
 ══════════════════════════════════════════════════════════ */
-function initExpStack() {
-  if (window.matchMedia('(max-width:700px)').matches) return;
+function initExp3() {
+  const driver = document.getElementById('exp3Driver');
+  if (!driver) return;
 
-  const driver = document.getElementById('expScrollDriver');
-  const stage  = document.getElementById('expStickyStage');
-  const wrap   = document.getElementById('expCardsStack');
-  const hint   = document.getElementById('expScrollHint');
-  if (!driver || !stage || !wrap) return;
-
-  const cards = [...wrap.querySelectorAll('.terminal-card')];
-  const N = cards.length;
+  const orgs   = [...document.querySelectorAll('.exp3-org')];
+  const slides = [...document.querySelectorAll('.exp3-slide')];
+  const logos  = [...document.querySelectorAll('.exp3-logo')];
+  const N = orgs.length;
   if (!N) return;
 
-  const NAV_H  = 88;
-  const DELTA  = 420;
-  const PUSH   = 16;
-  const SCALE  = 0.024;
-  const OPC    = 0.82;
+  let activeIdx = 0;
+  let cooldown  = false;
 
-  cards.forEach((c, i) => c.style.zIndex = i + 1);
-
-  function setup() {
-    const sh = window.innerHeight - NAV_H;
-    const ch = cards[0].offsetHeight;
-    driver.style.height = sh + 'px';
-    stage.style.height  = sh + 'px';
-    wrap.style.height   = (ch + (N - 1) * PUSH + 4) + 'px';
+  function setActive(idx) {
+    activeIdx = Math.max(0, Math.min(N - 1, idx));
+    orgs.forEach((el, i)   => el.classList.toggle('active', i === activeIdx));
+    slides.forEach((el, i) => el.classList.toggle('active', i === activeIdx));
+    logos.forEach((el, i)  => el.classList.toggle('active', i === activeIdx));
   }
-  setup();
-
-  let prog = 0;
-
-  function render() {
-    cards.forEach((card, i) => {
-      const slideIn    = i === 0 ? 1 : Math.max(0, Math.min(1, prog - (i - 1)));
-      const aboveCards = Math.max(0, Math.min(N - 1 - i, prog - i));
-
-      if (slideIn < 1) {
-        card.style.transform = `translateY(${((1 - slideIn) * 112).toFixed(1)}%)`;
-        card.style.opacity   = Math.min(1, slideIn * 2.8).toFixed(3);
-      } else {
-        const scale = Math.max(1 - (N-1)*SCALE, 1 - aboveCards*SCALE).toFixed(4);
-        const opac  = Math.max(OPC, 1 - aboveCards*(1-OPC)/(N-1)).toFixed(3);
-        card.style.transform = `translateY(${(aboveCards * PUSH).toFixed(1)}px) scale(${scale})`;
-        card.style.opacity   = opac;
-      }
-    });
-    if (hint) hint.classList.toggle('visible', prog > 0.1 && prog < N - 0.95);
-  }
-
-  cards.forEach((c, i) => {
-    c.style.transition = 'transform 0.52s cubic-bezier(0.23,1,0.32,1), opacity 0.38s ease';
-    c.style.transform  = i === 0 ? 'translateY(0)' : 'translateY(112%)';
-    c.style.opacity    = i === 0 ? '1' : '0';
-  });
 
   function isPinned() {
     const r = driver.getBoundingClientRect();
-    return r.top <= NAV_H && r.bottom >= window.innerHeight * 0.4;
+    return r.top <= 88 && r.bottom >= window.innerHeight * 0.5;
   }
-
-  let accum = 0;
-  function syncAccum() { accum = prog * DELTA; }
-
-  let prevY = window.scrollY, wasInZone = false;
-
-  window.addEventListener('scroll', () => {
-    const inZone = isPinned();
-    const goDown = window.scrollY > prevY;
-    prevY = window.scrollY;
-    if (inZone && !wasInZone) { prog = goDown ? 0 : N - 1; syncAccum(); render(); }
-    wasInZone = inZone;
-  }, { passive: true });
 
   window.addEventListener('wheel', e => {
     if (!isPinned()) return;
-    if (e.deltaY > 0 && prog >= N - 1) return;
-    if (e.deltaY < 0 && prog <= 0)     return;
+    const goDown = e.deltaY > 0;
+    if (goDown  && activeIdx >= N - 1) return;
+    if (!goDown && activeIdx <= 0)     return;
     e.preventDefault();
-    accum = Math.max(0, Math.min((N-1)*DELTA, accum + e.deltaY));
-    prog  = accum / DELTA;
-    render();
+    if (cooldown) return;
+    cooldown = true;
+    setTimeout(() => { cooldown = false; }, 480);
+    setActive(activeIdx + (goDown ? 1 : -1));
   }, { passive: false });
 
   let ty0 = 0;
@@ -858,18 +840,245 @@ function initExpStack() {
   window.addEventListener('touchmove', e => {
     if (!isPinned()) return;
     const dy = ty0 - e.touches[0].clientY;
-    ty0 = e.touches[0].clientY;
-    if (dy > 0 && prog >= N-1) return;
-    if (dy < 0 && prog <= 0)   return;
+    if (Math.abs(dy) < 40) return;
+    if (dy > 0 && activeIdx >= N - 1) return;
+    if (dy < 0 && activeIdx <= 0)     return;
     e.preventDefault();
-    accum = Math.max(0, Math.min((N-1)*DELTA, accum + dy * 2.5));
-    prog  = accum / DELTA;
-    render();
+    ty0 = e.touches[0].clientY;
+    setActive(activeIdx + (dy > 0 ? 1 : -1));
   }, { passive: false });
 
-  window.addEventListener('resize', () => { setup(); render(); });
-  render();
+  setActive(0);
 }
 
-if (document.readyState === 'complete') initExpStack();
-else window.addEventListener('load', initExpStack);
+if (document.readyState === 'complete') initExp3();
+else window.addEventListener('load', initExp3);
+
+/* ══════════════════════════════════════════════════════════
+   PARTICLE NETWORK BACKGROUND
+══════════════════════════════════════════════════════════ */
+(function initParticles() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const C = '232,0,42';
+  const COUNT = 55;
+  const LINK_DIST = 160;
+  const SPEED = 0.18;
+
+  let W, H, particles;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makeParticles() {
+    particles = Array.from({ length: COUNT }, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * SPEED,
+      vy: (Math.random() - 0.5) * SPEED,
+      r:  Math.random() * 1.4 + 0.6,
+    }));
+  }
+
+  resize();
+  makeParticles();
+  window.addEventListener('resize', () => { resize(); makeParticles(); });
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (let i = 0; i < COUNT; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -20)    p.x = W + 20;
+      if (p.x > W + 20) p.x = -20;
+      if (p.y < -20)    p.y = H + 20;
+      if (p.y > H + 20) p.y = -20;
+
+      for (let j = i + 1; j < COUNT; j++) {
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK_DIST) {
+          const a = (1 - d / LINK_DIST) * 0.13;
+          ctx.strokeStyle = `rgba(${C},${a})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${C},0.32)`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  tick();
+})();
+
+/* ══════════════════════════════════════════════════════════
+   BORDER NEBULA — red cloud glow at page corners & edges
+══════════════════════════════════════════════════════════ */
+(function initBorderNebula() {
+  const canvas = document.getElementById('border-nebula');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /*
+   * Each blob: [anchor_x_frac, anchor_y_frac, radius_frac, max_alpha, freq, phase]
+   * anchor 0/1 = left/right or top/bottom edge of viewport
+   * Two overlapping blobs per corner gives depth/layering
+   */
+  const blobs = [
+    // top-left
+    [0,   0,   0.58, 0.28, 0.000082, 0.00],
+    [0,   0,   0.36, 0.16, 0.000110, 1.40],
+    // top-right
+    [1,   0,   0.58, 0.24, 0.000092, 2.10],
+    [1,   0,   0.36, 0.15, 0.000074, 3.50],
+    // bottom-left
+    [0,   1,   0.58, 0.22, 0.000098, 4.80],
+    [0,   1,   0.36, 0.14, 0.000086, 1.90],
+    // bottom-right
+    [1,   1,   0.58, 0.26, 0.000079, 0.70],
+    [1,   1,   0.36, 0.16, 0.000103, 5.30],
+    // top edge centre
+    [0.5, 0,   0.30, 0.10, 0.000068, 2.80],
+    // bottom edge centre
+    [0.5, 1,   0.30, 0.10, 0.000091, 4.20],
+    // left edge centre
+    [0,   0.5, 0.22, 0.08, 0.000077, 1.60],
+    // right edge centre
+    [1,   0.5, 0.22, 0.08, 0.000085, 3.80],
+  ];
+
+  function drawBlob(x, y, r, alpha) {
+    const grd = ctx.createRadialGradient(x, y, 0, x, y, r);
+    grd.addColorStop(0.00, `rgba(220,8,38,${alpha})`);
+    grd.addColorStop(0.28, `rgba(190,4,22,${(alpha * 0.62).toFixed(3)})`);
+    grd.addColorStop(0.58, `rgba(150,0,12,${(alpha * 0.22).toFixed(3)})`);
+    grd.addColorStop(1.00, 'rgba(80,0,4,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function tick(now) {
+    ctx.clearRect(0, 0, W, H);
+    const S = Math.min(W, H);
+
+    blobs.forEach(([fx, fy, rf, maxA, freq, phase]) => {
+      const pulse = 0.62 + 0.38 * Math.sin(now * freq + phase);
+      drawBlob(fx * W, fy * H, rf * S, maxA * pulse);
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
+
+/* ══════════════════════════════════════════════════════════
+   BRICK CRACK — SVG injected into the wall element itself
+══════════════════════════════════════════════════════════ */
+(function initCrack() {
+  const NS = 'http://www.w3.org/2000/svg';
+
+  const SKIP = 'a, button, input, textarea, select, label, ' +
+    '[data-popup-trigger], .card, .skill-box, .social-btn, .exp3-org, ' +
+    '.chatbot-toggle, .chatbot-container, .popup-backdrop, .popup-content, ' +
+    'nav, .terminal-card, .hero-video-wrap, .scene';
+
+  document.addEventListener('click', e => {
+    if (e.target.closest(SKIP)) return;
+    const wall = e.target.closest('.section, section, main') || document.body;
+    if (getComputedStyle(wall).position === 'static') wall.style.position = 'relative';
+    const rect = wall.getBoundingClientRect();
+    buildCrack(wall, e.clientX - rect.left, e.clientY - rect.top);
+  });
+
+  function buildCrack(wall, ox, oy) {
+    const segs = [];
+
+    function arm(px, py, angle, len, depth) {
+      const steps = 3 + Math.floor(Math.random() * 3);
+      for (let i = 0; i < steps; i++) {
+        const j  = (Math.random() - 0.5) * 0.75;
+        const nx = px + Math.cos(angle + j) * (len / steps);
+        const ny = py + Math.sin(angle + j) * (len / steps);
+        segs.push({
+          x1: px, y1: py, x2: nx, y2: ny,
+          d:  Math.hypot(nx - ox, ny - oy),
+          lw: Math.max(0.9, 3.3 - depth * 1.35),
+        });
+        if (depth < 1 && i > 0 && Math.random() < 0.32) {
+          const sign = Math.random() > 0.5 ? 1 : -1;
+          arm(nx, ny, angle + sign * (0.65 + Math.random() * 0.45), len * 0.4, depth + 1);
+        }
+        px = nx; py = ny;
+      }
+    }
+
+    const numArms = 2 + Math.floor(Math.random() * 2);
+    for (let i = 0; i < numArms; i++) {
+      const a = (i / numArms) * Math.PI * 2 + (Math.random() - 0.5) * 0.8;
+      arm(ox, oy, a, 16 + Math.random() * 24, 0);
+    }
+    segs.sort((a, b) => a.d - b.d);
+    const maxD = segs.at(-1)?.d ?? 1;
+
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:10;';
+
+    const GROW = 300;
+
+    segs.forEach(s => {
+      const delay  = (s.d / maxD) * GROW;
+      const segLen = Math.hypot(s.x2 - s.x1, s.y2 - s.y1);
+
+      const el = document.createElementNS(NS, 'line');
+      el.setAttribute('x1', s.x1); el.setAttribute('y1', s.y1);
+      el.setAttribute('x2', s.x2); el.setAttribute('y2', s.y2);
+      el.setAttribute('stroke', 'rgba(155,115,85,0.55)');
+      el.setAttribute('stroke-width', s.lw);
+      el.setAttribute('stroke-linecap', 'square');
+      el.style.strokeDasharray  = segLen;
+      el.style.strokeDashoffset = segLen;
+      el.style.transition = `stroke-dashoffset 0.06s linear ${delay}ms`;
+      svg.appendChild(el);
+    });
+
+    wall.appendChild(svg);
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      svg.querySelectorAll('line').forEach(l => { l.style.strokeDashoffset = 0; });
+    }));
+
+    setTimeout(() => {
+      svg.style.transition = 'opacity 0.6s ease';
+      svg.style.opacity    = '0';
+      setTimeout(() => svg.remove(), 620);
+    }, 5000);
+  }
+})();

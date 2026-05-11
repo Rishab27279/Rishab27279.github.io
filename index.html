@@ -10,6 +10,12 @@
 </head>
 <body>
 
+  <!-- ── PARTICLE BACKGROUND ── -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ── BORDER NEBULA ── -->
+  <canvas id="border-nebula" aria-hidden="true"></canvas>
+
   <!-- ── GRAIN OVERLAY ── -->
   <div class="grain" aria-hidden="true"></div>
 
@@ -75,31 +81,12 @@
         </div>
       </div>
 
-      <!-- CUBE -->
+      <!-- HERO VIDEO -->
       <div class="hero-middle">
-        <div class="scene" id="cubeScene">
-          <div class="pivot">
-            <!-- Atom -->
-            <div class="atom">
-              <div class="nucleus">
-                <div class="nucleus-inner"></div>
-              </div>
-              <div class="orbit orbit-1"><div class="electron e1"></div></div>
-              <div class="orbit orbit-2"><div class="electron e2"></div></div>
-              <div class="orbit orbit-3"><div class="electron e3"></div></div>
-            </div>
-            <!-- Main cube -->
-            <div class="single-cube">
-              <div class="face front"></div>
-              <div class="face back"></div>
-              <div class="face left"></div>
-              <div class="face right"></div>
-              <div class="face top"></div>
-              <div class="face bottom"></div>
-            </div>
-            <!-- Small pieces (built by JS) -->
-            <div class="pieces-container" id="piecesBox"></div>
-          </div>
+        <div class="hero-video-wrap">
+          <video class="hero-video" autoplay loop muted playsinline>
+            <source src="static/hero-loop.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
@@ -137,169 +124,111 @@ If you’re into AI — whether it’s research, engineering, or just staying up
          EXPERIENCE
     ══════════════════════════════════════ -->
     <section id="experience" class="section" style="opacity:1;transform:none;padding-bottom:0;">
-      <p class="section-label">02 — Experience</p>
-      <h2 class="section-title">Experience</h2>
+      <div class="exp3-driver" id="exp3Driver">
+        <div class="exp3-stage" id="exp3Stage">
+          <div class="exp3-header">
+            <p class="section-label">02 — Experience</p>
+            <h2 class="section-title">Experience</h2>
+          </div>
 
-      <div class="exp-scroll-driver" id="expScrollDriver">
-        <div class="exp-sticky-stage" id="expStickyStage">
-          <div class="exp-cards-stack" id="expCardsStack">
-
-            <!-- NEW CARD: Flam (most recent) -->
-            <div class="terminal-card" data-popup-trigger="experience-popup-4">
-              <div class="terminal-titlebar">
-                <div class="terminal-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <span class="terminal-filename">Flam · Bangalore</span>
-                <span class="terminal-tag">● active</span>
-              </div>
-              <div class="terminal-body">
-                <div class="code-block">
-                  <div class="code-line"><span class="line-num">1</span><span><span class="ck">const</span> <span class="cp">role</span>     <span class="co">=</span> <span class="cs">"AI Engineering Intern"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">2</span><span><span class="ck">const</span> <span class="cp">company</span>  <span class="co">=</span> <span class="cs">"Flam (Flying Flamingoes Pvt. Ltd.)"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">3</span><span><span class="ck">const</span> <span class="cp">location</span> <span class="co">=</span> <span class="cs">"Bangalore, India"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">4</span><span><span class="ck">const</span> <span class="cp">period</span>   <span class="co">=</span> <span class="co">{</span> <span class="cp">start</span><span class="co">:</span> <span class="ct">"Jan 2026"</span><span class="co">,</span> <span class="cp">end</span><span class="co">:</span> <span class="ct">"Present"</span> <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">5</span><span></span></div>
-                  <div class="code-line"><span class="line-num">6</span><span><span class="ck">function</span> <span class="cg">avatarWork</span><span class="co">() {</span></span></div>
-                  <div class="code-line"><span class="line-num">7</span><span>  <span class="cc">// Talking head avatars · Avatar team</span></span></div>
-                  <div class="code-line"><span class="line-num">8</span><span>  <span class="cc">// Real‑time B2B products</span></span></div>
-                  <div class="code-line"><span class="line-num">9</span><span>  <span class="ck">return</span> <span class="co">{</span></span></div>
-                  <div class="code-line"><span class="line-num">10</span><span>    <span class="cp">data</span><span class="co">:</span>    <span class="cs">"creation & compilation"</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">11</span><span>    <span class="cp">model</span><span class="co">:</span>   <span class="cs">"architecture + losses research"</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">12</span><span>    <span class="cp">stream</span><span class="co">:</span>   <span class="cs">"WebRTC deployment"</span></span></div>
-                  <div class="code-line"><span class="line-num">13</span><span>  <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">14</span><span><span class="co">}</span></span></div>
-                </div>
-              </div>
-              <div class="terminal-footer">
-                <div class="tf-left">
-                  <span class="tf-branch"><i class="fas fa-code-branch"></i>&nbsp;main</span>
-                  <span class="tf-lang"><i class="fab fa-js-square" style="color:#f7df1e;"></i>&nbsp;JavaScript</span>
-                </div>
-                <span class="tf-hint"><i class="fas fa-hand-pointer"></i>&nbsp;click to expand</span>
+          <!-- LEFT: org names -->
+          <div class="exp3-left">
+            <div class="exp3-org active" data-idx="0" data-popup-trigger="experience-popup-4">
+              <div class="exp3-org-indicator"></div>
+              <div>
+                <p class="exp3-org-name">Flam</p>
+                <p class="exp3-org-period">Jan 2026 – Present</p>
               </div>
             </div>
-
-            <!-- CARD 1: HMC -->
-            <div class="terminal-card" data-popup-trigger="experience-popup-3">
-              <div class="terminal-titlebar">
-                <div class="terminal-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <span class="terminal-filename">Hamad Medical Corporation · Qatar</span>
-                <span class="terminal-tag">✓ completed</span>
-              </div>
-              <div class="terminal-body">
-                <div class="code-block">
-                  <div class="code-line"><span class="line-num">1</span><span><span class="ck">const</span> <span class="cp">role</span>     <span class="co">=</span> <span class="cs">"AI Research Intern"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">2</span><span><span class="ck">const</span> <span class="cp">company</span>  <span class="co">=</span> <span class="cs">"Hamad Medical Corporation"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">3</span><span><span class="ck">const</span> <span class="cp">location</span> <span class="co">=</span> <span class="cs">"Doha, Qatar (Remote)"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">4</span><span><span class="ck">const</span> <span class="cp">period</span>   <span class="co">=</span> <span class="co">{</span> <span class="cp">start</span><span class="co">:</span> <span class="ct">"May 2025"</span><span class="co">,</span> <span class="cp">end</span><span class="co">:</span> <span class="ct">"Aug 2025"</span> <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">5</span><span></span></div>
-                  <div class="code-line"><span class="line-num">6</span><span><span class="ck">function</span> <span class="cg">currentWork</span><span class="co">() {</span></span></div>
-                  <div class="code-line"><span class="line-num">7</span><span>  <span class="cc">// Emergency Research · Dept of Surgery</span></span></div>
-                  <div class="code-line"><span class="line-num">8</span><span>  <span class="cc">// Multimodal AI for triage &amp; CKD diagnosis</span></span></div>
-                  <div class="code-line"><span class="line-num">9</span><span>  <span class="ck">return</span> <span class="co">{</span></span></div>
-                  <div class="code-line"><span class="line-num">10</span><span>    <span class="cp">focus</span><span class="co">:</span>  <span class="cs">"emergency_triage"</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">11</span><span>    <span class="cp">stack</span><span class="co">:</span>  <span class="co">[</span><span class="cv">"PyTorch"</span><span class="co">,</span> <span class="cv">"ViT"</span><span class="co">,</span> <span class="cv">"Mamba"</span><span class="co">],</span></span></div>
-                  <div class="code-line"><span class="line-num">12</span><span>    <span class="cp">active</span><span class="co">:</span> <span class="cb">true</span></span></div>
-                  <div class="code-line"><span class="line-num">13</span><span>  <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">14</span><span><span class="co">}</span></span></div>
-                </div>
-              </div>
-              <div class="terminal-footer">
-                <div class="tf-left">
-                  <span class="tf-branch"><i class="fas fa-code-branch"></i>&nbsp;main</span>
-                  <span class="tf-lang"><i class="fab fa-js-square" style="color:#f7df1e;"></i>&nbsp;JavaScript</span>
-                </div>
-                <span class="tf-hint"><i class="fas fa-hand-pointer"></i>&nbsp;click to expand</span>
+            <div class="exp3-org" data-idx="1" data-popup-trigger="experience-popup-3">
+              <div class="exp3-org-indicator"></div>
+              <div>
+                <p class="exp3-org-name">Hamad Medical</p>
+                <p class="exp3-org-period">May – Aug 2025</p>
               </div>
             </div>
-
-            <!-- CARD 2: BITS Pilani -->
-            <div class="terminal-card" data-popup-trigger="experience-popup-1">
-              <div class="terminal-titlebar">
-                <div class="terminal-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <span class="terminal-filename">BITS Pilani · Hyderabad</span>
-                <span class="terminal-tag">✓ completed</span>
-              </div>
-              <div class="terminal-body">
-                <div class="code-block">
-                  <div class="code-line"><span class="line-num">1</span><span><span class="ck">const</span> <span class="cp">role</span>       <span class="co">=</span> <span class="cs">"Research Assistant"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">2</span><span><span class="ck">const</span> <span class="cp">dept</span>       <span class="co">=</span> <span class="cs">"ECE Department"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">3</span><span><span class="ck">const</span> <span class="cp">institute</span>  <span class="co">=</span> <span class="cs">"BITS Pilani, Hyderabad"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">4</span><span><span class="ck">const</span> <span class="cp">period</span>     <span class="co">=</span> <span class="co">{</span> <span class="cp">start</span><span class="co">:</span> <span class="ct">"Aug 2024"</span><span class="co">,</span> <span class="cp">end</span><span class="co">:</span> <span class="ct">"December 2025"</span> <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">5</span><span></span></div>
-                  <div class="code-line"><span class="line-num">6</span><span><span class="ck">function</span> <span class="cg">contributions</span><span class="co">() {</span></span></div>
-                  <div class="code-line"><span class="line-num">7</span><span>  <span class="cc">// Medical imaging · bone fracture detection</span></span></div>
-                  <div class="code-line"><span class="line-num">8</span><span>  <span class="cc">// Wavelet-CNN architecture development</span></span></div>
-                  <div class="code-line"><span class="line-num">9</span><span>  <span class="ck">return</span> <span class="co">{</span></span></div>
-                  <div class="code-line"><span class="line-num">10</span><span>    <span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">11</span><span>    <span class="cp">published</span><span class="co">:</span> <span class="cb">true</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">12</span><span>    <span class="cp">journal</span><span class="co">:</span>   <span class="cs">"Healthcare Technology Letters, IEEE Sensor Letters"</span></span></div>
-                  <div class="code-line"><span class="line-num">13</span><span>  <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">14</span><span><span class="co">}</span></span></div>
-                </div>
-              </div>
-              <div class="terminal-footer">
-                <div class="tf-left">
-                  <span class="tf-branch"><i class="fas fa-code-branch"></i>&nbsp;main</span>
-                  <span class="tf-lang"><i class="fab fa-js-square" style="color:#f7df1e;"></i>&nbsp;JavaScript</span>
-                </div>
-                <span class="tf-hint"><i class="fas fa-hand-pointer"></i>&nbsp;click to expand</span>
+            <div class="exp3-org" data-idx="2" data-popup-trigger="experience-popup-1">
+              <div class="exp3-org-indicator"></div>
+              <div>
+                <p class="exp3-org-name">BITS Pilani</p>
+                <p class="exp3-org-period">Aug 2024 – Dec 2025</p>
               </div>
             </div>
-
-            <!-- CARD 3: IGCAR -->
-            <div class="terminal-card" data-popup-trigger="experience-popup-2">
-              <div class="terminal-titlebar">
-                <div class="terminal-dots">
-                  <span class="dot dot-red"></span>
-                  <span class="dot dot-yellow"></span>
-                  <span class="dot dot-green"></span>
-                </div>
-                <span class="terminal-filename">IGCAR · Kalpakkam</span>
-                <span class="terminal-tag" style="color:#ffcb6b;border-color:rgba(255,203,107,0.35);background:rgba(255,203,107,0.1);">✓ completed</span>
-              </div>
-              <div class="terminal-body">
-                <div class="code-block">
-                  <div class="code-line"><span class="line-num">1</span><span><span class="ck">const</span> <span class="cp">role</span>    <span class="co">=</span> <span class="cs">"CV Research Intern"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">2</span><span><span class="ck">const</span> <span class="cp">org</span>     <span class="co">=</span> <span class="cs">"IGCAR Kalpakkam"</span><span class="co">;</span></span></div>
-                  <div class="code-line"><span class="line-num">3</span><span><span class="ck">const</span> <span class="cp">period</span>  <span class="co">=</span> <span class="co">{</span> <span class="cp">start</span><span class="co">:</span> <span class="ct">"May 2024"</span><span class="co">,</span> <span class="cp">end</span><span class="co">:</span> <span class="ct">"Aug 2024"</span> <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">4</span><span></span></div>
-                  <div class="code-line"><span class="line-num">5</span><span><span class="ck">function</span> <span class="cg">project</span><span class="co">() {</span></span></div>
-                  <div class="code-line"><span class="line-num">6</span><span>  <span class="cc">// Camouflaged object detection</span></span></div>
-                  <div class="code-line"><span class="line-num">7</span><span>  <span class="cc">// Fine-tuning Meta's SAM architecture</span></span></div>
-                  <div class="code-line"><span class="line-num">8</span><span>  <span class="ck">return</span> <span class="co">{</span></span></div>
-                  <div class="code-line"><span class="line-num">9</span><span>    <span class="cp">model</span><span class="co">:</span>   <span class="cs">"SAM (Segment Anything)"</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">10</span><span>    <span class="cp">task</span><span class="co">:</span>    <span class="cs">"camouflage_detection"</span><span class="co">,</span></span></div>
-                  <div class="code-line"><span class="line-num">11</span><span>    <span class="cp">method</span><span class="co">:</span>  <span class="cs">"fine_tuning"</span></span></div>
-                  <div class="code-line"><span class="line-num">12</span><span>  <span class="co">};</span></span></div>
-                  <div class="code-line"><span class="line-num">13</span><span><span class="co">}</span></span></div>
-                </div>
-              </div>
-              <div class="terminal-footer">
-                <div class="tf-left">
-                  <span class="tf-branch"><i class="fas fa-code-branch"></i>&nbsp;main</span>
-                  <span class="tf-lang"><i class="fab fa-js-square" style="color:#f7df1e;"></i>&nbsp;JavaScript</span>
-                </div>
-                <span class="tf-hint"><i class="fas fa-hand-pointer"></i>&nbsp;click to expand</span>
+            <div class="exp3-org" data-idx="3" data-popup-trigger="experience-popup-2">
+              <div class="exp3-org-indicator"></div>
+              <div>
+                <p class="exp3-org-name">IGCAR</p>
+                <p class="exp3-org-period">May – Aug 2024</p>
               </div>
             </div>
+          </div>
 
-          </div><!-- /expCardsStack -->
-        </div><!-- /expStickyStage -->
-      </div><!-- /expScrollDriver -->
-      <div class="exp-scroll-hint" id="expScrollHint">
-        <span><i class="fas fa-chevron-down"></i>&nbsp;scroll to reveal more</span>
+          <!-- PANEL: middle + right wrapped in card -->
+          <div class="exp3-panel">
+          <!-- MIDDLE: role + description -->
+          <div class="exp3-middle">
+            <div class="exp3-slide active">
+              <p class="exp3-status active-tag">● active</p>
+              <h3 class="exp3-role">AI Engineering Intern</h3>
+              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;Bangalore, India</p>
+              <ul class="exp3-desc">
+                <li>Built data pipelines for talking-head avatar models — video, audio, facial landmarks</li>
+                <li>Researched generative architectures including GANs, diffusion models, and normalizing flows</li>
+                <li>Investigated loss functions for lip-sync, expression disentanglement, identity preservation</li>
+                <li>Deployed real-time avatar inference via WebRTC streaming</li>
+              </ul>
+            </div>
+            <div class="exp3-slide">
+              <p class="exp3-status">✓ completed</p>
+              <h3 class="exp3-role">AI Research Intern</h3>
+              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;Doha, Qatar (Remote)</p>
+              <ul class="exp3-desc">
+                <li>Emergency research in the Dept. of Surgery at one of the Middle East's leading medical centres</li>
+                <li>Multimodal AI for emergency triage and CKD diagnosis</li>
+                <li>Applied ViT and Mamba architectures with PyTorch</li>
+                <li>Collaborated across BITS Pilani and HMC research teams</li>
+              </ul>
+            </div>
+            <div class="exp3-slide">
+              <p class="exp3-status">✓ completed</p>
+              <h3 class="exp3-role">Research Assistant — ECE Dept.</h3>
+              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;BITS Pilani, Hyderabad</p>
+              <ul class="exp3-desc">
+                <li>Medical imaging focused on bone fracture detection</li>
+                <li>Developed Wavelet-CNN hybrid architectures</li>
+                <li>Published in Healthcare Technology Letters &amp; IEEE Sensor Letters</li>
+              </ul>
+            </div>
+            <div class="exp3-slide">
+              <p class="exp3-status">✓ completed</p>
+              <h3 class="exp3-role">CV Research Intern</h3>
+              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;IGCAR, Kalpakkam</p>
+              <ul class="exp3-desc">
+                <li>Camouflaged object detection for industrial inspection applications</li>
+                <li>Fine-tuned Meta's Segment Anything Model (SAM)</li>
+                <li>Adapter-based strategies to improve SAM on low-contrast edge cases</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- RIGHT: logos -->
+          <div class="exp3-right">
+            <div class="exp3-logo active">
+              <img class="exp3-logo-img" src="flam_logo.png" alt="Flam">
+            </div>
+            <div class="exp3-logo">
+              <img class="exp3-logo-img" src="hamad_logo.png" alt="Hamad Medical Corporation">
+            </div>
+            <div class="exp3-logo">
+              <img class="exp3-logo-img" src="bits_logo.png" alt="BITS Pilani">
+            </div>
+            <div class="exp3-logo">
+              <img class="exp3-logo-img" src="igcar_logo.png" alt="IGCAR">
+            </div>
+          </div>
+          </div><!-- /exp3-panel -->
+
+        </div>
       </div>
     </section>
 
@@ -309,32 +238,56 @@ If you’re into AI — whether it’s research, engineering, or just staying up
     <section id="research" class="section scroll-animation">
       <p class="section-label">03 — Research</p>
       <h2 class="section-title">Research &amp; Publications</h2>
-      <div class="cards">
+      <div class="cards research-cards">
 
-        <!-- IEEE Sensors Letters (2026) -->
         <div class="card scroll-animation" data-popup-trigger="research-popup-3">
           <div class="card-icon"><i class="fas fa-satellite-dish" style="color:var(--g1);"></i></div>
           <h3>A Lightweight Fourier Block Transformer for Android-Based Edge‑Enabled Detection of Osteopenia and Osteoporosis</h3>
           <div class="subtitle">IEEE Sensors Letters · March 2026</div>
           <p>Lightweight Fourier Block Transformer achieving 88.41% accuracy for real-time osteoporosis detection directly on Android devices using knee X-ray sensor images.</p>
+          <div class="card-extra">
+            <div class="card-extra-stats">
+              <span class="ces-item"><i class="fas fa-bullseye"></i> 88.41% accuracy</span>
+              <span class="ces-item"><i class="fas fa-bolt"></i> 60 imgs/min on Android</span>
+              <span class="ces-item"><i class="fas fa-mobile-alt"></i> TFLite edge deployment</span>
+            </div>
+            <p class="ces-method">Architecture: patch embedding + DFT block + dropout — no cloud required, fully on-device inference.</p>
+            <p class="ces-authors"><i class="fas fa-users"></i> Rishab K Pattnaik &nbsp;·&nbsp; Dr. R K Tripathy (BITS) &nbsp;·&nbsp; Dr. R B Pachori (IIT Indore)</p>
+          </div>
           <span class="date-badge">IEEE · 2026</span>
         </div>
 
-        <!-- Healthcare Technology Letters (2025) -->
         <div class="card scroll-animation" data-popup-trigger="research-popup-2">
           <div class="card-icon"><i class="fas fa-microscope" style="color:var(--g1);"></i></div>
           <h3>Multi-Frequency Aware Deep Representation Learning for Bone Fracture Detection</h3>
           <div class="subtitle">Healthcare Technology Letters, 2025</div>
           <p>Novel multiband-frequency aware network achieving 92.22% accuracy on bone fracture detection benchmarks.</p>
+          <div class="card-extra">
+            <div class="card-extra-stats">
+              <span class="ces-item"><i class="fas fa-bullseye"></i> 92.22% accuracy</span>
+              <span class="ces-item"><i class="fas fa-chart-line"></i> AUC-ROC 0.959</span>
+              <span class="ces-item"><i class="fas fa-database"></i> 6,229 MXR images</span>
+            </div>
+            <p class="ces-method">2D Wavelet Transform (LL/LH/HL/HH) + frozen EfficientNetV2B2 per subband — surpasses ResNet50, ViT, Swin Transformer.</p>
+            <p class="ces-authors"><i class="fas fa-users"></i> Rishab K Pattnaik &nbsp;·&nbsp; Dr. R K Tripathy (BITS) &nbsp;·&nbsp; Dr. H Liu (Coventry)</p>
+          </div>
           <span class="date-badge">IET / Wiley · 2025</span>
         </div>
 
-        <!-- Elsevier Book Chapter (2025) -->
         <div class="card scroll-animation" data-popup-trigger="research-popup-1">
           <div class="card-icon"><i class="fas fa-book" style="color:var(--g1);"></i></div>
           <h3>Deep Representation Learning for Pneumonia &amp; Tuberculosis Detection</h3>
           <div class="subtitle">Elsevier Book Chapter, 2025</div>
           <p>Published in "Non-stationary and nonlinear data processing for automated computer-aided medical diagnosis".</p>
+          <div class="card-extra">
+            <div class="card-extra-stats">
+              <span class="ces-item"><i class="fas fa-bullseye"></i> 87.08% accuracy</span>
+              <span class="ces-item"><i class="fas fa-lungs"></i> Viral PN · Bacterial PN · TB</span>
+              <span class="ces-item"><i class="fas fa-cloud"></i> IoT cloud deployment</span>
+            </div>
+            <p class="ces-method">Transfer learning blocks on chest X-ray images — classifies three respiratory disease categories with CAD-assisted diagnosis.</p>
+            <p class="ces-authors"><i class="fas fa-university"></i> BITS Pilani · Published in Elsevier Non-stationary Data Processing volume</p>
+          </div>
           <span class="date-badge">Elsevier · 2025</span>
         </div>
 
