@@ -1,1451 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishab K Pattnaik · AI Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rishab K Pattnaik — AI Engineer &amp; Researcher</title>
+<meta name="description" content="I build AI that runs on real devices. Talking avatars at Flam; three published papers on reading medical X-rays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inclusive+Sans:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // set theme before first paint so there is no flash
+  (function () {
+    var s = localStorage.getItem('theme');
+    document.documentElement.dataset.theme =
+      s || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  })();
+</script>
 </head>
 <body>
 
-  <!-- ── PARTICLE BACKGROUND ── -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+<a class="skip" href="#work">Skip to content</a>
 
-  <!-- ── BORDER NEBULA ── -->
-  <canvas id="border-nebula" aria-hidden="true"></canvas>
-
-  <!-- ── GRAIN OVERLAY ── -->
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- ── CUSTOM CURSOR ── -->
-  <div id="cursor-dot"  aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
-
-  <!-- ── SCROLL PROGRESS ── -->
-  <div id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- ── LOADER ── -->
-  <div id="page-loader" aria-hidden="true">
-    <svg id="hi-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
-      <path id="h-stem" class="hi-stroke" pathLength="1" d="M 82,38 C 81,55 81,145 82,168"/>
-      <path id="h-arch" class="hi-stroke" pathLength="1" d="M 82,104 C 84,76 106,62 130,72 C 154,82 156,106 155,130 L 155,168"/>
-      <path id="i-stem" class="hi-stroke" pathLength="1" d="M 196,110 L 196,168"/>
-      <circle id="i-dot" cx="196" cy="88" r="0" fill="white"/>
-    </svg>
+<header class="bar">
+  <a class="wordmark" href="#top">Rishab</a>
+  <nav class="bar-nav" id="menu">
+    <a href="#work">Work</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="bar-right">
+    <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
+    <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
+</header>
 
-  <!-- ══════════════════════════════════════
-       SITE CONTENT
-  ══════════════════════════════════════ -->
-  <div id="site-content">
+<main id="top">
 
-    <!-- ── NAVBAR ── -->
-    <nav id="navbar">
-      <div class="logo">Rishab</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-      </ul>
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 700" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M10,26 L17,26" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,35.7 L13.5,35.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,45.4 L13.5,45.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,55.1 L13.5,55.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,64.8 L13.5,64.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,74.5 L17,74.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,84.2 L13.5,84.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,93.9 L13.5,93.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,103.6 L13.5,103.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,113.3 L13.5,113.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,123 L17,123" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,132.7 L13.5,132.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,142.4 L13.5,142.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,152.1 L13.5,152.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,161.8 L13.5,161.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,171.5 L17,171.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,181.2 L13.5,181.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,190.9 L13.5,190.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,200.6 L13.5,200.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,210.3 L13.5,210.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,220 L17,220" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,229.7 L13.5,229.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,239.4 L13.5,239.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,249.1 L13.5,249.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,258.8 L13.5,258.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,268.5 L17,268.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,278.2 L13.5,278.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,287.9 L13.5,287.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,297.6 L13.5,297.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,307.3 L13.5,307.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,317 L17,317" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,326.7 L13.5,326.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,336.4 L13.5,336.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,346.1 L13.5,346.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,355.8 L13.5,355.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,365.5 L17,365.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,375.2 L13.5,375.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,384.9 L13.5,384.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,394.6 L13.5,394.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,404.3 L13.5,404.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,414 L17,414" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,423.7 L13.5,423.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,433.4 L13.5,433.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,443.1 L13.5,443.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,452.8 L13.5,452.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,462.5 L17,462.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,472.2 L13.5,472.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,481.9 L13.5,481.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,491.6 L13.5,491.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,501.3 L13.5,501.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,511 L17,511" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,520.7 L13.5,520.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,530.4 L13.5,530.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,540.1 L13.5,540.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,549.8 L13.5,549.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,559.5 L17,559.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,569.2 L13.5,569.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,578.9 L13.5,578.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,588.6 L13.5,588.6" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,598.3 L13.5,598.3" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,608 L17,608" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,617.7 L13.5,617.7" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,627.4 L13.5,627.4" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,637.1 L13.5,637.1" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,646.8 L13.5,646.8" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,656.5 L17,656.5" stroke-width="0.5" opacity="0.45"/>
+<path d="M10,666.2 L13.5,666.2" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,675.9 L13.5,675.9" stroke-width="0.5" opacity="0.22"/>
+<path d="M10,26 L10,678" stroke-width="0.5" opacity="0.3"/>
+<text x="34" y="40" font-size="6" opacity="0.85" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">RAW  SCANLINE</text>
+<text x="34" y="49" font-size="4.8" opacity="0.45" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">x[n]  ·  1024 px</text>
+<path d="M34,56 L34,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M67.25,56 L67.25,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M100.5,56 L100.5,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M133.75,56 L133.75,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M167,56 L167,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M200.25,56 L200.25,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M233.5,56 L233.5,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M266.75,56 L266.75,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M300,56 L300,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
+<path d="M34,96 L300,96" stroke-width="0.45" opacity="0.3" stroke-dasharray="2 3"/>
+<path d="M34,91.24 L35.79,88.62 L37.57,86.85 L39.36,86.15 L41.14,86.44 L42.93,87.41 L44.71,88.57 L46.5,89.44 L48.28,89.66 L50.07,89.15 L51.85,88.09 L53.64,86.86 L55.42,85.87 L57.21,85.43 L58.99,85.6 L60.78,86.15 L62.56,86.64 L64.35,86.59 L66.13,85.63 L67.92,83.69 L69.7,81.05 L71.49,78.3 L73.28,76.19 L75.06,75.38 L76.85,76.29 L78.63,78.9 L80.42,82.83 L82.2,87.39 L83.99,91.87 L85.77,95.7 L87.56,98.65 L89.34,100.85 L91.13,102.76 L92.91,104.88 L94.7,107.61 L96.48,111.01 L98.27,114.78 L100.05,118.26 L101.84,120.73 L103.62,121.55 L105.41,120.48 L107.19,117.74 L108.98,113.99 L110.77,110.17 L112.55,107.19 L114.34,105.7 L116.12,105.86 L117.91,107.36 L119.69,109.49 L121.48,111.45 L123.26,112.55 L125.05,112.49 L126.83,111.43 L128.62,109.87 L130.4,108.48 L132.19,107.82 L133.97,108.07 L135.76,108.97 L137.54,109.83 L139.33,109.78 L141.11,108.02 L142.9,104.15 L144.68,98.29 L146.47,91.1 L148.26,83.61 L150.04,76.93 L151.83,71.91 L153.61,68.96 L155.4,67.9 L157.18,68.14 L158.97,68.88 L160.75,69.4 L162.54,69.33 L164.32,68.78 L166.11,68.26 L167.89,68.47 L169.68,70.04 L171.46,73.24 L173.25,77.81 L175.03,83.07 L176.82,88.02 L178.6,91.69 L180.39,93.42 L182.17,93.09 L183.96,91.15 L185.74,88.46 L187.53,86.07 L189.32,84.85 L191.1,85.28 L192.89,87.3 L194.67,90.39 L196.46,93.81 L198.24,96.83 L200.03,99.04 L201.81,100.47 L203.6,101.54 L205.38,102.93 L207.17,105.29 L208.95,108.95 L210.74,113.8 L212.52,119.24 L214.31,124.36 L216.09,128.17 L217.88,129.95 L219.66,129.41 L221.45,126.81 L223.23,122.82 L225.02,118.37 L226.81,114.29 L228.59,111.12 L230.38,108.96 L232.16,107.52 L233.95,106.22 L235.73,104.52 L237.52,102.08 L239.3,98.92 L241.09,95.46 L242.87,92.34 L244.66,90.2 L246.44,89.48 L248.23,90.22 L250.01,92.04 L251.8,94.25 L253.58,96.04 L255.37,96.73 L257.15,95.99 L258.94,93.86 L260.72,90.81 L262.51,87.47 L264.3,84.52 L266.08,82.38 L267.87,81.21 L269.65,80.79 L271.44,80.73 L273.22,80.58 L275.01,80.06 L276.79,79.12 L278.58,78.04 L280.36,77.26 L282.15,77.28 L283.93,78.45 L285.72,80.86 L287.5,84.28 L289.29,88.24 L291.07,92.12 L292.86,95.39 L294.64,97.7 L296.43,98.99 L298.21,99.47 L300,99.5" stroke-width="0.85" opacity="0.95"/>
+<path d="M308,58 L308,134" stroke-width="0.5" opacity="0.5"/>
+<path d="M306.4,60.4 L308,58 L309.6,60.4" stroke-width="0.5" opacity="0.5"/>
+<path d="M306.4,131.6 L308,134 L309.6,131.6" stroke-width="0.5" opacity="0.5"/>
+<text x="311" y="97.8" font-size="4.6" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">2A</text>
+<path d="M40,148 L34,154 L34,166 L40,172" stroke-width="0.6" opacity="0.5"/>
+<text x="45" y="164" font-size="5.4" opacity="0.8" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">2D DWT  ·  db4</text>
+<path d="M108,160 L300,160" stroke-width="0.5" opacity="0.25" stroke-dasharray="2 3"/>
+<text x="34" y="201" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LL</text>
+<text x="51" y="201" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ approximation</text>
+<path d="M34,236 L300,236" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,236 L35.79,235.98 L37.57,235.92 L39.36,235.82 L41.14,235.67 L42.93,235.49 L44.71,235.27 L46.5,235.01 L48.28,234.72 L50.07,234.39 L51.85,234.02 L53.64,233.62 L55.42,233.2 L57.21,232.74 L58.99,232.25 L60.78,231.75 L62.56,231.22 L64.35,230.67 L66.13,230.1 L67.92,229.51 L69.7,228.92 L71.49,228.31 L73.28,227.7 L75.06,227.08 L76.85,226.46 L78.63,225.85 L80.42,225.23 L82.2,224.63 L83.99,224.03 L85.77,223.45 L87.56,222.88 L89.34,222.33 L91.13,221.8 L92.91,221.29 L94.7,220.81 L96.48,220.36 L98.27,219.94 L100.05,219.55 L101.84,219.2 L103.62,218.88 L105.41,218.6 L107.19,218.36 L108.98,218.16 L110.77,218.01 L112.55,217.9 L114.34,217.84 L116.12,217.83 L117.91,217.86 L119.69,217.94 L121.48,218.06 L123.26,218.24 L125.05,218.46 L126.83,218.74 L128.62,219.06 L130.4,219.43 L132.19,219.84 L133.97,220.3 L135.76,220.81 L137.54,221.36 L139.33,221.95 L141.11,222.59 L142.9,223.26 L144.68,223.97 L146.47,224.71 L148.26,225.49 L150.04,226.3 L151.83,227.13 L153.61,228 L155.4,228.88 L157.18,229.79 L158.97,230.72 L160.75,231.66 L162.54,232.61 L164.32,233.57 L166.11,234.54 L167.89,235.51 L169.68,236.49 L171.46,237.46 L173.25,238.42 L175.03,239.38 L176.82,240.33 L178.6,241.26 L180.39,242.17 L182.17,243.07 L183.96,243.94 L185.74,244.79 L187.53,245.61 L189.32,246.4 L191.1,247.16 L192.89,247.89 L194.67,248.57 L196.46,249.22 L198.24,249.84 L200.03,250.4 L201.81,250.93 L203.6,251.41 L205.38,251.85 L207.17,252.24 L208.95,252.58 L210.74,252.87 L212.52,253.12 L214.31,253.32 L216.09,253.47 L217.88,253.57 L219.66,253.63 L221.45,253.63 L223.23,253.59 L225.02,253.51 L226.81,253.38 L228.59,253.2 L230.38,252.99 L232.16,252.73 L233.95,252.44 L235.73,252.1 L237.52,251.74 L239.3,251.33 L241.09,250.9 L242.87,250.44 L244.66,249.95 L246.44,249.44 L248.23,248.91 L250.01,248.35 L251.8,247.79 L253.58,247.2 L255.37,246.61 L257.15,246.01 L258.94,245.41 L260.72,244.8 L262.51,244.2 L264.3,243.59 L266.08,243 L267.87,242.41 L269.65,241.83 L271.44,241.27 L273.22,240.73 L275.01,240.2 L276.79,239.7 L278.58,239.22 L280.36,238.77 L282.15,238.34 L283.93,237.95 L285.72,237.59 L287.5,237.26 L289.29,236.96 L291.07,236.71 L292.86,236.49 L294.64,236.31 L296.43,236.16 L298.21,236.06 L300,236" stroke-width="0.75" opacity="0.85"/>
+<path d="M41,206 L34,206 L34,212" stroke-width="0.5" opacity="0.3"/>
+<path d="M41,266 L34,266 L34,260" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,206 L300,206 L300,212" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,266 L300,266 L300,260" stroke-width="0.5" opacity="0.3"/>
+<text x="34" y="279.5" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LH</text>
+<text x="51" y="279.5" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ horizontal</text>
+<path d="M34,312 L300,312" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,312 L35.79,312 L37.57,311.99 L39.36,311.98 L41.14,311.96 L42.93,311.91 L44.71,311.86 L46.5,311.78 L48.28,311.69 L50.07,311.58 L51.85,311.46 L53.64,311.33 L55.42,311.19 L57.21,311.06 L58.99,310.93 L60.78,310.82 L62.56,310.74 L64.35,310.68 L66.13,310.67 L67.92,310.71 L69.7,310.79 L71.49,310.94 L73.28,311.15 L75.06,311.42 L76.85,311.75 L78.63,312.15 L80.42,312.61 L82.2,313.11 L83.99,313.67 L85.77,314.25 L87.56,314.85 L89.34,315.47 L91.13,316.07 L92.91,316.65 L94.7,317.19 L96.48,317.67 L98.27,318.08 L100.05,318.39 L101.84,318.61 L103.62,318.7 L105.41,318.67 L107.19,318.51 L108.98,318.2 L110.77,317.75 L112.55,317.16 L114.34,316.43 L116.12,315.56 L117.91,314.59 L119.69,313.5 L121.48,312.33 L123.26,311.1 L125.05,309.82 L126.83,308.52 L128.62,307.22 L130.4,305.96 L132.19,304.76 L133.97,303.64 L135.76,302.63 L137.54,301.75 L139.33,301.03 L141.11,300.49 L142.9,300.13 L144.68,299.97 L146.47,300.02 L148.26,300.27 L150.04,300.74 L151.83,301.41 L153.61,302.28 L155.4,303.32 L157.18,304.53 L158.97,305.87 L160.75,307.34 L162.54,308.89 L164.32,310.5 L166.11,312.15 L167.89,313.79 L169.68,315.4 L171.46,316.95 L173.25,318.4 L175.03,319.74 L176.82,320.94 L178.6,321.97 L180.39,322.82 L182.17,323.47 L183.96,323.92 L185.74,324.15 L187.53,324.17 L189.32,323.99 L191.1,323.6 L192.89,323.03 L194.67,322.28 L196.46,321.37 L198.24,320.33 L200.03,319.18 L201.81,317.95 L203.6,316.66 L205.38,315.33 L207.17,314 L208.95,312.7 L210.74,311.44 L212.52,310.24 L214.31,309.14 L216.09,308.14 L217.88,307.27 L219.66,306.53 L221.45,305.93 L223.23,305.48 L225.02,305.17 L226.81,305.01 L228.59,304.99 L230.38,305.1 L232.16,305.33 L233.95,305.67 L235.73,306.1 L237.52,306.61 L239.3,307.18 L241.09,307.79 L242.87,308.42 L244.66,309.07 L246.44,309.7 L248.23,310.32 L250.01,310.9 L251.8,311.44 L253.58,311.92 L255.37,312.34 L257.15,312.7 L258.94,312.99 L260.72,313.21 L262.51,313.37 L264.3,313.46 L266.08,313.5 L267.87,313.49 L269.65,313.43 L271.44,313.34 L273.22,313.23 L275.01,313.09 L276.79,312.95 L278.58,312.8 L280.36,312.65 L282.15,312.51 L283.93,312.39 L285.72,312.28 L287.5,312.19 L289.29,312.12 L291.07,312.07 L292.86,312.03 L294.64,312.01 L296.43,312 L298.21,312 L300,312" stroke-width="0.75" opacity="0.75"/>
+<path d="M41,284.5 L34,284.5 L34,290.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M41,339.5 L34,339.5 L34,333.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,284.5 L300,284.5 L300,290.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,339.5 L300,339.5 L300,333.5" stroke-width="0.5" opacity="0.3"/>
+<text x="34" y="358" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HL</text>
+<text x="51" y="358" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ vertical</text>
+<path d="M34,388 L300,388" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,388 L35.79,388 L37.57,387.99 L39.36,387.97 L41.14,387.94 L42.93,387.9 L44.71,387.87 L46.5,387.85 L48.28,387.84 L50.07,387.86 L51.85,387.91 L53.64,388 L55.42,388.13 L57.21,388.29 L58.99,388.48 L60.78,388.68 L62.56,388.89 L64.35,389.07 L66.13,389.21 L67.92,389.29 L69.7,389.28 L71.49,389.18 L73.28,388.98 L75.06,388.67 L76.85,388.26 L78.63,387.77 L80.42,387.21 L82.2,386.62 L83.99,386.04 L85.77,385.51 L87.56,385.06 L89.34,384.75 L91.13,384.6 L92.91,384.64 L94.7,384.9 L96.48,385.37 L98.27,386.04 L100.05,386.89 L101.84,387.88 L103.62,388.97 L105.41,390.08 L107.19,391.16 L108.98,392.14 L110.77,392.95 L112.55,393.53 L114.34,393.82 L116.12,393.81 L117.91,393.45 L119.69,392.77 L121.48,391.78 L123.26,390.53 L125.05,389.07 L126.83,387.48 L128.62,385.86 L130.4,384.28 L132.19,382.85 L133.97,381.65 L135.76,380.76 L137.54,380.25 L139.33,380.15 L141.11,380.48 L142.9,381.24 L144.68,382.38 L146.47,383.87 L148.26,385.61 L150.04,387.51 L151.83,389.48 L153.61,391.39 L155.4,393.15 L157.18,394.64 L158.97,395.79 L160.75,396.52 L162.54,396.8 L164.32,396.59 L166.11,395.92 L167.89,394.82 L169.68,393.35 L171.46,391.59 L173.25,389.65 L175.03,387.63 L176.82,385.65 L178.6,383.81 L180.39,382.22 L182.17,380.96 L183.96,380.1 L185.74,379.69 L187.53,379.72 L189.32,380.21 L191.1,381.1 L192.89,382.34 L194.67,383.85 L196.46,385.54 L198.24,387.32 L200.03,389.07 L201.81,390.71 L203.6,392.14 L205.38,393.29 L207.17,394.12 L208.95,394.58 L210.74,394.66 L212.52,394.39 L214.31,393.78 L216.09,392.89 L217.88,391.79 L219.66,390.55 L221.45,389.24 L223.23,387.94 L225.02,386.73 L226.81,385.67 L228.59,384.81 L230.38,384.18 L232.16,383.81 L233.95,383.7 L235.73,383.83 L237.52,384.18 L239.3,384.7 L241.09,385.36 L242.87,386.1 L244.66,386.88 L246.44,387.63 L248.23,388.32 L250.01,388.92 L251.8,389.39 L253.58,389.73 L255.37,389.92 L257.15,389.98 L258.94,389.91 L260.72,389.74 L262.51,389.5 L264.3,389.2 L266.08,388.88 L267.87,388.56 L269.65,388.27 L271.44,388.02 L273.22,387.82 L275.01,387.68 L276.79,387.6 L278.58,387.57 L280.36,387.58 L282.15,387.62 L283.93,387.69 L285.72,387.76 L287.5,387.83 L289.29,387.89 L291.07,387.94 L292.86,387.98 L294.64,387.99 L296.43,388 L298.21,388 L300,388" stroke-width="0.75" opacity="0.6499999999999999"/>
+<path d="M41,363 L34,363 L34,369" stroke-width="0.5" opacity="0.3"/>
+<path d="M41,413 L34,413 L34,407" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,363 L300,363 L300,369" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,413 L300,413 L300,407" stroke-width="0.5" opacity="0.3"/>
+<text x="34" y="436.5" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HH</text>
+<text x="51" y="436.5" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ diagonal</text>
+<path d="M34,464 L300,464" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,464 L35.79,464 L37.57,464 L39.36,464 L41.14,464 L42.93,464 L44.71,464.01 L46.5,464.01 L48.28,464.03 L50.07,464.04 L51.85,464.04 L53.64,464.04 L55.42,464.01 L57.21,463.97 L58.99,463.92 L60.78,463.85 L62.56,463.8 L64.35,463.77 L66.13,463.79 L67.92,463.86 L69.7,463.99 L71.49,464.16 L73.28,464.35 L75.06,464.52 L76.85,464.63 L78.63,464.64 L80.42,464.52 L82.2,464.27 L83.99,463.91 L85.77,463.49 L87.56,463.09 L89.34,462.79 L91.13,462.67 L92.91,462.77 L94.7,463.13 L96.48,463.7 L98.27,464.41 L100.05,465.15 L101.84,465.78 L103.62,466.17 L105.41,466.21 L107.19,465.86 L108.98,465.13 L110.77,464.12 L112.55,462.99 L114.34,461.92 L116.12,461.12 L117.91,460.75 L119.69,460.93 L121.48,461.65 L123.26,462.85 L125.05,464.33 L126.83,465.86 L128.62,467.18 L130.4,468.02 L132.19,468.22 L133.97,467.71 L135.76,466.53 L137.54,464.86 L139.33,462.96 L141.11,461.16 L142.9,459.77 L144.68,459.04 L146.47,459.13 L148.26,460.05 L150.04,461.66 L151.83,463.71 L153.61,465.86 L155.4,467.73 L157.18,469.02 L158.97,469.48 L160.75,469.02 L162.54,467.72 L164.32,465.8 L166.11,463.56 L167.89,461.39 L169.68,459.67 L171.46,458.66 L173.25,458.55 L175.03,459.35 L176.82,460.9 L178.6,462.95 L180.39,465.13 L182.17,467.08 L183.96,468.48 L185.74,469.11 L187.53,468.88 L189.32,467.85 L191.1,466.23 L192.89,464.3 L194.67,462.4 L196.46,460.84 L198.24,459.86 L200.03,459.61 L201.81,460.09 L203.6,461.17 L205.38,462.66 L207.17,464.28 L208.95,465.75 L210.74,466.83 L212.52,467.39 L214.31,467.35 L216.09,466.78 L217.88,465.8 L219.66,464.61 L221.45,463.42 L223.23,462.44 L225.02,461.8 L226.81,461.58 L228.59,461.77 L230.38,462.3 L232.16,463.05 L233.95,463.86 L235.73,464.6 L237.52,465.15 L239.3,465.44 L241.09,465.46 L242.87,465.24 L244.66,464.86 L246.44,464.39 L248.23,463.93 L250.01,463.57 L251.8,463.33 L253.58,463.25 L255.37,463.3 L257.15,463.46 L258.94,463.67 L260.72,463.89 L262.51,464.08 L264.3,464.22 L266.08,464.28 L267.87,464.28 L269.65,464.23 L271.44,464.16 L273.22,464.08 L275.01,464.01 L276.79,463.96 L278.58,463.94 L280.36,463.94 L282.15,463.95 L283.93,463.97 L285.72,463.98 L287.5,463.99 L289.29,464 L291.07,464 L292.86,464 L294.64,464 L296.43,464 L298.21,464 L300,464" stroke-width="0.75" opacity="0.5499999999999999"/>
+<path d="M41,441.5 L34,441.5 L34,447.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M41,486.5 L34,486.5 L34,480.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,441.5 L300,441.5 L300,447.5" stroke-width="0.5" opacity="0.3"/>
+<path d="M293,486.5 L300,486.5 L300,480.5" stroke-width="0.5" opacity="0.3"/>
+<circle cx="214.88" cy="464" r="17" stroke-width="0.6" opacity="0.55" fill="none"/>
+<circle cx="214.88" cy="464" r="17.9" stroke-width="0.4" opacity="0.22" fill="none"/>
+<path d="M227.38,451.5 L248.88,430" stroke-width="0.5" opacity="0.45"/>
+<path d="M248.88,430 L266.88,430" stroke-width="0.5" opacity="0.45"/>
+<text x="250.88" y="427" font-size="4.8" opacity="0.6" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">σ = 0.041</text>
+<path d="M197.88,464 L231.88,464" stroke-width="0.4" opacity="0.3"/>
+<path d="M214.88,447 L214.88,481" stroke-width="0.4" opacity="0.3"/>
+<text x="34" y="550" font-size="6" opacity="0.85" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">FUSED  FEATURE  MAP</text>
+<path d="M34,596 L300,596" stroke-width="0.55" opacity="0.4"/>
+<path d="M34.7,596 L34.7,596 L39.63,596 L39.63,596" stroke-width="0.5" opacity="0.28"/>
+<path d="M41.03,596 L41.03,589.25 L45.97,589.25 L45.97,596" stroke-width="0.5" opacity="0.35465234264955986"/>
+<path d="M47.37,596 L47.37,582.88 L52.3,582.88 L52.3,596" stroke-width="0.5" opacity="0.4250416294483286"/>
+<path d="M53.7,596 L53.7,577.14 L58.63,577.14 L58.63,596" stroke-width="0.5" opacity="0.4884353498361604"/>
+<path d="M60.03,596 L60.03,572.25 L64.97,572.25 L64.97,596" stroke-width="0.5" opacity="0.5424729179981024"/>
+<path d="M66.37,596 L66.37,568.38 L71.3,568.38 L71.3,596" stroke-width="0.5" opacity="0.585271559677004"/>
+<path d="M72.7,596 L72.7,565.64 L77.63,565.64 L77.63,596" stroke-width="0.5" opacity="0.6155060522222395"/>
+<path d="M79.03,596 L79.03,564.11 L83.97,564.11 L83.97,596" stroke-width="0.5" opacity="0.6324586596307891"/>
+<path d="M85.37,596 L85.37,563.79 L90.3,563.79 L90.3,596" stroke-width="0.5" opacity="0.6360372452476823"/>
+<path d="M91.7,596 L91.7,564.63 L96.63,564.63 L96.63,596" stroke-width="0.5" opacity="0.6267612657226767"/>
+<path d="M98.03,596 L98.03,566.53 L102.97,566.53 L102.97,596" stroke-width="0.5" opacity="0.6057170566642229"/>
+<path d="M104.37,596 L104.37,569.36 L109.3,569.36 L109.3,596" stroke-width="0.5" opacity="0.5744854213529011"/>
+<path d="M110.7,596 L110.7,572.92 L115.63,572.92 L115.63,596" stroke-width="0.5" opacity="0.5350459442668576"/>
+<path d="M117.03,596 L117.03,577.03 L121.97,577.03 L121.97,596" stroke-width="0.5" opacity="0.4896635981459012"/>
+<path d="M123.37,596 L123.37,581.45 L128.3,581.45 L128.3,596" stroke-width="0.5" opacity="0.4407640395000289"/>
+<path d="M129.7,596 L129.7,585.97 L134.63,585.97 L134.63,596" stroke-width="0.5" opacity="0.39080445385929097"/>
+<path d="M136.03,596 L136.03,590.38 L140.97,590.38 L140.97,596" stroke-width="0.5" opacity="0.3421468998878755"/>
+<path d="M142.37,596 L142.37,594.47 L147.3,594.47 L147.3,596" stroke-width="0.5" opacity="0.29694081288047003"/>
+<path d="M148.7,596 L148.7,593.92 L153.63,593.92 L153.63,596" stroke-width="0.5" opacity="0.3029793142897229"/>
+<path d="M155.03,596 L155.03,590.92 L159.97,590.92 L159.97,596" stroke-width="0.5" opacity="0.33617600952660076"/>
+<path d="M161.37,596 L161.37,588.61 L166.3,588.61 L166.3,596" stroke-width="0.5" opacity="0.3616668053583044"/>
+<path d="M167.7,596 L167.7,587.05 L172.63,587.05 L172.63,596" stroke-width="0.5" opacity="0.37895566786895635"/>
+<path d="M174.03,596 L174.03,586.23 L178.97,586.23 L178.97,596" stroke-width="0.5" opacity="0.38803690826640674"/>
+<path d="M180.37,596 L180.37,586.1 L185.3,586.1 L185.3,596" stroke-width="0.5" opacity="0.3893721334445682"/>
+<path d="M186.7,596 L186.7,586.6 L191.63,586.6 L191.63,596" stroke-width="0.5" opacity="0.38384224822672813"/>
+<path d="M193.03,596 L193.03,587.61 L197.97,587.61 L197.97,596" stroke-width="0.5" opacity="0.3726778374365963"/>
+<path d="M199.37,596 L199.37,589 L204.3,589 L204.3,596" stroke-width="0.5" opacity="0.3573723613058955"/>
+<path d="M205.7,596 L205.7,590.61 L210.63,590.61 L210.63,596" stroke-width="0.5" opacity="0.33958343656068046"/>
+<path d="M212.03,596 L212.03,592.29 L216.97,592.29 L216.97,596" stroke-width="0.5" opacity="0.321028007081299"/>
+<path d="M218.37,596 L218.37,593.88 L223.3,593.88 L223.3,596" stroke-width="0.5" opacity="0.3033774091951802"/>
+<path d="M224.7,596 L224.7,595.26 L229.63,595.26 L229.63,596" stroke-width="0.5" opacity="0.28815820293377004"/>
+<path d="M231.03,596 L231.03,595.7 L235.97,595.7 L235.97,596" stroke-width="0.5" opacity="0.28333581401739116"/>
+<path d="M237.37,596 L237.37,595.08 L242.3,595.08 L242.3,596" stroke-width="0.5" opacity="0.2901157369881438"/>
+<path d="M243.7,596 L243.7,594.95 L248.63,594.95 L248.63,596" stroke-width="0.5" opacity="0.2915501436013581"/>
+<path d="M250.03,596 L250.03,595.33 L254.97,595.33 L254.97,596" stroke-width="0.5" opacity="0.2873956256445519"/>
+<path d="M256.37,596 L256.37,595.8 L261.3,595.8 L261.3,596" stroke-width="0.5" opacity="0.28219596747632036"/>
+<path d="M262.7,596 L262.7,594.49 L267.63,594.49 L267.63,596" stroke-width="0.5" opacity="0.2966934780813127"/>
+<path d="M269.03,596 L269.03,592.81 L273.97,592.81 L273.97,596" stroke-width="0.5" opacity="0.315224192761069"/>
+<path d="M275.37,596 L275.37,590.88 L280.3,590.88 L280.3,596" stroke-width="0.5" opacity="0.3366308182529244"/>
+<path d="M281.7,596 L281.7,588.8 L286.63,588.8 L286.63,596" stroke-width="0.5" opacity="0.359544078164864"/>
+<path d="M288.03,596 L288.03,586.73 L292.97,586.73 L292.97,596" stroke-width="0.5" opacity="0.382466526526066"/>
+<path d="M294.37,596 L294.37,584.79 L299.3,584.79 L299.3,596" stroke-width="0.5" opacity="0.4038626338065996"/>
+<path d="M34,596 L34,599.5" stroke-width="0.5" opacity="0.35"/>
+<path d="M78.33,596 L78.33,599.5" stroke-width="0.5" opacity="0.35"/>
+<path d="M122.67,596 L122.67,599.5" stroke-width="0.5" opacity="0.35"/>
+<path d="M167,596 L167,599.5" stroke-width="0.5" opacity="0.35"/>
+<path d="M211.33,596 L211.33,599.5" stroke-width="0.5" opacity="0.35"/>
+<path d="M255.67,596 L255.67,599.5" stroke-width="0.5" opacity="0.35"/>
+<text x="34" y="610" font-size="4.4" opacity="0.4" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">0</text>
+<text x="300" y="610" font-size="4.4" opacity="0.4" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">1.0 kHz</text>
+<text x="300" y="550" font-size="5.2" opacity="0.6" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">acc 92.22%</text>
+</svg></div>
+    <h1>Rishab K Pattnaik</h1>
+    <p class="role">AI Engineer <span>✦</span> Researcher</p>
+    <p class="lede">
+      I build AI that runs on real devices. Right now I make talking avatars at Flam.
+      Before that I taught computers to spot broken bones in X-rays — three published
+      papers came out of it.
+    </p>
+    <p class="chip-row"><span class="chip solid">Bangalore ✦ open to talk</span></p>
+    <nav class="links" aria-label="Elsewhere">
+      <a href="https://drive.google.com/file/d/1sES1LkygW-1xkXr2EneSjquyPbQdiY6V/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+      <a href="https://github.com/Rishab27279" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://medium.com/@rishab27279" target="_blank" rel="noopener">Medium</a>
+      <a href="mailto:rishab27279@gmail.com">Email</a>
     </nav>
+  </section>
 
-    <!-- ══════════════════════════════════════
-         HERO
-    ══════════════════════════════════════ -->
-    <section id="home" class="hero">
-      <div class="hero-top">
-        <h1 class="hero-title">Rishab K Pattnaik</h1>
-        <p class="hero-subtitle">
-          <span class="typing-text" id="typingText"></span>
-        </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-num" data-target="3">0</span>
-            <span class="stat-label">Publications</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" data-target="9">0+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" data-target="4">0</span>
-            <span class="stat-label">Organizations</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- HERO VIDEO -->
-      <div class="hero-middle">
-        <div class="hero-video-wrap">
-          <video class="hero-video" autoplay loop muted playsinline>
-            <source src="static/hero-loop.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-
-      <!-- SOCIAL LINKS -->
-      <div class="hero-bottom">
-        <div class="social-buttons">
-          <a href="https://drive.google.com/file/d/1sES1LkygW-1xkXr2EneSjquyPbQdiY6V/view?usp=sharing" target="_blank" class="social-btn"><i class="fas fa-file-alt"></i> Resume</a>
-          <a href="https://github.com/Rishab27279" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://scholar.google.com/citations?hl=en&user=zaAs0t0AAAAJ" target="_blank" class="social-btn"><i class="fas fa-graduation-cap"></i> Scholar</a>
-          <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://medium.com/@rishab27279" target="_blank" class="social-btn"><i class="fab fa-medium"></i> Medium</a>
-          <a href="mailto:rishab27279@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         ABOUT
-    ══════════════════════════════════════ -->
-    <section id="about" class="section scroll-animation">
-      <p class="section-label">01 — About</p>
-      <h2 class="section-title">Who I Am</h2>
-      <p class="about-description">
-        Hi, I’m Rishab — an AI researcher and engineering student from BITS Pilani who accidentally fell in love with deep learning during my third year. That first internship was the spark: I saw what machines could actually do, and I’ve been hooked ever since.
-
-These days, you’ll find me exploring the weird and wonderful world of AI architectures — from Transformers and Diffusion models to Mamba and beyond. I love digging into how models think: attention mechanisms, fine-tuning tricks like PEFT and distillation, and the magic behind text generation and image synthesis. But I’m not just here for the theory; I genuinely enjoy building things that work. Whether it’s a production system like Moody.AI or a research project in medical imaging, I love the journey from idea to deployment.
-
-Currently, I’m part of the Avatar team at FLAM, where I get to play with image generation — GANs, diffusion, normalizing flows — and even dabble in streaming tech like WebRTC (because why limit yourself?).
-
-If you’re into AI — whether it’s research, engineering, or just staying up late debating whether attention really is all you need — I’d love to connect. Let’s geek out, collaborate, or simply share ideas. The best conversations start with curiosity.
-      </p>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         EXPERIENCE
-    ══════════════════════════════════════ -->
-    <section id="experience" class="section" style="opacity:1;transform:none;padding-bottom:0;">
-      <div class="exp3-driver" id="exp3Driver">
-        <div class="exp3-stage" id="exp3Stage">
-          <div class="exp3-header">
-            <p class="section-label">02 — Experience</p>
-            <h2 class="section-title">Experience</h2>
-          </div>
-
-          <!-- LEFT: org names -->
-          <div class="exp3-left">
-            <div class="exp3-org active" data-idx="0" data-popup-trigger="experience-popup-4">
-              <div class="exp3-org-indicator"></div>
-              <div>
-                <p class="exp3-org-name">Flam</p>
-                <p class="exp3-org-period">Jan 2026 – Present</p>
-              </div>
-            </div>
-            <div class="exp3-org" data-idx="1" data-popup-trigger="experience-popup-3">
-              <div class="exp3-org-indicator"></div>
-              <div>
-                <p class="exp3-org-name">Hamad Medical</p>
-                <p class="exp3-org-period">May – Aug 2025</p>
-              </div>
-            </div>
-            <div class="exp3-org" data-idx="2" data-popup-trigger="experience-popup-1">
-              <div class="exp3-org-indicator"></div>
-              <div>
-                <p class="exp3-org-name">BITS Pilani</p>
-                <p class="exp3-org-period">Aug 2024 – Dec 2025</p>
-              </div>
-            </div>
-            <div class="exp3-org" data-idx="3" data-popup-trigger="experience-popup-2">
-              <div class="exp3-org-indicator"></div>
-              <div>
-                <p class="exp3-org-name">IGCAR</p>
-                <p class="exp3-org-period">May – Aug 2024</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- PANEL: middle + right wrapped in card -->
-          <div class="exp3-panel">
-          <!-- MIDDLE: role + description -->
-          <div class="exp3-middle">
-            <div class="exp3-slide active">
-              <p class="exp3-status active-tag">● active</p>
-              <h3 class="exp3-role">AI Engineering Intern</h3>
-              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;Bangalore, India</p>
-              <ul class="exp3-desc">
-                <li>Built data pipelines for talking-head avatar models — video, audio, facial landmarks</li>
-                <li>Researched generative architectures including GANs, diffusion models, and normalizing flows</li>
-                <li>Investigated loss functions for lip-sync, expression disentanglement, identity preservation</li>
-                <li>Deployed real-time avatar inference via WebRTC streaming</li>
-              </ul>
-            </div>
-            <div class="exp3-slide">
-              <p class="exp3-status">✓ completed</p>
-              <h3 class="exp3-role">AI Research Intern</h3>
-              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;Doha, Qatar (Remote)</p>
-              <ul class="exp3-desc">
-                <li>Emergency research in the Dept. of Surgery at one of the Middle East's leading medical centres</li>
-                <li>Multimodal AI for emergency triage and CKD diagnosis</li>
-                <li>Applied ViT and Mamba architectures with PyTorch</li>
-                <li>Collaborated across BITS Pilani and HMC research teams</li>
-              </ul>
-            </div>
-            <div class="exp3-slide">
-              <p class="exp3-status">✓ completed</p>
-              <h3 class="exp3-role">Research Assistant — ECE Dept.</h3>
-              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;BITS Pilani, Hyderabad</p>
-              <ul class="exp3-desc">
-                <li>Medical imaging focused on bone fracture detection</li>
-                <li>Developed Wavelet-CNN hybrid architectures</li>
-                <li>Published in Healthcare Technology Letters &amp; IEEE Sensor Letters</li>
-              </ul>
-            </div>
-            <div class="exp3-slide">
-              <p class="exp3-status">✓ completed</p>
-              <h3 class="exp3-role">CV Research Intern</h3>
-              <p class="exp3-location"><i class="fas fa-map-marker-alt"></i>&nbsp;IGCAR, Kalpakkam</p>
-              <ul class="exp3-desc">
-                <li>Camouflaged object detection for industrial inspection applications</li>
-                <li>Fine-tuned Meta's Segment Anything Model (SAM)</li>
-                <li>Adapter-based strategies to improve SAM on low-contrast edge cases</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- RIGHT: logos -->
-          <div class="exp3-right">
-            <div class="exp3-logo active">
-              <img class="exp3-logo-img" src="flam_logo.png" alt="Flam">
-            </div>
-            <div class="exp3-logo">
-              <img class="exp3-logo-img" src="hamad_logo.png" alt="Hamad Medical Corporation">
-            </div>
-            <div class="exp3-logo">
-              <img class="exp3-logo-img" src="bits_logo.png" alt="BITS Pilani">
-            </div>
-            <div class="exp3-logo">
-              <img class="exp3-logo-img" src="igcar_logo.png" alt="IGCAR">
-            </div>
-          </div>
-          </div><!-- /exp3-panel -->
-
-        </div>
-      </div>
-    </section>
-
-<!-- ══════════════════════════════════════
-         RESEARCH
-    ══════════════════════════════════════ -->
-    <section id="research" class="section scroll-animation">
-      <p class="section-label">03 — Research</p>
-      <h2 class="section-title">Research &amp; Publications</h2>
-      <div class="cards research-cards">
-
-        <div class="card scroll-animation" data-popup-trigger="research-popup-3">
-          <div class="card-icon"><i class="fas fa-satellite-dish" style="color:var(--g1);"></i></div>
-          <h3>A Lightweight Fourier Block Transformer for Android-Based Edge‑Enabled Detection of Osteopenia and Osteoporosis</h3>
-          <div class="subtitle">IEEE Sensors Letters · March 2026</div>
-          <p>Lightweight Fourier Block Transformer achieving 88.41% accuracy for real-time osteoporosis detection directly on Android devices using knee X-ray sensor images.</p>
-          <div class="card-extra">
-            <div class="card-extra-stats">
-              <span class="ces-item"><i class="fas fa-bullseye"></i> 88.41% accuracy</span>
-              <span class="ces-item"><i class="fas fa-bolt"></i> 60 imgs/min on Android</span>
-              <span class="ces-item"><i class="fas fa-mobile-alt"></i> TFLite edge deployment</span>
-            </div>
-            <p class="ces-method">Architecture: patch embedding + DFT block + dropout — no cloud required, fully on-device inference.</p>
-            <p class="ces-authors"><i class="fas fa-users"></i> Rishab K Pattnaik &nbsp;·&nbsp; Dr. R K Tripathy (BITS) &nbsp;·&nbsp; Dr. R B Pachori (IIT Indore)</p>
-          </div>
-          <span class="date-badge">IEEE · 2026</span>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="research-popup-2">
-          <div class="card-icon"><i class="fas fa-microscope" style="color:var(--g1);"></i></div>
-          <h3>Multi-Frequency Aware Deep Representation Learning for Bone Fracture Detection</h3>
-          <div class="subtitle">Healthcare Technology Letters, 2025</div>
-          <p>Novel multiband-frequency aware network achieving 92.22% accuracy on bone fracture detection benchmarks.</p>
-          <div class="card-extra">
-            <div class="card-extra-stats">
-              <span class="ces-item"><i class="fas fa-bullseye"></i> 92.22% accuracy</span>
-              <span class="ces-item"><i class="fas fa-chart-line"></i> AUC-ROC 0.959</span>
-              <span class="ces-item"><i class="fas fa-database"></i> 6,229 MXR images</span>
-            </div>
-            <p class="ces-method">2D Wavelet Transform (LL/LH/HL/HH) + frozen EfficientNetV2B2 per subband — surpasses ResNet50, ViT, Swin Transformer.</p>
-            <p class="ces-authors"><i class="fas fa-users"></i> Rishab K Pattnaik &nbsp;·&nbsp; Dr. R K Tripathy (BITS) &nbsp;·&nbsp; Dr. H Liu (Coventry)</p>
-          </div>
-          <span class="date-badge">IET / Wiley · 2025</span>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="research-popup-1">
-          <div class="card-icon"><i class="fas fa-book" style="color:var(--g1);"></i></div>
-          <h3>Deep Representation Learning for Pneumonia &amp; Tuberculosis Detection</h3>
-          <div class="subtitle">Elsevier Book Chapter, 2025</div>
-          <p>Published in "Non-stationary and nonlinear data processing for automated computer-aided medical diagnosis".</p>
-          <div class="card-extra">
-            <div class="card-extra-stats">
-              <span class="ces-item"><i class="fas fa-bullseye"></i> 87.08% accuracy</span>
-              <span class="ces-item"><i class="fas fa-lungs"></i> Viral PN · Bacterial PN · TB</span>
-              <span class="ces-item"><i class="fas fa-cloud"></i> IoT cloud deployment</span>
-            </div>
-            <p class="ces-method">Transfer learning blocks on chest X-ray images — classifies three respiratory disease categories with CAD-assisted diagnosis.</p>
-            <p class="ces-authors"><i class="fas fa-university"></i> BITS Pilani · Published in Elsevier Non-stationary Data Processing volume</p>
-          </div>
-          <span class="date-badge">Elsevier · 2025</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         PROJECTS
-    ══════════════════════════════════════ -->
-    <section id="projects" class="section scroll-animation">
-      <p class="section-label">04 — Projects</p>
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="cards">
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-9">
-          <div class="card-icon"><i class="fa fa-video-camera" style="color:var(--g1);"></i></div>
-          <h3>U-Tube AI</h3>
-          <div class="subtitle">Visual YouTube Agent</div>
-          <p>Multimodal AI that analyzes both audio and visual streams from YouTube videos.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-7">
-          <div class="card-icon"><i class="fa fa-user" style="color:var(--g1);"></i></div>
-          <h3>EdgeSeg-AI</h3>
-          <div class="subtitle">Research Paper Re-implementation</div>
-          <p>Memory-efficient image segmentation via sequential model loading.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-8">
-          <div class="card-icon"><i class="fa fa-smile" style="color:var(--g1);"></i></div>
-          <h3>Moody.AI</h3>
-          <div class="subtitle">Multimodal Sentiment AI</div>
-          <p>Emotion recognition using DINOv2, Wav2Vec2, and DistilBERT for multimodal fusion.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-1">
-          <div class="card-icon"><i class="fa fa-bone" style="color:var(--g1);"></i></div>
-          <h3>OsteoDiagnosis.AI</h3>
-          <div class="subtitle">Bone Health Diagnostics App</div>
-          <p>Android app for osteoporosis classification achieving 90% accuracy.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-2">
-          <div class="card-icon"><i class="fa fa-smile" style="color:var(--g1);"></i></div>
-          <h3>Expression.AI</h3>
-          <div class="subtitle">Android App</div>
-          <p>Real-time facial expression recognition using TensorFlow Lite on Android.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-3">
-          <div class="card-icon"><i class="fa fa-hand-scissors" style="color:var(--g1);"></i></div>
-          <h3>Hand Gesture Identifier</h3>
-          <div class="subtitle">Computer Vision</div>
-          <p>Real-time gesture recognition using FastViT achieving 97.5% accuracy.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-4">
-          <div class="card-icon"><i class="fa fa-file-text" style="color:var(--g1);"></i></div>
-          <h3>AI Document Assistant</h3>
-          <div class="subtitle">NLP / RAG</div>
-          <p>Document processing and Q&amp;A pipeline using DeepSeek and Llama models.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-5">
-          <div class="card-icon"><i class="fa fa-robot" style="color:var(--g1);"></i></div>
-          <h3>Smart AI Checkers Bot</h3>
-          <div class="subtitle">AI Game</div>
-          <p>Checkers game with a Minimax AI opponent with alpha-beta pruning.</p>
-        </div>
-
-        <div class="card scroll-animation" data-popup-trigger="project-popup-6">
-          <div class="card-icon"><i class="fa fa-user" style="color:var(--g1);"></i></div>
-          <h3>Human Face Gender Detection</h3>
-          <div class="subtitle">Neural Networks</div>
-          <p>Gender detection using InceptionV3 achieving 94.35% accuracy.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         SKILLS
-    ══════════════════════════════════════ -->
-    <section id="skills" class="section scroll-animation">
-      <p class="section-label">05 — Skills</p>
-      <h2 class="section-title">Technical Arsenal</h2>
-      <div class="skills-container">
-
-        <div class="skill-category scroll-animation">
-          <h3>Languages</h3>
-          <div class="skills-grid">
-            <div class="skill-box"><i class="fab fa-python" style="color:#3776ab;"></i><span>Python</span></div>
-            <div class="skill-box"><i class="fas fa-code" style="color:#004482;"></i><span>C</span></div>
-            <div class="skill-box"><i class="fas fa-database" style="color:#f29111;"></i><span>SQL</span></div>
-            <div class="skill-box"><i class="fab fa-git-alt" style="color:#f34f29;"></i><span>Git</span></div>
-            <div class="skill-box"><i class="fas fa-microchip" style="color:#1a237e;"></i><span>Verilog</span></div>
-          </div>
-        </div>
-
-        <div class="skill-category scroll-animation">
-          <h3>AI / ML Frameworks</h3>
-          <div class="skills-grid">
-            <div class="skill-box"><i class="fas fa-fire"           style="color:#EE4C2C;"></i><span>PyTorch</span></div>
-            <div class="skill-box"><i class="fas fa-project-diagram" style="color:#FF6F00;"></i><span>TensorFlow</span></div>
-            <div class="skill-box"><i class="fas fa-eye"             style="color:#007BFF;"></i><span>OpenCV</span></div>
-            <div class="skill-box"><i class="fas fa-robot"           style="color:#F7931E;"></i><span>Scikit-learn</span></div>
-            <div class="skill-box"><i class="fas fa-feather"         style="color:#D00000;"></i><span>Keras</span></div>
-            <div class="skill-box"><i class="fas fa-cube"            style="color:#013243;"></i><span>NumPy</span></div>
-            <div class="skill-box"><i class="fas fa-table"           style="color:#150458;"></i><span>Pandas</span></div>
-            <div class="skill-box"><i class="fas fa-chart-line"      style="color:#11557C;"></i><span>Matplotlib</span></div>
-            <div class="skill-box"><i class="fab fa-docker"          style="color:#2496ED;"></i><span>Docker</span></div>
-            <div class="skill-box"><i class="fas fa-link"            style="color:#1C3C3C;"></i><span>LangChain</span></div>
-            <div class="skill-box"><i class="fas fa-bolt"            style="color:#009688;"></i><span>FastAPI</span></div>
-            <div class="skill-box"><i class="fab fa-android"         style="color:#3DDC84;"></i><span>Android Studio</span></div>
-            <div class="skill-box"><i class="fas fa-stream"          style="color:#FF4B4B;"></i><span>Streamlit</span></div>
-          </div>
-        </div>
-
-        <div class="skill-category scroll-animation">
-          <h3>Specializations</h3>
-          <div class="skills-grid">
-            <div class="skill-box"><i class="fas fa-brain"          style="color:#FFD700;"></i><span>Machine Learning</span></div>
-            <div class="skill-box"><i class="fas fa-network-wired"  style="color:#00FF00;"></i><span>Deep Learning</span></div>
-            <div class="skill-box"><i class="fas fa-magic"          style="color:#FF4500;"></i><span>Generative AI</span></div>
-            <div class="skill-box"><i class="fas fa-comments"       style="color:#1E90FF;"></i><span>LLMs</span></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         EDUCATION
-    ══════════════════════════════════════ -->
-    <section id="education" class="section scroll-animation">
-      <p class="section-label">06 — Education</p>
-      <h2 class="section-title">Education</h2>
-      <div class="education-box scroll-animation">
-        <h2 class="education-heading">Birla Institute of Technology and Science, Pilani</h2>
-        <h3 class="degree-subheading">Bachelor of Engineering in Electronics and Communication Engineering</h3>
-        <p class="location-text">Hyderabad, India &nbsp;·&nbsp; Currently Studying</p>
-        <h4 style="color:var(--g1); margin:2rem 0 1rem; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em;">Relevant Coursework</h4>
-        <ul class="coursework-list">
-          <li class="coursework-item scroll-animation">Machine Learning for Electronics Engineer</li>
-          <li class="coursework-item scroll-animation">Neural Network and Fuzzy Logic</li>
-          <li class="coursework-item scroll-animation">Deep Learning</li>
-          <li class="coursework-item scroll-animation">Digital Signal Processing</li>
-          <li class="coursework-item scroll-animation">Signals and Systems</li>
-          <li class="coursework-item scroll-animation">Probability and Statistics</li>
-          <li class="coursework-item scroll-animation">Microprocessor and Interfacing</li>
-          <li class="coursework-item scroll-animation">Linear Algebra</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         BLOGS
-    ══════════════════════════════════════ -->
-    <section id="blogs" class="section scroll-animation">
-      <p class="section-label">07 — Writing</p>
-      <h2 class="section-title">Blogs</h2>
-      <div class="cards">
-        <div class="card scroll-animation" onclick="window.open('https://ai.gopubby.com/medmamba-explained-the-first-vision-mamba-for-generalized-medical-image-classification-is-3aee20a0751a', '_blank')">
-          <div class="card-icon"><i class="fa fa-edit" style="color:var(--g1);"></i></div>
-          <h3>MedMamba Explained</h3>
-          <div class="subtitle">Deep Dive · Deep Learning · State-Space Models</div>
-          <p>The first Vision Mamba for Generalized Medical Image Classification — what it is, how it works, and why it matters.</p>
-          <span class="date-badge">Medium · 2024</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         FOOTER
-    ══════════════════════════════════════ -->
-    <footer class="site-footer">
-      <p>🤟🏼 Made by Rishab with passion for AI ⚡</p>
-    </footer>
-
-  </div><!-- /site-content -->
-
-  <!-- ══════════════════════════════════════
-       CHATBOT
-  ══════════════════════════════════════ -->
-  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI Assistant">
-    <i class="fas fa-robot"></i>
-  </button>
-
-  <div class="chatbot-container" id="chatbotContainer" role="dialog" aria-label="Rishi-Bot AI Assistant">
-    <div class="chatbot-header">
-      <div class="chatbot-avatar">🤖</div>
-      <div class="chatbot-title">Rishi-Bot</div>
-      <div class="chatbot-subtitle">Rishab's AI Assistant</div>
-      <div class="chatbot-status">Online</div>
-      <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
-        <i class="fas fa-times"></i>
-      </button>
+  <!-- ── WORK ── -->
+  <section id="work" class="block">
+    <div class="block-head">
+      <h2>(work)</h2>
+      <p class="note">4 places</p>
     </div>
-    <div class="chatbot-messages" id="chatbotMessages"></div>
-    <div class="chatbot-input-area">
-      <div class="chatbot-input-container">
-        <textarea
-          class="chatbot-input"
-          id="chatbotInput"
-          placeholder="Ask about projects, skills, experience…"
-          rows="1"
-          aria-label="Type your message"
-        ></textarea>
-        <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </div>
+    <ul class="rows">
+      <li class="row">
+        <a class="row-link" href="https://flam.app" target="_blank" rel="noopener">
+          <span class="row-name"><img src="flam_logo.png" alt="" class="logo">Flam</span>
+          <span class="row-mid">
+            <span class="row-role">AI Engineering Intern</span>
+            <span class="row-desc">Talking-head avatars — data pipelines, generative models, and live streaming over WebRTC.</span>
+          </span>
+          <span class="row-year">/2026 — now</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://www.hamad.qa" target="_blank" rel="noopener">
+          <span class="row-name"><img src="hamad_logo.png" alt="" class="logo">Hamad Medical</span>
+          <span class="row-mid">
+            <span class="row-role">AI Research Intern · Doha</span>
+            <span class="row-desc">Helping emergency rooms sort patients faster, and spotting kidney disease early.</span>
+          </span>
+          <span class="row-year">/2025</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://www.bits-pilani.ac.in" target="_blank" rel="noopener">
+          <span class="row-name"><img src="bits_logo.png" alt="" class="logo">BITS Pilani</span>
+          <span class="row-mid">
+            <span class="row-role">Research Assistant · ECE</span>
+            <span class="row-desc">Medical imaging. Two of my papers on reading X-rays came out of this lab.</span>
+          </span>
+          <span class="row-year">/2024 — 25</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://www.igcar.gov.in" target="_blank" rel="noopener">
+          <span class="row-name"><img src="igcar_logo.png" alt="" class="logo">IGCAR</span>
+          <span class="row-mid">
+            <span class="row-role">Computer Vision Intern · Kalpakkam</span>
+            <span class="row-desc">Taught Meta's Segment Anything model to find objects that blend into the background.</span>
+          </span>
+          <span class="row-year">/2024</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── RESEARCH ── -->
+  <section id="research" class="block">
+    <div class="block-head">
+      <h2>(research)</h2>
+      <a class="note-link" href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">(all on Scholar)</a>
     </div>
-  </div>
+    <ul class="rows">
+      <li class="row">
+        <a class="row-link" href="https://ieeexplore.ieee.org/abstract/document/11370760" target="_blank" rel="noopener">
+          <span class="row-name">Fourier Block Transformer</span>
+          <span class="row-mid">
+            <span class="row-role">IEEE Sensors Letters</span>
+            <span class="row-desc">Checks for thinning bones from an X-ray, running on a phone. No cloud. 88.41% accurate.</span>
+          </span>
+          <span class="row-year">/2026</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021" target="_blank" rel="noopener">
+          <span class="row-name">Multi-Frequency Learning</span>
+          <span class="row-mid">
+            <span class="row-role">Healthcare Technology Letters</span>
+            <span class="row-desc">Finds broken bones that are easy to miss by eye. 92.22% across 6,229 X-rays.</span>
+          </span>
+          <span class="row-year">/2025</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=cvw_YK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=cvw_YK8AAAAJ:L7CI7m0gUJcC" target="_blank" rel="noopener">
+          <span class="row-name">Chest X-Ray Screening</span>
+          <span class="row-mid">
+            <span class="row-role">Elsevier · book chapter</span>
+            <span class="row-desc">Tells apart pneumonia and tuberculosis on a chest X-ray. 87.08% accurate.</span>
+          </span>
+          <span class="row-year">/2025</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-  <!-- ══════════════════════════════════════
-       POPUPS — Experience
-  ══════════════════════════════════════ -->
-
-  <!-- NEW POPUP: Flam -->
-  <div id="experience-popup-4" class="popup">
-    <div class="popup-backdrop"></div>
-    <div class="popup-content">
-      <span class="popup-esc-hint">ESC</span>
-      <h2 class="popup-heading">AI Engineering Intern</h2>
-      <p class="popup-subheading">Flam (Flying Flamingoes Pvt. Ltd.) · Bangalore &nbsp;·&nbsp; Jan 2026 – Present</p>
-      <div class="popup-divider"></div>
-      <div class="popup-body">
-        <p>Working in the <strong>Avatar team</strong> on interactive talking‑head avatars for B2B products that enhance user experience.</p>
-        <h3>Key Contributions</h3>
-        <ul>
-          <li><strong>Data creation & compilation:</strong> Curated and processed SOTA large‑scale multimodal datasets (video, audio, facial landmarks) to train expressive avatars.</li>
-          <li><strong>Model research & development:</strong> Investigated state‑of‑the‑art generative architectures (GANs, diffusion models, normalizing flows) and loss functions to improve lip‑sync, facial dynamics, expression disentaglement and identity preservation.</li>
-          <li><strong>Real‑time deployment:</strong> Integrated the final model into a WebRTC‑based streaming pipeline for low‑latency, interactive avatar responses.</li>
-          <li>Collaborated closely with product and engineering teams to iterate on model performance and user feedback.</li>
-        </ul>
-        <h3>Technologies</h3>
-        <ul>
-          <li>PyTorch Lightning, TensorBoard</li>
-          <li>GANs, Diffusion Models, Normalizing Flows</li>
-          <li>WebRTC, FastAPI, Docker, Aiortc, Git, Micromamba</li>
-        </ul>
-      </div>
-      <div class="popup-buttons">
-        <a href="https://www.linkedin.com/company/flamappofficial" target="_blank" class="popup-github"><i class="fab fa-linkedin"></i> Company</a>
-        <button class="popup-close">Close</button>
-      </div>
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="block">
+    <div class="block-head">
+      <h2>(projects)</h2>
+      <a class="note-link" href="https://github.com/Rishab27279" target="_blank" rel="noopener">(all on GitHub)</a>
     </div>
-  </div>
-
-  <div id="experience-popup-3" class="popup">
-    <div class="popup-backdrop"></div>
-    <div class="popup-content">
-      <span class="popup-esc-hint">ESC</span>
-      <h2 class="popup-heading">AI Research Intern</h2>
-      <p class="popup-subheading">Hamad Medical Corporation, Qatar &nbsp;·&nbsp; May 2025 – August 2025</p>
-      <div class="popup-divider"></div>
-      <div class="popup-body">
-        <p>Currently engaged in Emergency Research within the Department of Surgery at Hamad Medical Corporation, one of the leading academic medical centers in the Middle East.</p>
-        <h3>Key Contributions</h3>
-        <ul>
-          <li>Developing multimodal AI frameworks for emergency triage prioritization using chest X-rays, clinical notes, and lab results.</li>
-          <li>Building novel architectures combining Vision Transformers, Mamba state-space models, and LLMs for clinical decision support.</li>
-          <li>Working on chronic kidney disease (CKD) diagnosis using vision-language models.</li>
-          <li>Collaborating across BITS Pilani and Hamad Medical Corporation research teams.</li>
-        </ul>
-        <h3>Technologies</h3>
-        <ul>
-          <li>PyTorch, HuggingFace Transformers, Mamba (state-space models)</li>
-          <li>ViT, DINOv2, ClinicalBERT for multimodal fusion</li>
-          <li>Docker, FastAPI, Streamlit for deployment pipelines</li>
-        </ul>
-      </div>
-      <div class="popup-buttons">
-        <button class="popup-close">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="experience-popup-1" class="popup">
-    <div class="popup-backdrop"></div>
-    <div class="popup-content">
-      <span class="popup-esc-hint">ESC</span>
-      <h2 class="popup-heading">Research Assistant</h2>
-      <p class="popup-subheading">BITS Pilani, Hyderabad &nbsp;·&nbsp; Aug 2024 – Dec 2025</p>
-      <div class="popup-divider"></div>
-      <div class="popup-body">
-        <p>As a Research Assistant in the Department of ECE under Prof Rajesh Kumar Tripathy at BITS Pilani, I contributed to pioneering research in medical imaging with a focus on deep learning architectures for clinical diagnostics.</p>
-        <h3>Key Contributions</h3>
-        <ul>
-          <li>Developed a novel multiband-frequency aware network (wavelet-CNN) for bone fracture detection achieving <strong>92.22% accuracy</strong>.</li>
-          <li>Utilised Novel Fourier Block Transformer for detection of Osteopenia and Osteoporosis with high accuracy and less parameters for Edge Deployment.</li>
-          <li>Co-authored research published in <em>Healthcare Technology Letters (IET/Wiley)</em>, and <em>IEEE Sensor Letters</em>.</li>
-          <li>Implemented multi-scale feature extraction combining wavelet decomposition with CNN backbone networks and leveraging frequency domains instead of Spatial for Medical Imaging.</li>
-        </ul>
-        <h3>Technologies</h3>
-        <ul>
-          <li>PyTorch, TensorFlow, OpenCV, Android Studio</li>
-          <li>Wavelet transforms (PyWavelets), CNN, Vision Transformers, Mamba</li>
-          <li>Medical imaging datasets (MURA, custom X-ray collections)</li>
-        </ul>
-      </div>
-      <div class="popup-buttons">
-        <a href="https://scholar.google.com/citations?hl=en&user=zaAs0t0AAAAJ" target="_blank" class="popup-github"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-        <button class="popup-close">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="experience-popup-2" class="popup">
-    <div class="popup-backdrop"></div>
-    <div class="popup-content">
-      <span class="popup-esc-hint">ESC</span>
-      <h2 class="popup-heading">CV Research Intern</h2>
-      <p class="popup-subheading">IGCAR Kalpakkam &nbsp;·&nbsp; May 2024 – Aug 2024</p>
-      <div class="popup-divider"></div>
-      <div class="popup-body">
-        <p>Research internship at IGCAR, focused on advancing computer vision methods for industrial and scientific inspection applications.</p>
-        <h3>Key Contributions</h3>
-        <ul>
-          <li>Advanced camouflaged object detection by fine-tuning Meta's Segment Anything Model (SAM) for domain-specific use cases.</li>
-          <li>Built custom data pipelines for annotating and augmenting camouflage detection datasets.</li>
-          <li>Experimented with adapter-based fine-tuning strategies to improve SAM on low-contrast edge cases.</li>
-          <li>Benchmarked performance against SOTA methods on CAMO and COD10K datasets.</li>
-        </ul>
-        <h3>Technologies</h3>
-        <ul>
-          <li>PyTorch, Segment Anything Model (SAM), LoRA fine-tuning</li>
-          <li>OpenCV, Albumentations for data augmentation</li>
-          <li>CAMO, COD10K camouflage object datasets</li>
-        </ul>
-      </div>
-      <div class="popup-buttons">
-        <a href="https://github.com/Rishab27279" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-        <button class="popup-close">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- POPUPS — Research -->
-<div id="research-popup-1" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">Book Chapter: Deep Learning Applications in Medical Imaging</h2>
-    <p class="popup-subheading">Automated Detection and Classification of Respiratory Diseases Using Chest X-Ray Analysis</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <h2>Disease Overview</h2>
-      <h3>Pneumonia (PN)</h3>
-      <ul>
-        <li>Type of respiratory disease affecting millions annually</li>
-        <li>Caused by bacterial and viral infections</li>
-        <li>Requires accurate and early detection for effective treatment</li>
-      </ul>
-      <h3>Tuberculosis (TB)</h3>
-      <ul>
-        <li>Bacterial infection primarily affecting lungs and other body parts</li>
-        <li>Global health concern with significant impact</li>
-        <li>Early diagnosis crucial for preventing complications</li>
-      </ul>
-      <h2>Diagnostic Approach</h2>
-      <h3>Chest X-Ray (CXR) Imaging</h3>
-      <ul>
-        <li>Widely used diagnostic modality for TB and PN detection</li>
-        <li>Non-invasive and accessible imaging technique</li>
-        <li>Standard practice in respiratory disease diagnosis</li>
-      </ul>
-      <h3>Computer-Aided Diagnosis (CAD) Systems</h3>
-      <ul>
-        <li>Automated analysis of CXR images</li>
-        <li>Assists radiologists in accurate disease diagnosis</li>
-        <li>Reduces human error and improves diagnostic efficiency</li>
-      </ul>
-      <h2>Deep Representation Learning (DRL) Framework</h2>
-      <h3>Network Architecture</h3>
-      <ul>
-        <li>Transfer learning blocks utilized as feature extractors</li>
-        <li>Multiple dense layers for feature processing</li>
-        <li>Final classification layer for disease categorization</li>
-      </ul>
-      <h3>Performance Evaluation</h3>
-      <ul>
-        <li>Tested on CXR images from public databases</li>
-        <li><strong>87.08% overall accuracy</strong> achieved</li>
-        <li>Capable of classifying viral PN, bacterial PN, and TB diseases</li>
-      </ul>
-      <h2>Implementation and Deployment</h2>
-      <h3>Cloud-Based Framework</h3>
-      <ul>
-        <li>DRL network deployed on cloud infrastructure</li>
-        <li>Internet of Things (IoT)-enabled detection system</li>
-        <li>Scalable and accessible diagnostic solution</li>
-      </ul>
-      <h3>Future Directions</h3>
-      <ul>
-        <li>Development of CAD systems in federated learning environments</li>
-        <li>Integration with IoT-based healthcare networks</li>
-        <li>Enhanced privacy-preserving diagnostic capabilities</li>
+    <div class="block-body">
+      <div class="deco" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 360" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M66,0 L66,30" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 3"/>
+<path d="M14,40 L66,40 L66,92 L14,92 L14,40" stroke-width="0.6" opacity="0.45"/>
+<path d="M16,43.76 L17.92,43.62 L19.84,43.51 L21.76,43.43 L23.68,43.39 L25.6,43.38 L27.52,43.4 L29.44,43.46 L31.36,43.56 L33.28,43.68 L35.2,43.84 L37.12,44.02 L39.04,44.23 L40.96,44.46 L42.88,44.71 L44.8,44.97 L46.72,45.25 L48.64,45.53 L50.56,45.82 L52.48,46.11 L54.4,46.39 L56.32,46.66 L58.24,46.93 L60.16,47.17 L62.08,47.39 L64,47.59" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,49.37 L17.92,49.51 L19.84,49.67 L21.76,49.86 L23.68,50.08 L25.6,50.32 L27.52,50.57 L29.44,50.84 L31.36,51.12 L33.28,51.41 L35.2,51.7 L37.12,51.98 L39.04,52.26 L40.96,52.53 L42.88,52.79 L44.8,53.02 L46.72,53.24 L48.64,53.43 L50.56,53.6 L52.48,53.73 L54.4,53.84 L56.32,53.91 L58.24,53.95 L60.16,53.95 L62.08,53.92 L64,53.86" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,56.99 L17.92,57.28 L19.84,57.57 L21.76,57.85 L23.68,58.13 L25.6,58.4 L27.52,58.65 L29.44,58.88 L31.36,59.09 L33.28,59.27 L35.2,59.43 L37.12,59.55 L39.04,59.64 L40.96,59.71 L42.88,59.73 L44.8,59.72 L46.72,59.68 L48.64,59.61 L50.56,59.5 L52.48,59.36 L54.4,59.19 L56.32,58.99 L58.24,58.77 L60.16,58.53 L62.08,58.27 L64,58" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,64.93 L17.92,65.1 L19.84,65.25 L21.76,65.36 L23.68,65.45 L25.6,65.5 L27.52,65.51 L29.44,65.49 L31.36,65.44 L33.28,65.35 L35.2,65.23 L37.12,65.08 L39.04,64.9 L40.96,64.7 L42.88,64.47 L44.8,64.23 L46.72,63.96 L48.64,63.69 L50.56,63.41 L52.48,63.12 L54.4,62.83 L56.32,62.55 L58.24,62.27 L60.16,62.01 L62.08,61.76 L64,61.53" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,71.19 L17.92,71.09 L19.84,70.96 L21.76,70.8 L23.68,70.62 L25.6,70.4 L27.52,70.17 L29.44,69.92 L31.36,69.65 L33.28,69.37 L35.2,69.09 L37.12,68.8 L39.04,68.51 L40.96,68.23 L42.88,67.96 L44.8,67.7 L46.72,67.46 L48.64,67.24 L50.56,67.04 L52.48,66.87 L54.4,66.73 L56.32,66.62 L58.24,66.54 L60.16,66.5 L62.08,66.49 L64,66.51" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,75.34 L17.92,75.06 L19.84,74.77 L21.76,74.48 L23.68,74.2 L25.6,73.92 L27.52,73.65 L29.44,73.4 L31.36,73.16 L33.28,72.95 L35.2,72.76 L37.12,72.6 L39.04,72.47 L40.96,72.37 L42.88,72.3 L44.8,72.27 L46.72,72.27 L48.64,72.31 L50.56,72.38 L52.48,72.48 L54.4,72.62 L56.32,72.78 L58.24,72.97 L60.16,73.19 L62.08,73.42 L64,73.68" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,78.87 L17.92,78.66 L19.84,78.48 L21.76,78.33 L23.68,78.21 L25.6,78.12 L27.52,78.07 L29.44,78.04 L31.36,78.06 L33.28,78.11 L35.2,78.19 L37.12,78.3 L39.04,78.44 L40.96,78.62 L42.88,78.82 L44.8,79.04 L46.72,79.28 L48.64,79.54 L50.56,79.82 L52.48,80.1 L54.4,80.38 L56.32,80.67 L58.24,80.96 L60.16,81.23 L62.08,81.5 L64,81.75" stroke-width="0.4" opacity="0.3"/>
+<path d="M16,83.85 L17.92,83.91 L19.84,84 L21.76,84.12 L23.68,84.28 L25.6,84.46 L27.52,84.67 L29.44,84.9 L31.36,85.15 L33.28,85.41 L35.2,85.69 L37.12,85.97 L39.04,86.26 L40.96,86.55 L42.88,86.83 L44.8,87.1 L46.72,87.36 L48.64,87.61 L50.56,87.83 L52.48,88.03 L54.4,88.21 L56.32,88.36 L58.24,88.47 L60.16,88.56 L62.08,88.61 L64,88.62" stroke-width="0.4" opacity="0.3"/>
+<path d="M66,40 L118,40 L118,92 L66,92 L66,40" stroke-width="0.6" opacity="0.45"/>
+<path d="M71.78,42 L71.78,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M77.56,42 L77.56,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M83.33,42 L83.33,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M89.11,42 L89.11,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M94.89,42 L94.89,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M100.67,42 L100.67,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M106.44,42 L106.44,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M112.22,42 L112.22,90" stroke-width="0.4" opacity="0.22"/>
+<path d="M14,92 L66,92 L66,144 L14,144 L14,92" stroke-width="0.6" opacity="0.45"/>
+<path d="M19.78,94 L19.78,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M25.56,94 L25.56,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M31.33,94 L31.33,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M37.11,94 L37.11,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M42.89,94 L42.89,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M48.67,94 L48.67,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M54.44,94 L54.44,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M60.22,94 L60.22,142" stroke-width="0.4" opacity="0.22"/>
+<path d="M66,92 L118,92 L118,144 L66,144 L66,92" stroke-width="0.6" opacity="0.45"/>
+<path d="M68,95.76 L69.92,95.4 L71.84,96.23 L73.76,97.82 L75.68,99.39 L77.6,100.16 L79.52,99.75 L81.44,98.36 L83.36,96.68 L85.28,95.54 L87.2,95.52 L89.12,96.62 L91.04,98.29 L92.96,99.71 L94.88,100.17 L96.8,99.44 L98.72,97.89 L100.64,96.28 L102.56,95.42 L104.48,95.72 L106.4,97.05 L108.32,98.74 L110.24,99.95 L112.16,100.08 L114.08,99.07 L116,97.42" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,101.37 L69.92,102.57 L71.84,104.26 L73.76,105.6 L75.68,105.92 L77.6,105.07 L79.52,103.47 L81.44,101.91 L83.36,101.17 L85.28,101.61 L87.2,103.02 L89.12,104.7 L91.04,105.81 L92.96,105.8 L94.88,104.68 L96.8,103 L98.72,101.6 L100.64,101.17 L102.56,101.92 L104.48,103.49 L106.4,105.09 L108.32,105.93 L110.24,105.59 L112.16,104.24 L114.08,102.55 L116,101.36" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,108.99 L69.92,110.65 L71.84,111.64 L73.76,111.5 L75.68,110.27 L77.6,108.59 L79.52,107.27 L81.44,106.97 L83.36,107.85 L85.28,109.47 L87.2,111.01 L89.12,111.73 L91.04,111.25 L92.96,109.83 L94.88,108.15 L96.8,107.07 L98.72,107.11 L100.64,108.25 L102.56,109.93 L104.48,111.32 L106.4,111.72 L108.32,110.93 L110.24,109.36 L112.16,107.77 L114.08,106.96 L116,107.33" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,116.93 L69.92,117.51 L71.84,116.9 L73.76,115.41 L75.68,113.76 L77.6,112.79 L79.52,112.97 L81.44,114.21 L83.36,115.9 L85.28,117.2 L87.2,117.46 L89.12,116.56 L91.04,114.93 L92.96,113.4 L94.88,112.72 L96.8,113.22 L98.72,114.66 L100.64,116.33 L102.56,117.39 L104.48,117.32 L106.4,116.15 L108.32,114.47 L110.24,113.1 L112.16,112.73 L114.08,113.54 L116,115.13" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,123.19 L69.92,122.17 L71.84,120.51 L73.76,119.04 L75.68,118.49 L77.6,119.13 L79.52,120.64 L81.44,122.27 L83.36,123.22 L85.28,123.01 L87.2,121.75 L89.12,120.06 L91.04,118.78 L92.96,118.55 L94.88,119.48 L96.8,121.11 L98.72,122.63 L100.64,123.29 L102.56,122.75 L104.48,121.29 L106.4,119.63 L108.32,118.6 L110.24,118.7 L112.16,119.89 L114.08,121.57 L116,122.92" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,127.34 L69.92,125.65 L71.84,124.47 L73.76,124.38 L75.68,125.42 L77.6,127.09 L79.52,128.54 L81.44,129.06 L83.36,128.4 L85.28,126.87 L87.2,125.25 L89.12,124.32 L91.04,124.56 L92.96,125.85 L94.88,127.54 L96.8,128.8 L98.72,129 L100.64,128.04 L102.56,126.4 L104.48,124.89 L106.4,124.27 L108.32,124.83 L110.24,126.31 L112.16,127.96 L114.08,128.97 L116,128.84" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,130.87 L69.92,130.07 L71.84,130.44 L73.76,131.82 L75.68,133.5 L77.6,134.66 L79.52,134.72 L81.44,133.65 L83.36,131.98 L85.28,130.54 L87.2,130.05 L89.12,130.74 L91.04,132.28 L92.96,133.9 L94.88,134.8 L96.8,134.53 L98.72,133.22 L100.64,131.53 L102.56,130.29 L104.48,130.12 L106.4,131.11 L108.32,132.75 L110.24,134.25 L112.16,134.84 L114.08,134.25 L116,132.76" stroke-width="0.4" opacity="0.3"/>
+<path d="M68,135.85 L69.92,136.67 L71.84,138.26 L73.76,139.83 L75.68,140.61 L77.6,140.2 L79.52,138.81 L81.44,137.13 L83.36,135.99 L85.28,135.96 L87.2,137.05 L89.12,138.73 L91.04,140.15 L92.96,140.61 L94.88,139.89 L96.8,138.34 L98.72,136.73 L100.64,135.86 L102.56,136.16 L104.48,137.49 L106.4,139.18 L108.32,140.39 L110.24,140.53 L112.16,139.52 L114.08,137.87 L116,136.39" stroke-width="0.4" opacity="0.3"/>
+<text x="16" y="48" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LL</text>
+<text x="68" y="48" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LH</text>
+<text x="16" y="100" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HL</text>
+<text x="68" y="100" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HH</text>
+<path d="M122,40 L122,144" stroke-width="0.5" opacity="0.5"/>
+<path d="M120.4,42.4 L122,40 L123.6,42.4" stroke-width="0.5" opacity="0.5"/>
+<path d="M120.4,141.6 L122,144 L123.6,141.6" stroke-width="0.5" opacity="0.5"/>
+<text x="125" y="93.8" font-size="4.6" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">n/2</text>
+<path d="M14,170 L88,170" stroke-width="0.5" opacity="0.3"/>
+<path d="M14,176.4 L85.15,176.4" stroke-width="0.5" opacity="0.292"/>
+<path d="M14,182.8 L82.31,182.8" stroke-width="0.5" opacity="0.284"/>
+<path d="M14,189.2 L79.46,189.2" stroke-width="0.5" opacity="0.27599999999999997"/>
+<path d="M14,195.6 L76.62,195.6" stroke-width="0.5" opacity="0.268"/>
+<path d="M14,202 L73.77,202" stroke-width="0.5" opacity="0.26"/>
+<path d="M14,208.4 L70.92,208.4" stroke-width="0.5" opacity="0.252"/>
+<path d="M14,214.8 L68.08,214.8" stroke-width="0.5" opacity="0.244"/>
+<path d="M14,221.2 L65.23,221.2" stroke-width="0.5" opacity="0.236"/>
+<path d="M14,227.6 L62.38,227.6" stroke-width="0.5" opacity="0.22799999999999998"/>
+<path d="M14,234 L59.54,234" stroke-width="0.5" opacity="0.21999999999999997"/>
+<path d="M14,240.4 L56.69,240.4" stroke-width="0.5" opacity="0.212"/>
+<path d="M14,246.8 L53.85,246.8" stroke-width="0.5" opacity="0.204"/>
+<path d="M14,253.2 L51,253.2" stroke-width="0.5" opacity="0.19599999999999998"/>
+<path d="M14,259.6 L48.15,259.6" stroke-width="0.5" opacity="0.188"/>
+<path d="M14,266 L45.31,266" stroke-width="0.5" opacity="0.18"/>
+<path d="M14,272.4 L42.46,272.4" stroke-width="0.5" opacity="0.172"/>
+<path d="M14,278.8 L39.62,278.8" stroke-width="0.5" opacity="0.16399999999999998"/>
+<path d="M14,285.2 L36.77,285.2" stroke-width="0.5" opacity="0.15599999999999997"/>
+<path d="M14,291.6 L33.92,291.6" stroke-width="0.5" opacity="0.148"/>
+<path d="M14,298 L31.08,298" stroke-width="0.5" opacity="0.13999999999999999"/>
+<path d="M14,304.4 L28.23,304.4" stroke-width="0.5" opacity="0.13199999999999998"/>
+<text x="14" y="320.8" font-size="4.8" opacity="0.45" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">residual</text>
+<circle cx="66" cy="346" r="4.5" stroke-width="0.5" opacity="0.4" fill="none"/>
+<path d="M59,346 L73,346" stroke-width="0.4" opacity="0.35"/>
+</svg></div>
+      <ul class="rows">
+        <li class="row">
+          <a class="row-link" href="https://github.com/Rishab27279/U-Tube-AI" target="_blank" rel="noopener">
+            <span class="row-name">U-Tube AI</span>
+            <span class="row-mid">
+              <span class="row-desc">Watches and listens to a YouTube video, then answers questions about it.</span>
+            </span>
+            <span class="row-year">/2025</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="row">
+          <a class="row-link" href="https://github.com/Rishab27279/MoodyAI" target="_blank" rel="noopener">
+            <span class="row-name">Moody.AI</span>
+            <span class="row-mid">
+              <span class="row-desc">Reads how someone feels from their face, voice and words at the same time.</span>
+            </span>
+            <span class="row-year">/2025</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="row">
+          <a class="row-link" href="https://github.com/Rishab27279/EdgeSeg-AI" target="_blank" rel="noopener">
+            <span class="row-name">EdgeSeg-AI</span>
+            <span class="row-mid">
+              <span class="row-desc">Cuts objects out of images on machines with very little memory.</span>
+            </span>
+            <span class="row-year">/2025</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="row">
+          <a class="row-link" href="https://github.com/Rishab27279/OS_Detection_Binary_And_3_Class_DWT" target="_blank" rel="noopener">
+            <span class="row-name">OsteoDiagnosis.AI</span>
+            <span class="row-mid">
+              <span class="row-desc">Android app that checks bone health from a knee X-ray you photograph.</span>
+            </span>
+            <span class="row-year">/2025</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
       </ul>
     </div>
-    <div class="popup-buttons">
-      <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=cvw_YK8AAAAJ&sortby=pubdate&citation_for_view=cvw_YK8AAAAJ:L7CI7m0gUJcC" target="_blank" class="popup-github"><i class="fas fa-graduation-cap"></i> Scholar</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
+  </section>
 
-<div id="research-popup-2" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">Journal Paper: Multi-Frequency Aware Deep Representation Learning Framework for Automated Detection of Bone Fractures using Muscle X-ray Images</h2>
-    <p class="popup-subheading">Automated Bone Fracture Detection</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <ul>
-        <li><strong>Published:</strong> Healthcare Technology Letters, 2025</li>
-        <li><strong>DOI:</strong> <a href='https://doi.org/10.1049/htl2.70021'>10.1049/htl2.70021</a></li>
-        <li><strong>Authors:</strong> Rishab Kumar Pattnaik, Dr. Rajesh Kumar Tripathy (BITS Pilani), Dr. Haipeng Liu (Coventry University)</li>
-        <li><strong>Received:</strong> July 14, 2025 | <strong>Revised:</strong> September 12, 2025 | <strong>Accepted:</strong> October 1, 2025</li>
-      </ul>
-      <br>
-      <h3>Abstract & Objective</h3>
-      <ul>
-        <li>Developed an AI-driven automated approach for detecting bone fractures in muscle X-ray (MXR) images using the <strong>Multiband-Frequency Aware Deep Representation Learning Network (MFADRLN)</strong></li>
-        <li>Addresses critical challenges: subtle fracture detection, class imbalance, and limited annotated datasets</li>
-        <li>Designed to improve patient outcomes through rapid, accurate diagnostic support</li>
-      </ul>
-      <br>
-      <h3>Novel Methodology</h3>
-      <ul>
-        <li><strong>Multiresolution Analysis:</strong> Utilized Discrete Wavelet Transform (2DDWT) to decompose MXR images into four frequency subbands (LL, LH, HL, HH)</li>
-        <li><strong>Architecture:</strong> Applied frozen EfficientNetV2B2-based Deep Representation Learning (DRL) blocks to each subband independently</li>
-        <li><strong>Feature Fusion:</strong> Concatenated subband-specific features and processed through dense layers with batch normalization and dropout</li>
-        <li><strong>Key Innovation:</strong> Captures frequency-specific and spatial information simultaneously for detecting subtle fracture patterns</li>
-      </ul>
-      <br>
-      <h3>Dataset & Training</h3>
-      <ul>
-        <li><strong>Datasets:</strong> Mendeley dataset (2048 fracture, 127 non-fracture) + FracAtlas dataset (717 fracture, 3337 non-fracture)</li>
-        <li><strong>Total Images:</strong> 6,229 MXR images with 72% training, 8% validation, 20% test split</li>
-        <li><strong>Hyperparameters:</strong> Adam optimizer, binary cross-entropy loss, batch size 32, 50 epochs, learning rate 0.001</li>
-        <li><strong>Regularization:</strong> Batch normalization, dropout layers, and early stopping to prevent overfitting</li>
-      </ul>
-      <br>
-      <h3>Results & Performance</h3>
-      <ul>
-        <li><strong>Test Accuracy:</strong> 92.22% with precision 93.40%, recall 88.87%, F1-score 0.841</li>
-        <li><strong>Cohen's Kappa:</strong> 0.8418 (excellent agreement beyond chance)</li>
-        <li><strong>AUC Metrics:</strong> AUC-ROC 0.959, AUC-PR 0.875</li>
-        <li><strong>Cross-Validation:</strong> 90.11 ± 0.42% average accuracy across 5 folds</li>
-        <li><strong>Generalization:</strong> Only 2.5% gap between training and validation accuracy</li>
-      </ul>
-      <br>
-      <h3>Comparative Analysis</h3>
-      <ul>
-        <li><strong>Transfer Learning Models:</strong> Outperformed ResNet50 (85.22%), DenseNet201 (84.57%), MobileNetV2 (84.57%), InceptionV3 (88.79%), XceptionNet (84.57%), EfficientNetV2B2 (88.14%)</li>
-        <li><strong>Transformer Models:</strong> Surpassed Vision Transformer ViT B/16 (84.42%) and Swin Transformer Base (87.84%)</li>
-        <li><strong>Literature Comparison:</strong> Superior to modified InceptionV3 (81%), VGG16 (82%), DenseNet169 (84%)</li>
-        <li><strong>Ablation Studies:</strong> All four wavelet subbands yielded optimal performance vs. individual or subset combinations</li>
-      </ul>
-      <br>
-      <h3>Model Interpretability</h3>
-      <ul>
-        <li><strong>Grad-CAM Visualization:</strong> Implemented for each subband to reveal model decision-making process</li>
-        <li><strong>LL-Subband:</strong> Captured broader structural information around fracture regions</li>
-        <li><strong>LH, HL, HH Subbands:</strong> Highlighted directional discontinuities and fine texture details</li>
-        <li><strong>Clinical Value:</strong> Enhanced trust by revealing frequency-specific features driving fracture detection</li>
-      </ul>
-      <br>
-      <h3>Real-World Deployment</h3>
-      <ul>
-        <li><strong>WebApp Platform:</strong> Deployed using Streamlit cloud-based framework for IoT-enabled detection</li>
-        <li><strong>Real-Time Predictions:</strong> Provides confidence scores (achieved 0.97 for fracture detection)</li>
-        <li><strong>Performance:</strong> Average prediction time of 12.01 seconds from upload to diagnosis</li>
-        <li><strong>Accessibility:</strong> Remote access, platform independence, enabling rapid clinical decision support</li>
-      </ul>
-      <br>
-      <h3>Technical Contributions</h3>
-      <ul>
-        <li><strong>First Application:</strong> Multiband-frequency domain DRL for bone fracture detection in medical imaging</li>
-        <li><strong>Novel Integration:</strong> Wavelet-based signal processing with modern deep learning architectures</li>
-        <li><strong>Efficiency:</strong> Reduced trainable parameters via frozen pre-trained blocks while maintaining superior performance</li>
-        <li><strong>Proven Impact:</strong> Frequency-domain decomposition significantly improved detection vs. direct image analysis</li>
-      </ul>
-      <br>
-      <h3>Clinical Impact & Future Directions</h3>
-      <ul>
-        <li><strong>Diagnostic Support:</strong> Reduces human error, minimizes treatment delays, improves patient outcomes in orthopedic care</li>
-        <li><strong>Key Strength:</strong> Identifies subtle fracture regions often missed in manual visual inspection</li>
-        <li><strong>Future Development:</strong> Lightweight models for embedded devices (FPGA, microcontrollers), federated learning for multi-hospital collaboration</li>
-        <li><strong>Multimodal Extension:</strong> Integration with EHRs and BERT-based language models for comprehensive diagnostic systems</li>
-      </ul>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021" target="_blank" class="popup-github"><i class="fas fa-graduation-cap"></i> Paper</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-  
- <div id="research-popup-3" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">A Lightweight Fourier Block Transformer for Android-Based Edge‑Enabled Detection of Osteopenia and Osteoporosis Using X‑Ray Sensor Imaging Data</h2>
-    <p class="popup-subheading">IEEE Sensors Letters · Vol. 10, Issue 3 · March 2026</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <ul>
-        <li><strong>Published in:</strong> IEEE Sensors Letters, Volume 10, Issue 3, March 2026</li>
-        <li><strong>Article Sequence Number:</strong> 6003004</li>
-        <li><strong>Date of Publication:</strong> 03 February 2026</li>
-        <li><strong>Electronic ISSN:</strong> 2475-1472</li>
-        <li><strong>Authors:</strong> Rishab Kumar Pattnaik, Dr. Rajesh Kumar Tripathy (BITS Pilani), Dr. Ram Bilas Pachori (IIT Indore)</li>
-      </ul>
-      <br>
+  <!-- ── WRITING ── -->
+  <section id="writing" class="block">
+    <div class="block-head"><h2>(writing)</h2></div>
+    <ul class="rows">
+      <li class="row">
+        <a class="row-link" href="https://ai.gopubby.com/medmamba-explained-the-first-vision-mamba-for-generalized-medical-image-classification-is-3aee20a0751a" target="_blank" rel="noopener">
+          <span class="row-name">MedMamba, explained</span>
+          <span class="row-mid">
+            <span class="row-desc">A plain walkthrough of the first Mamba model built for medical images.</span>
+          </span>
+          <span class="row-year">/2024</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-      <h3>Abstract & Motivation</h3>
-      <ul>
-        <li>Early detection of <strong>osteoporosis (OPRS)</strong> and <strong>osteopenia (OPNA)</strong> is critical for preventing fractures in the aging population.</li>
-        <li>Existing deep learning methods rely on cloud processing, limiting real‑time, point‑of‑care deployment.</li>
-        <li>This work proposes an <strong>Android‑based edge‑enabled lightweight Fourier block‑based transformer (LFBBT)</strong> for real‑time OPRS/OPNA detection directly on mobile devices using knee X‑ray sensor images.</li>
-      </ul>
-      <br>
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="block">
+    <div class="block-head"><h2>(contact)</h2></div>
+    <p class="contact-line">
+      Say hello at <a href="mailto:rishab27279@gmail.com">rishab27279@gmail.com</a>.
+      I like talking about AI, medical imaging, and getting big models onto small devices.
+    </p>
+    <nav class="links" aria-label="Elsewhere">
+      <a href="https://github.com/Rishab27279" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://medium.com/@rishab27279" target="_blank" rel="noopener">Medium</a>
+    </nav>
+  </section>
 
-      <h3>Methodology – LFBBT Model</h3>
-      <ul>
-        <li><strong>Architecture:</strong> Patch embedding layer + discrete Fourier transform (DFT) block + dense layers + dropout + output layer.</li>
-        <li>The DFT block captures frequency‑domain features, reducing computational complexity while retaining diagnostic information.</li>
-        <li>Designed specifically for resource‑constrained mobile environments (Android) with TensorFlow Lite deployment.</li>
-      </ul>
-      <br>
+</main>
 
-      <h3>Dataset & Evaluation</h3>
-      <ul>
-        <li>Evaluated on a publicly available knee X‑ray database containing normal, osteopenia, and osteoporosis cases.</li>
-        <li>Metrics: accuracy, precision, recall, F1‑score, and inference speed on Android devices.</li>
-      </ul>
-      <br>
-
-      <h3>Results & Performance</h3>
-      <ul>
-        <li><strong>Overall accuracy:</strong> 88.41% – surpassing various transfer learning models and pre‑trained transformers.</li>
-        <li><strong>Real‑time throughput:</strong> 60 images per minute on an Android smartphone.</li>
-        <li>Enables instant, on‑device diagnosis without internet connectivity, ideal for rural and point‑of‑care settings.</li>
-      </ul>
-      <br>
-
-      <h3>Significance & Impact</h3>
-      <ul>
-        <li>First lightweight transformer optimized for bone health screening directly on mobile hardware.</li>
-        <li>Brings AI‑assisted diagnosis to the edge, reducing dependency on cloud infrastructure and improving accessibility.</li>
-        <li>Demonstrates the feasibility of combining Fourier‑based processing with transformer architectures for medical imaging on low‑power devices.</li>
-      </ul>
-      <br>
-
-      <h3>Future Directions</h3>
-      <ul>
-        <li>Extension to multi‑joint analysis (hip, spine) and integration with electronic health records.</li>
-        <li>Further model compression for even faster inference on entry‑level smartphones.</li>
-      </ul>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://ieeexplore.ieee.org/abstract/document/11370760" target="_blank" class="popup-github"><i class="fas fa-graduation-cap"></i> Paper</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- POPUPS — Projects -->
-<div id="project-popup-9" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">U-Tube AI</h2>
-    <p class="popup-subheading">Beyond the Transcript: True Multimodal YouTube Intelligence 🎥</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p><strong>U-Tube AI</strong> is a revolutionary multimodal AI agent that transforms YouTube videos into comprehensive knowledge assets by analyzing both audio and visual streams. Unlike mainstream tools (NoteGPT, Notta, MyMap.AI) that rely solely on transcripts, U-Tube AI employs adaptive frame sampling and OCR to capture slides, diagrams, and code shown on screen. This research-backed approach achieves 70-90% cost reduction compared to direct VLM processing while maintaining complete visual context that transcript-only tools miss entirely.</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <p>GitHub Repository: https://github.com/Rishab27279/U-Tube-AI</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <h3>Core Innovation</h3>
-      <p>U-Tube AI addresses the critical limitation of existing AI note-taking tools that are completely blind to visual content. The framework implements a sophisticated multimodal architecture combining:</p>
-      <ul>
-        <li><strong>Adaptive Frame Sampling</strong>: Intelligent extraction of key visual moments (slides, diagrams, code snippets) rather than uniform processing</li>
-        <li><strong>Dual-Model Synthesis</strong>: Gemini Flash for rapid structure mapping, Gemini Pro for targeted deep synthesis</li>
-        <li><strong>Confidence-Based OCR Routing</strong>: Smart decision engine that triggers visual extraction only when visual content enhances understanding</li>
-        <li><strong>Cost Efficiency</strong>: Reduces processing costs from $139/hour (direct VLM) to $15-40 for hour-long videos while maintaining 90%+ information capture</li>
-      </ul>
-      <h3>Technical Architecture</h3>
-      <p>The system operates through an intelligent dual-stage pipeline optimized for both quality and production-ready efficiency:</p>
-      <ul>
-        <li><strong>Stage 1 - Structure Mapping</strong>: Gemini Flash analyzes full transcripts to extract topic hierarchies and identify visually dense sections requiring OCR</li>
-        <li><strong>Stage 2 - Deep Synthesis</strong>: Gemini Pro performs targeted deep dives on each section, fusing transcript and extracted visual data into coherent narratives</li>
-        <li><strong>RAG Pipeline</strong>: ChromaDB-powered vector database enables semantic search with timestamp retrieval and context-aware Q&A across video content</li>
-        <li><strong>Iterative Refinement</strong>: Low-confidence outputs trigger up to 3 enhancement loops, progressively improving note quality</li>
-      </ul>
-      <h3>Key Technical Advantages</h3>
-      <ul>
-        <li><strong>Research-Backed Sampling</strong>: Built on CVPR 2025 (AKS, BOLT) and AdaFrame principles showing intelligent frame selection outperforms uniform sampling by 5-6% while processing 70-85% fewer frames</li>
-        <li><strong>Multimodal Fusion</strong>: Hierarchical synthesis where structural analysis guides targeted visual extraction to information-dense segments</li>
-        <li><strong>Production-Ready Design</strong>: Practical cost efficiency for real-world use cases, avoiding prohibitively expensive full-video analysis</li>
-        <li><strong>Export Flexibility</strong>: Notes available in Markdown, PDF, and DOCX formats for seamless workflow integration</li>
-      </ul>
-      <h3>Performance Benchmarks</h3>
-      <p>U-Tube AI demonstrates significant advantages over existing solutions while maintaining comprehensive understanding:</p>
-      <ul>
-        <li><strong>Cost per Hour</strong>: $15-40 vs $139 (direct VLM processing) - 70-90% reduction</li>
-        <li><strong>Visual Content Capture</strong>: 100% of slides, diagrams, and code vs 0% for transcript-only tools</li>
-        <li><strong>Information Retention</strong>: Maintains >90% information capture despite selective frame processing</li>
-        <li><strong>Processing Efficiency</strong>: Moderate speed balancing thoroughness with resource optimization</li>
-      </ul>
-      <h3>Real-World Applications</h3>
-      <p>The framework excels across diverse educational and professional content types, addressing critical gaps in existing tools:</p>
-      <ul>
-        <li><strong>Technical Tutorials</strong>: Programming lectures with code editors and terminal outputs (Strivers, Programming with Mosh)</li>
-        <li><strong>Academic Content</strong>: Slide-heavy presentations and architectural diagrams requiring visual understanding (CampusX, MIT OpenCourseWare)</li>
-        <li><strong>Professional Development</strong>: Conference talks and technical presentations with visual aids and data visualizations</li>
-        <li><strong>Interactive Learning</strong>: RAG-powered chat enables Q&A with timestamp retrieval for targeted video review</li>
-      </ul>
-      <h3>Intelligent Decision System</h3>
-      <p>Not every video requires frame-by-frame analysis. U-Tube AI implements a confidence-based routing engine that optimizes resource allocation:</p>
-      <ul>
-        <li><strong>Visual Density Evaluation</strong>: Assesses whether visual content would enhance note quality before triggering OCR</li>
-        <li><strong>Talking-Head Optimization</strong>: Avoids unnecessary frame processing when transcripts alone suffice</li>
-        <li><strong>Iterative Refinement Loops</strong>: Low-confidence outputs trigger enhancement cycles up to 3 times</li>
-        <li><strong>Cost-Quality Balance</strong>: Ensures efficient resource usage without compromising comprehensive understanding</li>
-      </ul>
-      <h3>Open Source Commitment</h3>
-      <ul>
-        <li><strong>Complete Implementation</strong>: Full codebase with Streamlit UI, dual-model orchestration, and RAG pipeline</li>
-      </ul>
-      <p>U-Tube AI my try of a paradigm shift in YouTube content analysis by treating visual information as first-class data rather than an afterthought. The framework combines cutting-edge computer vision research with practical cost efficiency, enabling students and professionals to efficiently digest complex technical content without losing critical visual context that drives true understanding.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Rishab27279/U-Tube-AI" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-7" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">EdgeSeg-AI</h2>
-    <p class="popup-subheading">Making Advanced Image Segmentation Accessible to Everyone 🔍</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p><strong>EdgeSeg-AI</strong> is a revolutionary framework that makes advanced image segmentation accessible to everyone by introducing a novel, resource-efficient approach to prompt-based image segmentation. The framework addresses the computational limitations of cutting-edge segmentation methods by sequentially orchestrating three specialized models: Large Language Model (LLM), Fine-tuned VLM and Segment Anything Model (SAM). This innovative architecture achieves a 60-70% reduction in peak memory usage while maintaining high segmentation quality.</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <p>GitHub Repository: https://github.com/Rishab27279/EdgeSeg-AI</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <h3>Core Innovation</h3>
-      <p>EdgeSeg-AI presents a unique architectural approach that sequentially orchestrates three specialized models, representing a fundamental shift from conventional approaches that load all models simultaneously:</p>
-      <ul>
-        <li><strong>Large Language Model (LLM)</strong>: Complex prompt interpretation and simplification</li>
-        <li><strong>Fine-tuned Florence-2 (VLM)</strong>: Precise object detection from natural language descriptions</li>
-        <li><strong>Segment Anything Model (SAM)</strong>: High-quality mask generation</li>
-        <li><strong>Memory Efficiency</strong>: 60-70% reduction in peak memory usage while maintaining segmentation quality</li>
-      </ul>
-      <h3>Technical Architecture</h3>
-      <p>The framework operates through a carefully designed three-stage pipeline that maximizes efficiency and accessibility:</p>
-      <ul>
-        <li><strong>Prompt Simplification</strong>: Complex natural language queries are processed and refined for optimal object detection</li>
-        <li><strong>Object Detection</strong>: Florence-2 generates precise bounding boxes from simplified prompts</li>
-        <li><strong>Segmentation</strong>: SAM produces detailed masks using the detected bounding boxes as guidance</li>
-      </ul>
-      <h3>Key Technical Advantages</h3>
-      <ul>
-        <li><strong>Interactive Prompt Refinement</strong>: User control and transparency in the segmentation process</li>
-        <li><strong>Memory-Efficient Sequential Loading</strong>: Revolutionary approach to model orchestration</li>
-        <li><strong>Maintained Accuracy</strong>: High segmentation quality despite resource constraints</li>
-        <li><strong>Consumer Hardware Compatible</strong>: Works with standard 4GB+ GPU memory</li>
-      </ul>
-      <h3>Performance Benchmarks</h3>
-      <p>EdgeSeg-AI demonstrates significant improvements in resource efficiency while maintaining segmentation quality:</p>
-      <ul>
-        <li><strong>Peak Memory Usage</strong>: Reduced from 12-16GB to 4-6GB (60-70% reduction)</li>
-        <li><strong>Minimum GPU Memory</strong>: Reduced from 8GB to 4GB (50% reduction)</li>
-        <li><strong>Processing Time</strong>: 3-5 minutes vs 1 minute (trade-off for accessibility)</li>
-        <li><strong>Segmentation Quality</strong>: High quality maintained across all metrics</li>
-      </ul>
-      <h3>Real-World Applications</h3>
-      <p>The framework demonstrates robust performance across diverse contexts, showcasing the potential for democratizing AI-powered image analysis:</p>
-      <ul>
-        <li><strong>Waste Management</strong>: Environmental applications ('Where should I throw the wrapper?')</li>
-        <li><strong>Automotive Interfaces</strong>: Vehicle dashboard analysis ('Where should I look to know the speed?')</li>
-        <li><strong>Multi-Domain Versatility</strong>: Adaptable across various industrial and consumer applications</li>
-        <li><strong>Accessibility Focus</strong>: Designed for widespread adoption and implementation</li>
-      </ul>
-      <h3>Research Community Engagement</h3>
-      <p>This work builds upon the foundational contributions of the LLM-Seg paper by Junchi Wang and Lei Ke from ETH Zurich, adapting their approach to prioritize computational efficiency and accessibility. The research community's insights are invaluable for advancing this work further in the following areas:</p>
-      <ul>
-        <li><strong>Benchmarking</strong>: Against additional state-of-the-art methods</li>
-        <li><strong>Dataset Evaluation</strong>: Testing on diverse datasets and use cases</li>
-        <li><strong>Memory Optimization</strong>: Strategies for further memory reduction</li>
-        <li><strong>Novel Applications</strong>: Implementation in resource-constrained environments</li>
-      </ul>
-      <h3>Open Source Commitment</h3>
-      <ul>
-        <li><strong>Full Open Source</strong>: Complete codebase available for exploration and contribution</li>
-        <li><strong>Community Driven</strong>: Open for critical evaluation and collaborative improvement</li>
-        <li><strong>Accessibility Focus</strong>: Democratizing advanced AI capabilities for everyone</li>
-        <li><strong>Research Transparency</strong>: Supporting reproducible research and innovation</li>
-      </ul>
-      <p>EdgeSeg-AI represents a significant advancement in making sophisticated image segmentation technology accessible to a broader audience, combining cutting-edge AI research with practical resource efficiency. The framework's innovative sequential model loading approach opens new possibilities for deploying advanced computer vision capabilities on standard consumer hardware, democratizing access to powerful AI tools across various domains and applications.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Rishab27279/EdgeSeg-AI" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-8" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">Moody.AI</h2>
-    <p class="popup-subheading">🎭 Multimodal Emotion Recognition Engine 🚀</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p><strong>Moody.AI</strong> is a cutting-edge multimodal AI system that analyzes emotions from video content using computer vision, audio processing, and natural language processing. Powered by state-of-the-art deep learning models including <strong>DINOv2, Wav2Vec2, DistilBERT, and Whisper</strong>, the system provides comprehensive sentiment analysis with an intuitive web interface and achieves <strong>61% accuracy</strong> on the challenging MELD dataset.</p>
-      <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-      <p>Docker Hub: https://hub.docker.com/r/rishab27279/moody-ai | GitHub: https://github.com/Rishab27279/MoodyAI</p>
-      <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-      <h3>System Features</h3>
-      <ul>
-        <li>Multimodal analysis with simultaneous processing of vision, audio, and text</li>
-        <li>Real-time emotion classification with interactive confidence scores</li>
-        <li>Production-ready containerized deployment with Docker</li>
-        <li>Modern glass morphism UI with animated visualizations</li>
-        <li>Supports video files (MP4, MOV, MKV) up to 200MB</li>
-        <li>Fast processing: 10-30 seconds per video on GPU</li>
-      </ul>
-      <h3>Model Architecture and Performance</h3>
-      <p>Moody.AI employs a sophisticated trimodal fusion architecture combining multiple AI models:</p>
-      <ul>
-        <li><strong>Vision Processing</strong>: DINOv2 ViT-B/14 for facial expression analysis with 768-dimensional embeddings compressed to 256 dimensions</li>
-        <li><strong>Audio Processing</strong>: Fine-Tuned-Wav2Vec2-base Model for emotional audio representations achieving 32% accuracy on MELD</li>
-        <li><strong>Text Processing</strong>: Fine-tuned DistilBERT-base-uncased achieving 50% accuracy on MELD dataset</li>
-        <li><strong>Speech-to-Text</strong>: OpenAI Whisper for multilingual transcription with automatic language detection</li>
-      </ul>
-      <h3>Trimodal Fusion Innovation</h3>
-      <p>The breakthrough architecture combines all three modalities through advanced fusion techniques:</p>
-      <ul>
-        <li><strong>Vision Feature Compression</strong>: Novel noise reduction technique that improved accuracy from 45-49% to 61%</li>
-        <li><strong>Cross-Modal Attention</strong>: Advanced fusion mechanisms enabling interaction between text, audio, and vision features</li>
-        <li><strong>Progressive Architecture</strong>: Systematic evolution from bimodal (56-57% accuracy) to trimodal fusion</li>
-        <li><strong>Dropout Regularization</strong>: 0.3 and 0.2 dropout rates to prevent overfitting in fusion layers</li>
-      </ul>
-      <h3>Video Processing Pipeline</h3>
-      <ul>
-        <li><strong>Frame Extraction</strong>: ~1 frame per second sampling with CVLib face detection</li>
-        <li><strong>Audio Extraction</strong>: MoviePy conversion to 16kHz WAV with Whisper transcription</li>
-        <li><strong>Feature Extraction</strong>: Parallel processing of vision (518×518), audio (768-dim), and text (512 tokens) features</li>
-        <li><strong>Multimodal Fusion</strong>: Cross-attention mechanism with concatenated feature fusion</li>
-        <li><strong>Emotion Classification</strong>: Softmax output across 5 emotion classes</li>
-      </ul>
-      <h3>Technical Stack</h3>
-      <ul>
-        <li><strong>Deep Learning</strong>: PyTorch 1.13.0+ with Transformers 4.21.0+</li>
-        <li><strong>Web Interface</strong>: Streamlit 1.24.0+ with custom CSS styling</li>
-        <li><strong>Computer Vision</strong>: OpenCV for face detection and image processing</li>
-        <li><strong>Audio Processing</strong>: Librosa 0.9.2+ and MoviePy 1.0.3+ for audio extraction</li>
-        <li><strong>Model Optimization</strong>: TensorFlow Lite compatibility with TIMM 0.6.7+</li>
-      </ul>
-      <h3>Emotion Categories Detected</h3>
-      <ul>
-        <li>Happy 😄</li>
-        <li>Surprise 😢</li>
-        <li>Angry 😠</li>
-        <li>Melancholy 😨</li>
-        <li>Neutral 😐</li>
-      </ul>
-      <h3>Performance Benchmarks</h3>
-      <ul>
-        <li><strong>Overall Accuracy</strong>: 61% on MELD dataset (competitive with SOTA DialogueRNN at 60.25%)</li>
-        <li><strong>Processing Speed</strong>: GPU (RTX 3050) processes videos in 10-20 seconds</li>
-        <li><strong>Memory Usage</strong>: ~4GB model loading, 6-7GB peak usage for large videos</li>
-        <li><strong>F1-Score</strong>: 0.59-0.63 macro average across emotion classes</li>
-      </ul>
-      <h3>User Interface and Deployment</h3>
-      <ul>
-        <li><strong>Web Application</strong>: Streamlit-based interface with glass morphism design</li>
-        <li><strong>Processing Modes</strong>: Lightweight, Balanced, and High Fidelity options</li>
-        <li><strong>Docker Deployment</strong>: One-command deployment with pre-built container</li>
-        <li><strong>Cloud Ready</strong>: Compatible with Streamlit Cloud, AWS, Azure, and Google Cloud Run</li>
-        <li><strong>Interactive Results</strong>: Real-time emotion visualization with confidence scores and probability distributions</li>
-      </ul>
-      <h3>Hardware Requirements</h3>
-      <ul>
-        <li><strong>Minimum</strong>: 8GB RAM, CPU-only processing (30-60 seconds per video)</li>
-        <li><strong>Recommended</strong>: 16GB RAM, NVIDIA GPU with 4GB+ VRAM</li>
-        <li><strong>Optimal</strong>: 32GB RAM, Modern GPU like RTX 3060+ (5-10 seconds per video)</li>
-      </ul>
-      <p>This project demonstrates the advancement of multimodal AI on edge devices, combining computer vision, natural language processing, and audio analysis into a comprehensive emotion recognition system with state-of-the-art performance.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Rishab27279/MoodyAI" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-1" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">OsteoDiagnosis.AI: Revolutionizing Bone Health Through Intelligent Mobile Diagnostics</h2>
-    <p class="popup-subheading">🦴 Next-Gen Bone Diagnostics: AI-Powered, Mobile-First, Research-Driven, Powered by Deep Learning.📱</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p><strong>OsteoDiagnosis.AI</strong> is an innovative Android application that leverages advanced signal processing and deep learning techniques for automated bone health assessment. The app utilizes a novel, lightweight neural network architecture combining Signal Processing (Fourier) and Deep Learning to classify bone density conditions into three categories: Osteoporosis, Osteopenia, and Normal bone density. This research-driven project represents a significant advancement in mobile healthcare AI, combining our cutting-edge computer vision with clinical diagnostic applications.</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <p>APK: https://github.com/Rishab27279/OS_Detection_Binary_And_3_Class_DWT/releases/download/v1.0/app-debug.apk</p>
-      <p>----------------------------------------------------------------------------------------------------------------</p>
-      <h3>Research Context</h3>
-      <p>This project was developed under academic supervision as part of ongoing research in medical AI diagnostics in BITS Pilani Hyderabad. While the complete technical methodology and results are currently confidential as the Research Paper is in it's last stages, the application demonstrates the successful integration of signal processing techniques with Modern deep learning architectures for bone health assessment.</p>
-      <h3>Application Features</h3>
-      <ul>
-        <li>Three-class bone density classification (Osteoporosis, Osteopenia, Normal)</li>
-        <li>Real-time inference capabilities on mobile devices</li>
-        <li>Offline processing with no internet connectivity required</li>
-        <li>Intuitive user interface designed for clinical workflow integration</li>
-        <li>Optimized model architecture for mobile deployment efficiency (Model Size < 100Mb)</li>
-        <li>High accuracy performance validated through rigorous testing protocols and Benchmarks (Accuracy ~ 90% ; Kappa Score ~ 0.82)</li>
-      </ul>
-      <h3>Technical Innovation</h3>
-      <p>The core innovation lies in the fusion of traditional signal processing methodologies with state-of-the-art deep learning approaches:</p>
-      <ul>
-        <li><strong>Novel Architecture</strong>: Custom-designed neural network optimized for bone density classification tasks</li>
-        <li><strong>Signal Processing Integration</strong>: Powerful Signal Processing techniques enhance feature extraction and model performance</li>
-        <li><strong>Mobile Optimization (< 100 Mb)</strong>: Lightweight model design ensures efficient on-device inference</li>
-        <li><strong>High Accuracy (~90%)</strong>: Achieved superior classification performance through innovative architectural design</li>
-      </ul>
-      <h3>Research Methodology</h3>
-      <p>Due to the ongoing nature of this research and pending publication, specific technical details regarding the model architecture, training protocols, and validation datasets remain confidential. The methodology represents a novel contribution to the field of medical AI, particularly in bone health diagnostics.</p>
-      <h3>Technical Implementation</h3>
-      <ul>
-        <li><strong>Android Studio</strong>: Native Android application development environment</li>
-        <li><strong>Deep Learning Framework</strong>: Advanced neural network implementation for mobile deployment[4]</li>
-        <li><strong>Signal Processing Libraries</strong>: Integrated preprocessing pipeline for enhanced feature extraction</li>
-        <li><strong>Mobile Optimization</strong>: Efficient model compression and inference optimization techniques</li>
-      </ul>
-      <h3>Classification Categories</h3>
-      <ul>
-        <li><strong>Normal Bone Density</strong>: Healthy bone structure classification</li>
-        <li><strong>Osteopenia</strong>: Mild bone density reduction detection</li>
-        <li><strong>Osteoporosis</strong>: Severe bone density loss identification</li>
-      </ul>
-      <h3>Clinical Significance</h3>
-      <ul>
-        <li><strong>Early Detection</strong>: Enables timely identification of bone health deterioration</li>
-        <li><strong>Accessibility</strong>: Mobile-first approach increases diagnostic accessibility</li>
-        <li><strong>Efficiency</strong>: Rapid classification reduces diagnostic time and healthcare costs</li>
-        <li><strong>Accuracy</strong>: High-performance model ensures reliable clinical decision support</li>
-      </ul>
-      <p>This project demonstrates the successful application of advanced AI techniques to critical healthcare challenges, showcasing the potential for mobile-deployed deep learning solutions in clinical diagnostics. The combination of academic rigor with practical implementation highlights the intersection of research innovation and real-world healthcare applications.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Rishab27279/OS_Detection_Binary_And_3_Class_DWT/releases/download/v1.0/app-debug.apk" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-2" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">Expression.AI — Decode Emotions in Real-Time</h2>
-    <p class="popup-subheading">🎭 Feel the Mood. Frame by Frame. Powered by Deep Learning. 🎭</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p><strong>Expression.AI</strong> is a real-time facial expression recognition Android application that uses deep learning to detect and classify human emotions. Powered by a custom made TensorFlow Lite model named <strong>ResInceptionCNN</strong>, the app is designed for fast, on-device inference and intuitive user experience. It combines the power of computer vision with emotion AI for mobile devices.</p>
-      <p>App APK -> https://github.com/Riiishaab/Expression.AI/releases/download/v1.0/ExpressionAI.apk</p>
-      <h3>Application Features</h3>
-      <ul>
-        <li>Real-time facial emotion detection using the device's camera</li>
-        <li>Supports classification from uploaded images via gallery</li>
-        <li>Runs fully offline with no internet required for inference</li>
-        <li>Emotion results displayed with matching emojis and labels</li>
-        <li>Fast and efficient performance optimized for mobile usage</li>
-      </ul>
-      <h3>Model and Dataset</h3>
-      <p>Expression.AI is built on a custom deep learning model trained for facial expression recognition:</p>
-      <ul>
-        <li><strong>Model Name</strong>: ResInceptionCNN — a hybrid architecture combining strengths of Residual and Inception networks</li>
-        <li><strong>Dataset</strong>: Trained on the FER2013 dataset containing 48x48 grayscale facial images labeled with 7 emotion classes</li>
-        <li><strong>Conversion</strong>: Exported to TensorFlow Lite format for mobile deployment</li>
-      </ul>
-      <h3>ResInceptionCNN Architecture</h3>
-      <p>The core of the project is the ResInceptionCNN model:</p>
-      <ul>
-        <li><strong>Inception Blocks</strong>: Capture multi-scale spatial features for rich local and global context</li>
-        <li><strong>Residual Connections</strong>: Enable deeper networks by addressing vanishing gradients and improving feature flow</li>
-        <li><strong>Batch Normalization</strong>: Applied after each convolution to stabilize and speed up training</li>
-        <li><strong>Dropout Layers</strong>: Reduce overfitting and improve generalization</li>
-        <li><strong>Final Dense Layer</strong>: Outputs emotion class probabilities through a softmax activation</li>
-      </ul>
-      <h3>Technical Stack</h3>
-      <ul>
-        <li><strong>Android Studio</strong>: Used for developing the UI and app logic</li>
-        <li><strong>TensorFlow Lite</strong>: Facilitates fast, on-device model inference</li>
-        <li><strong>OpenCV</strong>: Handles face detection from camera and gallery inputs</li>
-        <li><strong>CameraX</strong>: Provides real-time camera feed with face capture</li>
-      </ul>
-      <h3>Emotion Categories Detected</h3>
-      <ul>
-        <li>Angry 😠</li>
-        <li>Disgust 😖</li>
-        <li>Fear 😨</li>
-        <li>Happy 😄</li>
-        <li>Sad 😢</li>
-        <li>Surprise 😲</li>
-        <li>Neutral 😐</li>
-      </ul>
-      <h3>User Interface</h3>
-      <ul>
-        <li><strong>Live Camera View</strong>: Real-time emotion recognition with facial overlay</li>
-        <li><strong>Image Upload</strong>: Choose from gallery for static image analysis</li>
-        <li><strong>Emoji and Label Output</strong>: Emotion results shown with emojis and text</li>
-        <li><strong>Minimal UI</strong>: Clean design with clear interaction flow and responsive layout</li>
-      </ul>
-      <p>This project demonstrates the potential of deep learning on edge devices, blending AI, mobile development, and human emotion understanding into a seamless Android experience.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Riiishaab/Expression.AI" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-3" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">AI Hand Gesture Recognition System 🖐️</h2>
-    <p class="popup-subheading">🤟🏼 Real-time gesture recognition through FastViT Model ✌️</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p>This project implements real-time hand gesture recognition using Apple's FastViT architecture, leveraging transfer learning on the HaGRID dataset to achieve 97.5% accuracy while maintaining efficiency for real-time applications.</p>
-      <h3>🔑 Key Features</h3>
-      <ul>
-        <li><strong>Real-time gesture recognition</strong> through webcam integration</li>
-        <li><strong>19 different hand gestures</strong> recognized with high accuracy</li>
-        <li><strong>Efficient model architecture</strong> using FastViT for low-latency predictions</li>
-        <li><strong>Simple deployment</strong> through Google Colab (no local setup required)</li>
-      </ul>
-      <h3>🧠 Model & Architecture</h3>
-      <p>The core intelligence is provided by a hybrid vision transformer:</p>
-      <ul>
-        <li><strong>Backbone</strong>: <code>fastvit_t8.apple_in1k</code> pretrained model</li>
-        <li><strong>Training approach</strong>: Transfer learning with a frozen backbone</li>
-        <li><strong>Input size</strong>: 256×256 px</li>
-        <li><strong>Classes</strong>: 19 hand gestures</li>
-      </ul>
-      <p>FastViT was chosen for its efficiency advantages over ConvNeXT, offering high accuracy in resource-constrained environments.</p>
-      <h3>📊 Dataset</h3>
-      <p>Trained on the Hand Gesture Recognition Image Dataset (<strong>HaGRID</strong>) 150k subset:</p>
-      <ul>
-        <li><strong>19 gesture classes</strong> including 'thumbs up', 'peace sign', and 'stop'</li>
-        <li>Used the manageable <strong>150k version</strong> for Colab training</li>
-        <li>Properly split between <strong>training</strong> and <strong>validation</strong> sets</li>
-      </ul>
-      <h3>🚀 Usage</h3>
-      <p><strong>Option 1: Google Colab</strong></p>
-      <ul>
-        <li>Open the training notebook</li>
-        <li>Run all cells to train or load pretrained weights</li>
-        <li>Follow webcam integration instructions</li>
-      </ul>
-      <p><strong>Option 2: Inference with Pretrained Model</strong></p>
-      <ul>
-        <li>Open the inference notebook</li>
-        <li>Upload the pretrained model file (<code>sign_lang_model.pkl</code>)</li>
-        <li>Run the webcam inference cell</li>
-      </ul>
-      <h3>📈 Results</h3>
-      <ul>
-        <li><strong>97.5% accuracy</strong> on the validation set</li>
-        <li>Robust across different lighting conditions</li>
-        <li><strong>Real-time inference</strong> (>30 FPS on modern hardware)</li>
-      </ul>
-      <h3>🔮 Future Work</h3>
-      <ul>
-        <li><strong>Expanded gesture vocabulary</strong>: Full sign language alphabet and phrases</li>
-        <li><strong>Standalone deployment</strong>: Integration with video conferencing</li>
-        <li><strong>Sequence modeling</strong>: Temporal information for dynamic gestures</li>
-        <li><strong>Model optimization</strong>: Quantization and pruning for edge devices</li>
-      </ul>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Riiishaab/Sign_Language_Detector" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-4" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">AI Document Processing System 📄</h2>
-    <p class="popup-subheading">🚀 Intelligent Document Analysis and Summarization 🚀</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p>Developed an AI-driven document processing system combining DeepSeek R1-1.5B for structured data extraction and Llama-7B for summarization. Achieved 92% accuracy in entity extraction and 88% ROUGE-L summarization scores, enabling efficient processing of legal and technical documents.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Riiishaab/Projects/tree/main/AI%20Document%20Assistant" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-5" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">THE ULTIMATE CHECKERS AI</h2>
-    <p class="popup-subheading">🎮 Where Strategic Intelligence Conquers the Classic Game 🎮</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p>This code implements a comprehensive Checkers (Draughts) game featuring two AI players with contrasting strategies: a sophisticated Smart AI using the Minimax algorithm with alpha-beta pruning and a baseline Random AI that makes random legal moves.</p>
-      <h3>Game Structure</h3>
-      <ul>
-        <li>The game utilizes an 8×8 checkerboard grid with traditional alternating dark and light squares</li>
-        <li>Two AI players compete: Red (Smart AI) and Blue (Random AI)</li>
-        <li>Turn-based gameplay with visual representation of each move</li>
-        <li>King promotion mechanics when pieces reach the opponent's back row</li>
-        <li>Standard checkers rules including mandatory captures and multiple jumps</li>
-      </ul>
-      <h3>AI Implementation</h3>
-      <p>The Minimax algorithm implementation represents the core intelligence of the Smart AI:</p>
-      <ul>
-        <li><strong>Depth-Limited Search</strong>: The Smart AI (Red player) looks ahead 3 moves using the Minimax algorithm</li>
-        <li><strong>Alpha-Beta Pruning</strong>: Optimizes the search by eliminating branches that won't affect the final decision</li>
-        <li><strong>Recursive Evaluation</strong>: Each potential move is evaluated by simulating future game states</li>
-        <li><strong>Heuristic Evaluation</strong>: Board positions are scored based on piece count, king status, and positioning</li>
-        <li><strong>Maximizing Strategy</strong>: The AI selects moves that maximize its advantage while assuming optimal opponent play</li>
-      </ul>
-      <p>The Random AI provides a contrasting approach:</p>
-      <ul>
-        <li>Identifies all pieces with legal moves</li>
-        <li>Randomly selects one of these pieces</li>
-        <li>Randomly selects one of the legal moves for that piece</li>
-        <li>Executes without strategic planning</li>
-      </ul>
-      <h3>Game Mechanics</h3>
-      <ul>
-        <li><strong>Move Validation</strong>: Comprehensive checking of legal moves including diagonal movement and jumps</li>
-        <li><strong>Capture Logic</strong>: Implementation of mandatory jump rules and multiple capture sequences</li>
-        <li><strong>Visual Representation</strong>: Board state displayed using HTML/CSS with color-coded pieces</li>
-        <li><strong>Game Termination</strong>: Ends after 100 moves or when a player has no remaining pieces/moves</li>
-        <li><strong>Winner Determination</strong>: Based on remaining piece count or inability of opponent to move</li>
-      </ul>
-      <h3>User Interface</h3>
-      <ul>
-        <li><strong>Interactive Display</strong>: Color-coded pieces with clear visual distinction between regular pieces and kings</li>
-        <li><strong>Move Animation</strong>: Step-by-step visualization with appropriate delays for user comprehension</li>
-        <li><strong>Notifications</strong>: Popup alerts for game start, end, and important events</li>
-        <li><strong>Status Updates</strong>: Ongoing information about game progress, turn count, and current player</li>
-        <li><strong>Board Rendering</strong>: Clear representation of the current game state after each move</li>
-      </ul>
-      <p>This implementation demonstrates advanced concepts in game AI development.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Riiishaab/Projects/blob/main/my_smart_ai_checkers_bot.py" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
-
-<div id="project-popup-6" class="popup">
-  <div class="popup-backdrop"></div>
-  <div class="popup-content">
-    <span class="popup-esc-hint">ESC</span>
-    <h2 class="popup-heading">GenderNet Vision</h2>
-    <p class="popup-subheading">🔍 Advanced Facial Analysis System 🔍</p>
-    <div class="popup-divider"></div>
-    <div class="popup-body">
-      <style>
-        h3 {
-          margin-bottom: 20px;
-          margin-top: 20px;
-          color: var(--ai-blue);
-        }
-      </style>
-      <p>Implemented a gender detection system using hybrid CNN-InceptionV3 architecture, achieving 94.35% accuracy on the CelebA dataset. Features include dynamic augmentation, adaptive learning rate scheduling, and quantized TensorFlow Lite deployment.</p>
-    </div>
-    <div class="popup-buttons">
-      <a href="https://github.com/Riiishaab/Projects/blob/main/Face%20Gender%20Detection%20using%20CNNs.ipynb" target="_blank" class="popup-github"><i class="fab fa-github"></i> GitHub</a>
-      <button class="popup-close">Close</button>
-    </div>
-  </div>
-</div>
+<footer>
+  <p class="foot-meta">
+    <span>B.E. Electronics &amp; Communication · BITS Pilani, Hyderabad</span>
+    <span>Built by hand ✦ no frameworks</span>
+  </p>
+  <p class="foot-mark" aria-hidden="true">Rishab</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
