@@ -10,6 +10,7 @@
   --fg:     #22262B;   /* near black   */
   --accent: #C43B18;   /* vermilion    */
   --line:   color-mix(in srgb, var(--fg) 14%, transparent);
+  --rule:   color-mix(in srgb, var(--fg) 26%, transparent);  /* the 2px row rules */
   --muted:  color-mix(in srgb, var(--fg) 62%, transparent);
   --wash:   color-mix(in srgb, var(--accent) 5%, transparent);
 
@@ -46,6 +47,18 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+/* ── cursor spotlight ───────────────────── */
+/* A soft accent wash that follows the pointer. body has the page background and
+   html has none, so body's background paints the canvas — which leaves this
+   z-index:-1 pseudo sitting above it and below every bit of content. */
+@media (hover: hover) {
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, -20%),
+      color-mix(in srgb, var(--accent) 14%, transparent), transparent 72%);
+  }
+}
+
 .skip {
   position: absolute; left: -9999px;
   background: var(--fg); color: var(--bg); padding: .6rem 1rem; z-index: 100;
@@ -53,6 +66,18 @@ a { color: inherit; text-decoration: none; }
 .skip:focus { left: 1rem; top: 1rem; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ── page transitions ───────────────────── */
+/* Native cross-document transitions. Chrome/Edge/Safari 18+ animate;
+   everything else just navigates. No JS, no fallback needed. */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .32s; }
+
+/* The name morphs from the landing headline into the header mark.
+   A view-transition-name must be unique per page — which is why the landing
+   renders .bar-tag instead of .wordmark. */
+.landing h1, .wordmark { view-transition-name: mark; }
 
 /* ── top bar ────────────────────────────── */
 .bar {
@@ -68,9 +93,12 @@ a { color: inherit; text-decoration: none; }
 
 .wordmark { font-family: var(--serif); font-size: 1.5rem; color: var(--accent); }
 
+.bar-tag { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+
 .bar-nav { display: flex; gap: 1.6rem; font-size: .875rem; }
 .bar-nav a { color: var(--muted); transition: color .2s; }
 .bar-nav a:hover { color: var(--accent); }
+.bar-nav a[aria-current="page"] { color: var(--accent); }
 
 .bar-right { display: flex; align-items: center; gap: .6rem; }
 
@@ -97,53 +125,221 @@ a { color: inherit; text-decoration: none; }
 }
 #burger { display: none; }
 
-/* ── hero ───────────────────────────────── */
-.hero {
+/* ── landing — one screen ───────────────── */
+/* Fills the viewport on any normal display. Deliberately NOT overflow:hidden —
+   on a short window it scrolls rather than hiding the links. */
+.landing {
   position: relative;
-  min-height: min(88vh, 780px);
-  padding: clamp(3rem, 9vh, 7rem) var(--pad) clamp(3rem, 7vh, 5rem);
+  min-height: calc(100dvh - 4.4rem);          /* 4.4rem ≈ the sticky bar */
+  padding: clamp(1.5rem, 5vh, 4rem) var(--pad) clamp(1.5rem, 4vh, 3rem);
   max-width: var(--maxw); margin-inline: auto;
-  display: flex; flex-direction: column; align-items: flex-start;
+  display: grid; align-content: space-between; gap: clamp(1.5rem, 5vh, 4rem);
 }
 
-.hero h1 {
+/* min(vw, vh) so a short landscape window shrinks the type instead of clipping */
+.landing h1 {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(3.25rem, 11vw, 8rem);
+  font-size: clamp(2.5rem, min(10vw, 13vh), 7rem);
   line-height: .95; letter-spacing: -.01em;
   color: var(--accent);
 }
 
 .role {
-  font-family: var(--mono); font-size: clamp(.85rem, 2vw, 1.05rem);
-  margin-top: 1.1rem; color: var(--muted);
+  font-family: var(--mono); font-size: clamp(.8rem, min(2vw, 2.2vh), 1.05rem);
+  margin-top: .9rem; color: var(--muted);
 }
 .role span { color: var(--accent); }
 
 .lede {
-  margin-top: 1.6rem; max-width: 44ch;
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  margin-top: 1.2rem; max-width: 46ch;
+  font-size: clamp(.95rem, min(1.6vw, 1.9vh), 1.1rem);
 }
 
-.chip-row { margin-top: auto; padding-top: 2.5rem; }
+/* why four jobs are one body of work — the lede says what, this says why */
+.thesis {
+  margin-top: .9rem; max-width: 46ch; color: var(--muted);
+  font-size: clamp(.95rem, min(1.6vw, 1.9vh), 1.1rem);
+}
+
+.status { margin-top: 1.15rem; max-width: 56ch; font-size: .95rem; }
+
+/* links inside a sentence carry their underline by default — an inline link
+   nobody can see is an inline link nobody clicks. It retracts on hover. */
+.status a {
+  color: var(--accent);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 100% 1px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size .35s var(--ease);
+}
+.status a:hover { background-size: 0 1px; }
+
+/* the four destinations — the landing's real job */
+.dests { list-style: none; border-bottom: 2px solid var(--rule); max-width: 46rem; }
+.dest { border-top: 2px solid var(--rule); }
+.dest a {
+  display: grid; align-items: baseline; gap: .1rem .9rem;
+  grid-template-columns: 2rem minmax(6rem, 9rem) 1fr 1.5rem;
+  padding: clamp(.6rem, 1.4vh, 1rem) .8rem;
+  margin-inline: -.8rem; border-radius: 8px;
+  transition: background .3s var(--ease);
+}
+.dest a:hover { background: var(--wash); }
+.dest-num { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.dest-name {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.25rem, min(3vw, 3.4vh), 1.9rem);
+  color: var(--accent);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size .4s var(--ease), transform .35s var(--ease);
+}
+.dest a:hover .dest-name { background-size: 100% 1px; transform: translateX(4px); }
+.dest-desc { font-size: .88rem; color: var(--muted); }
+.dest a:hover .arw { transform: translate(3px, -3px); color: var(--accent); }
+
+/* ── timeline — the short version ────────── */
+/* One row per thing, newest first. The year prints only when it changes; the
+   repeats stay in the DOM at opacity 0 so a screen reader still hears them. */
+.tl { list-style: none; border-bottom: 2px solid var(--rule); max-width: 46rem; }
+.tl-row { border-top: 2px solid var(--rule); }
+.tl-row > a {
+  display: grid; grid-template-columns: 3.2rem 1fr 1.5rem;
+  align-items: baseline; gap: .1rem .9rem;
+  padding: .8rem; margin-inline: -.8rem; border-radius: 8px;
+  transition: background .3s var(--ease);
+}
+.tl-row > a:hover, .tl-row > a:focus-visible { background: var(--wash); }
+
+.tl-year { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.tl-year.is-rep { opacity: 0; }
+
+/* placed explicitly: the fold gets its own grid row spanning the name and arrow
+   columns, so the detail lines up under the name instead of wrapping inside it */
+.tl-row > a > .tl-year { grid-column: 1; grid-row: 1; }
+.tl-row > a > .tl-main { grid-column: 2; grid-row: 1; }
+.tl-row > a > .arw     { grid-column: 3; grid-row: 1; }
+.tl-row > a > .tl-fold { grid-column: 2 / -1; grid-row: 2; }
+
+.tl-main { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .7rem; min-width: 0; }
+.tl-name {
+  font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--accent);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size .4s var(--ease);
+}
+.tl-row > a:hover .tl-name, .tl-row > a:focus-visible .tl-name { background-size: 100% 1px; }
+.tl-line { font-size: .9rem; color: var(--muted); }
+.tl-row > a:hover .arw, .tl-row > a:focus-visible .arw { transform: translate(3px, -3px); color: var(--accent); }
+
+/* The detail opens by interpolating 0fr → 1fr — same trick as the row-art
+   column on the subpages, so no magic pixel heights anywhere. */
+.tl-fold {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .4s var(--ease);
+}
+.tl-fold-in { overflow: hidden; min-height: 0; }
+.tl-row > a:hover .tl-fold, .tl-row > a:focus-visible .tl-fold { grid-template-rows: 1fr; }
+
+.tl-more { display: block; padding-top: .45rem; max-width: 54ch; font-size: .88rem; }
+.tl-to {
+  display: block; padding-top: .35rem;
+  font-family: var(--mono); font-size: .7rem; color: var(--accent);
+  opacity: 0; transform: translateY(4px);
+  transition: opacity .25s, transform .35s var(--ease);
+}
+.tl-row > a:hover .tl-to, .tl-row > a:focus-visible .tl-to {
+  opacity: 1; transform: none;
+  transition: opacity .3s .1s, transform .4s var(--ease) .1s;
+}
+
+/* the labels sit on the same 46rem measure as the list they title */
+.landing .block-head { max-width: 46rem; padding-bottom: .6rem; }
+/* every label after the first needs air between it and the list above it */
+.landing-bottom > .block-head:not(:first-child) { margin-top: 2.4rem; }
+.landing .block-head.thin { border-top: 1px solid var(--line); padding-top: 1.1rem; }
+.landing .note a { color: var(--accent); }
+.lede em {
+  font-family: var(--serif); font-style: italic; font-size: 1.12em;
+  color: var(--accent);
+}
+
+/* staggered entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes blurIn { from { opacity: 0; filter: blur(9px); transform: translateY(16px); } }
+.landing-top > *, .landing-bottom > * {
+  animation: rise .7s var(--ease) backwards;
+}
+.landing h1     { animation: blurIn .9s var(--ease) backwards; animation-delay: .05s; }
+.landing .role   { animation-delay: .18s; }
+.landing .lede   { animation: blurIn .9s var(--ease) backwards; animation-delay: .26s; }
+.landing .thesis { animation-delay: .32s; }
+.landing .status { animation-delay: .38s; }
+/* by position, so reordering the lower half never breaks the cascade */
+.landing-bottom > *:nth-child(1) { animation-delay: .44s; }
+.landing-bottom > *:nth-child(2) { animation-delay: .48s; }
+.landing-bottom > *:nth-child(3) { animation-delay: .54s; }
+.landing-bottom > *:nth-child(4) { animation-delay: .58s; }
+.landing-bottom > *:nth-child(5) { animation-delay: .62s; }
+.landing-bottom > *:nth-child(6) { animation-delay: .66s; }
 
 .links { display: flex; flex-wrap: wrap; gap: .35rem 1.4rem; margin-top: 1.5rem; }
 .links a {
+  position: relative;
   font-family: var(--mono); font-size: .82rem; color: var(--muted);
   padding-bottom: 2px;
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat;
   transition: color .25s, background-size .35s var(--ease);
 }
-.links a:hover { color: var(--accent); background-size: 100% 1px; }
+.links a:hover, .links a:focus-visible { color: var(--accent); background-size: 100% 1px; }
 
-/* hero blueprint art — deliberately clipped by the viewport edge */
-.hero-art {
-  position: absolute; top: 2rem; bottom: -2rem;
-  right: calc(-1 * var(--pad) - 4rem);
-  color: var(--accent); opacity: .55;
-  pointer-events: none; z-index: -1;
+/* ── hover peek — the wikipedia-preview card ─── */
+/* Opens upward, because these links sit at the foot of the page. */
+.peek {
+  position: absolute; bottom: 100%; left: -.9rem; margin-bottom: .85rem;
+  z-index: 30; pointer-events: none;
+  display: flex; gap: .75rem; width: max-content; max-width: 19rem;
+  padding: .8rem .9rem;
+  font-family: var(--sans); text-align: left;
+  background: var(--bg); border: 1px solid var(--rule); border-radius: 10px;
+  box-shadow: 0 14px 34px -18px color-mix(in srgb, var(--fg) 70%, transparent);
+  opacity: 0; visibility: hidden; transform: translateY(8px) scale(.97);
+  transform-origin: 20% 100%;
+  transition: opacity .2s, transform .35s var(--ease), visibility 0s .2s;
 }
-.hero-art svg { height: 100%; width: auto; }
+.links a:hover .peek, .links a:focus-visible .peek {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .2s, transform .35s var(--ease), visibility 0s;
+}
+
+/* the notch that points back at the link */
+.peek::after {
+  content: ''; position: absolute; top: 100%; left: 1.5rem;
+  width: 9px; height: 9px; margin-top: -5px;
+  background: var(--bg); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  transform: rotate(45deg);
+}
+
+/* the logo lifts a beat after the card lands — the bit that reads as animated */
+.peek-mark {
+  flex: 0 0 22px; color: var(--accent);
+  opacity: 0; transform: translateY(9px);
+  transition: opacity .25s, transform .4s var(--ease);
+}
+.peek-mark svg { width: 22px; height: 22px; display: block; }
+.links a:hover .peek-mark, .links a:focus-visible .peek-mark {
+  opacity: 1; transform: none;
+  transition: opacity .3s .1s, transform .45s var(--ease) .1s;
+}
+
+.peek-body  { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.peek-title { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--accent); line-height: 1.1; }
+.peek-desc  { font-size: .82rem; line-height: 1.4; color: var(--fg); }
+.peek-host  { font-family: var(--mono); font-size: .68rem; color: var(--muted); margin-top: .15rem; }
+
+/* keep the last cards from hanging off the right edge */
+.links a:nth-last-child(-n+2) .peek { left: auto; right: -.9rem; transform-origin: 80% 100%; }
+.links a:nth-last-child(-n+2) .peek::after { left: auto; right: 1.5rem; }
 
 /* ── section blocks ─────────────────────── */
 .block {
@@ -152,12 +348,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .block-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 1rem; padding-bottom: .9rem;
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: .3rem 1rem; padding-bottom: .9rem;
 }
-.block-head h2 {
+/* every section label is a (parenthesised) serif line — the house tic */
+.block-head h1, .block-head h2 {
   font-family: var(--serif); font-weight: 400; font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--accent); opacity: .9;
 }
 .note, .note-link { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
 .note-link {
@@ -167,32 +364,45 @@ a { color: inherit; text-decoration: none; }
 }
 .note-link:hover { color: var(--accent); background-size: 100% 1px; }
 
-.block-body { display: flex; align-items: flex-start; gap: clamp(1.5rem, 4vw, 3.5rem); }
-.block-body .rows { flex: 1; min-width: 0; }
-
-.deco {
-  flex: 0 0 132px; color: var(--accent); opacity: .55;
-  display: flex; align-items: stretch;
-}
-.deco svg { width: 100%; height: auto; align-self: center; }
-
 /* ── link rows ──────────────────────────── */
-.rows { list-style: none; border-top: 1px solid var(--line); }
-.row { border-bottom: 1px solid var(--line); }
+.rows { list-style: none; border-bottom: 2px solid var(--rule); }
+.row { border-top: 2px solid var(--rule); }
 
+/* Column 1 is the plotter drawing: zero-width until hover, then it swings open
+   and the row slides right around it. The track widths are all interpolable
+   lengths (no `auto`) so the browser can animate grid-template-columns. */
 .row-link {
   display: grid; align-items: center; gap: .2rem 1.5rem;
-  grid-template-columns: minmax(9rem, 15rem) 1fr auto 1.5rem;
+  grid-template-columns: 0 minmax(8rem, 14rem) 1fr 6.5rem 1.5rem;
   padding: 1.15rem .9rem;
   margin-inline: -.9rem;
   border-radius: 8px;
-  transition: background .3s var(--ease);
+  transition: background .3s var(--ease), grid-template-columns .45s var(--ease);
 }
-.row-link:hover { background: var(--wash); }
+.row-link:hover {
+  background: var(--wash);
+  grid-template-columns: 5.5rem minmax(8rem, 14rem) 1fr 6.5rem 1.5rem;
+}
+
+/* DOM order is name → art → mid → …, so place every cell explicitly */
+.row-link > .row-art  { grid-column: 1; grid-row: 1; }
+.row-link > .row-name { grid-column: 2; justify-self: start; }  /* so the underline hugs the text */
+.row-link > .row-mid  { grid-column: 3; }
+.row-link > .row-year { grid-column: 4; }
+.row-link > .arw      { grid-column: 5; }
+
+.row-art {
+  overflow: hidden; min-width: 0; color: var(--accent);
+  opacity: 0; transform: scale(.9);
+  transition: opacity .4s var(--ease) .05s, transform .45s var(--ease);
+}
+.row-art svg { width: 5.5rem; height: auto; display: block; }
+.row-link:hover .row-art { opacity: .75; transform: none; }
 
 .row-name {
   display: flex; align-items: center; gap: .6rem;
-  font-size: 1.05rem; color: var(--accent);
+  font-family: var(--serif); font-style: italic; font-size: 1.35rem;
+  color: var(--accent);
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0 1px; background-position: 0 calc(100% - 1px); background-repeat: no-repeat;
   transition: background-size .4s var(--ease);
@@ -212,15 +422,6 @@ a { color: inherit; text-decoration: none; }
   transition: transform .35s var(--ease), color .25s;
 }
 .row-link:hover .arw { transform: translate(3px, -3px); color: var(--accent); }
-
-.contact-line { max-width: 52ch; font-size: 1.05rem; }
-.contact-line a {
-  color: var(--accent);
-  background-image: linear-gradient(var(--accent), var(--accent));
-  background-size: 100% 1px; background-position: 0 100%; background-repeat: no-repeat;
-  transition: background-size .35s var(--ease);
-}
-.contact-line a:hover { background-size: 0 1px; }
 
 /* ── footer ─────────────────────────────── */
 footer { border-top: 1px solid var(--line); margin-top: 3rem; overflow: hidden; }
@@ -251,21 +452,31 @@ footer { border-top: 1px solid var(--line); margin-top: 3rem; overflow: hidden; 
   .bar-nav.open { display: flex; }
   .bar-nav a { padding: .7rem 0; font-size: 1rem; }
 
-  .hero-art { opacity: .13; right: -32%; top: 8rem; }
-  .deco { display: none; }
-
-  .row-link {
+  /* no hover on touch — the plotter art and the peek cards have nothing to open on */
+  .row-art, .peek { display: none; }
+  .row-link, .row-link:hover {
     grid-template-columns: 1fr auto;
     gap: .35rem 1rem;
     padding: 1.1rem .75rem;
   }
-  .row-name { grid-column: 1; }
-  .row-mid  { grid-column: 1 / -1; grid-row: 2; }
-  .row-year { grid-column: 1; grid-row: 3; }
-  .arw      { grid-column: 2; grid-row: 1; }
+  .row-link > .row-name { grid-column: 1; grid-row: 1; font-size: 1.2rem; }
+  .row-link > .row-mid  { grid-column: 1 / -1; grid-row: 2; }
+  .row-link > .row-year { grid-column: 1; grid-row: 3; }
+  .row-link > .arw      { grid-column: 2; grid-row: 1; }
+
+  .dest a { grid-template-columns: 2rem 1fr 1.5rem; }
+  .dest-desc { grid-column: 2 / -1; grid-row: 2; }
+
+  /* touch can't hover, so the detail is simply always open */
+  .tl-row > a { grid-template-columns: 2.8rem 1fr 1.5rem; }
+  .tl-name { font-size: 1.15rem; }
+  .tl-fold { grid-template-rows: 1fr; }
+  .tl-to   { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  body::before { display: none; }          /* the spotlight is motion too */
+  .peek-mark { opacity: 1; transform: none; }
 }

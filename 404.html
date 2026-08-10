@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not found — Rishab K Pattnaik</title>
+<meta name="description" content="That page does not exist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inclusive+Sans:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // set theme before first paint so there is no flash
+  (function () {
+    var s = localStorage.getItem('theme');
+    document.documentElement.dataset.theme =
+      s || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  })();
+</script>
+</head>
+<body>
+
+  <header class="bar">
+    <a class="wordmark" href="./">Rishab</a>
+    <nav class="bar-nav" id="menu">
+      <a href="work/">Work</a>
+      <a href="research/">Research</a>
+      <a href="projects/">Projects</a>
+      <a href="writing/">Writing</a>
+    </nav>
+    <div class="bar-right">
+      <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
+      <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+<main id="main" class="block page nf">
+  <div class="block-head"><h1>(404)</h1></div>
+  <p class="contact-line">
+    Nothing lives at that address. Try <a href="/work/">work</a>,
+    <a href="/research/">research</a>, <a href="/projects/">projects</a>,
+    <a href="/writing/">writing</a> — or go back <a href="/">home</a>.
+  </p>
+</main>
+
+<footer>
+    <p class="foot-meta">
+      <span>B.E. Electronics &amp; Communication · BITS Pilani, Hyderabad</span>
+      <span>Built by hand ✦ no frameworks</span>
+    </p>
+  <p class="foot-mark" aria-hidden="true">Rishab</p>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

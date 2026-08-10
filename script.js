@@ -21,6 +21,21 @@ menu.addEventListener('click', e => {
   }
 });
 
+// cursor spotlight — pointer devices only, one write per frame
+if (matchMedia('(hover: hover)').matches) {
+  let x = 0, y = 0, queued = false;
+  addEventListener('pointermove', e => {
+    x = e.clientX; y = e.clientY;
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      document.documentElement.style.setProperty('--mx', x + 'px');
+      document.documentElement.style.setProperty('--my', y + 'px');
+    });
+  }, { passive: true });
+}
+
 // hairline under the bar once you scroll
 const bar = document.querySelector('.bar');
 addEventListener('scroll', () => {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Rishab K Pattnaik</title>
+<meta name="description" content="Writing by Rishab K Pattnaik, AI engineer and researcher.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inclusive+Sans:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>
+  // set theme before first paint so there is no flash
+  (function () {
+    var s = localStorage.getItem('theme');
+    document.documentElement.dataset.theme =
+      s || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <a class="wordmark" href="../">Rishab</a>
+    <nav class="bar-nav" id="menu">
+      <a href="../work/">Work</a>
+      <a href="../research/">Research</a>
+      <a href="../projects/">Projects</a>
+      <a href="../writing/" aria-current="page">Writing</a>
+    </nav>
+    <div class="bar-right">
+      <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
+      <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+<main id="main" class="block page">
+  <div class="block-head">
+    <h1>(writing)</h1>
+    <p class="note">1 post</p>
+  </div>
+<ul class="rows">
+      <li class="row">
+        <a class="row-link" href="https://ai.gopubby.com/medmamba-explained-the-first-vision-mamba-for-generalized-medical-image-classification-is-3aee20a0751a" target="_blank" rel="noopener">
+          <span class="row-name">MedMamba, explained</span>
+          <span class="row-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<rect x="16" y="34" width="17" height="17" rx="2" stroke-width="0.6" opacity="0.55" fill="none"/>
+<text x="24.5" y="45" font-size="5" opacity="0.6" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">h</text>
+<path d="M33,42.5 L41,42.5" stroke-width="0.5" opacity="0.4"/>
+<path d="M38.5,40.8 L41,42.5 L38.5,44.2" stroke-width="0.5" opacity="0.4"/>
+<path d="M24.5,34 L24.5,26" stroke-width="0.45" opacity="0.35"/>
+<circle cx="24.5" cy="23" r="1.8" stroke-width="0.45" opacity="0.45" fill="none"/>
+<path d="M24.5,51 L24.5,59" stroke-width="0.45" opacity="0.35"/>
+<rect x="42" y="34" width="17" height="17" rx="2" stroke-width="0.6" opacity="0.49000000000000005" fill="none"/>
+<text x="50.5" y="45" font-size="5" opacity="0.6" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">h</text>
+<path d="M59,42.5 L67,42.5" stroke-width="0.5" opacity="0.4"/>
+<path d="M64.5,40.8 L67,42.5 L64.5,44.2" stroke-width="0.5" opacity="0.4"/>
+<path d="M50.5,34 L50.5,26" stroke-width="0.45" opacity="0.35"/>
+<circle cx="50.5" cy="23" r="1.8" stroke-width="0.45" opacity="0.45" fill="none"/>
+<path d="M50.5,51 L50.5,59" stroke-width="0.45" opacity="0.35"/>
+<rect x="68" y="34" width="17" height="17" rx="2" stroke-width="0.6" opacity="0.43000000000000005" fill="none"/>
+<text x="76.5" y="45" font-size="5" opacity="0.6" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">h</text>
+<path d="M85,42.5 L93,42.5" stroke-width="0.5" opacity="0.4"/>
+<path d="M90.5,40.8 L93,42.5 L90.5,44.2" stroke-width="0.5" opacity="0.4"/>
+<path d="M76.5,34 L76.5,26" stroke-width="0.45" opacity="0.35"/>
+<circle cx="76.5" cy="23" r="1.8" stroke-width="0.45" opacity="0.45" fill="none"/>
+<path d="M76.5,51 L76.5,59" stroke-width="0.45" opacity="0.35"/>
+<rect x="94" y="34" width="17" height="17" rx="2" stroke-width="0.6" opacity="0.37000000000000005" fill="none"/>
+<text x="102.5" y="45" font-size="5" opacity="0.6" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">h</text>
+<path d="M102.5,34 L102.5,26" stroke-width="0.45" opacity="0.35"/>
+<circle cx="102.5" cy="23" r="1.8" stroke-width="0.45" opacity="0.45" fill="none"/>
+<path d="M102.5,51 L102.5,59" stroke-width="0.45" opacity="0.35"/>
+<path d="M16.54,31.48 L17.4,29.95 L18.65,28.47 L20.28,27.04 L22.28,25.67 L24.63,24.39 L27.3,23.19 L30.27,22.1 L33.51,21.11 L36.99,20.25 L40.69,19.52 L44.55,18.93 L48.55,18.48 L52.65,18.18 L56.81,18.02 L60.99,18.02 L65.15,18.16 L69.25,18.46 L73.26,18.91 L77.13,19.49 L80.83,20.21 L84.32,21.07 L87.58,22.04 L90.56,23.13 L93.25,24.32 L95.61,25.61 L97.63,26.97 L99.28,28.4 L100.55,29.88 L101.43,31.4" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 2"/>
+<text x="16" y="76" font-size="4.4" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">selective scan</text>
+<text x="16" y="96" font-size="4.4" opacity="0.45" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">O(n)</text>
+</svg></span>
+          <span class="row-mid">
+            <span class="row-desc">A plain walkthrough of the first Mamba model built for medical images.</span>
+          </span>
+          <span class="row-year">/2024</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+</main>
+
+<footer>
+    <p class="foot-meta">
+      <span>B.E. Electronics &amp; Communication · BITS Pilani, Hyderabad</span>
+      <span>Built by hand ✦ no frameworks</span>
+    </p>
+  <p class="foot-mark" aria-hidden="true">Rishab</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

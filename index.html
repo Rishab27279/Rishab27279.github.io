@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rishab K Pattnaik — AI Engineer &amp; Researcher</title>
-<meta name="description" content="I build AI that runs on real devices. Talking avatars at Flam; three published papers on reading medical X-rays.">
+<meta name="description" content="On-device AI and medical imaging. Talking avatars at Flam; three published papers on reading X-rays, small enough to run on a phone.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inclusive+Sans:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inclusive+Sans:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
   // set theme before first paint so there is no flash
@@ -18,491 +18,271 @@
   })();
 </script>
 </head>
-<body>
+<body class="is-landing">
 
-<a class="skip" href="#work">Skip to content</a>
+<a class="skip" href="#where">Skip to content</a>
 
-<header class="bar">
-  <a class="wordmark" href="#top">Rishab</a>
-  <nav class="bar-nav" id="menu">
-    <a href="#work">Work</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="bar-right">
-    <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
-    <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
-  </div>
-</header>
+  <header class="bar">
+    <p class="bar-tag">portfolio / 2026</p>
+    <nav class="bar-nav" id="menu">
+      <a href="work/">Work</a>
+      <a href="research/">Research</a>
+      <a href="projects/">Projects</a>
+      <a href="writing/">Writing</a>
+    </nav>
+    <div class="bar-right">
+      <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
+      <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
 
-<main id="top">
-
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 700" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
-<path d="M10,26 L17,26" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,35.7 L13.5,35.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,45.4 L13.5,45.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,55.1 L13.5,55.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,64.8 L13.5,64.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,74.5 L17,74.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,84.2 L13.5,84.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,93.9 L13.5,93.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,103.6 L13.5,103.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,113.3 L13.5,113.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,123 L17,123" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,132.7 L13.5,132.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,142.4 L13.5,142.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,152.1 L13.5,152.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,161.8 L13.5,161.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,171.5 L17,171.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,181.2 L13.5,181.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,190.9 L13.5,190.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,200.6 L13.5,200.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,210.3 L13.5,210.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,220 L17,220" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,229.7 L13.5,229.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,239.4 L13.5,239.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,249.1 L13.5,249.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,258.8 L13.5,258.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,268.5 L17,268.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,278.2 L13.5,278.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,287.9 L13.5,287.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,297.6 L13.5,297.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,307.3 L13.5,307.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,317 L17,317" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,326.7 L13.5,326.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,336.4 L13.5,336.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,346.1 L13.5,346.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,355.8 L13.5,355.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,365.5 L17,365.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,375.2 L13.5,375.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,384.9 L13.5,384.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,394.6 L13.5,394.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,404.3 L13.5,404.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,414 L17,414" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,423.7 L13.5,423.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,433.4 L13.5,433.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,443.1 L13.5,443.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,452.8 L13.5,452.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,462.5 L17,462.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,472.2 L13.5,472.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,481.9 L13.5,481.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,491.6 L13.5,491.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,501.3 L13.5,501.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,511 L17,511" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,520.7 L13.5,520.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,530.4 L13.5,530.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,540.1 L13.5,540.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,549.8 L13.5,549.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,559.5 L17,559.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,569.2 L13.5,569.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,578.9 L13.5,578.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,588.6 L13.5,588.6" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,598.3 L13.5,598.3" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,608 L17,608" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,617.7 L13.5,617.7" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,627.4 L13.5,627.4" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,637.1 L13.5,637.1" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,646.8 L13.5,646.8" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,656.5 L17,656.5" stroke-width="0.5" opacity="0.45"/>
-<path d="M10,666.2 L13.5,666.2" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,675.9 L13.5,675.9" stroke-width="0.5" opacity="0.22"/>
-<path d="M10,26 L10,678" stroke-width="0.5" opacity="0.3"/>
-<text x="34" y="40" font-size="6" opacity="0.85" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">RAW  SCANLINE</text>
-<text x="34" y="49" font-size="4.8" opacity="0.45" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">x[n]  ·  1024 px</text>
-<path d="M34,56 L34,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M67.25,56 L67.25,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M100.5,56 L100.5,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M133.75,56 L133.75,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M167,56 L167,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M200.25,56 L200.25,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M233.5,56 L233.5,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M266.75,56 L266.75,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M300,56 L300,136" stroke-width="0.4" opacity="0.14" stroke-dasharray="1.5 3"/>
-<path d="M34,96 L300,96" stroke-width="0.45" opacity="0.3" stroke-dasharray="2 3"/>
-<path d="M34,91.24 L35.79,88.62 L37.57,86.85 L39.36,86.15 L41.14,86.44 L42.93,87.41 L44.71,88.57 L46.5,89.44 L48.28,89.66 L50.07,89.15 L51.85,88.09 L53.64,86.86 L55.42,85.87 L57.21,85.43 L58.99,85.6 L60.78,86.15 L62.56,86.64 L64.35,86.59 L66.13,85.63 L67.92,83.69 L69.7,81.05 L71.49,78.3 L73.28,76.19 L75.06,75.38 L76.85,76.29 L78.63,78.9 L80.42,82.83 L82.2,87.39 L83.99,91.87 L85.77,95.7 L87.56,98.65 L89.34,100.85 L91.13,102.76 L92.91,104.88 L94.7,107.61 L96.48,111.01 L98.27,114.78 L100.05,118.26 L101.84,120.73 L103.62,121.55 L105.41,120.48 L107.19,117.74 L108.98,113.99 L110.77,110.17 L112.55,107.19 L114.34,105.7 L116.12,105.86 L117.91,107.36 L119.69,109.49 L121.48,111.45 L123.26,112.55 L125.05,112.49 L126.83,111.43 L128.62,109.87 L130.4,108.48 L132.19,107.82 L133.97,108.07 L135.76,108.97 L137.54,109.83 L139.33,109.78 L141.11,108.02 L142.9,104.15 L144.68,98.29 L146.47,91.1 L148.26,83.61 L150.04,76.93 L151.83,71.91 L153.61,68.96 L155.4,67.9 L157.18,68.14 L158.97,68.88 L160.75,69.4 L162.54,69.33 L164.32,68.78 L166.11,68.26 L167.89,68.47 L169.68,70.04 L171.46,73.24 L173.25,77.81 L175.03,83.07 L176.82,88.02 L178.6,91.69 L180.39,93.42 L182.17,93.09 L183.96,91.15 L185.74,88.46 L187.53,86.07 L189.32,84.85 L191.1,85.28 L192.89,87.3 L194.67,90.39 L196.46,93.81 L198.24,96.83 L200.03,99.04 L201.81,100.47 L203.6,101.54 L205.38,102.93 L207.17,105.29 L208.95,108.95 L210.74,113.8 L212.52,119.24 L214.31,124.36 L216.09,128.17 L217.88,129.95 L219.66,129.41 L221.45,126.81 L223.23,122.82 L225.02,118.37 L226.81,114.29 L228.59,111.12 L230.38,108.96 L232.16,107.52 L233.95,106.22 L235.73,104.52 L237.52,102.08 L239.3,98.92 L241.09,95.46 L242.87,92.34 L244.66,90.2 L246.44,89.48 L248.23,90.22 L250.01,92.04 L251.8,94.25 L253.58,96.04 L255.37,96.73 L257.15,95.99 L258.94,93.86 L260.72,90.81 L262.51,87.47 L264.3,84.52 L266.08,82.38 L267.87,81.21 L269.65,80.79 L271.44,80.73 L273.22,80.58 L275.01,80.06 L276.79,79.12 L278.58,78.04 L280.36,77.26 L282.15,77.28 L283.93,78.45 L285.72,80.86 L287.5,84.28 L289.29,88.24 L291.07,92.12 L292.86,95.39 L294.64,97.7 L296.43,98.99 L298.21,99.47 L300,99.5" stroke-width="0.85" opacity="0.95"/>
-<path d="M308,58 L308,134" stroke-width="0.5" opacity="0.5"/>
-<path d="M306.4,60.4 L308,58 L309.6,60.4" stroke-width="0.5" opacity="0.5"/>
-<path d="M306.4,131.6 L308,134 L309.6,131.6" stroke-width="0.5" opacity="0.5"/>
-<text x="311" y="97.8" font-size="4.6" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">2A</text>
-<path d="M40,148 L34,154 L34,166 L40,172" stroke-width="0.6" opacity="0.5"/>
-<text x="45" y="164" font-size="5.4" opacity="0.8" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">2D DWT  ·  db4</text>
-<path d="M108,160 L300,160" stroke-width="0.5" opacity="0.25" stroke-dasharray="2 3"/>
-<text x="34" y="201" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LL</text>
-<text x="51" y="201" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ approximation</text>
-<path d="M34,236 L300,236" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
-<path d="M34,236 L35.79,235.98 L37.57,235.92 L39.36,235.82 L41.14,235.67 L42.93,235.49 L44.71,235.27 L46.5,235.01 L48.28,234.72 L50.07,234.39 L51.85,234.02 L53.64,233.62 L55.42,233.2 L57.21,232.74 L58.99,232.25 L60.78,231.75 L62.56,231.22 L64.35,230.67 L66.13,230.1 L67.92,229.51 L69.7,228.92 L71.49,228.31 L73.28,227.7 L75.06,227.08 L76.85,226.46 L78.63,225.85 L80.42,225.23 L82.2,224.63 L83.99,224.03 L85.77,223.45 L87.56,222.88 L89.34,222.33 L91.13,221.8 L92.91,221.29 L94.7,220.81 L96.48,220.36 L98.27,219.94 L100.05,219.55 L101.84,219.2 L103.62,218.88 L105.41,218.6 L107.19,218.36 L108.98,218.16 L110.77,218.01 L112.55,217.9 L114.34,217.84 L116.12,217.83 L117.91,217.86 L119.69,217.94 L121.48,218.06 L123.26,218.24 L125.05,218.46 L126.83,218.74 L128.62,219.06 L130.4,219.43 L132.19,219.84 L133.97,220.3 L135.76,220.81 L137.54,221.36 L139.33,221.95 L141.11,222.59 L142.9,223.26 L144.68,223.97 L146.47,224.71 L148.26,225.49 L150.04,226.3 L151.83,227.13 L153.61,228 L155.4,228.88 L157.18,229.79 L158.97,230.72 L160.75,231.66 L162.54,232.61 L164.32,233.57 L166.11,234.54 L167.89,235.51 L169.68,236.49 L171.46,237.46 L173.25,238.42 L175.03,239.38 L176.82,240.33 L178.6,241.26 L180.39,242.17 L182.17,243.07 L183.96,243.94 L185.74,244.79 L187.53,245.61 L189.32,246.4 L191.1,247.16 L192.89,247.89 L194.67,248.57 L196.46,249.22 L198.24,249.84 L200.03,250.4 L201.81,250.93 L203.6,251.41 L205.38,251.85 L207.17,252.24 L208.95,252.58 L210.74,252.87 L212.52,253.12 L214.31,253.32 L216.09,253.47 L217.88,253.57 L219.66,253.63 L221.45,253.63 L223.23,253.59 L225.02,253.51 L226.81,253.38 L228.59,253.2 L230.38,252.99 L232.16,252.73 L233.95,252.44 L235.73,252.1 L237.52,251.74 L239.3,251.33 L241.09,250.9 L242.87,250.44 L244.66,249.95 L246.44,249.44 L248.23,248.91 L250.01,248.35 L251.8,247.79 L253.58,247.2 L255.37,246.61 L257.15,246.01 L258.94,245.41 L260.72,244.8 L262.51,244.2 L264.3,243.59 L266.08,243 L267.87,242.41 L269.65,241.83 L271.44,241.27 L273.22,240.73 L275.01,240.2 L276.79,239.7 L278.58,239.22 L280.36,238.77 L282.15,238.34 L283.93,237.95 L285.72,237.59 L287.5,237.26 L289.29,236.96 L291.07,236.71 L292.86,236.49 L294.64,236.31 L296.43,236.16 L298.21,236.06 L300,236" stroke-width="0.75" opacity="0.85"/>
-<path d="M41,206 L34,206 L34,212" stroke-width="0.5" opacity="0.3"/>
-<path d="M41,266 L34,266 L34,260" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,206 L300,206 L300,212" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,266 L300,266 L300,260" stroke-width="0.5" opacity="0.3"/>
-<text x="34" y="279.5" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LH</text>
-<text x="51" y="279.5" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ horizontal</text>
-<path d="M34,312 L300,312" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
-<path d="M34,312 L35.79,312 L37.57,311.99 L39.36,311.98 L41.14,311.96 L42.93,311.91 L44.71,311.86 L46.5,311.78 L48.28,311.69 L50.07,311.58 L51.85,311.46 L53.64,311.33 L55.42,311.19 L57.21,311.06 L58.99,310.93 L60.78,310.82 L62.56,310.74 L64.35,310.68 L66.13,310.67 L67.92,310.71 L69.7,310.79 L71.49,310.94 L73.28,311.15 L75.06,311.42 L76.85,311.75 L78.63,312.15 L80.42,312.61 L82.2,313.11 L83.99,313.67 L85.77,314.25 L87.56,314.85 L89.34,315.47 L91.13,316.07 L92.91,316.65 L94.7,317.19 L96.48,317.67 L98.27,318.08 L100.05,318.39 L101.84,318.61 L103.62,318.7 L105.41,318.67 L107.19,318.51 L108.98,318.2 L110.77,317.75 L112.55,317.16 L114.34,316.43 L116.12,315.56 L117.91,314.59 L119.69,313.5 L121.48,312.33 L123.26,311.1 L125.05,309.82 L126.83,308.52 L128.62,307.22 L130.4,305.96 L132.19,304.76 L133.97,303.64 L135.76,302.63 L137.54,301.75 L139.33,301.03 L141.11,300.49 L142.9,300.13 L144.68,299.97 L146.47,300.02 L148.26,300.27 L150.04,300.74 L151.83,301.41 L153.61,302.28 L155.4,303.32 L157.18,304.53 L158.97,305.87 L160.75,307.34 L162.54,308.89 L164.32,310.5 L166.11,312.15 L167.89,313.79 L169.68,315.4 L171.46,316.95 L173.25,318.4 L175.03,319.74 L176.82,320.94 L178.6,321.97 L180.39,322.82 L182.17,323.47 L183.96,323.92 L185.74,324.15 L187.53,324.17 L189.32,323.99 L191.1,323.6 L192.89,323.03 L194.67,322.28 L196.46,321.37 L198.24,320.33 L200.03,319.18 L201.81,317.95 L203.6,316.66 L205.38,315.33 L207.17,314 L208.95,312.7 L210.74,311.44 L212.52,310.24 L214.31,309.14 L216.09,308.14 L217.88,307.27 L219.66,306.53 L221.45,305.93 L223.23,305.48 L225.02,305.17 L226.81,305.01 L228.59,304.99 L230.38,305.1 L232.16,305.33 L233.95,305.67 L235.73,306.1 L237.52,306.61 L239.3,307.18 L241.09,307.79 L242.87,308.42 L244.66,309.07 L246.44,309.7 L248.23,310.32 L250.01,310.9 L251.8,311.44 L253.58,311.92 L255.37,312.34 L257.15,312.7 L258.94,312.99 L260.72,313.21 L262.51,313.37 L264.3,313.46 L266.08,313.5 L267.87,313.49 L269.65,313.43 L271.44,313.34 L273.22,313.23 L275.01,313.09 L276.79,312.95 L278.58,312.8 L280.36,312.65 L282.15,312.51 L283.93,312.39 L285.72,312.28 L287.5,312.19 L289.29,312.12 L291.07,312.07 L292.86,312.03 L294.64,312.01 L296.43,312 L298.21,312 L300,312" stroke-width="0.75" opacity="0.75"/>
-<path d="M41,284.5 L34,284.5 L34,290.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M41,339.5 L34,339.5 L34,333.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,284.5 L300,284.5 L300,290.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,339.5 L300,339.5 L300,333.5" stroke-width="0.5" opacity="0.3"/>
-<text x="34" y="358" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HL</text>
-<text x="51" y="358" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ vertical</text>
-<path d="M34,388 L300,388" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
-<path d="M34,388 L35.79,388 L37.57,387.99 L39.36,387.97 L41.14,387.94 L42.93,387.9 L44.71,387.87 L46.5,387.85 L48.28,387.84 L50.07,387.86 L51.85,387.91 L53.64,388 L55.42,388.13 L57.21,388.29 L58.99,388.48 L60.78,388.68 L62.56,388.89 L64.35,389.07 L66.13,389.21 L67.92,389.29 L69.7,389.28 L71.49,389.18 L73.28,388.98 L75.06,388.67 L76.85,388.26 L78.63,387.77 L80.42,387.21 L82.2,386.62 L83.99,386.04 L85.77,385.51 L87.56,385.06 L89.34,384.75 L91.13,384.6 L92.91,384.64 L94.7,384.9 L96.48,385.37 L98.27,386.04 L100.05,386.89 L101.84,387.88 L103.62,388.97 L105.41,390.08 L107.19,391.16 L108.98,392.14 L110.77,392.95 L112.55,393.53 L114.34,393.82 L116.12,393.81 L117.91,393.45 L119.69,392.77 L121.48,391.78 L123.26,390.53 L125.05,389.07 L126.83,387.48 L128.62,385.86 L130.4,384.28 L132.19,382.85 L133.97,381.65 L135.76,380.76 L137.54,380.25 L139.33,380.15 L141.11,380.48 L142.9,381.24 L144.68,382.38 L146.47,383.87 L148.26,385.61 L150.04,387.51 L151.83,389.48 L153.61,391.39 L155.4,393.15 L157.18,394.64 L158.97,395.79 L160.75,396.52 L162.54,396.8 L164.32,396.59 L166.11,395.92 L167.89,394.82 L169.68,393.35 L171.46,391.59 L173.25,389.65 L175.03,387.63 L176.82,385.65 L178.6,383.81 L180.39,382.22 L182.17,380.96 L183.96,380.1 L185.74,379.69 L187.53,379.72 L189.32,380.21 L191.1,381.1 L192.89,382.34 L194.67,383.85 L196.46,385.54 L198.24,387.32 L200.03,389.07 L201.81,390.71 L203.6,392.14 L205.38,393.29 L207.17,394.12 L208.95,394.58 L210.74,394.66 L212.52,394.39 L214.31,393.78 L216.09,392.89 L217.88,391.79 L219.66,390.55 L221.45,389.24 L223.23,387.94 L225.02,386.73 L226.81,385.67 L228.59,384.81 L230.38,384.18 L232.16,383.81 L233.95,383.7 L235.73,383.83 L237.52,384.18 L239.3,384.7 L241.09,385.36 L242.87,386.1 L244.66,386.88 L246.44,387.63 L248.23,388.32 L250.01,388.92 L251.8,389.39 L253.58,389.73 L255.37,389.92 L257.15,389.98 L258.94,389.91 L260.72,389.74 L262.51,389.5 L264.3,389.2 L266.08,388.88 L267.87,388.56 L269.65,388.27 L271.44,388.02 L273.22,387.82 L275.01,387.68 L276.79,387.6 L278.58,387.57 L280.36,387.58 L282.15,387.62 L283.93,387.69 L285.72,387.76 L287.5,387.83 L289.29,387.89 L291.07,387.94 L292.86,387.98 L294.64,387.99 L296.43,388 L298.21,388 L300,388" stroke-width="0.75" opacity="0.6499999999999999"/>
-<path d="M41,363 L34,363 L34,369" stroke-width="0.5" opacity="0.3"/>
-<path d="M41,413 L34,413 L34,407" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,363 L300,363 L300,369" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,413 L300,413 L300,407" stroke-width="0.5" opacity="0.3"/>
-<text x="34" y="436.5" font-size="6.6" opacity="0.9" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HH</text>
-<text x="51" y="436.5" font-size="4.6" opacity="0.42" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">/ diagonal</text>
-<path d="M34,464 L300,464" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
-<path d="M34,464 L35.79,464 L37.57,464 L39.36,464 L41.14,464 L42.93,464 L44.71,464.01 L46.5,464.01 L48.28,464.03 L50.07,464.04 L51.85,464.04 L53.64,464.04 L55.42,464.01 L57.21,463.97 L58.99,463.92 L60.78,463.85 L62.56,463.8 L64.35,463.77 L66.13,463.79 L67.92,463.86 L69.7,463.99 L71.49,464.16 L73.28,464.35 L75.06,464.52 L76.85,464.63 L78.63,464.64 L80.42,464.52 L82.2,464.27 L83.99,463.91 L85.77,463.49 L87.56,463.09 L89.34,462.79 L91.13,462.67 L92.91,462.77 L94.7,463.13 L96.48,463.7 L98.27,464.41 L100.05,465.15 L101.84,465.78 L103.62,466.17 L105.41,466.21 L107.19,465.86 L108.98,465.13 L110.77,464.12 L112.55,462.99 L114.34,461.92 L116.12,461.12 L117.91,460.75 L119.69,460.93 L121.48,461.65 L123.26,462.85 L125.05,464.33 L126.83,465.86 L128.62,467.18 L130.4,468.02 L132.19,468.22 L133.97,467.71 L135.76,466.53 L137.54,464.86 L139.33,462.96 L141.11,461.16 L142.9,459.77 L144.68,459.04 L146.47,459.13 L148.26,460.05 L150.04,461.66 L151.83,463.71 L153.61,465.86 L155.4,467.73 L157.18,469.02 L158.97,469.48 L160.75,469.02 L162.54,467.72 L164.32,465.8 L166.11,463.56 L167.89,461.39 L169.68,459.67 L171.46,458.66 L173.25,458.55 L175.03,459.35 L176.82,460.9 L178.6,462.95 L180.39,465.13 L182.17,467.08 L183.96,468.48 L185.74,469.11 L187.53,468.88 L189.32,467.85 L191.1,466.23 L192.89,464.3 L194.67,462.4 L196.46,460.84 L198.24,459.86 L200.03,459.61 L201.81,460.09 L203.6,461.17 L205.38,462.66 L207.17,464.28 L208.95,465.75 L210.74,466.83 L212.52,467.39 L214.31,467.35 L216.09,466.78 L217.88,465.8 L219.66,464.61 L221.45,463.42 L223.23,462.44 L225.02,461.8 L226.81,461.58 L228.59,461.77 L230.38,462.3 L232.16,463.05 L233.95,463.86 L235.73,464.6 L237.52,465.15 L239.3,465.44 L241.09,465.46 L242.87,465.24 L244.66,464.86 L246.44,464.39 L248.23,463.93 L250.01,463.57 L251.8,463.33 L253.58,463.25 L255.37,463.3 L257.15,463.46 L258.94,463.67 L260.72,463.89 L262.51,464.08 L264.3,464.22 L266.08,464.28 L267.87,464.28 L269.65,464.23 L271.44,464.16 L273.22,464.08 L275.01,464.01 L276.79,463.96 L278.58,463.94 L280.36,463.94 L282.15,463.95 L283.93,463.97 L285.72,463.98 L287.5,463.99 L289.29,464 L291.07,464 L292.86,464 L294.64,464 L296.43,464 L298.21,464 L300,464" stroke-width="0.75" opacity="0.5499999999999999"/>
-<path d="M41,441.5 L34,441.5 L34,447.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M41,486.5 L34,486.5 L34,480.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,441.5 L300,441.5 L300,447.5" stroke-width="0.5" opacity="0.3"/>
-<path d="M293,486.5 L300,486.5 L300,480.5" stroke-width="0.5" opacity="0.3"/>
-<circle cx="214.88" cy="464" r="17" stroke-width="0.6" opacity="0.55" fill="none"/>
-<circle cx="214.88" cy="464" r="17.9" stroke-width="0.4" opacity="0.22" fill="none"/>
-<path d="M227.38,451.5 L248.88,430" stroke-width="0.5" opacity="0.45"/>
-<path d="M248.88,430 L266.88,430" stroke-width="0.5" opacity="0.45"/>
-<text x="250.88" y="427" font-size="4.8" opacity="0.6" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">σ = 0.041</text>
-<path d="M197.88,464 L231.88,464" stroke-width="0.4" opacity="0.3"/>
-<path d="M214.88,447 L214.88,481" stroke-width="0.4" opacity="0.3"/>
-<text x="34" y="550" font-size="6" opacity="0.85" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">FUSED  FEATURE  MAP</text>
-<path d="M34,596 L300,596" stroke-width="0.55" opacity="0.4"/>
-<path d="M34.7,596 L34.7,596 L39.63,596 L39.63,596" stroke-width="0.5" opacity="0.28"/>
-<path d="M41.03,596 L41.03,589.25 L45.97,589.25 L45.97,596" stroke-width="0.5" opacity="0.35465234264955986"/>
-<path d="M47.37,596 L47.37,582.88 L52.3,582.88 L52.3,596" stroke-width="0.5" opacity="0.4250416294483286"/>
-<path d="M53.7,596 L53.7,577.14 L58.63,577.14 L58.63,596" stroke-width="0.5" opacity="0.4884353498361604"/>
-<path d="M60.03,596 L60.03,572.25 L64.97,572.25 L64.97,596" stroke-width="0.5" opacity="0.5424729179981024"/>
-<path d="M66.37,596 L66.37,568.38 L71.3,568.38 L71.3,596" stroke-width="0.5" opacity="0.585271559677004"/>
-<path d="M72.7,596 L72.7,565.64 L77.63,565.64 L77.63,596" stroke-width="0.5" opacity="0.6155060522222395"/>
-<path d="M79.03,596 L79.03,564.11 L83.97,564.11 L83.97,596" stroke-width="0.5" opacity="0.6324586596307891"/>
-<path d="M85.37,596 L85.37,563.79 L90.3,563.79 L90.3,596" stroke-width="0.5" opacity="0.6360372452476823"/>
-<path d="M91.7,596 L91.7,564.63 L96.63,564.63 L96.63,596" stroke-width="0.5" opacity="0.6267612657226767"/>
-<path d="M98.03,596 L98.03,566.53 L102.97,566.53 L102.97,596" stroke-width="0.5" opacity="0.6057170566642229"/>
-<path d="M104.37,596 L104.37,569.36 L109.3,569.36 L109.3,596" stroke-width="0.5" opacity="0.5744854213529011"/>
-<path d="M110.7,596 L110.7,572.92 L115.63,572.92 L115.63,596" stroke-width="0.5" opacity="0.5350459442668576"/>
-<path d="M117.03,596 L117.03,577.03 L121.97,577.03 L121.97,596" stroke-width="0.5" opacity="0.4896635981459012"/>
-<path d="M123.37,596 L123.37,581.45 L128.3,581.45 L128.3,596" stroke-width="0.5" opacity="0.4407640395000289"/>
-<path d="M129.7,596 L129.7,585.97 L134.63,585.97 L134.63,596" stroke-width="0.5" opacity="0.39080445385929097"/>
-<path d="M136.03,596 L136.03,590.38 L140.97,590.38 L140.97,596" stroke-width="0.5" opacity="0.3421468998878755"/>
-<path d="M142.37,596 L142.37,594.47 L147.3,594.47 L147.3,596" stroke-width="0.5" opacity="0.29694081288047003"/>
-<path d="M148.7,596 L148.7,593.92 L153.63,593.92 L153.63,596" stroke-width="0.5" opacity="0.3029793142897229"/>
-<path d="M155.03,596 L155.03,590.92 L159.97,590.92 L159.97,596" stroke-width="0.5" opacity="0.33617600952660076"/>
-<path d="M161.37,596 L161.37,588.61 L166.3,588.61 L166.3,596" stroke-width="0.5" opacity="0.3616668053583044"/>
-<path d="M167.7,596 L167.7,587.05 L172.63,587.05 L172.63,596" stroke-width="0.5" opacity="0.37895566786895635"/>
-<path d="M174.03,596 L174.03,586.23 L178.97,586.23 L178.97,596" stroke-width="0.5" opacity="0.38803690826640674"/>
-<path d="M180.37,596 L180.37,586.1 L185.3,586.1 L185.3,596" stroke-width="0.5" opacity="0.3893721334445682"/>
-<path d="M186.7,596 L186.7,586.6 L191.63,586.6 L191.63,596" stroke-width="0.5" opacity="0.38384224822672813"/>
-<path d="M193.03,596 L193.03,587.61 L197.97,587.61 L197.97,596" stroke-width="0.5" opacity="0.3726778374365963"/>
-<path d="M199.37,596 L199.37,589 L204.3,589 L204.3,596" stroke-width="0.5" opacity="0.3573723613058955"/>
-<path d="M205.7,596 L205.7,590.61 L210.63,590.61 L210.63,596" stroke-width="0.5" opacity="0.33958343656068046"/>
-<path d="M212.03,596 L212.03,592.29 L216.97,592.29 L216.97,596" stroke-width="0.5" opacity="0.321028007081299"/>
-<path d="M218.37,596 L218.37,593.88 L223.3,593.88 L223.3,596" stroke-width="0.5" opacity="0.3033774091951802"/>
-<path d="M224.7,596 L224.7,595.26 L229.63,595.26 L229.63,596" stroke-width="0.5" opacity="0.28815820293377004"/>
-<path d="M231.03,596 L231.03,595.7 L235.97,595.7 L235.97,596" stroke-width="0.5" opacity="0.28333581401739116"/>
-<path d="M237.37,596 L237.37,595.08 L242.3,595.08 L242.3,596" stroke-width="0.5" opacity="0.2901157369881438"/>
-<path d="M243.7,596 L243.7,594.95 L248.63,594.95 L248.63,596" stroke-width="0.5" opacity="0.2915501436013581"/>
-<path d="M250.03,596 L250.03,595.33 L254.97,595.33 L254.97,596" stroke-width="0.5" opacity="0.2873956256445519"/>
-<path d="M256.37,596 L256.37,595.8 L261.3,595.8 L261.3,596" stroke-width="0.5" opacity="0.28219596747632036"/>
-<path d="M262.7,596 L262.7,594.49 L267.63,594.49 L267.63,596" stroke-width="0.5" opacity="0.2966934780813127"/>
-<path d="M269.03,596 L269.03,592.81 L273.97,592.81 L273.97,596" stroke-width="0.5" opacity="0.315224192761069"/>
-<path d="M275.37,596 L275.37,590.88 L280.3,590.88 L280.3,596" stroke-width="0.5" opacity="0.3366308182529244"/>
-<path d="M281.7,596 L281.7,588.8 L286.63,588.8 L286.63,596" stroke-width="0.5" opacity="0.359544078164864"/>
-<path d="M288.03,596 L288.03,586.73 L292.97,586.73 L292.97,596" stroke-width="0.5" opacity="0.382466526526066"/>
-<path d="M294.37,596 L294.37,584.79 L299.3,584.79 L299.3,596" stroke-width="0.5" opacity="0.4038626338065996"/>
-<path d="M34,596 L34,599.5" stroke-width="0.5" opacity="0.35"/>
-<path d="M78.33,596 L78.33,599.5" stroke-width="0.5" opacity="0.35"/>
-<path d="M122.67,596 L122.67,599.5" stroke-width="0.5" opacity="0.35"/>
-<path d="M167,596 L167,599.5" stroke-width="0.5" opacity="0.35"/>
-<path d="M211.33,596 L211.33,599.5" stroke-width="0.5" opacity="0.35"/>
-<path d="M255.67,596 L255.67,599.5" stroke-width="0.5" opacity="0.35"/>
-<text x="34" y="610" font-size="4.4" opacity="0.4" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">0</text>
-<text x="300" y="610" font-size="4.4" opacity="0.4" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">1.0 kHz</text>
-<text x="300" y="550" font-size="5.2" opacity="0.6" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">acc 92.22%</text>
-</svg></div>
+<main class="landing">
+  <div class="landing-top">
     <h1>Rishab K Pattnaik</h1>
     <p class="role">AI Engineer <span>✦</span> Researcher</p>
     <p class="lede">
-      I build AI that runs on real devices. Right now I make talking avatars at Flam.
-      Before that I taught computers to spot broken bones in X-rays — three published
-      papers came out of it.
+      Right now I make <em>talking avatars</em> at Flam. Before that I taught
+      computers to spot broken bones in X-rays, three published papers came
+      out of it 😏.
     </p>
-    <p class="chip-row"><span class="chip solid">Bangalore ✦ open to talk</span></p>
-    <nav class="links" aria-label="Elsewhere">
-      <a href="https://drive.google.com/file/d/1sES1LkygW-1xkXr2EneSjquyPbQdiY6V/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
-      <a href="https://github.com/Rishab27279" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">Scholar</a>
-      <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://medium.com/@rishab27279" target="_blank" rel="noopener">Medium</a>
-      <a href="mailto:rishab27279@gmail.com">Email</a>
-    </nav>
-  </section>
-
-  <!-- ── WORK ── -->
-  <section id="work" class="block">
-    <div class="block-head">
-      <h2>(work)</h2>
-      <p class="note">4 places</p>
-    </div>
-    <ul class="rows">
-      <li class="row">
-        <a class="row-link" href="https://flam.app" target="_blank" rel="noopener">
-          <span class="row-name"><img src="flam_logo.png" alt="" class="logo">Flam</span>
-          <span class="row-mid">
-            <span class="row-role">AI Engineering Intern</span>
-            <span class="row-desc">Talking-head avatars — data pipelines, generative models, and live streaming over WebRTC.</span>
-          </span>
-          <span class="row-year">/2026 — now</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li class="row">
-        <a class="row-link" href="https://www.hamad.qa" target="_blank" rel="noopener">
-          <span class="row-name"><img src="hamad_logo.png" alt="" class="logo">Hamad Medical</span>
-          <span class="row-mid">
-            <span class="row-role">AI Research Intern · Doha</span>
-            <span class="row-desc">Helping emergency rooms sort patients faster, and spotting kidney disease early.</span>
-          </span>
-          <span class="row-year">/2025</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li class="row">
-        <a class="row-link" href="https://www.bits-pilani.ac.in" target="_blank" rel="noopener">
-          <span class="row-name"><img src="bits_logo.png" alt="" class="logo">BITS Pilani</span>
-          <span class="row-mid">
-            <span class="row-role">Research Assistant · ECE</span>
-            <span class="row-desc">Medical imaging. Two of my papers on reading X-rays came out of this lab.</span>
-          </span>
-          <span class="row-year">/2024 — 25</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li class="row">
-        <a class="row-link" href="https://www.igcar.gov.in" target="_blank" rel="noopener">
-          <span class="row-name"><img src="igcar_logo.png" alt="" class="logo">IGCAR</span>
-          <span class="row-mid">
-            <span class="row-role">Computer Vision Intern · Kalpakkam</span>
-            <span class="row-desc">Taught Meta's Segment Anything model to find objects that blend into the background.</span>
-          </span>
-          <span class="row-year">/2024</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ── RESEARCH ── -->
-  <section id="research" class="block">
-    <div class="block-head">
-      <h2>(research)</h2>
-      <a class="note-link" href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">(all on Scholar)</a>
-    </div>
-    <ul class="rows">
-      <li class="row">
-        <a class="row-link" href="https://ieeexplore.ieee.org/abstract/document/11370760" target="_blank" rel="noopener">
-          <span class="row-name">Fourier Block Transformer</span>
-          <span class="row-mid">
-            <span class="row-role">IEEE Sensors Letters</span>
-            <span class="row-desc">Checks for thinning bones from an X-ray, running on a phone. No cloud. 88.41% accurate.</span>
-          </span>
-          <span class="row-year">/2026</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li class="row">
-        <a class="row-link" href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021" target="_blank" rel="noopener">
-          <span class="row-name">Multi-Frequency Learning</span>
-          <span class="row-mid">
-            <span class="row-role">Healthcare Technology Letters</span>
-            <span class="row-desc">Finds broken bones that are easy to miss by eye. 92.22% across 6,229 X-rays.</span>
-          </span>
-          <span class="row-year">/2025</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li class="row">
-        <a class="row-link" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=cvw_YK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=cvw_YK8AAAAJ:L7CI7m0gUJcC" target="_blank" rel="noopener">
-          <span class="row-name">Chest X-Ray Screening</span>
-          <span class="row-mid">
-            <span class="row-role">Elsevier · book chapter</span>
-            <span class="row-desc">Tells apart pneumonia and tuberculosis on a chest X-ray. 87.08% accurate.</span>
-          </span>
-          <span class="row-year">/2025</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ── PROJECTS ── -->
-  <section id="projects" class="block">
-    <div class="block-head">
-      <h2>(projects)</h2>
-      <a class="note-link" href="https://github.com/Rishab27279" target="_blank" rel="noopener">(all on GitHub)</a>
-    </div>
-    <div class="block-body">
-      <div class="deco" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 360" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
-<path d="M66,0 L66,30" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 3"/>
-<path d="M14,40 L66,40 L66,92 L14,92 L14,40" stroke-width="0.6" opacity="0.45"/>
-<path d="M16,43.76 L17.92,43.62 L19.84,43.51 L21.76,43.43 L23.68,43.39 L25.6,43.38 L27.52,43.4 L29.44,43.46 L31.36,43.56 L33.28,43.68 L35.2,43.84 L37.12,44.02 L39.04,44.23 L40.96,44.46 L42.88,44.71 L44.8,44.97 L46.72,45.25 L48.64,45.53 L50.56,45.82 L52.48,46.11 L54.4,46.39 L56.32,46.66 L58.24,46.93 L60.16,47.17 L62.08,47.39 L64,47.59" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,49.37 L17.92,49.51 L19.84,49.67 L21.76,49.86 L23.68,50.08 L25.6,50.32 L27.52,50.57 L29.44,50.84 L31.36,51.12 L33.28,51.41 L35.2,51.7 L37.12,51.98 L39.04,52.26 L40.96,52.53 L42.88,52.79 L44.8,53.02 L46.72,53.24 L48.64,53.43 L50.56,53.6 L52.48,53.73 L54.4,53.84 L56.32,53.91 L58.24,53.95 L60.16,53.95 L62.08,53.92 L64,53.86" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,56.99 L17.92,57.28 L19.84,57.57 L21.76,57.85 L23.68,58.13 L25.6,58.4 L27.52,58.65 L29.44,58.88 L31.36,59.09 L33.28,59.27 L35.2,59.43 L37.12,59.55 L39.04,59.64 L40.96,59.71 L42.88,59.73 L44.8,59.72 L46.72,59.68 L48.64,59.61 L50.56,59.5 L52.48,59.36 L54.4,59.19 L56.32,58.99 L58.24,58.77 L60.16,58.53 L62.08,58.27 L64,58" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,64.93 L17.92,65.1 L19.84,65.25 L21.76,65.36 L23.68,65.45 L25.6,65.5 L27.52,65.51 L29.44,65.49 L31.36,65.44 L33.28,65.35 L35.2,65.23 L37.12,65.08 L39.04,64.9 L40.96,64.7 L42.88,64.47 L44.8,64.23 L46.72,63.96 L48.64,63.69 L50.56,63.41 L52.48,63.12 L54.4,62.83 L56.32,62.55 L58.24,62.27 L60.16,62.01 L62.08,61.76 L64,61.53" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,71.19 L17.92,71.09 L19.84,70.96 L21.76,70.8 L23.68,70.62 L25.6,70.4 L27.52,70.17 L29.44,69.92 L31.36,69.65 L33.28,69.37 L35.2,69.09 L37.12,68.8 L39.04,68.51 L40.96,68.23 L42.88,67.96 L44.8,67.7 L46.72,67.46 L48.64,67.24 L50.56,67.04 L52.48,66.87 L54.4,66.73 L56.32,66.62 L58.24,66.54 L60.16,66.5 L62.08,66.49 L64,66.51" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,75.34 L17.92,75.06 L19.84,74.77 L21.76,74.48 L23.68,74.2 L25.6,73.92 L27.52,73.65 L29.44,73.4 L31.36,73.16 L33.28,72.95 L35.2,72.76 L37.12,72.6 L39.04,72.47 L40.96,72.37 L42.88,72.3 L44.8,72.27 L46.72,72.27 L48.64,72.31 L50.56,72.38 L52.48,72.48 L54.4,72.62 L56.32,72.78 L58.24,72.97 L60.16,73.19 L62.08,73.42 L64,73.68" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,78.87 L17.92,78.66 L19.84,78.48 L21.76,78.33 L23.68,78.21 L25.6,78.12 L27.52,78.07 L29.44,78.04 L31.36,78.06 L33.28,78.11 L35.2,78.19 L37.12,78.3 L39.04,78.44 L40.96,78.62 L42.88,78.82 L44.8,79.04 L46.72,79.28 L48.64,79.54 L50.56,79.82 L52.48,80.1 L54.4,80.38 L56.32,80.67 L58.24,80.96 L60.16,81.23 L62.08,81.5 L64,81.75" stroke-width="0.4" opacity="0.3"/>
-<path d="M16,83.85 L17.92,83.91 L19.84,84 L21.76,84.12 L23.68,84.28 L25.6,84.46 L27.52,84.67 L29.44,84.9 L31.36,85.15 L33.28,85.41 L35.2,85.69 L37.12,85.97 L39.04,86.26 L40.96,86.55 L42.88,86.83 L44.8,87.1 L46.72,87.36 L48.64,87.61 L50.56,87.83 L52.48,88.03 L54.4,88.21 L56.32,88.36 L58.24,88.47 L60.16,88.56 L62.08,88.61 L64,88.62" stroke-width="0.4" opacity="0.3"/>
-<path d="M66,40 L118,40 L118,92 L66,92 L66,40" stroke-width="0.6" opacity="0.45"/>
-<path d="M71.78,42 L71.78,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M77.56,42 L77.56,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M83.33,42 L83.33,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M89.11,42 L89.11,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M94.89,42 L94.89,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M100.67,42 L100.67,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M106.44,42 L106.44,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M112.22,42 L112.22,90" stroke-width="0.4" opacity="0.22"/>
-<path d="M14,92 L66,92 L66,144 L14,144 L14,92" stroke-width="0.6" opacity="0.45"/>
-<path d="M19.78,94 L19.78,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M25.56,94 L25.56,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M31.33,94 L31.33,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M37.11,94 L37.11,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M42.89,94 L42.89,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M48.67,94 L48.67,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M54.44,94 L54.44,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M60.22,94 L60.22,142" stroke-width="0.4" opacity="0.22"/>
-<path d="M66,92 L118,92 L118,144 L66,144 L66,92" stroke-width="0.6" opacity="0.45"/>
-<path d="M68,95.76 L69.92,95.4 L71.84,96.23 L73.76,97.82 L75.68,99.39 L77.6,100.16 L79.52,99.75 L81.44,98.36 L83.36,96.68 L85.28,95.54 L87.2,95.52 L89.12,96.62 L91.04,98.29 L92.96,99.71 L94.88,100.17 L96.8,99.44 L98.72,97.89 L100.64,96.28 L102.56,95.42 L104.48,95.72 L106.4,97.05 L108.32,98.74 L110.24,99.95 L112.16,100.08 L114.08,99.07 L116,97.42" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,101.37 L69.92,102.57 L71.84,104.26 L73.76,105.6 L75.68,105.92 L77.6,105.07 L79.52,103.47 L81.44,101.91 L83.36,101.17 L85.28,101.61 L87.2,103.02 L89.12,104.7 L91.04,105.81 L92.96,105.8 L94.88,104.68 L96.8,103 L98.72,101.6 L100.64,101.17 L102.56,101.92 L104.48,103.49 L106.4,105.09 L108.32,105.93 L110.24,105.59 L112.16,104.24 L114.08,102.55 L116,101.36" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,108.99 L69.92,110.65 L71.84,111.64 L73.76,111.5 L75.68,110.27 L77.6,108.59 L79.52,107.27 L81.44,106.97 L83.36,107.85 L85.28,109.47 L87.2,111.01 L89.12,111.73 L91.04,111.25 L92.96,109.83 L94.88,108.15 L96.8,107.07 L98.72,107.11 L100.64,108.25 L102.56,109.93 L104.48,111.32 L106.4,111.72 L108.32,110.93 L110.24,109.36 L112.16,107.77 L114.08,106.96 L116,107.33" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,116.93 L69.92,117.51 L71.84,116.9 L73.76,115.41 L75.68,113.76 L77.6,112.79 L79.52,112.97 L81.44,114.21 L83.36,115.9 L85.28,117.2 L87.2,117.46 L89.12,116.56 L91.04,114.93 L92.96,113.4 L94.88,112.72 L96.8,113.22 L98.72,114.66 L100.64,116.33 L102.56,117.39 L104.48,117.32 L106.4,116.15 L108.32,114.47 L110.24,113.1 L112.16,112.73 L114.08,113.54 L116,115.13" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,123.19 L69.92,122.17 L71.84,120.51 L73.76,119.04 L75.68,118.49 L77.6,119.13 L79.52,120.64 L81.44,122.27 L83.36,123.22 L85.28,123.01 L87.2,121.75 L89.12,120.06 L91.04,118.78 L92.96,118.55 L94.88,119.48 L96.8,121.11 L98.72,122.63 L100.64,123.29 L102.56,122.75 L104.48,121.29 L106.4,119.63 L108.32,118.6 L110.24,118.7 L112.16,119.89 L114.08,121.57 L116,122.92" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,127.34 L69.92,125.65 L71.84,124.47 L73.76,124.38 L75.68,125.42 L77.6,127.09 L79.52,128.54 L81.44,129.06 L83.36,128.4 L85.28,126.87 L87.2,125.25 L89.12,124.32 L91.04,124.56 L92.96,125.85 L94.88,127.54 L96.8,128.8 L98.72,129 L100.64,128.04 L102.56,126.4 L104.48,124.89 L106.4,124.27 L108.32,124.83 L110.24,126.31 L112.16,127.96 L114.08,128.97 L116,128.84" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,130.87 L69.92,130.07 L71.84,130.44 L73.76,131.82 L75.68,133.5 L77.6,134.66 L79.52,134.72 L81.44,133.65 L83.36,131.98 L85.28,130.54 L87.2,130.05 L89.12,130.74 L91.04,132.28 L92.96,133.9 L94.88,134.8 L96.8,134.53 L98.72,133.22 L100.64,131.53 L102.56,130.29 L104.48,130.12 L106.4,131.11 L108.32,132.75 L110.24,134.25 L112.16,134.84 L114.08,134.25 L116,132.76" stroke-width="0.4" opacity="0.3"/>
-<path d="M68,135.85 L69.92,136.67 L71.84,138.26 L73.76,139.83 L75.68,140.61 L77.6,140.2 L79.52,138.81 L81.44,137.13 L83.36,135.99 L85.28,135.96 L87.2,137.05 L89.12,138.73 L91.04,140.15 L92.96,140.61 L94.88,139.89 L96.8,138.34 L98.72,136.73 L100.64,135.86 L102.56,136.16 L104.48,137.49 L106.4,139.18 L108.32,140.39 L110.24,140.53 L112.16,139.52 L114.08,137.87 L116,136.39" stroke-width="0.4" opacity="0.3"/>
-<text x="16" y="48" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LL</text>
-<text x="68" y="48" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LH</text>
-<text x="16" y="100" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HL</text>
-<text x="68" y="100" font-size="5" opacity="0.75" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HH</text>
-<path d="M122,40 L122,144" stroke-width="0.5" opacity="0.5"/>
-<path d="M120.4,42.4 L122,40 L123.6,42.4" stroke-width="0.5" opacity="0.5"/>
-<path d="M120.4,141.6 L122,144 L123.6,141.6" stroke-width="0.5" opacity="0.5"/>
-<text x="125" y="93.8" font-size="4.6" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">n/2</text>
-<path d="M14,170 L88,170" stroke-width="0.5" opacity="0.3"/>
-<path d="M14,176.4 L85.15,176.4" stroke-width="0.5" opacity="0.292"/>
-<path d="M14,182.8 L82.31,182.8" stroke-width="0.5" opacity="0.284"/>
-<path d="M14,189.2 L79.46,189.2" stroke-width="0.5" opacity="0.27599999999999997"/>
-<path d="M14,195.6 L76.62,195.6" stroke-width="0.5" opacity="0.268"/>
-<path d="M14,202 L73.77,202" stroke-width="0.5" opacity="0.26"/>
-<path d="M14,208.4 L70.92,208.4" stroke-width="0.5" opacity="0.252"/>
-<path d="M14,214.8 L68.08,214.8" stroke-width="0.5" opacity="0.244"/>
-<path d="M14,221.2 L65.23,221.2" stroke-width="0.5" opacity="0.236"/>
-<path d="M14,227.6 L62.38,227.6" stroke-width="0.5" opacity="0.22799999999999998"/>
-<path d="M14,234 L59.54,234" stroke-width="0.5" opacity="0.21999999999999997"/>
-<path d="M14,240.4 L56.69,240.4" stroke-width="0.5" opacity="0.212"/>
-<path d="M14,246.8 L53.85,246.8" stroke-width="0.5" opacity="0.204"/>
-<path d="M14,253.2 L51,253.2" stroke-width="0.5" opacity="0.19599999999999998"/>
-<path d="M14,259.6 L48.15,259.6" stroke-width="0.5" opacity="0.188"/>
-<path d="M14,266 L45.31,266" stroke-width="0.5" opacity="0.18"/>
-<path d="M14,272.4 L42.46,272.4" stroke-width="0.5" opacity="0.172"/>
-<path d="M14,278.8 L39.62,278.8" stroke-width="0.5" opacity="0.16399999999999998"/>
-<path d="M14,285.2 L36.77,285.2" stroke-width="0.5" opacity="0.15599999999999997"/>
-<path d="M14,291.6 L33.92,291.6" stroke-width="0.5" opacity="0.148"/>
-<path d="M14,298 L31.08,298" stroke-width="0.5" opacity="0.13999999999999999"/>
-<path d="M14,304.4 L28.23,304.4" stroke-width="0.5" opacity="0.13199999999999998"/>
-<text x="14" y="320.8" font-size="4.8" opacity="0.45" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">residual</text>
-<circle cx="66" cy="346" r="4.5" stroke-width="0.5" opacity="0.4" fill="none"/>
-<path d="M59,346 L73,346" stroke-width="0.4" opacity="0.35"/>
-</svg></div>
-      <ul class="rows">
-        <li class="row">
-          <a class="row-link" href="https://github.com/Rishab27279/U-Tube-AI" target="_blank" rel="noopener">
-            <span class="row-name">U-Tube AI</span>
-            <span class="row-mid">
-              <span class="row-desc">Watches and listens to a YouTube video, then answers questions about it.</span>
-            </span>
-            <span class="row-year">/2025</span>
-            <span class="arw" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="row">
-          <a class="row-link" href="https://github.com/Rishab27279/MoodyAI" target="_blank" rel="noopener">
-            <span class="row-name">Moody.AI</span>
-            <span class="row-mid">
-              <span class="row-desc">Reads how someone feels from their face, voice and words at the same time.</span>
-            </span>
-            <span class="row-year">/2025</span>
-            <span class="arw" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="row">
-          <a class="row-link" href="https://github.com/Rishab27279/EdgeSeg-AI" target="_blank" rel="noopener">
-            <span class="row-name">EdgeSeg-AI</span>
-            <span class="row-mid">
-              <span class="row-desc">Cuts objects out of images on machines with very little memory.</span>
-            </span>
-            <span class="row-year">/2025</span>
-            <span class="arw" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="row">
-          <a class="row-link" href="https://github.com/Rishab27279/OS_Detection_Binary_And_3_Class_DWT" target="_blank" rel="noopener">
-            <span class="row-name">OsteoDiagnosis.AI</span>
-            <span class="row-mid">
-              <span class="row-desc">Android app that checks bone health from a knee X-ray you photograph.</span>
-            </span>
-            <span class="row-year">/2025</span>
-            <span class="arw" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ── WRITING ── -->
-  <section id="writing" class="block">
-    <div class="block-head"><h2>(writing)</h2></div>
-    <ul class="rows">
-      <li class="row">
-        <a class="row-link" href="https://ai.gopubby.com/medmamba-explained-the-first-vision-mamba-for-generalized-medical-image-classification-is-3aee20a0751a" target="_blank" rel="noopener">
-          <span class="row-name">MedMamba, explained</span>
-          <span class="row-mid">
-            <span class="row-desc">A plain walkthrough of the first Mamba model built for medical images.</span>
-          </span>
-          <span class="row-year">/2024</span>
-          <span class="arw" aria-hidden="true">↗</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ── CONTACT ── -->
-  <section id="contact" class="block">
-    <div class="block-head"><h2>(contact)</h2></div>
-    <p class="contact-line">
-      Say hello at <a href="mailto:rishab27279@gmail.com">rishab27279@gmail.com</a>.
-      I like talking about AI, medical imaging, and getting big models onto small devices.
+    <p class="thesis">
+      It's the same problem every time: something that needs a data centre, made
+      to fit in a pocket.
     </p>
-    <nav class="links" aria-label="Elsewhere">
-      <a href="https://github.com/Rishab27279" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">Scholar</a>
-      <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://medium.com/@rishab27279" target="_blank" rel="noopener">Medium</a>
-    </nav>
-  </section>
+    <p class="status">
+      If you're building something in AI — world models especially&nbsp;— I'd like to
+      hear about it. Hiring, starting something, tinkering, or just want to
+      argue: there's a
+      <a href="https://drive.google.com/file/d/1sES1LkygW-1xkXr2EneSjquyPbQdiY6V/view?usp=sharing" target="_blank" rel="noopener">résumé</a>
+      if you need the formal version, otherwise
+      <a href="mailto:rishab27279@gmail.com">say hello</a>.
+    </p>
+  </div>
 
+  <div class="landing-bottom">
+    <div class="block-head">
+      <h2>(the short version)</h2>
+      <p class="note">nine things</p>
+    </div>
+    <ol class="tl">
+      <li class="tl-row">
+        <a href="work/">
+          <span class="tl-year">2026</span>
+          <span class="tl-main">
+            <span class="tl-name">Flam</span>
+            <span class="tl-line">Talking-head avatars that stream live</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">Data pipelines, generative models, and WebRTC. An AI engineering internship, ongoing.</span>
+              <span class="tl-to">→ work</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11370760" target="_blank" rel="noopener">
+          <span class="tl-year is-rep">2026</span>
+          <span class="tl-main">
+            <span class="tl-name">Fourier Block Transformer</span>
+            <span class="tl-line">Osteoporosis from an X-ray, on the phone itself</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">No cloud, no server, 88.41% accurate. Published in IEEE Sensors Letters.</span>
+              <span class="tl-to">→ ieeexplore.ieee.org</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="work/">
+          <span class="tl-year">2025</span>
+          <span class="tl-main">
+            <span class="tl-name">Hamad Medical, Doha</span>
+            <span class="tl-line">Emergency rooms, sorted faster</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">Triage for the ER, and kidney disease caught early. AI research intern.</span>
+              <span class="tl-to">→ work</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021" target="_blank" rel="noopener">
+          <span class="tl-year is-rep">2025</span>
+          <span class="tl-main">
+            <span class="tl-name">Multi-Frequency Learning</span>
+            <span class="tl-line">Fractures the eye misses</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">92.22% across 6,229 X-rays. Healthcare Technology Letters.</span>
+              <span class="tl-to">→ ietresearch.wiley.com</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=cvw_YK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=cvw_YK8AAAAJ:L7CI7m0gUJcC" target="_blank" rel="noopener">
+          <span class="tl-year is-rep">2025</span>
+          <span class="tl-main">
+            <span class="tl-name">Chest X-Ray Screening</span>
+            <span class="tl-line">Pneumonia or tuberculosis, told apart</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">87.08% accurate. A book chapter with Elsevier.</span>
+              <span class="tl-to">→ scholar.google.com</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="https://github.com/Rishab27279/OS_Detection_Binary_And_3_Class_DWT" target="_blank" rel="noopener">
+          <span class="tl-year is-rep">2025</span>
+          <span class="tl-main">
+            <span class="tl-name">OsteoDiagnosis.AI</span>
+            <span class="tl-line">The paper, shipped as an Android app</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">Photograph a knee X-ray and it checks bone health on the device itself.</span>
+              <span class="tl-to">→ github.com</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="work/">
+          <span class="tl-year">2024</span>
+          <span class="tl-main">
+            <span class="tl-name">BITS Pilani</span>
+            <span class="tl-line">A medical imaging lab, and two papers out of it</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">Research assistant in the ECE department, working on reading X-rays.</span>
+              <span class="tl-to">→ work</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="work/">
+          <span class="tl-year is-rep">2024</span>
+          <span class="tl-main">
+            <span class="tl-name">IGCAR, Kalpakkam</span>
+            <span class="tl-line">Teaching SAM to find what hides</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">Meta's Segment Anything model, retrained to pick out camouflaged objects.</span>
+              <span class="tl-to">→ work</span>
+          </span></span>
+        </a>
+      </li>
+      <li class="tl-row">
+        <a href="https://ai.gopubby.com/medmamba-explained-the-first-vision-mamba-for-generalized-medical-image-classification-is-3aee20a0751a" target="_blank" rel="noopener">
+          <span class="tl-year is-rep">2024</span>
+          <span class="tl-main">
+            <span class="tl-name">MedMamba, explained</span>
+            <span class="tl-line">The first vision Mamba, in plain words</span>
+          </span>
+          <span class="arw" aria-hidden="true">↗</span>
+          <span class="tl-fold"><span class="tl-fold-in">
+              <span class="tl-more">A walkthrough of the first Mamba model built for medical images.</span>
+              <span class="tl-to">→ ai.gopubby.com</span>
+          </span></span>
+        </a>
+      </li>
+    </ol>
+    <div class="block-head">
+      <h2>(where to)</h2>
+      <p class="note">four rooms</p>
+    </div>
+    <ul class="dests" id="where">
+        <li class="dest">
+          <a href="work/">
+            <span class="dest-num">01</span>
+            <span class="dest-name">Work</span>
+            <span class="dest-desc">Flam, Hamad Medical, BITS Pilani, IGCAR</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="dest">
+          <a href="research/">
+            <span class="dest-num">02</span>
+            <span class="dest-name">Research</span>
+            <span class="dest-desc">Three published papers on reading X-rays</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="dest">
+          <a href="projects/">
+            <span class="dest-num">03</span>
+            <span class="dest-name">Projects</span>
+            <span class="dest-desc">Things I built and shipped</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="dest">
+          <a href="writing/">
+            <span class="dest-num">04</span>
+            <span class="dest-name">Writing</span>
+            <span class="dest-desc">Explaining models in plain words</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+    </ul>
+    <div class="block-head thin">
+      <h2>(elsewhere)</h2>
+      <p class="note">say hello — <a href="mailto:rishab27279@gmail.com">rishab27279@gmail.com</a></p>
+    </div>
+    <nav class="links" aria-label="Elsewhere">
+      <a href="https://drive.google.com/file/d/1sES1LkygW-1xkXr2EneSjquyPbQdiY6V/view?usp=sharing" target="_blank" rel="noopener">Resume
+        <span class="peek" aria-hidden="true">
+          <span class="peek-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2.4L17.6 8H14V4.4ZM8 12.5h8V14H8v-1.5Zm0 3.5h8v1.5H8V16Zm0-7h3.5v1.5H8V9Z"/></svg></span>
+          <span class="peek-body">
+            <span class="peek-title">Resume</span>
+            <span class="peek-desc">One page, PDF. Everything below, condensed.</span>
+            <span class="peek-host">drive.google.com</span>
+          </span>
+        </span></a>
+      <a href="https://github.com/Rishab27279" target="_blank" rel="noopener">GitHub
+        <span class="peek" aria-hidden="true">
+          <span class="peek-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+          <span class="peek-body">
+            <span class="peek-title">GitHub</span>
+            <span class="peek-desc">The code itself — models, apps, half-finished experiments.</span>
+            <span class="peek-host">github.com/Rishab27279</span>
+          </span>
+        </span></a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=zaAs0t0AAAAJ" target="_blank" rel="noopener">Scholar
+        <span class="peek" aria-hidden="true">
+          <span class="peek-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></span>
+          <span class="peek-body">
+            <span class="peek-title">Scholar</span>
+            <span class="peek-desc">Three published papers on reading medical X-rays.</span>
+            <span class="peek-host">scholar.google.com</span>
+          </span>
+        </span></a>
+      <a href="https://www.linkedin.com/in/rishab-k-pattnaik-6a9939249/" target="_blank" rel="noopener">LinkedIn
+        <span class="peek" aria-hidden="true">
+          <span class="peek-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></span>
+          <span class="peek-body">
+            <span class="peek-title">LinkedIn</span>
+            <span class="peek-desc">The formal one. Fine place to say hello too.</span>
+            <span class="peek-host">linkedin.com</span>
+          </span>
+        </span></a>
+      <a href="https://medium.com/@rishab27279" target="_blank" rel="noopener">Medium
+        <span class="peek" aria-hidden="true">
+          <span class="peek-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></span>
+          <span class="peek-body">
+            <span class="peek-title">Medium</span>
+            <span class="peek-desc">Long-form write-ups — papers explained in plain words.</span>
+            <span class="peek-host">medium.com/@rishab27279</span>
+          </span>
+        </span></a>
+    </nav>
+  </div>
 </main>
-
-<footer>
-  <p class="foot-meta">
-    <span>B.E. Electronics &amp; Communication · BITS Pilani, Hyderabad</span>
-    <span>Built by hand ✦ no frameworks</span>
-  </p>
-  <p class="foot-mark" aria-hidden="true">Rishab</p>
-</footer>
 
 <script src="script.js"></script>
 </body>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — Rishab K Pattnaik</title>
+<meta name="description" content="Research by Rishab K Pattnaik, AI engineer and researcher.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inclusive+Sans:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>
+  // set theme before first paint so there is no flash
+  (function () {
+    var s = localStorage.getItem('theme');
+    document.documentElement.dataset.theme =
+      s || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <a class="wordmark" href="../">Rishab</a>
+    <nav class="bar-nav" id="menu">
+      <a href="../work/">Work</a>
+      <a href="../research/" aria-current="page">Research</a>
+      <a href="../projects/">Projects</a>
+      <a href="../writing/">Writing</a>
+    </nav>
+    <div class="bar-right">
+      <button id="theme" class="icon-btn" aria-label="Switch theme"><span class="ico-sun">☀</span><span class="ico-moon">☾</span></button>
+      <button id="burger" class="chip" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </header>
+
+<main id="main" class="block page">
+  <div class="block-head">
+    <h1>(research)</h1>
+    <p class="note">3 papers</p>
+  </div>
+<ul class="rows">
+      <li class="row">
+        <a class="row-link" href="https://ieeexplore.ieee.org/abstract/document/11370760" target="_blank" rel="noopener">
+          <span class="row-name">Fourier Block Transformer</span>
+          <span class="row-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<rect x="40" y="8" width="50" height="84" rx="5" stroke-width="0.7" opacity="0.55" fill="none"/>
+<path d="M59,11 L71,11" stroke-width="0.6" opacity="0.44000000000000006"/>
+<rect x="44" y="15" width="42" height="70" stroke-width="0.4" opacity="0.275" fill="none"/>
+<path d="M46.6,62 L46.6,54.5 L48.32,54.5 L48.32,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M49.52,62 L49.52,44.63 L51.25,44.63 L51.25,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M52.45,62 L52.45,37.32 L54.17,37.32 L54.17,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M55.37,62 L55.37,33.99 L57.09,33.99 L57.09,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M58.29,62 L58.29,35.13 L60.02,35.13 L60.02,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M61.22,62 L61.22,40.26 L62.94,40.26 L62.94,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M64.14,62 L64.14,48.09 L65.86,48.09 L65.86,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M67.06,62 L67.06,52.18 L68.78,52.18 L68.78,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M69.98,62 L69.98,44.46 L71.71,44.46 L71.71,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M72.91,62 L72.91,39.3 L74.63,39.3 L74.63,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M75.83,62 L75.83,37.64 L77.55,37.64 L77.55,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M78.75,62 L78.75,39.61 L80.48,39.61 L80.48,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M81.68,62 L81.68,44.56 L83.4,44.56 L83.4,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M46,62 L84,62" stroke-width="0.5" opacity="0.5"/>
+<path d="M46,26 L46.97,23.38 L47.95,21.05 L48.92,19.27 L49.9,18.22 L50.87,18.04 L51.85,18.73 L52.82,20.22 L53.79,22.34 L54.77,24.87 L55.74,27.52 L56.72,30.01 L57.69,32.05 L58.67,33.43 L59.64,33.99 L60.62,33.67 L61.59,32.51 L62.56,30.63 L63.54,28.24 L64.51,25.6 L65.49,23.01 L66.46,20.74 L67.44,19.06 L68.41,18.14 L69.38,18.09 L70.36,18.9 L71.33,20.5 L72.31,22.7 L73.28,25.27 L74.26,27.92 L75.23,30.35 L76.21,32.31 L77.18,33.57 L78.15,34 L79.13,33.55 L80.1,32.27 L81.08,30.29 L82.05,27.85 L83.03,25.2 L84,22.64" stroke-width="0.55" opacity="0.5"/>
+<path d="M46,40 L84,40" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 2"/>
+<text x="46" y="78" font-size="4.4" opacity="0.6" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">DFT</text>
+<text x="8" y="26" font-size="4.6" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">88.41%</text>
+<path d="M8,30 L34,30" stroke-width="0.5" opacity="0.3"/>
+<text x="8" y="70" font-size="4.4" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">edge</text>
+</svg></span>
+          <span class="row-mid">
+            <span class="row-role">IEEE Sensors Letters</span>
+            <span class="row-desc">Checks for thinning bones from an X-ray, running on a phone. No cloud. 88.41% accurate.</span>
+          </span>
+          <span class="row-year">/2026</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/htl2.70021" target="_blank" rel="noopener">
+          <span class="row-name">Multi-Frequency Learning</span>
+          <span class="row-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M30,20 L88,20" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M30,20 L31.35,19.4 L32.7,18.81 L34.05,18.22 L35.4,17.65 L36.74,17.1 L38.09,16.58 L39.44,16.08 L40.79,15.62 L42.14,15.2 L43.49,14.82 L44.84,14.48 L46.19,14.2 L47.53,13.96 L48.88,13.77 L50.23,13.64 L51.58,13.56 L52.93,13.54 L54.28,13.57 L55.63,13.66 L56.98,13.81 L58.33,14.01 L59.67,14.26 L61.02,14.56 L62.37,14.9 L63.72,15.29 L65.07,15.73 L66.42,16.19 L67.77,16.7 L69.12,17.23 L70.47,17.78 L71.81,18.35 L73.16,18.94 L74.51,19.54 L75.86,20.14 L77.21,20.74 L78.56,21.33 L79.91,21.91 L81.26,22.48 L82.6,23.02 L83.95,23.54 L85.3,24.02 L86.65,24.48 L88,24.89" stroke-width="0.65" opacity="0.6"/>
+<text x="27" y="21.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LL</text>
+<path d="M30,37 L88,37" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M30,37 L31.35,35.86 L32.7,34.79 L34.05,33.86 L35.4,33.14 L36.74,32.67 L38.09,32.48 L39.44,32.59 L40.79,32.98 L42.14,33.63 L43.49,34.51 L44.84,35.54 L46.19,36.68 L47.53,37.83 L48.88,38.93 L50.23,39.9 L51.58,40.68 L52.93,41.23 L54.28,41.5 L55.63,41.47 L56.98,41.16 L58.33,40.57 L59.67,39.76 L61.02,38.76 L62.37,37.65 L63.72,36.49 L65.07,35.37 L66.42,34.36 L67.77,33.52 L69.12,32.9 L70.47,32.55 L71.81,32.49 L73.16,32.73 L74.51,33.24 L75.86,33.99 L77.21,34.95 L78.56,36.03 L79.91,37.18 L81.26,38.32 L82.6,39.37 L83.95,40.27 L85.3,40.95 L86.65,41.38 L88,41.52" stroke-width="0.65" opacity="0.54"/>
+<text x="27" y="38.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">LH</text>
+<path d="M30,54 L88,54" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M30,52.3 L31.35,51.03 L32.7,50.46 L34.05,50.72 L35.4,51.74 L36.74,53.3 L38.09,55.01 L39.44,56.49 L40.79,57.39 L42.14,57.49 L43.49,56.78 L44.84,55.42 L46.19,53.73 L47.53,52.1 L48.88,50.91 L50.23,50.45 L51.58,50.82 L52.93,51.93 L54.28,53.53 L55.63,55.23 L56.98,56.65 L58.33,57.45 L59.67,57.44 L61.02,56.63 L62.37,55.2 L63.72,53.49 L65.07,51.9 L66.42,50.8 L67.77,50.45 L69.12,50.93 L70.47,52.12 L71.81,53.76 L73.16,55.45 L74.51,56.8 L75.86,57.5 L77.21,57.38 L78.56,56.47 L79.91,54.98 L81.26,53.26 L82.6,51.72 L83.95,50.71 L85.3,50.47 L86.65,51.05 L88,52.32" stroke-width="0.65" opacity="0.48"/>
+<text x="27" y="55.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HL</text>
+<path d="M30,71 L88,71" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M30,68.83 L31.35,68.52 L32.7,69.94 L34.05,72.1 L35.4,73.49 L36.74,73.15 L38.09,71.31 L39.44,69.26 L40.79,68.42 L42.14,69.37 L43.49,71.46 L44.84,73.23 L46.19,73.44 L47.53,71.96 L48.88,69.81 L50.23,68.48 L51.58,68.91 L52.93,70.79 L54.28,72.82 L55.63,73.58 L56.98,72.54 L58.33,70.44 L59.67,68.72 L61.02,68.59 L62.37,70.14 L63.72,72.29 L65.07,73.54 L66.42,73.02 L67.77,71.1 L69.12,69.11 L70.47,68.43 L71.81,69.54 L73.16,71.67 L74.51,73.33 L75.86,73.37 L77.21,71.76 L78.56,69.63 L79.91,68.44 L81.26,69.04 L82.6,71 L83.95,72.96 L85.3,73.55 L86.65,72.37 L88,70.23" stroke-width="0.65" opacity="0.42"/>
+<text x="27" y="72.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">HH</text>
+<path d="M90,20 L104,45" stroke-width="0.4" opacity="0.3"/>
+<path d="M90,37 L104,45" stroke-width="0.4" opacity="0.3"/>
+<path d="M90,54 L104,45" stroke-width="0.4" opacity="0.3"/>
+<path d="M90,71 L104,45" stroke-width="0.4" opacity="0.3"/>
+<path d="M104,30 L110,30 L110,60 L104,60" stroke-width="0.55" opacity="0.5"/>
+<text x="96" y="74" font-size="4.4" opacity="0.55" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">fuse</text>
+<path d="M22,10 L14,10 L14,17" stroke-width="0.5" opacity="0.26"/>
+<path d="M22,86 L14,86 L14,79" stroke-width="0.5" opacity="0.26"/>
+<path d="M108,10 L116,10 L116,17" stroke-width="0.5" opacity="0.26"/>
+<path d="M108,86 L116,86 L116,79" stroke-width="0.5" opacity="0.26"/>
+</svg></span>
+          <span class="row-mid">
+            <span class="row-role">Healthcare Technology Letters</span>
+            <span class="row-desc">Finds broken bones that are easy to miss by eye. 92.22% across 6,229 X-rays.</span>
+          </span>
+          <span class="row-year">/2025</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li class="row">
+        <a class="row-link" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=cvw_YK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=cvw_YK8AAAAJ:L7CI7m0gUJcC" target="_blank" rel="noopener">
+          <span class="row-name">Chest X-Ray Screening</span>
+          <span class="row-art" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M62,12 L62,26" stroke-width="0.7" opacity="0.5"/>
+<path d="M62,26 L55,33" stroke-width="0.6" opacity="0.45"/>
+<path d="M56,20 L49.57,22.23 L46.62,24.46 L44.46,26.69 L42.8,28.92 L41.52,31.15 L40.54,33.38 L39.83,35.62 L39.35,37.85 L39.08,40.08 L39,42.31 L39.1,44.54 L39.36,46.77 L39.77,49 L40.31,51.23 L40.99,53.46 L41.78,55.69 L42.69,57.92 L43.7,60.15 L44.8,62.38 L46.01,64.62 L47.3,66.85 L48.68,69.08 L50.17,71.31 L51.78,73.54 L53.58,75.77 L56,78 L57,78 L56,73.86 L55.05,69.71 L54.19,65.57 L53.48,61.43 L52.95,57.29 L52.61,53.14 L52.5,49 L52.61,44.86 L52.95,40.71 L53.48,36.57 L54.19,32.43 L55.05,28.29 L56,24.14 L57,20 L56,20" stroke-width="0.8" opacity="0.6"/>
+<path d="M62,26 L69,33" stroke-width="0.6" opacity="0.45"/>
+<path d="M68,20 L74.43,22.23 L77.38,24.46 L79.54,26.69 L81.2,28.92 L82.48,31.15 L83.46,33.38 L84.17,35.62 L84.65,37.85 L84.92,40.08 L85,42.31 L84.9,44.54 L84.64,46.77 L84.23,49 L83.69,51.23 L83.01,53.46 L82.22,55.69 L81.31,57.92 L80.3,60.15 L79.2,62.38 L77.99,64.62 L76.7,66.85 L75.32,69.08 L73.83,71.31 L72.22,73.54 L70.42,75.77 L68,78 L67,78 L68,73.86 L68.95,69.71 L69.81,65.57 L70.52,61.43 L71.05,57.29 L71.39,53.14 L71.5,49 L71.39,44.86 L71.05,40.71 L70.52,36.57 L69.81,32.43 L68.95,28.29 L68,24.14 L67,20 L68,20" stroke-width="0.8" opacity="0.6"/>
+<path d="M54.15,59.97 L54.65,57.78 L55.49,55.72 L56.65,53.85 L58.09,52.22 L59.77,50.89 L61.64,49.89 L63.63,49.26 L65.7,49 L67.78,49.14 L69.8,49.67 L71.71,50.57 L73.45,51.81 L74.96,53.35 L76.21,55.16 L77.14,57.17 L77.74,59.33 L77.99,61.57 L77.88,63.82 L77.41,66.02" stroke-width="0.5" opacity="0.3"/>
+<path d="M30,22 L94,22" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,31 L94,31" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,40 L94,40" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,49 L94,49" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,58 L94,58" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,67 L94,67" stroke-width="0.35" opacity="0.13"/>
+<path d="M30,76 L94,76" stroke-width="0.35" opacity="0.13"/>
+<path d="M32,18 L32,80" stroke-width="0.35" opacity="0.13"/>
+<path d="M44,18 L44,80" stroke-width="0.35" opacity="0.13"/>
+<path d="M56,18 L56,80" stroke-width="0.35" opacity="0.13"/>
+<path d="M68,18 L68,80" stroke-width="0.35" opacity="0.13"/>
+<path d="M80,18 L80,80" stroke-width="0.35" opacity="0.13"/>
+<path d="M92,18 L92,80" stroke-width="0.35" opacity="0.13"/>
+<circle cx="47" cy="42" r="8.5" stroke-width="0.6" opacity="0.6" fill="none"/>
+<circle cx="47" cy="42" r="10.4" stroke-width="0.4" opacity="0.28" fill="none"/>
+<path d="M41,36.5 L39.5,47.5" stroke-width="0.4" opacity="0.4"/>
+<path d="M44,36.5 L42.5,47.5" stroke-width="0.4" opacity="0.4"/>
+<path d="M47,36.5 L45.5,47.5" stroke-width="0.4" opacity="0.4"/>
+<path d="M50,36.5 L48.5,47.5" stroke-width="0.4" opacity="0.4"/>
+<path d="M53,36.5 L51.5,47.5" stroke-width="0.4" opacity="0.4"/>
+<path d="M35,32 L25,24" stroke-width="0.5" opacity="0.45"/>
+<text x="16" y="20" font-size="4.4" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">opacity</text>
+<text x="16" y="96" font-size="4.4" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">PN / TB</text>
+</svg></span>
+          <span class="row-mid">
+            <span class="row-role">Elsevier · book chapter</span>
+            <span class="row-desc">Tells apart pneumonia and tuberculosis on a chest X-ray. 87.08% accurate.</span>
+          </span>
+          <span class="row-year">/2025</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+</main>
+
+<footer>
+    <p class="foot-meta">
+      <span>B.E. Electronics &amp; Communication · BITS Pilani, Hyderabad</span>
+      <span>Built by hand ✦ no frameworks</span>
+    </p>
+  <p class="foot-mark" aria-hidden="true">Rishab</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
