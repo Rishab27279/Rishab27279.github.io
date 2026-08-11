@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M16,20 L62,20" stroke-width="1.4" opacity="0.5"/>
+<circle cx="11" cy="20" r="2.4" stroke-width="0.5" opacity="0.55" fill="none"/>
+<path d="M16,29 L53,29" stroke-width="1.4" opacity="0.42"/>
+<circle cx="11" cy="29" r="2.4" stroke-width="0.5" opacity="0.55" fill="none"/>
+<path d="M16,38 L44,38" stroke-width="1.4" opacity="0.33999999999999997"/>
+<circle cx="11" cy="38" r="2.4" stroke-width="0.5" opacity="0.55" fill="none"/>
+<path d="M16,47 L35,47" stroke-width="1.4" opacity="0.26"/>
+<circle cx="11" cy="47" r="2.4" stroke-width="0.5" opacity="0.55" fill="none"/>
+<path d="M70,18 L76,18 L76,51 L70,51" stroke-width="0.5" opacity="0.35"/>
+<text x="80" y="22" font-size="4.4" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">triage</text>
+<path d="M16,74 L114,74" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M16,74 L16.9,74 L17.8,74 L18.7,74 L19.6,74 L20.5,74.01 L21.39,74.03 L22.29,74.15 L23.19,74.5 L24.09,75.25 L24.99,76.37 L25.89,77.29 L26.79,77.07 L27.69,75.1 L28.59,71.62 L29.49,67.45 L30.39,63.4 L31.28,60.15 L32.18,58.29 L33.08,58.21 L33.98,59.85 L34.88,62.69 L35.78,65.94 L36.68,68.87 L37.58,71.08 L38.48,72.52 L39.38,73.33 L40.28,73.73 L41.17,73.9 L42.07,73.97 L42.97,73.99 L43.87,74 L44.77,74 L45.67,74 L46.57,74 L47.47,74 L48.37,74 L49.27,74 L50.17,74 L51.06,74 L51.96,74 L52.86,74 L53.76,74.01 L54.66,74.03 L55.56,74.14 L56.46,74.46 L57.36,75.19 L58.26,76.3 L59.16,77.26 L60.06,77.13 L60.95,75.26 L61.85,71.86 L62.75,67.7 L63.65,63.62 L64.55,60.31 L65.45,58.35 L66.35,58.16 L67.25,59.71 L68.15,62.5 L69.05,65.74 L69.94,68.71 L70.84,70.97 L71.74,72.46 L72.64,73.3 L73.54,73.71 L74.44,73.9 L75.34,73.97 L76.24,73.99 L77.14,74 L78.04,74 L78.94,74 L79.83,74 L80.73,74 L81.63,74 L82.53,74 L83.43,74 L84.33,74 L85.23,74 L86.13,74 L87.03,74 L87.93,74.03 L88.83,74.13 L89.72,74.44 L90.62,75.14 L91.52,76.23 L92.42,77.22 L93.32,77.18 L94.22,75.42 L95.12,72.09 L96.02,67.96 L96.92,63.85 L97.82,60.47 L98.72,58.42 L99.61,58.12 L100.51,59.58 L101.41,62.31 L102.31,65.55 L103.21,68.55 L104.11,70.86 L105.01,72.39 L105.91,73.26 L106.81,73.7 L107.71,73.89 L108.61,73.96 L109.5,73.99 L110.4,74 L111.3,74 L112.2,74 L113.1,74 L114,74" stroke-width="0.7" opacity="0.65"/>
+<text x="16" y="96" font-size="4.4" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">vitals</text>
+<path d="M18,12 L10,12 L10,19" stroke-width="0.5" opacity="0.28"/>
+<path d="M18,86 L10,86 L10,79" stroke-width="0.5" opacity="0.28"/>
+<path d="M110,12 L118,12 L118,19" stroke-width="0.5" opacity="0.28"/>
+<path d="M110,86 L118,86 L118,79" stroke-width="0.5" opacity="0.28"/>
+</svg>

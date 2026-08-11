@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<rect x="14" y="16" width="72" height="40" rx="2" stroke-width="0.7" opacity="0.55" fill="none"/>
+<rect x="17" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="17" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="28.6" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="28.6" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="40.2" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="40.2" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="51.8" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="51.8" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="63.4" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="63.4" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="75" y="19" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<rect x="75" y="50" width="5" height="3.4" rx="1" stroke-width="0.4" opacity="0.4" fill="none"/>
+<path d="M38,30 L52,36 L38,42 L38,30" stroke-width="0.6" opacity="0.6"/>
+<text x="94" y="22" font-size="4.4" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">video</text>
+<text x="94" y="74" font-size="4.4" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">audio</text>
+<path d="M14,74 L86,74" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M14,74 L14.76,71.59 L15.52,69.31 L16.27,67.88 L17.03,67.89 L17.79,69.56 L18.55,72.68 L19.31,76.58 L20.06,80.3 L20.82,82.79 L21.58,83.28 L22.34,81.42 L23.09,77.52 L23.85,72.41 L24.61,67.35 L25.37,63.64 L26.13,62.31 L26.88,63.83 L27.64,67.93 L28.4,73.69 L29.16,79.71 L29.92,84.48 L30.67,86.78 L31.43,86 L32.19,82.29 L32.95,76.56 L33.71,70.2 L34.46,64.81 L35.22,61.68 L35.98,61.57 L36.74,64.43 L37.49,69.51 L38.25,75.5 L39.01,80.9 L39.77,84.44 L40.53,85.32 L41.28,83.48 L42.04,79.51 L42.8,74.51 L43.56,69.76 L44.32,66.39 L45.07,65.1 L45.83,66.02 L46.59,68.71 L47.35,72.33 L48.11,75.89 L48.86,78.53 L49.62,79.72 L50.38,79.38 L51.14,77.85 L51.89,75.81 L52.65,73.48 L53.41,70.78 L54.17,68.44 L54.93,67.21 L55.68,67.61 L56.44,69.8 L57.2,73.38 L57.96,77.58 L58.72,81.3 L59.47,83.52 L60.23,83.51 L60.99,81.07 L61.75,76.65 L62.51,71.27 L63.26,66.24 L64.02,62.87 L64.78,62.11 L65.54,64.27 L66.29,68.91 L67.05,74.94 L67.81,80.88 L68.57,85.26 L69.33,86.96 L70.08,85.51 L70.84,81.27 L71.6,75.28 L72.36,69.03 L73.12,64.04 L73.87,61.54 L74.63,62.08 L75.39,65.45 L76.15,70.75 L76.91,76.61 L77.66,81.6 L78.42,84.53 L79.18,84.81 L79.94,82.52 L80.69,78.38 L81.45,73.52 L82.21,69.18 L82.97,66.36 L83.73,65.61 L84.48,66.9 L85.24,69.7 L86,73.15" stroke-width="0.6" opacity="0.6"/>
+</svg>

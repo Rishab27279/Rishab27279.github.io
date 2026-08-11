@@ -331,33 +331,6 @@ nav.scrolled {
   font-size: 1.45rem; color: var(--t2);
   min-height: 3rem; font-weight: 300;
 }
-.typing-text {
-  border-right: 2px solid var(--g1);
-  padding-right: 4px;
-  animation: blink 0.7s step-end infinite;
-}
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50%       { border-color: var(--g1); }
-}
-
-/* stats strip */
-.hero-stats {
-  display: flex; gap: 2.5rem;
-  justify-content: center; margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-.stat-item { text-align: center; }
-.stat-num {
-  font-family: var(--mono); font-size: 1.6rem; font-weight: 700;
-  color: var(--g1); display: block; line-height: 1;
-}
-.stat-label {
-  font-size: 0.75rem; color: var(--t3);
-  text-transform: uppercase; letter-spacing: 0.1em;
-  margin-top: 4px; display: block;
-}
-
 /* ── HERO MIDDLE ── */
 .hero-middle {
   display: flex; justify-content: center; align-items: center;
@@ -571,6 +544,70 @@ nav.scrolled {
   color: var(--t2); max-width: 860px;
   margin: 0 auto; text-align: center;
 }
+.about-description + .about-description { margin-top: 1.15rem; }
+
+/* the practical bits — the logistics a recruiter checks first */
+.facts-head {
+  font-family: var(--mono); font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--g1); text-align: center;
+  margin: 3rem 0 1.2rem;
+}
+.facts { max-width: 780px; margin: 0 auto; }
+.facts-row {
+  display: grid; grid-template-columns: 130px 1fr;
+  gap: 1.5rem; align-items: baseline;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--cb);
+}
+.facts-row:last-child { border-bottom: 1px solid var(--cb); }
+.facts dt {
+  font-family: var(--mono); font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--t3);
+}
+.facts dd { margin: 0; color: var(--t2); line-height: 1.6; }
+.facts dd a { color: var(--g3); text-decoration: none; border-bottom: 1px solid var(--cb); }
+.facts dd a:hover { border-bottom-color: var(--g1); }
+@media (max-width: 640px) {
+  .facts-row { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
+/* hover a marked word, emojis drift up out of it in a loop */
+.pop {
+  position: relative;
+  color: var(--t1);
+  border-bottom: 1px dashed var(--cb);
+  transition: border-color 0.2s, color 0.2s;
+}
+.pop:hover { color: var(--g3); border-bottom-color: var(--g1); }
+.pop::before, .pop::after {
+  content: attr(data-emoji);
+  position: absolute; left: 50%; top: 0;
+  opacity: 0; pointer-events: none;
+  font-size: 0.95em; line-height: 1;
+  will-change: transform, opacity;
+}
+/* two streams, offset in time and drift, so it reads as a flow not a blink */
+.pop:hover::after  { animation: emojiFlowA 1.6s ease-out infinite; }
+.pop:hover::before { animation: emojiFlowB 1.6s 0.8s ease-out infinite; }
+
+@keyframes emojiFlowA {
+  0%   { opacity: 0; transform: translate(-50%, 0.1em) scale(0.5) rotate(0deg); }
+  18%  { opacity: 1; }
+  60%  { opacity: 0.85; }
+  100% { opacity: 0; transform: translate(-115%, -3.4em) scale(1.05) rotate(-16deg); }
+}
+@keyframes emojiFlowB {
+  0%   { opacity: 0; transform: translate(-50%, 0.1em) scale(0.5) rotate(0deg); }
+  18%  { opacity: 1; }
+  60%  { opacity: 0.85; }
+  100% { opacity: 0; transform: translate(10%, -3.1em) scale(0.95) rotate(18deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pop:hover::after  { animation: none; opacity: 1; transform: translate(-50%, -1.4em); }
+  .pop:hover::before { animation: none; }
+}
 
 /* ═══════════════════════════════════════════
    EXPERIENCE 3-COLUMN SCROLL
@@ -627,13 +664,25 @@ nav.scrolled {
   padding: 0.85rem 1.1rem;
   border-radius: 100px;
   cursor: none;
-  transition: background 0.35s var(--ease), opacity 0.35s var(--ease);
+  transition: background 0.35s var(--ease), opacity 0.35s var(--ease),
+              transform 0.3s var(--ease), box-shadow 0.3s;
   opacity: 0.38;
 }
+/* same lift + glow as the logos, so it reads as clickable */
+.exp3-org:hover {
+  opacity: 1;
+  transform: translateX(4px) scale(1.02);
+  background: rgba(232,0,42,0.10);
+  box-shadow: 0 0 0 1px rgba(232,0,42,0.35), 0 0 22px rgba(232,0,42,0.32);
+}
+.exp3-org:hover .exp3-org-name { color: var(--t1); }
 .exp3-org.active {
   background: rgba(255,255,255,0.92);
   opacity: 1;
 }
+/* the active pill stays white on hover, just picks up the glow */
+.exp3-org.active:hover { background: rgba(255,255,255,0.92); }
+.exp3-org.active:hover .exp3-org-name { color: #0a0d0b; }
 .exp3-org-indicator { display: none; }
 
 .exp3-org-name {
@@ -648,7 +697,16 @@ nav.scrolled {
 .exp3-org.active .exp3-org-period { color: #444; }
 
 /* MIDDLE */
-.exp3-middle { position: relative; flex: 1; min-height: 260px; }
+.exp3-middle { position: relative; flex: 1; min-height: 260px; cursor: none; }
+/* the names no longer open the popup, so the panel has to advertise that it does */
+.exp3-middle::after {
+  content: 'click for detail ↗';
+  position: absolute; top: 0; right: 0;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em;
+  color: var(--t3); opacity: 0.55; pointer-events: none;
+  transition: opacity 0.25s, color 0.25s;
+}
+.exp3-middle:hover::after { opacity: 1; color: var(--g1); }
 .exp3-slide {
   position: absolute; top: 0; left: 0; right: 0;
   opacity: 0; transform: translateY(10px);
@@ -661,7 +719,7 @@ nav.scrolled {
 }
 .exp3-status {
   font-family: var(--mono); font-size: 0.7rem;
-  color: var(--t3); margin-bottom: 0.65rem; letter-spacing: 0.05em;
+  color: #3FB950; margin-bottom: 0.65rem; letter-spacing: 0.05em;
 }
 .exp3-status.active-tag { color: var(--g1); }
 .exp3-role {
@@ -697,10 +755,18 @@ nav.scrolled {
   opacity: 1; transform: scale(1);
   pointer-events: auto; position: relative;
 }
+/* the hover lift lives on the img, not .exp3-logo — that wrapper's scale is the crossfade */
+.exp3-logo-link { display: block; cursor: none; }
 .exp3-logo-img {
   width: 120px; height: 120px;
   object-fit: contain; border-radius: 14px;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px rgba(0,0,0,0.5);
+  transition: transform 0.3s var(--ease), filter 0.3s, box-shadow 0.3s;
+}
+.exp3-logo-link:hover .exp3-logo-img {
+  transform: scale(1.06);
+  filter: brightness(1.15);
+  box-shadow: 0 0 0 1px rgba(232,0,42,0.35), 0 0 26px rgba(232,0,42,0.45), 0 16px 48px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 700px) {
@@ -1246,8 +1312,6 @@ nav.scrolled {
   .chatbot-container { width: calc(100vw - 2rem); right: 1rem; }
 }
 @media (max-width: 600px) {
-  .hero-stats { gap: 1.5rem; }
-  .stat-num  { font-size: 1.3rem; }
   .section   { padding: 3rem 1.25rem 4rem; }
   .chatbot-toggle { bottom: 1.25rem; right: 1.25rem; }
   .chatbot-container { bottom: 4.8rem; right: 1.25rem; }
