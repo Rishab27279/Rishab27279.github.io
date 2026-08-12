@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
     requestAnimationFrame(lerpRing);
   })();
 
-  const hoverSel = 'a, button, [data-popup-trigger], .card, .skill-box, .social-btn, .terminal-card, .scene, .quick-reply-btn, .chatbot-toggle, .popup-github, .popup-close';
+  const hoverSel = 'a, button, [data-popup-trigger], .card, .skill-box, .social-btn, .terminal-card, .scene, .quick-reply-btn, .chatbot-toggle, .popup-github, .popup-close, .exp3-org, .exp3-middle, .exp3-logo-link';
   document.querySelectorAll(hoverSel).forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -74,56 +74,6 @@ window.addEventListener('load', () => {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
-})();
-
-/* ──────────────────────────────────────────
-   TYPING ANIMATION
-────────────────────────────────────────── */
-(function initTyping() {
-  const el = document.getElementById('typingText');
-  if (!el) return;
-  const words = [
-    'AI Engineering Intern at Flam'
-  ];
-  let i = 0, j = 0, chars = [], deleting = false;
-  function loop() {
-    if (!deleting && j <= words[i].length) { chars.push(words[i][j]); j++; }
-    if ( deleting && j > 0) { chars.pop(); j--; }
-    el.innerHTML = chars.join('');
-    if (!deleting && j === words[i].length) { deleting = true; setTimeout(loop, 2000); return; }
-    if ( deleting && j === 0) { deleting = false; i = (i + 1) % words.length; }
-    setTimeout(loop, deleting ? 80 : 140);
-  }
-  loop();
-})();
-
-/* ──────────────────────────────────────────
-   STAT COUNTERS
-────────────────────────────────────────── */
-(function initStats() {
-  const statNums = document.querySelectorAll('.stat-num[data-target]');
-  let done = false;
-  const obs = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting || done) return;
-    done = true;
-    statNums.forEach(el => {
-      const target  = parseFloat(el.dataset.target);
-      const suffix  = el.dataset.suffix || '';
-      const isFloat = target % 1 !== 0;
-      const start   = performance.now();
-      const dur     = 1500;
-      (function step(now) {
-        const t    = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - t, 3);
-        const val  = target * ease;
-        el.textContent = (isFloat ? val.toFixed(2) : Math.floor(val)) + suffix;
-        if (t < 1) requestAnimationFrame(step);
-        else el.textContent = (isFloat ? target.toFixed(2) : target) + suffix;
-      })(start);
-    });
-  }, { threshold: 0.5 });
-  const statsEl = document.querySelector('.hero-stats');
-  if (statsEl) obs.observe(statsEl);
 })();
 
 /* ──────────────────────────────────────────
@@ -197,22 +147,39 @@ document.querySelectorAll('.card').forEach(card => {
    POPUPS — animated open / close / ESC
 ────────────────────────────────────────── */
 let activePopup = null;
+let lastTrigger = null;
+
+// dialog semantics applied once here rather than hand-written into all 17 popup blocks
+// ponytail: no Tab focus-trap — role + focus-in + ESC + focus-restore is the basics;
+// add a trap if these ever hold forms rather than read-only detail
+document.querySelectorAll('.popup').forEach(popup => {
+  popup.setAttribute('role', 'dialog');
+  popup.setAttribute('aria-modal', 'true');
+  const heading = popup.querySelector('.popup-heading');
+  if (heading) popup.setAttribute('aria-label', heading.textContent.trim());
+  popup.querySelector('.popup-content')?.setAttribute('tabindex', '-1');
+});
 
 function openPopup(popup) {
+  // capture before closing any open popup — closing restores focus and would clobber this
+  const trigger = document.activeElement;
   if (activePopup) closePopup(activePopup, false);
+  lastTrigger = trigger;
   popup.classList.remove('closing');
   popup.classList.add('active');
   activePopup = popup;
   document.body.style.overflow = 'hidden';
+  popup.querySelector('.popup-content')?.focus();
 }
 
 function closePopup(popup, animate = true) {
   if (!popup || !popup.classList.contains('active')) return;
+  const restore = () => { lastTrigger?.focus?.(); lastTrigger = null; };
   if (animate) {
     popup.classList.add('closing');
     const onEnd = () => {
       popup.classList.remove('active', 'closing');
-      if (activePopup === popup) { activePopup = null; document.body.style.overflow = ''; }
+      if (activePopup === popup) { activePopup = null; document.body.style.overflow = ''; restore(); }
     };
     popup.addEventListener('animationend', onEnd, { once: true });
     setTimeout(onEnd, 300); // fallback
@@ -220,12 +187,16 @@ function closePopup(popup, animate = true) {
     popup.classList.remove('active', 'closing');
     activePopup = null;
     document.body.style.overflow = '';
+    restore();
   }
 }
 
 document.querySelectorAll('[data-popup-trigger]').forEach(trigger => {
+  const id = trigger.getAttribute('data-popup-trigger');
+  trigger.setAttribute('aria-haspopup', 'dialog');
+  trigger.setAttribute('aria-controls', id);
   trigger.addEventListener('click', () => {
-    const popup = document.getElementById(trigger.getAttribute('data-popup-trigger'));
+    const popup = document.getElementById(id);
     if (popup) openPopup(popup);
   });
 });
@@ -355,7 +326,7 @@ class PortfolioChatBot {
 
 WHO YOU ARE:
 I am Rishi-Bot, created by Rishab to represent him and chat with visitors on his behalf. Rishab himself is created by God. Think of me as Rishab's digital twin - I know his work inside out and I'm here to have genuine conversations about his journey in AI and machine learning.
-Rishab is from Bhubaneswar, Odisha. Born in Mumbai, and raised in Bhubaneswar he completed his schooling from DAV Chandrasekharpur till 10th with 98.6% and 12th from Doon International School with 96.4%. Now he is studying in BITS Hyderabad. In terms of hobbies, I watch Football, F1. I play games like Fifa, watch anime and listens to music. Vinland Saga had a masterpiece story, AOT and Fullmetal Alchemist are also one of my favourites. I am supporter of Liverpool and someday dream to go to Anfield and my fav movies of all time are 3 idiots, Harry Potter, Spiderman in the spiderverse and Notebook, Notting Hills, The Holiday (in romance).
+Rishab is from Bhubaneswar, Odisha. Born in Mumbai, and raised in Bhubaneswar he completed his schooling from DAV Chandrasekharpur till 10th with 98.6% and 12th from Doon International School with 96.4%. He graduated from BITS Hyderabad on 26 July 2026 with a BE (Hons) in Electronics and Communication, and is now an AI Research Engineer at Flam in Bengaluru. In terms of hobbies, I watch Football, F1. I play games like Fifa, watch anime and listens to music. Vinland Saga had a masterpiece story, AOT and Fullmetal Alchemist are also one of my favourites. I am supporter of Liverpool and someday dream to go to Anfield and my fav movies of all time are 3 idiots, Harry Potter, Spiderman in the spiderverse and Notebook, Notting Hills, The Holiday (in romance).
 
 YOUR PERSONALITY:
 - Be warm, friendly, and conversational - like talking to a friend
@@ -450,22 +421,45 @@ Rishi-Bot: Hands-on projects beat courses any day! But Andrew Ng's Deep Learning
 User: Kaggle or research papers?
 Rishi-Bot: Why not both? 😄 Kaggle competitions teach you practical tricks and feature engineering. Papers teach you fundamental innovation. You need both to be well-rounded in AI. 🎯
 
+=== WORK EXPERIENCE: FLAM AND HAMAD MEDICAL (AUTHORITATIVE) ===
+
+These facts are authoritative. Do not embellish and do not fill gaps with plausible detail. If something is not here, say you do not have that detail and suggest they ask Rishab directly. Never estimate a number.
+
+FLAM (Flying Flamingos India Pvt Ltd), Bengaluru. AI R&D Intern Jan 2026 - Jun 2026, then AI Research Engineer from Jul 2026 to present. Real-time audio-driven talking-head avatar generation.
+- Migrated the generation model from PyTorch to JAX. Static graphs and explicit RNG cut inference latency 30% on L40S, and made runs reproducible. THIS IS THE STRONGEST ITEM - lead with it.
+- Built a half-body avatar POC by orchestrating LivePortrait with PEFT-adapted weights. Its output became synthetic training data for Flam's in-house avatar model.
+- Fine-tuned the RENDERER, not the generator, for an Indic use case. That distinction is worth surfacing and must not be stated the other way round. Three failures, three different fixes: lip blur on fast phonemes, texture sticking across frames, expressivity collapse.
+- Shipped real-time delivery end to end: WebRTC streaming, self-hosted GPU inference (Vast.ai then Lightning.ai), streaming Indic TTS across 6 languages. Time-to-first-voice went from 3-4s to about 1s, with CUDA streams serving multiple concurrent clients off a single GPU.
+- Built detection-assisted data-curation tooling for the fine-tuning pipeline.
+Lead with model-level judgment, not task lists. Every item contains a decision: JAX over PyTorch and why, renderer over generator, named failure modes over an aggregate metric, CUDA streams over adding GPUs. That reasoning is the point. "He fine-tuned models and deployed them" is technically accurate and throws away the signal.
+DO NOT describe the Flam work as research. It is applied engineering with research literacy behind it. No novel contribution, no paper. If asked what research he has published, point to the medical imaging work, not Flam.
+
+HAMAD MEDICAL CORPORATION, Doha, Qatar. AI Research Intern, May 2025 - Aug 2025.
+- Multi-modal deep learning framework (PyTorch, Hugging Face) for automating emergency-department triage decisions. His specific contribution was the clinical-dataset analysis underlying the model.
+- The system reached 98% recall on high-priority cases (triage Levels 1-3) and 93% top-2 accuracy on a custom medical dataset.
+OWNERSHIP BOUNDARY, CRITICAL: those metrics are the TEAM's results, not Rishab's individually. Always attribute them that way - "the team's model reached 98% recall; Rishab's contribution was the clinical-dataset analysis behind it." NEVER phrase it as "Rishab achieved 98% recall." This precision is deliberate and reflects well on him. Do not smooth it over.
+Real triage data, real patients, real consequences for a false negative on a Level 1 case. Recall is the headline metric rather than accuracy because missing a critical patient is not symmetric with over-triaging one.
+
+HOW THE TWO FIT TOGETHER: different domains, one instinct. Medical imaging taught him that a model nobody can interrogate does not get deployed, no matter its accuracy. That is the same concern driving his frequency-domain publications - models whose reasoning a clinician can follow. He is not claiming to be a specialist. He is a research engineer: the bridge between a paper and a running system.
+
+TONE FOR THESE ANSWERS: direct and specific. No superlatives, no "passionate about". State what he built, why he chose it, and the number. If a number is not listed above, say you do not have it rather than estimating.
+
 === SPECIFIC PERSONAL DETAILS ===
 
 User: What year are you in?
-Rishi-Bot: Final year! Graduating in 2026 from BITS Pilani Hyderabad. Time flies when you're building cool stuff! 🎓
+Rishi-Bot: Done with college! Graduated 26 July 2026 from BITS Pilani Hyderabad with a BE (Hons) in Electronics and Communication. Working full time now. 🎓
 
 User: When did you start coding?
 Rishi-Bot: Seriously got into it during my first year at BITS. Before that, some basic stuff in school. But Python and ML really kicked off in college. 💻
 
-User: Do you have any internship experience?
-Rishi-Bot: Currently seeking my first major industry internship or full-time role! I've worked on research projects, hackathons, and deployed personal projects, but looking for hands-on industry experience at top companies. If you're hiring, let's talk! 📧
+User: Do you have any industry experience?
+Rishi-Bot: Yes! I'm an AI Research Engineer at Flam in Bengaluru, full time since July 2026 - I joined as an AI R&D intern in January and converted. Before that, AI research intern at Hamad Medical Corporation in Doha, research assistant at BITS Pilani, and a CV research intern at IGCAR. 📧
 
 User: Can you relocate?
 Rishi-Bot: Absolutely! I'm open to relocating anywhere for the right opportunity - whether it's a job in India, abroad, or eventually a PhD program. Location flexibility is a strength! 🌍
 
 User: What's your notice period?
-Rishi-Bot: I'm a student graduating in 2026, so timing depends on the role. For internships, I'm flexible during breaks. For full-time positions post-graduation, I can start immediately. Email me to discuss specifics! ⏰
+Rishi-Bot: I'm working full time at Flam right now, so any move would need a proper notice period. I'm not actively hunting, but I'll always take a good conversation - email me and we'll talk specifics. ⏰
 
 User: Why BITS Pilani over IIT?
 Rishi-Bot: Honestly, JEE ranks! But then BITS gave me the freedom to explore beyond the curriculum. The flexible credit system let me take more ML/AI electives. Also, the culture here encourages entrepreneurship and side projects - which shaped my hands-on approach. 🏫
@@ -482,7 +476,7 @@ User: What's the hardest project you've worked on?
 Rishi-Bot: The Amazon ML Hackathon and U-Tube AI - dealing with feature leakage, model convergence issues, and tight deadlines. Also Moody.AI's multimodal fusion was tricky - getting audio, vision, and text features to actually complement each other took a lot of experimentation. 🔥
 
 User: What technical skill do you want to improve?
-Rishi-Bot: Distributed training and scaling models to production at million-user scale. I'm solid at research and prototyping, but I want to get better at MLOps pipelines, A/B testing, and handling production systems - that's why industry experience is my next step! 📈
+Rishi-Bot: Distributed training and scaling models to production at million-user scale. I'm solid at research and prototyping, and shipping real-time avatar inference at Flam has pushed me hard on MLOps pipelines, A/B testing, and production systems - still plenty to learn there. 📈
 
 User: Any projects that failed?
 Rishi-Bot: Oh yeah! I tried building a real-time sign language translator that completely flopped because my webcam setup couldn't handle varying lighting conditions. Learned a ton about robust preprocessing though! 😂
@@ -535,16 +529,16 @@ Rishi-Bot: Someone who communicates clearly, takes ownership, asks good question
 === REDIRECT TO CONTACT (For Specific/Sensitive Questions) ===
 
 User: What's his salary expectation?
-Rishi-Bot: That's something specific best discussed directly with me! Reach out at f20220491@hyderabad.bits-pilani.ac.in to discuss compensation and opportunities. It depends on the role, location, and company! 💼
+Rishi-Bot: That's something specific best discussed directly with me! Reach out at rishab27279@gmail.com to discuss compensation and opportunities. It depends on the role, location, and company! 💼
 
 User: Can he start immediately?
-Rishi-Bot: For specific timing and availability questions, best to email me directly at f20220491@hyderabad.bits-pilani.ac.in. I'm graduating in 2026, so full-time roles would start post-graduation, but internships are flexible! ⏰
+Rishi-Bot: I'm employed full time at Flam, so no - any move would run through a notice period. Email me at rishab27279@gmail.com and we can talk timing properly. ⏰
 
 User: What's his current work authorization status?
-Rishi-Bot: For visa/work authorization details, please reach out directly at f20220491@hyderabad.bits-pilani.ac.in. I'm currently studying in India and open to opportunities anywhere! 🌏
+Rishi-Bot: I'm based in Bengaluru and working in India right now. For anything visa or sponsorship related outside India, best to ask me directly at rishab27279@gmail.com - I'd rather give you a straight answer than guess. 🌏
 
 User: [Very specific technical implementation question]
-Rishi-Bot: That's a great technical question! For detailed discussions about project implementation specifics, it's best to connect with me directly at f20220491@hyderabad.bits-pilani.ac.in. I'd love to go deep on the technical details! 🔍
+Rishi-Bot: That's a great technical question! For detailed discussions about project implementation specifics, it's best to connect with me directly at rishab27279@gmail.com. I'd love to go deep on the technical details! 🔍
 
 === OUT OF SCOPE QUESTIONS ===
 
@@ -552,13 +546,13 @@ User: What's the weather today?
 Rishi-Bot: I'm Rishi-Bot, created to help you learn about Rishab's AI/ML work! I don't have weather info, but I can tell you about his projects, research, or how to contact him. What would you like to know? 🤖
 
 User: Can you help me debug my code?
-Rishi-Bot: I'm specifically Rishab's portfolio assistant, so I can't debug code directly. But if you're interested in collaborating with Rishab on a project, reach out at f20220491@hyderabad.bits-pilani.ac.in! 💻
+Rishi-Bot: I'm specifically Rishab's portfolio assistant, so I can't debug code directly. But if you're interested in collaborating with Rishab on a project, reach out at rishab27279@gmail.com! 💻
 
 User: Who won the last election?
 Rishi-Bot: I'm focused on telling you about Rishab's work in AI and machine learning! Not really my area to discuss elections 😅. Want to know about his projects or research instead?
 
 User: [General AI/ML question like "What is backpropagation?"]
-Rishi-Bot: That's a good ML question! While I'm here mainly to tell you about Rishab's work, I can give you a quick answer: [brief explanation]. If you want to discuss ML concepts in depth, Rishab would be happy to chat - email him at f20220491@hyderabad.bits-pilani.ac.in! 🧠
+Rishi-Bot: That's a good ML question! While I'm here mainly to tell you about Rishab's work, I can give you a quick answer: [brief explanation]. If you want to discuss ML concepts in depth, Rishab would be happy to chat - email him at rishab27279@gmail.com! 🧠
 
 ===================================
 
@@ -580,7 +574,7 @@ REMEMBER:
 - Be helpful, enthusiastic, and concise
 - Use emojis naturally when they fit
 - If someone asks about code/GitHub, CHECK the portfolio HTML carefully before saying you don't know
-- Contact: f20220491@hyderabad.bits-pilani.ac.in | LinkedIn: linkedin.com/in/rishab-k-pattnaik-6a9939249 | GitHub: github.com/Rishab27279
+- Contact: rishab27279@gmail.com | LinkedIn: linkedin.com/in/rishab-k-pattnaik-6a9939249 | GitHub: github.com/Rishab27279
 - If someone asks a general coding or mathematical question, first acknowledge you're Rishi-Bot, then answer it correctly with reasoning
 
 Now respond naturally to the user's message:`;
@@ -818,6 +812,17 @@ function initExp3() {
     logos.forEach((el, i)  => el.classList.toggle('active', i === activeIdx));
   }
 
+  // org name = switch content (it used to open the popup, via [data-popup-trigger])
+  orgs.forEach((el, i) => el.addEventListener('click', () => setActive(i)));
+
+  // panel = open the active org's popup
+  document.querySelector('.exp3-middle')?.addEventListener('click', e => {
+    if (e.target.closest('a')) return;              // let real links win
+    const id = orgs[activeIdx]?.dataset.popup;
+    const popup = id && document.getElementById(id);
+    if (popup) openPopup(popup);
+  });
+
   function isPinned() {
     const r = driver.getBoundingClientRect();
     return r.top <= 88 && r.bottom >= window.innerHeight * 0.5;
@@ -996,89 +1001,4 @@ else window.addEventListener('load', initExp3);
   }
 
   requestAnimationFrame(tick);
-})();
-
-/* ══════════════════════════════════════════════════════════
-   BRICK CRACK — SVG injected into the wall element itself
-══════════════════════════════════════════════════════════ */
-(function initCrack() {
-  const NS = 'http://www.w3.org/2000/svg';
-
-  const SKIP = 'a, button, input, textarea, select, label, ' +
-    '[data-popup-trigger], .card, .skill-box, .social-btn, .exp3-org, ' +
-    '.chatbot-toggle, .chatbot-container, .popup-backdrop, .popup-content, ' +
-    'nav, .terminal-card, .hero-video-wrap, .scene';
-
-  document.addEventListener('click', e => {
-    if (e.target.closest(SKIP)) return;
-    const wall = e.target.closest('.section, section, main') || document.body;
-    if (getComputedStyle(wall).position === 'static') wall.style.position = 'relative';
-    const rect = wall.getBoundingClientRect();
-    buildCrack(wall, e.clientX - rect.left, e.clientY - rect.top);
-  });
-
-  function buildCrack(wall, ox, oy) {
-    const segs = [];
-
-    function arm(px, py, angle, len, depth) {
-      const steps = 3 + Math.floor(Math.random() * 3);
-      for (let i = 0; i < steps; i++) {
-        const j  = (Math.random() - 0.5) * 0.75;
-        const nx = px + Math.cos(angle + j) * (len / steps);
-        const ny = py + Math.sin(angle + j) * (len / steps);
-        segs.push({
-          x1: px, y1: py, x2: nx, y2: ny,
-          d:  Math.hypot(nx - ox, ny - oy),
-          lw: Math.max(0.9, 3.3 - depth * 1.35),
-        });
-        if (depth < 1 && i > 0 && Math.random() < 0.32) {
-          const sign = Math.random() > 0.5 ? 1 : -1;
-          arm(nx, ny, angle + sign * (0.65 + Math.random() * 0.45), len * 0.4, depth + 1);
-        }
-        px = nx; py = ny;
-      }
-    }
-
-    const numArms = 2 + Math.floor(Math.random() * 2);
-    for (let i = 0; i < numArms; i++) {
-      const a = (i / numArms) * Math.PI * 2 + (Math.random() - 0.5) * 0.8;
-      arm(ox, oy, a, 16 + Math.random() * 24, 0);
-    }
-    segs.sort((a, b) => a.d - b.d);
-    const maxD = segs.at(-1)?.d ?? 1;
-
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:10;';
-
-    const GROW = 300;
-
-    segs.forEach(s => {
-      const delay  = (s.d / maxD) * GROW;
-      const segLen = Math.hypot(s.x2 - s.x1, s.y2 - s.y1);
-
-      const el = document.createElementNS(NS, 'line');
-      el.setAttribute('x1', s.x1); el.setAttribute('y1', s.y1);
-      el.setAttribute('x2', s.x2); el.setAttribute('y2', s.y2);
-      el.setAttribute('stroke', 'rgba(155,115,85,0.55)');
-      el.setAttribute('stroke-width', s.lw);
-      el.setAttribute('stroke-linecap', 'square');
-      el.style.strokeDasharray  = segLen;
-      el.style.strokeDashoffset = segLen;
-      el.style.transition = `stroke-dashoffset 0.06s linear ${delay}ms`;
-      svg.appendChild(el);
-    });
-
-    wall.appendChild(svg);
-
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      svg.querySelectorAll('line').forEach(l => { l.style.strokeDashoffset = 0; });
-    }));
-
-    setTimeout(() => {
-      svg.style.transition = 'opacity 0.6s ease';
-      svg.style.opacity    = '0';
-      setTimeout(() => svg.remove(), 620);
-    }, 5000);
-  }
 })();

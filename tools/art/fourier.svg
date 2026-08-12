@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<rect x="40" y="8" width="50" height="84" rx="5" stroke-width="0.7" opacity="0.55" fill="none"/>
+<path d="M59,11 L71,11" stroke-width="0.6" opacity="0.44000000000000006"/>
+<rect x="44" y="15" width="42" height="70" stroke-width="0.4" opacity="0.275" fill="none"/>
+<path d="M46.6,62 L46.6,54.5 L48.32,54.5 L48.32,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M49.52,62 L49.52,44.63 L51.25,44.63 L51.25,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M52.45,62 L52.45,37.32 L54.17,37.32 L54.17,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M55.37,62 L55.37,33.99 L57.09,33.99 L57.09,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M58.29,62 L58.29,35.13 L60.02,35.13 L60.02,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M61.22,62 L61.22,40.26 L62.94,40.26 L62.94,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M64.14,62 L64.14,48.09 L65.86,48.09 L65.86,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M67.06,62 L67.06,52.18 L68.78,52.18 L68.78,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M69.98,62 L69.98,44.46 L71.71,44.46 L71.71,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M72.91,62 L72.91,39.3 L74.63,39.3 L74.63,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M75.83,62 L75.83,37.64 L77.55,37.64 L77.55,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M78.75,62 L78.75,39.61 L80.48,39.61 L80.48,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M81.68,62 L81.68,44.56 L83.4,44.56 L83.4,62" stroke-width="0.5" opacity="0.55"/>
+<path d="M46,62 L84,62" stroke-width="0.5" opacity="0.5"/>
+<path d="M46,26 L46.97,23.38 L47.95,21.05 L48.92,19.27 L49.9,18.22 L50.87,18.04 L51.85,18.73 L52.82,20.22 L53.79,22.34 L54.77,24.87 L55.74,27.52 L56.72,30.01 L57.69,32.05 L58.67,33.43 L59.64,33.99 L60.62,33.67 L61.59,32.51 L62.56,30.63 L63.54,28.24 L64.51,25.6 L65.49,23.01 L66.46,20.74 L67.44,19.06 L68.41,18.14 L69.38,18.09 L70.36,18.9 L71.33,20.5 L72.31,22.7 L73.28,25.27 L74.26,27.92 L75.23,30.35 L76.21,32.31 L77.18,33.57 L78.15,34 L79.13,33.55 L80.1,32.27 L81.08,30.29 L82.05,27.85 L83.03,25.2 L84,22.64" stroke-width="0.55" opacity="0.5"/>
+<path d="M46,40 L84,40" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 2"/>
+<text x="46" y="78" font-size="4.4" opacity="0.6" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">DFT</text>
+<text x="8" y="26" font-size="4.6" opacity="0.55" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">88.41%</text>
+<path d="M8,30 L34,30" stroke-width="0.5" opacity="0.3"/>
+<text x="8" y="70" font-size="4.4" opacity="0.5" text-anchor="start" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">edge</text>
+</svg>

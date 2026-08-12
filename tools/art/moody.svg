@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 104" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+<path d="M34,22 L86,22" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,22 L35.21,21.21 L36.42,20.42 L37.63,19.66 L38.84,18.93 L40.05,18.24 L41.26,17.61 L42.47,17.03 L43.67,16.52 L44.88,16.08 L46.09,15.72 L47.3,15.45 L48.51,15.27 L49.72,15.17 L50.93,15.17 L52.14,15.26 L53.35,15.44 L54.56,15.72 L55.77,16.07 L56.98,16.51 L58.19,17.02 L59.4,17.59 L60.6,18.23 L61.81,18.92 L63.02,19.65 L64.23,20.41 L65.44,21.19 L66.65,21.99 L67.86,22.78 L69.07,23.56 L70.28,24.32 L71.49,25.06 L72.7,25.74 L73.91,26.38 L75.12,26.96 L76.33,27.48 L77.53,27.91 L78.74,28.27 L79.95,28.55 L81.16,28.73 L82.37,28.83 L83.58,28.83 L84.79,28.74 L86,28.56" stroke-width="0.65" opacity="0.6"/>
+<text x="31" y="23.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">face</text>
+<path d="M34,42 L86,42" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,42 L35.21,39.84 L36.42,38.21 L37.63,38.14 L38.84,39.98 L40.05,43.16 L41.26,46.29 L42.47,47.8 L43.67,46.75 L44.88,43.36 L46.09,39.02 L47.3,35.71 L48.51,35.07 L49.72,37.54 L50.93,42.13 L52.14,46.8 L53.35,49.43 L54.56,48.78 L55.77,45.14 L56.98,40.16 L58.19,36.1 L59.4,34.73 L60.6,36.57 L61.81,40.66 L63.02,45.05 L64.23,47.81 L65.44,47.86 L66.65,45.42 L67.86,41.82 L69.07,38.75 L70.28,37.47 L71.49,38.28 L72.7,40.49 L73.91,42.88 L75.12,44.38 L76.33,44.52 L77.53,43.58 L78.74,42.3 L79.95,41.39 L81.16,41.16 L82.37,41.48 L83.58,41.88 L84.79,41.99 L86,41.73" stroke-width="0.65" opacity="0.54"/>
+<text x="31" y="43.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">voice</text>
+<path d="M34,62 L86,62" stroke-width="0.4" opacity="0.22" stroke-dasharray="2 3"/>
+<path d="M34,66.18 L35.21,66.18 L36.42,66.18 L37.63,66.18 L38.84,57.82 L40.05,57.82 L41.26,57.82 L42.47,57.82 L43.67,66.18 L44.88,66.18 L46.09,66.18 L47.3,66.18 L48.51,57.82 L49.72,57.82 L50.93,57.82 L52.14,57.82 L53.35,66.18 L54.56,66.18 L55.77,66.18 L56.98,66.18 L58.19,57.82 L59.4,57.82 L60.6,57.82 L61.81,57.82 L63.02,66.18 L64.23,66.18 L65.44,66.18 L66.65,66.18 L67.86,57.82 L69.07,57.82 L70.28,57.82 L71.49,57.82 L72.7,66.18 L73.91,66.18 L75.12,66.18 L76.33,66.18 L77.53,57.82 L78.74,57.82 L79.95,57.82 L81.16,57.82 L82.37,66.18 L83.58,66.18 L84.79,66.18 L86,57.82" stroke-width="0.65" opacity="0.48"/>
+<text x="31" y="63.6" font-size="4.4" opacity="0.55" text-anchor="end" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">text</text>
+<path d="M88,22 L102,42" stroke-width="0.4" opacity="0.32"/>
+<path d="M88,42 L102,42" stroke-width="0.4" opacity="0.32"/>
+<path d="M88,62 L102,42" stroke-width="0.4" opacity="0.32"/>
+<circle cx="107" cy="42" r="6.5" stroke-width="0.6" opacity="0.55" fill="none"/>
+<circle cx="107" cy="42" r="8.4" stroke-width="0.4" opacity="0.25" fill="none"/>
+<text x="107" y="62" font-size="4.4" opacity="0.55" text-anchor="middle" font-family="ui-monospace,monospace" stroke="none" fill="currentColor" letter-spacing="0.4">mood</text>
+</svg>
