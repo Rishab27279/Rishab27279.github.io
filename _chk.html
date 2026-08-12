@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>.section,.scroll-animation{opacity:1!important;transform:none!important}
+#probe{position:fixed;top:0;left:0;z-index:99;background:#0f0;color:#000;font:14px monospace;padding:4px}</style>
+</head><body><section id="projects" class="section scroll-animation">
+      <p class="section-label">04 — Projects</p>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="cards">
+
+        <div class="card scroll-animation" data-popup-trigger="project-popup-9">
+          <div class="card-icon"><i class="fa fa-video-camera" style="color:var(--g1);"></i></div>
+          <h3>U-Tube AI</h3>
+          <div class="subtitle">Visual YouTube Agent</div>
+          <p>Multimodal AI that analyzes both audio and visual streams from YouTube videos.</p>
+        </div>
+
+        <div class="card scroll-animation" data-popup-trigger="project-popup-7">
+          <div class="card-icon"><i class="fa fa-user" style="color:var(--g1);"></i></div>
+          <h3>EdgeSeg-AI</h3>
+          <div class="subtitle">Research Paper Re-implementation</div>
+          <p>Memory-efficient image segmentation via sequential model loading.</p>
+        </div>
+
+        <div class="card scroll-animation" data-popup-trigger="project-popup-8">
+          <div class="card-icon"><i class="fa fa-smile" style="color:var(--g1);"></i></div>
+          <h3>Moody.AI</h3>
+          <div class="subtitle">Multimodal Sentiment AI</div>
+          <p>Emotion recognition using DINOv2, Wav2Vec2, and DistilBERT for multimodal fusion.</p>
+        </div>
+
+      </div>
+
+      <p class="facts-head">also built</p>
+      <ul class="proj-rows">
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-1">
+          <span class="proj-row-name">OsteoDiagnosis.AI</span>
+          <span class="proj-row-desc">The IEEE paper, shipped as an Android app</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-2">
+          <span class="proj-row-name">Expression.AI</span>
+          <span class="proj-row-desc">Real-time facial expression recognition, TensorFlow Lite on Android</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-3">
+          <span class="proj-row-name">Hand Gesture Identifier</span>
+          <span class="proj-row-desc">Real-time gesture recognition with FastViT, 97.5% accuracy</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-4">
+          <span class="proj-row-name">AI Document Assistant</span>
+          <span class="proj-row-desc">Document Q&amp;A pipeline over DeepSeek and Llama</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-5">
+          <span class="proj-row-name">Smart AI Checkers Bot</span>
+          <span class="proj-row-desc">Minimax with alpha-beta pruning</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+        <li class="proj-row scroll-animation" data-popup-trigger="project-popup-6">
+          <span class="proj-row-name">Human Face Gender Detection</span>
+          <span class="proj-row-desc">InceptionV3, 94.35% accuracy</span>
+          <span class="arw" aria-hidden="true">↗</span>
+        </li>
+      </ul>
+    </section><div id="probe">measuring…</div>
+<script>addEventListener('load',()=>{
+ const de=document.documentElement, s=document.getElementById('projects');
+ const wide=[...document.querySelectorAll('#projects *')].filter(e=>e.getBoundingClientRect().right>de.clientWidth+1)
+   .map(e=>e.className||e.tagName).slice(0,4).join(' | ');
+ document.getElementById('probe').textContent=
+  'vw='+de.clientWidth+' scrollW='+de.scrollWidth+' secH='+Math.round(s.getBoundingClientRect().height)+' over:'+(wide||'none');
+});</script></body></html>

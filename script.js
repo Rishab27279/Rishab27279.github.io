@@ -147,22 +147,39 @@ document.querySelectorAll('.card').forEach(card => {
    POPUPS — animated open / close / ESC
 ────────────────────────────────────────── */
 let activePopup = null;
+let lastTrigger = null;
+
+// dialog semantics applied once here rather than hand-written into all 17 popup blocks
+// ponytail: no Tab focus-trap — role + focus-in + ESC + focus-restore is the basics;
+// add a trap if these ever hold forms rather than read-only detail
+document.querySelectorAll('.popup').forEach(popup => {
+  popup.setAttribute('role', 'dialog');
+  popup.setAttribute('aria-modal', 'true');
+  const heading = popup.querySelector('.popup-heading');
+  if (heading) popup.setAttribute('aria-label', heading.textContent.trim());
+  popup.querySelector('.popup-content')?.setAttribute('tabindex', '-1');
+});
 
 function openPopup(popup) {
+  // capture before closing any open popup — closing restores focus and would clobber this
+  const trigger = document.activeElement;
   if (activePopup) closePopup(activePopup, false);
+  lastTrigger = trigger;
   popup.classList.remove('closing');
   popup.classList.add('active');
   activePopup = popup;
   document.body.style.overflow = 'hidden';
+  popup.querySelector('.popup-content')?.focus();
 }
 
 function closePopup(popup, animate = true) {
   if (!popup || !popup.classList.contains('active')) return;
+  const restore = () => { lastTrigger?.focus?.(); lastTrigger = null; };
   if (animate) {
     popup.classList.add('closing');
     const onEnd = () => {
       popup.classList.remove('active', 'closing');
-      if (activePopup === popup) { activePopup = null; document.body.style.overflow = ''; }
+      if (activePopup === popup) { activePopup = null; document.body.style.overflow = ''; restore(); }
     };
     popup.addEventListener('animationend', onEnd, { once: true });
     setTimeout(onEnd, 300); // fallback
@@ -170,12 +187,16 @@ function closePopup(popup, animate = true) {
     popup.classList.remove('active', 'closing');
     activePopup = null;
     document.body.style.overflow = '';
+    restore();
   }
 }
 
 document.querySelectorAll('[data-popup-trigger]').forEach(trigger => {
+  const id = trigger.getAttribute('data-popup-trigger');
+  trigger.setAttribute('aria-haspopup', 'dialog');
+  trigger.setAttribute('aria-controls', id);
   trigger.addEventListener('click', () => {
-    const popup = document.getElementById(trigger.getAttribute('data-popup-trigger'));
+    const popup = document.getElementById(id);
     if (popup) openPopup(popup);
   });
 });

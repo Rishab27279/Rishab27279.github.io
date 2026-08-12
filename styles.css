@@ -329,7 +329,7 @@ nav.scrolled {
 }
 .hero-subtitle {
   font-size: 1.45rem; color: var(--t2);
-  min-height: 3rem; font-weight: 300;
+  font-weight: 300;
 }
 /* ── HERO MIDDLE ── */
 .hero-middle {
@@ -573,6 +573,48 @@ nav.scrolled {
   .facts-row { grid-template-columns: 1fr; gap: 0.3rem; }
 }
 
+/* "more about me" button — same treatment as .social-btn, which it mirrors */
+.about-more { text-align: center; margin-top: 2.4rem; }
+.about-btn {
+  background: rgba(232,0,42,0.08);
+  border: 1px solid rgba(232,0,42,0.25);
+  border-radius: 40px; padding: 0.6rem 1.5rem;
+  color: var(--t1); font-size: 0.875rem; font-family: inherit;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
+  cursor: none;
+}
+.about-btn:hover,
+.about-btn:focus-visible {
+  background: rgba(232,0,42,0.18);
+  border-color: var(--g1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -8px rgba(232,0,42,0.35), 0 0 0 1px rgba(232,0,42,0.15);
+}
+
+/* about-me popup: photo column beside the prose */
+.about-grid {
+  display: grid; grid-template-columns: 260px 1fr;
+  gap: 2.2rem; align-items: start;
+}
+.about-photo-col { text-align: center; }
+.about-photo {
+  width: 220px; height: 220px;
+  object-fit: cover; border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px rgba(0,0,0,0.5);
+  transition: transform 0.3s var(--ease), filter 0.3s, box-shadow 0.3s;
+}
+.about-photo:hover {
+  transform: scale(1.06);
+  filter: brightness(1.15);
+  box-shadow: 0 0 0 1px rgba(232,0,42,0.35), 0 0 26px rgba(232,0,42,0.45), 0 16px 48px rgba(0,0,0,0.5);
+}
+.about-copy { text-align: left; }
+.about-copy p + p { margin-top: 0.9rem; }
+@media (max-width: 700px) {
+  .about-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+
 /* hover a marked word, emojis drift up out of it in a loop */
 .pop {
   position: relative;
@@ -763,7 +805,8 @@ nav.scrolled {
   box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px rgba(0,0,0,0.5);
   transition: transform 0.3s var(--ease), filter 0.3s, box-shadow 0.3s;
 }
-.exp3-logo-link:hover .exp3-logo-img {
+.exp3-logo-link:hover .exp3-logo-img,
+.exp3-logo-link:focus-visible .exp3-logo-img {
   transform: scale(1.06);
   filter: brightness(1.15);
   box-shadow: 0 0 0 1px rgba(232,0,42,0.35), 0 0 26px rgba(232,0,42,0.45), 0 16px 48px rgba(0,0,0,0.5);
@@ -784,6 +827,11 @@ nav.scrolled {
   .exp3-org-indicator { display: none; }
   .exp3-slide { position: relative; opacity: 1 !important; transform: none !important; }
   .exp3-slide:not(.active) { display: none; }
+  /* no :hover on touch, so let the hint flow to the bottom instead of sitting on the status line */
+  .exp3-middle::after {
+    position: static; display: block; text-align: right;
+    opacity: 1; color: var(--g1); margin-top: 1rem;
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -1204,6 +1252,9 @@ nav.scrolled {
     0 0 60px rgba(232,0,42,0.05);
   animation: popupIn 0.42s var(--ease-spring) forwards;
 }
+/* we focus this container on open for screen readers; the browser's default ring
+   (system accent colour) is noise here — the controls inside keep their own */
+.popup-content:focus { outline: none; }
 .popup-content::before {
   content: '';
   position: absolute; top: 0; left: 12%; right: 12%; height: 1px;
@@ -1248,9 +1299,9 @@ nav.scrolled {
   margin: 2rem 0 0.6rem; letter-spacing: -0.01em;
 }
 .popup-body h3 {
-  font-family: var(--mono); font-size: 0.7rem; color: var(--g1);
-  margin: 1.4rem 0 0.5rem; letter-spacing: 0.12em;
-  text-transform: uppercase; opacity: 0.8;
+  font-family: var(--mono); font-size: 1.05rem; color: var(--g1);
+  margin: 2rem 0 0.6rem; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 1;
 }
 .popup-body ul {
   margin-left: 0; list-style: none; color: var(--t2);
